@@ -15,7 +15,7 @@
     "originalSourceSnapshot": "463d22d6120d2fd6e1d8e789200afbf6febc1d6f",
     "originalModuleSha256": "6b2f77e2a52a1499838d9a3c143712c4e6c61b4450502b546bf220be77c65482",
     "reviewedModuleSha256": "5bc843e3d4bce7f523ae173ccd8b291ec7e1e2720789e7fb290b958b53beec00",
-    "changeScope": "Only preview UI labels changed from French to English (Lire to Play); the module was normalized to LF before hashing. Drawing, motion, timing and dependencies are unchanged.",
+    "changeScope": "Only preview UI labels were translated into English; the module was normalized to LF before hashing. Drawing, motion, timing and dependencies are unchanged.",
     "evidenceScope": "The source bundleEvidenceId and inspectionEvidenceId refer to the original pre-translation capture. This active reference hash was reviewed and re-pinned for comparison guard maintenance; no new REA analysis is claimed."
   },
   "observations": [

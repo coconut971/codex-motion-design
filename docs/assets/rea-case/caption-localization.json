@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "originalSnapshot": "95b6d0529f7e585f74335333cc6541b466267f5f",
+  "method": "Local System.Drawing edit of existing PNG header rows 0 through 31. No scene renderer, new animation frame, model image service, test or REA investigation was run.",
+  "evidenceScope": "Published PNGs are caption-localized derivatives. Original PNG bytes remain recoverable from the original snapshot. Film content, measurements and historical source hashes are unchanged.",
+  "headerStyle": {
+    "background": "#F1E8D7",
+    "foreground": "#2E3C50",
+    "font": "Arial",
+    "fontSizePixels": 14,
+    "x": 8,
+    "baselineY": 21
+  },
+  "protectedHashEncoding": "SHA-256 over tightly packed decoded BGRA bytes (System.Drawing Format32bppArgb on Windows), row-major from y=32 to height-1, excluding stride padding.",
+  "files": [
+    {
+      "path": "docs/assets/rea-case/beat-comparison.png",
+      "originalSha256": "f4dcad30a25ed0d1942326a4a6867dad678a97e486ff6e84afbb9dbfc6b597fa",
+      "localizedSha256": "b4a5db7a0b70ba40941968892f477cab2219f5b917f96b6c4f152897395be637",
+      "dimensions": [
+        960,
+        3328
+      ],
+      "editedRectangle": {
+        "x": 0,
+        "y": 0,
+        "width": 960,
+        "height": 32
+      },
+      "caption": "Source | Reconstruction | Difference RGB ×4",
+      "protectedRectangle": {
+        "x": 0,
+        "y": 32,
+        "width": 960,
+        "height": 3296
+      },
+      "protectedOriginalSha256": "a12493419d420948ac00a89eb900b45cc05c82eae5fc5e7c24a5138f935f903a",
+      "protectedLocalizedSha256": "a12493419d420948ac00a89eb900b45cc05c82eae5fc5e7c24a5138f935f903a",
+      "protectedPixelsEqual": true
+    },
+    {
+      "path": "docs/assets/rea-case/contact-comparison.png",
+      "originalSha256": "5026661ca60f16ce10ebe9061339795963d747e4ab588e0ee08496d2ea0b131f",
+      "localizedSha256": "77be0399f81ed178ab595ff8d81419cea564fa26f9a2ae47e56463016ca5425a",
+      "dimensions": [
+        840,
+        3633
+      ],
+      "editedRectangle": {
+        "x": 0,
+        "y": 0,
+        "width": 840,
+        "height": 32
+      },
+      "caption": "Contact crop — Source | Reconstruction | Difference ×4",
+      "protectedRectangle": {
+        "x": 0,
+        "y": 32,
+        "width": 840,
+        "height": 3601
+      },
+      "protectedOriginalSha256": "4f045dc2e48978de671403b1d86f5114bf9470e5378bea83201df4997b02068f",
+      "protectedLocalizedSha256": "4f045dc2e48978de671403b1d86f5114bf9470e5378bea83201df4997b02068f",
+      "protectedPixelsEqual": true
+    },
+    {
+      "path": "docs/assets/rea-case/key-comparison.png",
+      "originalSha256": "492e42e01a88c5b4ff8edb5e2d3f53c683249da937faa15209277e83ec8088f9",
+      "localizedSha256": "f0f4d737c91a48c35ffb2541f590e77ce99699023df7cec66eec16343e458833",
+      "dimensions": [
+        960,
+        856
+      ],
+      "editedRectangle": {
+        "x": 0,
+        "y": 0,
+        "width": 960,
+        "height": 32
+      },
+      "caption": "Source | Reconstruction | Difference RGB ×4",
+      "protectedRectangle": {
+        "x": 0,
+        "y": 32,
+        "width": 960,
+        "height": 824
+      },
+      "protectedOriginalSha256": "e824c599b8b892b6f70d8ec4b5724d40eafb7c19acaddc315e31e765d5a67814",
+      "protectedLocalizedSha256": "e824c599b8b892b6f70d8ec4b5724d40eafb7c19acaddc315e31e765d5a67814",
+      "protectedPixelsEqual": true
+    },
+    {
+      "path": "docs/assets/rea-case/thumbnail-comparison.png",
+      "originalSha256": "9513aae13f58b5b863237d183757a9b78f1dbeabefad6918f9417324c4c35999",
+      "localizedSha256": "bfe4a8eda56b12f2a46f3e13beef020c2359a902e23def5ccfeba19e2474bcf4",
+      "dimensions": [
+        1080,
+        261
+      ],
+      "editedRectangle": {
+        "x": 0,
+        "y": 0,
+        "width": 1080,
+        "height": 32
+      },
+      "caption": "Source | Reconstruction | Difference RGB ×4",
+      "protectedRectangle": {
+        "x": 0,
+        "y": 32,
+        "width": 1080,
+        "height": 229
+      },
+      "protectedOriginalSha256": "17633715c35bcb81f1f70f851e47bcf2e538dcabeb07153dba1805588572ce45",
+      "protectedLocalizedSha256": "17633715c35bcb81f1f70f851e47bcf2e538dcabeb07153dba1805588572ce45",
+      "protectedPixelsEqual": true
+    }
+  ]
+}
