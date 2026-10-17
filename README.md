@@ -9,17 +9,42 @@ FFmpeg. Aucun SDK de modèle, clé API, plugin ou dépendance Claude n'est requi
 prompts et corrections. Le [workflow Astra](docs/ASTRA_WORKFLOW.md) décrit cette
 règle d'auteur ; le rendu des fichiers existants reste entièrement local.
 
-![Signal : une impulsion organise trois fragments](docs/assets/signal-preview.webp)
+![La graine et le pli : un film JSON original du cœur motion/1](docs/assets/core/preview.webp)
 
-[Film exemple avec son](docs/assets/signal.mp4) ·
-[Storyboard](STORYBOARD.md) · [Validation exécutée](docs/VALIDATION.md)
+[Film du cœur avec son](docs/assets/core/film.mp4) ·
+[Storyboard](examples/core-demo/STORYBOARD.md) · [Validation exécutée](docs/CORE_VALIDATION.md)
 
-Le projet est indépendant et n'est pas un produit officiel OpenAI. Il adapte
-des méthodes observées dans [six dépôts audités](docs/SOURCE_AUDIT.md), avec une
-implémentation originale. Plusieurs sources supportaient déjà Codex : il s'agit
+Le projet est indépendant et n'est pas un produit officiel OpenAI. Les
+[six dépôts audités](docs/SOURCE_AUDIT.md) ont été étudiés ; les enseignements
+techniques retenus viennent des sources permissives, et la source commerciale
+est exclue de toute réutilisation. L'implémentation est originale. Plusieurs
+sources supportaient déjà Codex : il s'agit
 d'une synthèse critique, pas d'un renommage de fichiers Claude.
 La [carte des capacités](docs/CAPABILITY_MAP.md) relie ce cœur aux six audits et
 à REA, en distinguant les fonctions exécutables des extensions à construire.
+
+Le [cœur `motion/1`](docs/CORE.md) compile maintenant un **descriptor JSON** en
+scènes, objets persistants, pistes et images indépendantes : keyframes, cubic
+bornée, springs avec retarget position/vitesse, trajectoires, caméra logarithmique,
+masques et transitions. Canvas 2D et SVG DOM rendent le même état calculé.
+[La graine et le pli](examples/core-demo/STORYBOARD.md), un film original de
+10 secondes et trois plans, démontre cette API. Les
+[contrôles du cœur](docs/CORE_VALIDATION.md) complètent ceux de Signal.
+
+```sh
+npm run core:sheet
+npm run core:verify
+npm run core:draft
+npm run core:render -- --samples=4
+```
+
+Après `npm run studio`, ouvrir
+[le film du cœur](http://127.0.0.1:4173/examples/core-demo/index.html) ou sa
+[version SVG](http://127.0.0.1:4173/examples/core-demo/index.html?adapter=svg).
+Un nouveau film peut utiliser le même lecteur avec `?project=/chemin/film.json`.
+Les commandes historiques ci-dessous conservent l'exemple Signal par défaut.
+Signal reste un [film de compatibilité avec son](docs/assets/signal.mp4), avec
+son [storyboard](STORYBOARD.md) et ses [contrôles historiques](docs/VALIDATION.md).
 
 ## Démarrer en local
 
@@ -107,6 +132,12 @@ permet de préparer un projet sans prétendre l'avoir exécuté.
 
 ## REA : analyser une référence existante
 
+L'[enquête approfondie des six sources](docs/research/README.md) relie preuves,
+défauts mesurés et décisions du cœur. Les rapports détaillés distinguent captures
+REA et sondes numériques externes. Le [protocole reproductible](docs/research/REPRODUCE.md)
+et `scripts/research-probe.mjs` rejouent les principales observations sur les
+révisions figées ; aucun code de ces sources n'est importé dans le runtime.
+
 [REA — Reverse Engineer Anything](https://github.com/morluto/rea) est un outil
 MIT compatible Codex. Il complète l'enquête sur une page, une application ou du
 code ; il reste **optionnel**, hors dépendances du film et hors CI de rendu.
@@ -177,7 +208,8 @@ flowchart LR
 Lire [MOTION_RULES.md](docs/MOTION_RULES.md) pour les choix artistiques et les
 formules, [RENDER_CONTRACT.md](docs/RENDER_CONTRACT.md) pour l'interface exacte.
 Le blur moyenne les pixels sRGB : c'est une approximation, documentée dans le
-manifest. Ce renderer vise Canvas 2D ; DOM, SVG ou WebGL nécessitent un adaptateur.
+manifest. L'export vidéo capture Canvas 2D. L'adaptateur SVG DOM du cœur est
+consultable et testé ; la capture de DOM/WebGL arbitraire n'est pas livrée.
 
 Captures ciblées :
 
@@ -204,6 +236,8 @@ examples/signal.html       page de l'exemple et lecteur
 examples/signal.mjs        seek(t) original, dessin et pilote de preview
 lib/motion.mjs             springs, superposition, hash, interpolation
 lib/project.mjs            validation du projet et conversion beats/secondes
+core/                      compilation film, tracks, géométrie, adaptateurs purs
+examples/core-demo/        film JSON original de 10 s, lecteur Canvas/SVG et revue
 scripts/                   serveur, doctor, capture, audio, vérification
 tests/                     contrats mathématiques, timing, erreurs et confinement
 prompts/                   sept briefs réutilisables

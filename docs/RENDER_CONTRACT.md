@@ -1,5 +1,27 @@
 # Contrat de rendu
 
+## Cœur motion/1
+
+`core/film.mjs` compile le descriptor unique en `sample(t)` pur et continu.
+`core/adapters.mjs` rend ce frame complet en Canvas 2D ou en SVG DOM. Les masques
+sont en coordonnées monde ; la caméra dépend uniquement du temps courant.
+Les coupes sont dérivées des scènes, jamais d'un second tableau. Le loader
+`core/project.mjs` sélectionne `motion/1` ou le contrat legacy inchangé.
+
+La page `/examples/core-demo/index.html?capture=1` respecte la même interface
+`__motionReady`, `film.project`, `seek(t)` et `#film` Canvas que Signal.
+La variante `?adapter=svg` réécrit tout le DOM et les styles à chaque frame ;
+les ids de clips sont préfixés par une identité stable propre à l'instance.
+Elle est vérifiée par screenshots, mais l'exporteur vidéo courant capture
+Canvas uniquement. Ne pas passer la variante SVG au renderer Canvas.
+
+`npm run core:verify` compare états et bounds entre les deux adaptateurs,
+pixels avant/après seeks mélangés et page fraîche dans chacun, état contaminé
+réinitialisé, deux tailles isolées et clips multi-instances. Readiness/fonts
+possèdent un délai borné. Les manifests incluent aussi les sources de `core/`.
+Voir [CORE.md](CORE.md) pour le schema et [CORE_VALIDATION.md](CORE_VALIDATION.md)
+pour les résultats effectivement exécutés.
+
 ## Interface de l'exemple
 
 Serveur HTTP local : `examples/signal.html?capture=1&scale=0.5`.

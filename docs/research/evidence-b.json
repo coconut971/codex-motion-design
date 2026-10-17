@@ -1,0 +1,1354 @@
+{
+  "schema": 1,
+  "author": "GPT-6 Astra",
+  "date": "2026-10-17",
+  "scope": "Framewright, Mort1d, Frankxai; static sources, selected shipped browser runtimes and offline audio",
+  "environment": {
+    "browser": "155.0.8059.84",
+    "node": "v24.18.1",
+    "platform": "win32",
+    "ffmpeg": "ffmpeg version N-92722-gf22fcd4483 Copyright (c) 2000-2018 the FFmpeg developers\r"
+  },
+  "sources": {
+    "framewright": {
+      "commit": "7d3245abb94c745b8ce7fc06c4ea62ba295c6f12",
+      "fileCount": 63,
+      "extensionCounts": {
+        ".md": 20,
+        ".yaml": 1,
+        ".mjs": 14,
+        ".html": 7,
+        ".sh": 5,
+        ".py": 1,
+        "(none)": 3,
+        ".json": 3,
+        ".jpg": 3,
+        ".webp": 6
+      },
+      "files": [
+        {
+          "path": ".agents/skills/framewright/assets/skeleton.html",
+          "bytes": 16864,
+          "sha256": "b0ba8781f31b0271834538092f335dbec63ee6e94176d288c947ee016e1cbbb1"
+        },
+        {
+          "path": ".agents/skills/framewright/scripts/check.mjs",
+          "bytes": 13663,
+          "sha256": "b0a25ece92b5648227ca2f3e18f780781504d603a5cabb63ad13ef6777fee6be"
+        },
+        {
+          "path": "examples/honeybee/audio.mjs",
+          "bytes": 15250,
+          "sha256": "efe7110cfb4321c0e64c185e38794be33fff7ddaffe3eb9a9c3955de09cffd2e"
+        },
+        {
+          "path": "examples/honeybee/index.html",
+          "bytes": 57511,
+          "sha256": "f271987180f979891117c684e6fa502e9e5a17c06db211dfc3f814198f27974f"
+        }
+      ]
+    },
+    "motion-graphics-skills": {
+      "commit": "7f0c3714dc81bea52644a5287c6350345009e579",
+      "fileCount": 86,
+      "extensionCounts": {
+        ".json": 3,
+        "(none)": 2,
+        ".md": 15,
+        ".png": 2,
+        ".gif": 1,
+        ".mp4": 1,
+        ".svg": 5,
+        ".ttf": 5,
+        ".txt": 1,
+        ".mjs": 38,
+        ".css": 2,
+        ".html": 1,
+        ".js": 10
+      },
+      "files": [
+        {
+          "path": "skills/motion-graphics/assets/template/audio/score.mjs",
+          "bytes": 7031,
+          "sha256": "87402011a2a635e6e92a22c1d1884eae85e492e40f993733395de4abd64dec07"
+        },
+        {
+          "path": "skills/motion-graphics/assets/template/js/engine.js",
+          "bytes": 13702,
+          "sha256": "867c863780ea17b8e4e683f54531af6b100a86e0550fd037ba58448e5aec00c9"
+        },
+        {
+          "path": "skills/motion-graphics/assets/template/js/main.js",
+          "bytes": 11546,
+          "sha256": "be17d9bd90e780e7881ca855d6912c45e22a12a8bbb599f7584dc1687d9596c9"
+        },
+        {
+          "path": "skills/motion-graphics/assets/template/js/reel.js",
+          "bytes": 2010,
+          "sha256": "ee02ede5fc7b7cb67d241a9189d8411b0a5b040b047b09fd6ee4198efb2b2734"
+        },
+        {
+          "path": "skills/motion-graphics/assets/template/js/timeline.mjs",
+          "bytes": 2603,
+          "sha256": "e08fa73b982705d40d9401d4272532990b00669a0d855afa1f7459d0e71cd44c"
+        },
+        {
+          "path": "skills/motion-graphics/assets/template/tools/audio-check.mjs",
+          "bytes": 12096,
+          "sha256": "82cb22d4deda872b37e26fd37e74fb39dfd372f3d9f0d27ab29b8efce4a063b3"
+        },
+        {
+          "path": "skills/motion-graphics/assets/template/tools/capture.mjs",
+          "bytes": 28032,
+          "sha256": "529ce33da1da882c82be3f5f7eb144c9183344363f848b3ebf0503f0b9b3206a"
+        },
+        {
+          "path": "skills/motion-graphics/assets/template/tools/export-timeline.mjs",
+          "bytes": 2084,
+          "sha256": "e3f536380c00593b68ca88bbe7ae535045627a8ee5ddab27ebdb49c2192cec51"
+        },
+        {
+          "path": "skills/motion-graphics/assets/template/tools/plan-check.mjs",
+          "bytes": 11376,
+          "sha256": "435ef71716e896c53cb2a4c8291cde2b413276ff68013f93b47b10147b7164a1"
+        }
+      ]
+    },
+    "awesome-motion-design-agent-skills": {
+      "commit": "b45d60fa5b0f7b7d07331572416b80e17dcfd203",
+      "fileCount": 49,
+      "extensionCounts": {
+        ".json": 7,
+        ".md": 31,
+        ".yml": 6,
+        "(none)": 2,
+        ".png": 2,
+        ".svg": 1
+      },
+      "files": [
+        {
+          "path": "configs/provider-routing.default.json",
+          "bytes": 4574,
+          "sha256": "c73f6fc56c03532660a1242f5cac7fc1936f1f5737a54926f796e9b768c2add3"
+        },
+        {
+          "path": "mcp/motion-designer-mcp.md",
+          "bytes": 4287,
+          "sha256": "a80cf1120bab2b3bba7b2c863909977f939a27a2380e4db264918ed2e4382157"
+        },
+        {
+          "path": "patterns/motion-pattern-registry.json",
+          "bytes": 4914,
+          "sha256": "fcadc2d5611d3a0ea29b94721aa6a1f8bd9325a9346393fe35462fa1ff289c7a"
+        },
+        {
+          "path": "rubrics/site-motion-excellence-gate.md",
+          "bytes": 2326,
+          "sha256": "fcda6124a85d77e483c721afef471f3e165c52adf0323404f83d1d1657cf3469"
+        },
+        {
+          "path": "schemas/media-job.schema.json",
+          "bytes": 7105,
+          "sha256": "795db2746c2d27cd3da0f5adaae5ee18d7cccea2aebd72062f22ce333d15dd72"
+        }
+      ]
+    }
+  },
+  "rea": [
+    {
+      "evidenceId": "ev_19b83b632333e28fb7633ff0872a84f6e9770b1a190f35fc86c92c1e23cb45f7",
+      "operation": "inspect_web_page",
+      "authority": "external-service",
+      "confidence": "observed",
+      "provider": {
+        "id": "rea-cdp-browser",
+        "name": "REA Chrome DevTools Protocol observation provider",
+        "version": "2"
+      },
+      "limitations": [
+        "Artifact identity is unavailable for this observation.",
+        "Observation starts when REA attaches; prior network and console activity is unavailable.",
+        "Raw network headers, bodies, cookies, storage values, console objects, and WebSocket payloads are never retained; explicitly requested primitive console text is retained verbatim, while payload captures retain value-free shapes.",
+        "Source maps are reported only as declarative URLs and are not fetched.",
+        "URL-less scripts and console events without an allowed source URL are excluded because their origin cannot be proven.",
+        "CDP discovery omitted the target attachment state; attached is reported as unknown.",
+        "Browser host platform and architecture were not observed."
+      ]
+    },
+    {
+      "evidenceId": "ev_4e970585ab5de7334cdff638a578fecec8ac73f872e01bc7b722911f97c2390c",
+      "operation": "analyze_javascript_application",
+      "authority": "shipped-artifact",
+      "confidence": "derived",
+      "provider": {
+        "id": "rea-javascript-application",
+        "name": "REA JavaScript application analyzer",
+        "version": "1"
+      },
+      "subjectDigest": "3ddab5da992666f8b7d58fd1c5fffa4825546ff5e6e5270ae458678b80e157c6",
+      "summary": {
+        "browser_windows": 0,
+        "context_bridge_apis": 0,
+        "explicit_web_preferences": 0,
+        "exposed_api_members": 0,
+        "ipc": {
+          "ambiguous_renderer_transmissions": 0,
+          "dynamic_channel_operations": 0,
+          "literal_channels": 0,
+          "main_handlers": 0,
+          "operations": 0,
+          "paired_renderer_transmissions": 0,
+          "renderer_listeners": 0,
+          "renderer_transmissions": 0,
+          "unpaired_literal_renderer_transmissions": 0
+        },
+        "native_addon_bindings": 0,
+        "preload_entrypoints": 0,
+        "resolved_native_addon_bindings": 0,
+        "resolved_utility_entrypoints": 0,
+        "sender_validation_observations": 0,
+        "utility_processes": 0
+      },
+      "sourceSelection": {
+        "requested_paths": [
+          ".agents/skills/framewright/assets/skeleton.html",
+          "examples/honeybee/index.html",
+          ".agents/skills/framewright/scripts/check.mjs"
+        ],
+        "unselected_files": 21
+      },
+      "limitations": [
+        ".agents/skills/framewright/assets/skeleton.html has 1 inline JavaScript body starting at line 13 that was not analyzed; endpoints, storage, imports and other facts in it are absent from the evidence.",
+        "Caller-selected source analysis leaves 21 inventoried files outside analysis scope. Inventory identity covers the complete artifact; relationships through unselected sources remain unknown.",
+        "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+        "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+        "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+        "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+        "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+        "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code.",
+        "examples/honeybee/index.html has 1 inline JavaScript body starting at line 13 that was not analyzed; endpoints, storage, imports and other facts in it are absent from the evidence."
+      ]
+    },
+    {
+      "evidenceId": "ev_5b50e75d9a92ea9a040bf962ba2c27848f2ac8ce1a878f4943c32dee77c49423",
+      "operation": "trace_javascript_semantics",
+      "authority": "analyst-inference",
+      "confidence": "inferred",
+      "provider": {
+        "id": "rea-javascript-application-workflows",
+        "name": "REA JavaScript application workflows",
+        "version": "1"
+      },
+      "summary": {
+        "relevant_unknowns": 3,
+        "total_seed_matches": 1,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0
+      },
+      "limitations": [
+        "Artifact identity is unavailable for this observation.",
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Candidate relations remain ambiguous and do not establish a resolved semantic path.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Relevant dynamic, unsupported, incomplete, or ambiguous semantics remain unknown.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ],
+      "coverage": {
+        "status": "partial"
+      }
+    },
+    {
+      "evidenceId": "ev_7873c1b8b5dd9499cec202a3193a1034b33679c65aebd6df7346f7989dd9fd76",
+      "operation": "inspect_web_page",
+      "authority": "external-service",
+      "confidence": "observed",
+      "provider": {
+        "id": "rea-cdp-browser",
+        "name": "REA Chrome DevTools Protocol observation provider",
+        "version": "2"
+      },
+      "limitations": [
+        "Artifact identity is unavailable for this observation.",
+        "Observation starts when REA attaches; prior network and console activity is unavailable.",
+        "Raw network headers, bodies, cookies, storage values, console objects, and WebSocket payloads are never retained; explicitly requested primitive console text is retained verbatim, while payload captures retain value-free shapes.",
+        "Source maps are reported only as declarative URLs and are not fetched.",
+        "URL-less scripts and console events without an allowed source URL are excluded because their origin cannot be proven.",
+        "CDP discovery omitted the target attachment state; attached is reported as unknown.",
+        "Browser host platform and architecture were not observed."
+      ]
+    },
+    {
+      "evidenceId": "ev_7a28bebfd9a43e065360e5838fec0d4a4b8be0c57ead49158c20d7a47ddc63de",
+      "operation": "inspect_web_page",
+      "authority": "external-service",
+      "confidence": "observed",
+      "provider": {
+        "id": "rea-cdp-browser",
+        "name": "REA Chrome DevTools Protocol observation provider",
+        "version": "2"
+      },
+      "limitations": [
+        "Artifact identity is unavailable for this observation.",
+        "Observation starts when REA attaches; prior network and console activity is unavailable.",
+        "Raw network headers, bodies, cookies, storage values, console objects, and WebSocket payloads are never retained; explicitly requested primitive console text is retained verbatim, while payload captures retain value-free shapes.",
+        "Source maps are reported only as declarative URLs and are not fetched.",
+        "URL-less scripts and console events without an allowed source URL are excluded because their origin cannot be proven.",
+        "CDP discovery omitted the target attachment state; attached is reported as unknown.",
+        "Browser host platform and architecture were not observed."
+      ]
+    },
+    {
+      "evidenceId": "ev_7ba68cebf5ff2010a17b34a71f5024e92f9239da4b34a750eb9542b04b17ebfe",
+      "operation": "list_browser_targets",
+      "authority": "external-service",
+      "confidence": "observed",
+      "provider": {
+        "id": "rea-cdp-browser",
+        "name": "REA Chrome DevTools Protocol observation provider",
+        "version": "2"
+      },
+      "limitations": [
+        "Artifact identity is unavailable for this observation.",
+        "Only page targets whose current URL matches an explicitly requested exact origin are listed.",
+        "CDP discovery omitted attachment state for one or more targets; attached is reported as unknown.",
+        "Browser host platform and architecture were not observed."
+      ]
+    },
+    {
+      "evidenceId": "ev_a231a3ef644fd0326d797eced93449b03adbe263e306b0e273c803c7e5db643d",
+      "operation": "inspect_analysis_view",
+      "authority": "shipped-artifact",
+      "confidence": "derived",
+      "provider": {
+        "id": "rea-analysis-view",
+        "name": "REA analysis view projection",
+        "version": "1"
+      },
+      "subjectDigest": "3ddab5da992666f8b7d58fd1c5fffa4825546ff5e6e5270ae458678b80e157c6",
+      "summary": {
+        "coverage": {
+          "application": {
+            "limits": [],
+            "omitted_count": null,
+            "status": "partial",
+            "truncated": false
+          },
+          "application_unknowns": 23,
+          "semantic": {
+            "families": [
+              {
+                "family": "boundary",
+                "omitted_relations": null,
+                "retained_relations": 5,
+                "status": "partial",
+                "unknown_count": 13
+              },
+              {
+                "family": "call-flow",
+                "omitted_relations": null,
+                "retained_relations": 176,
+                "status": "partial",
+                "unknown_count": 170
+              },
+              {
+                "family": "child-process",
+                "omitted_relations": null,
+                "retained_relations": 0,
+                "status": "partial",
+                "unknown_count": 13
+              },
+              {
+                "family": "closure",
+                "omitted_relations": null,
+                "retained_relations": 61,
+                "status": "partial",
+                "unknown_count": 13
+              },
+              {
+                "family": "configuration",
+                "omitted_relations": null,
+                "retained_relations": 1,
+                "status": "partial",
+                "unknown_count": 14
+              },
+              {
+                "family": "data-flow",
+                "omitted_relations": null,
+                "retained_relations": 1264,
+                "status": "partial",
+                "unknown_count": 188
+              },
+              {
+                "family": "event",
+                "omitted_relations": null,
+                "retained_relations": 3,
+                "status": "partial",
+                "unknown_count": 13
+              },
+              {
+                "family": "object-flow",
+                "omitted_relations": null,
+                "retained_relations": 170,
+                "status": "partial",
+                "unknown_count": 315
+              },
+              {
+                "family": "promise-ownership",
+                "omitted_relations": null,
+                "retained_relations": 28,
+                "status": "partial",
+                "unknown_count": 35
+              },
+              {
+                "family": "request",
+                "omitted_relations": null,
+                "retained_relations": 0,
+                "status": "partial",
+                "unknown_count": 13
+              },
+              {
+                "family": "resource-lifecycle",
+                "omitted_relations": null,
+                "retained_relations": 0,
+                "status": "partial",
+                "unknown_count": 13
+              },
+              {
+                "family": "timer",
+                "omitted_relations": null,
+                "retained_relations": 0,
+                "status": "partial",
+                "unknown_count": 13
+              }
+            ],
+            "limits": [],
+            "omitted_nodes": null,
+            "omitted_relations": null,
+            "status": "partial",
+            "truncated": false
+          },
+          "semantic_unknowns": 813
+        },
+        "electron": {
+          "browser_windows": 0,
+          "context_bridge_apis": 0,
+          "explicit_web_preferences": 0,
+          "exposed_api_members": 0,
+          "ipc": {
+            "ambiguous_renderer_transmissions": 0,
+            "dynamic_channel_operations": 0,
+            "literal_channels": 0,
+            "main_handlers": 0,
+            "operations": 0,
+            "paired_renderer_transmissions": 0,
+            "renderer_listeners": 0,
+            "renderer_transmissions": 0,
+            "unpaired_literal_renderer_transmissions": 0
+          },
+          "native_addon_bindings": 0,
+          "preload_entrypoints": 0,
+          "resolved_native_addon_bindings": 0,
+          "resolved_utility_entrypoints": 0,
+          "sender_validation_observations": 0,
+          "utility_processes": 0
+        },
+        "format": "directory",
+        "input_path": "Z:\\DEVO\\AnimationGPT\\work\\motion-research\\framewright",
+        "limitation_count": 9,
+        "root_artifact_sha256": "3ddab5da992666f8b7d58fd1c5fffa4825546ff5e6e5270ae458678b80e157c6",
+        "source_selection": {
+          "requested_paths": [
+            ".agents/skills/framewright/assets/skeleton.html",
+            "examples/honeybee/index.html",
+            ".agents/skills/framewright/scripts/check.mjs"
+          ],
+          "unselected_files": 21
+        },
+        "statistics": {
+          "findings": 10,
+          "invalid_utf8_files": 0,
+          "modules": 0,
+          "nested_asar_containers": 0,
+          "parse_failures": 0,
+          "parsed_javascript_files": 1,
+          "relevant_files": 24,
+          "text_bytes_read": 88038,
+          "visited_ast_nodes": 2528
+        }
+      },
+      "limitations": [
+        ".agents/skills/framewright/assets/skeleton.html has 1 inline JavaScript body starting at line 13 that was not analyzed; endpoints, storage, imports and other facts in it are absent from the evidence.",
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Caller-selected source analysis leaves 21 inventoried files outside analysis scope. Inventory identity covers the complete artifact; relationships through unselected sources remain unknown.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+        "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+        "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation.",
+        "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code.",
+        "examples/honeybee/index.html has 1 inline JavaScript body starting at line 13 that was not analyzed; endpoints, storage, imports and other facts in it are absent from the evidence."
+      ],
+      "parentEvidenceId": "ev_4e970585ab5de7334cdff638a578fecec8ac73f872e01bc7b722911f97c2390c",
+      "coverage": {
+        "examined": 21,
+        "exhausted": true,
+        "next_offset": null,
+        "status": "complete-within-view",
+        "total": 55
+      }
+    },
+    {
+      "evidenceId": "ev_bf89066124a71ebf9aa15a5f96aa675dcc429021a6415162e78a3572b4c5303a",
+      "operation": "inspect_analysis_view",
+      "authority": "shipped-artifact",
+      "confidence": "derived",
+      "provider": {
+        "id": "rea-analysis-view",
+        "name": "REA analysis view projection",
+        "version": "1"
+      },
+      "subjectDigest": "27393091f0e67274516579284390697db8454d9353713934908669fecee750b6",
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Caller-selected source analysis leaves 34 inventoried files outside analysis scope. Inventory identity covers the complete artifact; relationships through unselected sources remain unknown.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+        "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+        "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation.",
+        "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code."
+      ],
+      "parentEvidenceId": "ev_e8167c45e82c24394082ad96d1e7728418fe2f33acd40e1ff42e89aad4959bc1",
+      "coverage": {
+        "examined": 1,
+        "exhausted": true,
+        "next_offset": null,
+        "status": "complete-within-view",
+        "total": 113
+      }
+    },
+    {
+      "evidenceId": "ev_df1a9e9da7dc2ef3f95346df0c0836df381ca949a525c7a67d1cdecbf7c895fa",
+      "operation": "inspect_analysis_view",
+      "authority": "shipped-artifact",
+      "confidence": "derived",
+      "provider": {
+        "id": "rea-analysis-view",
+        "name": "REA analysis view projection",
+        "version": "1"
+      },
+      "subjectDigest": "27393091f0e67274516579284390697db8454d9353713934908669fecee750b6",
+      "summary": {
+        "coverage": {
+          "application": {
+            "limits": [],
+            "omitted_count": null,
+            "status": "partial",
+            "truncated": false
+          },
+          "application_unknowns": 34,
+          "semantic": {
+            "families": [
+              {
+                "family": "boundary",
+                "omitted_relations": null,
+                "retained_relations": 29,
+                "status": "partial",
+                "unknown_count": 32
+              },
+              {
+                "family": "call-flow",
+                "omitted_relations": null,
+                "retained_relations": 761,
+                "status": "partial",
+                "unknown_count": 855
+              },
+              {
+                "family": "child-process",
+                "omitted_relations": null,
+                "retained_relations": 11,
+                "status": "partial",
+                "unknown_count": 33
+              },
+              {
+                "family": "closure",
+                "omitted_relations": null,
+                "retained_relations": 538,
+                "status": "partial",
+                "unknown_count": 32
+              },
+              {
+                "family": "configuration",
+                "omitted_relations": null,
+                "retained_relations": 0,
+                "status": "partial",
+                "unknown_count": 32
+              },
+              {
+                "family": "data-flow",
+                "omitted_relations": null,
+                "retained_relations": 6050,
+                "status": "partial",
+                "unknown_count": 928
+              },
+              {
+                "family": "event",
+                "omitted_relations": null,
+                "retained_relations": 8,
+                "status": "partial",
+                "unknown_count": 33
+              },
+              {
+                "family": "object-flow",
+                "omitted_relations": null,
+                "retained_relations": 839,
+                "status": "partial",
+                "unknown_count": 1267
+              },
+              {
+                "family": "promise-ownership",
+                "omitted_relations": null,
+                "retained_relations": 115,
+                "status": "partial",
+                "unknown_count": 115
+              },
+              {
+                "family": "request",
+                "omitted_relations": null,
+                "retained_relations": 4,
+                "status": "partial",
+                "unknown_count": 35
+              },
+              {
+                "family": "resource-lifecycle",
+                "omitted_relations": null,
+                "retained_relations": 0,
+                "status": "partial",
+                "unknown_count": 32
+              },
+              {
+                "family": "timer",
+                "omitted_relations": null,
+                "retained_relations": 2,
+                "status": "partial",
+                "unknown_count": 32
+              }
+            ],
+            "limits": [],
+            "omitted_nodes": null,
+            "omitted_relations": null,
+            "status": "partial",
+            "truncated": false
+          },
+          "semantic_unknowns": 3426
+        },
+        "electron": {
+          "browser_windows": 0,
+          "context_bridge_apis": 0,
+          "explicit_web_preferences": 0,
+          "exposed_api_members": 0,
+          "ipc": {
+            "ambiguous_renderer_transmissions": 0,
+            "dynamic_channel_operations": 0,
+            "literal_channels": 0,
+            "main_handlers": 0,
+            "operations": 0,
+            "paired_renderer_transmissions": 0,
+            "renderer_listeners": 0,
+            "renderer_transmissions": 0,
+            "unpaired_literal_renderer_transmissions": 0
+          },
+          "native_addon_bindings": 0,
+          "preload_entrypoints": 0,
+          "resolved_native_addon_bindings": 0,
+          "resolved_utility_entrypoints": 0,
+          "sender_validation_observations": 0,
+          "utility_processes": 0
+        },
+        "format": "directory",
+        "input_path": "Z:\\DEVO\\AnimationGPT\\work\\motion-research\\motion-graphics-skills\\skills\\motion-graphics\\assets\\template",
+        "limitation_count": 7,
+        "root_artifact_sha256": "27393091f0e67274516579284390697db8454d9353713934908669fecee750b6",
+        "source_selection": {
+          "requested_paths": [
+            "js/engine.js",
+            "js/main.js",
+            "js/reel.js",
+            "js/timeline.mjs",
+            "tools/capture.mjs",
+            "tools/audio-check.mjs",
+            "audio/score.mjs"
+          ],
+          "unselected_files": 34
+        },
+        "statistics": {
+          "findings": 98,
+          "invalid_utf8_files": 0,
+          "modules": 0,
+          "nested_asar_containers": 0,
+          "parse_failures": 0,
+          "parsed_javascript_files": 7,
+          "relevant_files": 41,
+          "text_bytes_read": 77020,
+          "visited_ast_nodes": 13435
+        }
+      },
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Caller-selected source analysis leaves 34 inventoried files outside analysis scope. Inventory identity covers the complete artifact; relationships through unselected sources remain unknown.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+        "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+        "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation.",
+        "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code."
+      ],
+      "parentEvidenceId": "ev_e8167c45e82c24394082ad96d1e7728418fe2f33acd40e1ff42e89aad4959bc1",
+      "coverage": {
+        "examined": 113,
+        "exhausted": true,
+        "next_offset": null,
+        "status": "complete-within-view",
+        "total": 151
+      }
+    },
+    {
+      "evidenceId": "ev_e477c2fb817b3096b4fbfeab49f344cc2191026c0710483594babfff7ea86474",
+      "operation": "trace_javascript_semantics",
+      "authority": "analyst-inference",
+      "confidence": "inferred",
+      "provider": {
+        "id": "rea-javascript-application-workflows",
+        "name": "REA JavaScript application workflows",
+        "version": "1"
+      },
+      "summary": {
+        "relevant_unknowns": 2,
+        "total_seed_matches": 1,
+        "traversed_functions": 1,
+        "traversed_modules": 1,
+        "traversed_nodes": 1,
+        "traversed_relations": 0
+      },
+      "limitations": [
+        "Artifact identity is unavailable for this observation.",
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Relevant dynamic, unsupported, incomplete, or ambiguous semantics remain unknown.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Semantic graph reachability is a static inference and does not prove runtime execution.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation."
+      ],
+      "coverage": {
+        "status": "partial"
+      }
+    },
+    {
+      "evidenceId": "ev_e8167c45e82c24394082ad96d1e7728418fe2f33acd40e1ff42e89aad4959bc1",
+      "operation": "analyze_javascript_application",
+      "authority": "shipped-artifact",
+      "confidence": "derived",
+      "provider": {
+        "id": "rea-javascript-application",
+        "name": "REA JavaScript application analyzer",
+        "version": "1"
+      },
+      "subjectDigest": "27393091f0e67274516579284390697db8454d9353713934908669fecee750b6",
+      "summary": {
+        "browser_windows": 0,
+        "context_bridge_apis": 0,
+        "explicit_web_preferences": 0,
+        "exposed_api_members": 0,
+        "ipc": {
+          "ambiguous_renderer_transmissions": 0,
+          "dynamic_channel_operations": 0,
+          "literal_channels": 0,
+          "main_handlers": 0,
+          "operations": 0,
+          "paired_renderer_transmissions": 0,
+          "renderer_listeners": 0,
+          "renderer_transmissions": 0,
+          "unpaired_literal_renderer_transmissions": 0
+        },
+        "native_addon_bindings": 0,
+        "preload_entrypoints": 0,
+        "resolved_native_addon_bindings": 0,
+        "resolved_utility_entrypoints": 0,
+        "sender_validation_observations": 0,
+        "utility_processes": 0
+      },
+      "sourceSelection": {
+        "requested_paths": [
+          "js/engine.js",
+          "js/main.js",
+          "js/reel.js",
+          "js/timeline.mjs",
+          "tools/capture.mjs",
+          "tools/audio-check.mjs",
+          "audio/score.mjs"
+        ],
+        "unselected_files": 34
+      },
+      "limitations": [
+        "Caller-selected source analysis leaves 34 inventoried files outside analysis scope. Inventory identity covers the complete artifact; relationships through unselected sources remain unknown.",
+        "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+        "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+        "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+        "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+        "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+        "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code."
+      ]
+    },
+    {
+      "evidenceId": "ev_f168caf9740fceddb396dd592428b8dc68bc2a7c5d154cad06cec4d82cba06a6",
+      "operation": "inspect_analysis_view",
+      "authority": "shipped-artifact",
+      "confidence": "derived",
+      "provider": {
+        "id": "rea-analysis-view",
+        "name": "REA analysis view projection",
+        "version": "1"
+      },
+      "subjectDigest": "27393091f0e67274516579284390697db8454d9353713934908669fecee750b6",
+      "limitations": [
+        "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+        "Caller-selected source analysis leaves 34 inventoried files outside analysis scope. Inventory identity covers the complete artifact; relationships through unselected sources remain unknown.",
+        "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+        "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+        "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+        "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+        "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+        "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+        "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+        "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+        "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+        "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+        "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+        "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+        "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+        "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+        "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation.",
+        "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code."
+      ],
+      "parentEvidenceId": "ev_e8167c45e82c24394082ad96d1e7728418fe2f33acd40e1ff42e89aad4959bc1",
+      "coverage": {
+        "examined": 15,
+        "exhausted": false,
+        "next_offset": 15,
+        "status": "page",
+        "total": 113
+      }
+    }
+  ],
+  "probes": {
+    "producer": "Original Astra Playwright probes, not REA",
+    "scope": "Three explicitly selected shipped pages; 1920x1080 viewport; local assets only",
+    "pages": [
+      {
+        "url": "http://127.0.0.1:8931/frame/examples/honeybee/index.html?f=0&w=480&s=7",
+        "meta": {
+          "fps": 30,
+          "total": 1680,
+          "plates": [
+            {
+              "name": "egg",
+              "len": 160
+            },
+            {
+              "name": "larva",
+              "len": 160
+            },
+            {
+              "name": "cap",
+              "len": 160
+            },
+            {
+              "name": "comb",
+              "len": 240
+            },
+            {
+              "name": "out",
+              "len": 160
+            },
+            {
+              "name": "meadow",
+              "len": 240
+            },
+            {
+              "name": "dance",
+              "len": 160
+            },
+            {
+              "name": "last",
+              "len": 160
+            },
+            {
+              "name": "drop",
+              "len": 240
+            }
+          ],
+          "curves": {
+            "fps": 30,
+            "bpm": 90,
+            "total": 1680,
+            "start": {
+              "egg": 0,
+              "larva": 160,
+              "cap": 320,
+              "comb": 480,
+              "out": 720,
+              "meadow": 880,
+              "dance": 1120,
+              "last": 1280,
+              "drop": 1440
+            },
+            "frames": {
+              "count": 1680
+            }
+          }
+        },
+        "probes": [
+          0,
+          1,
+          420,
+          840,
+          1678,
+          1679
+        ],
+        "hashes": {
+          "0": "3bc64c710c7ea76c787364e03cc5744f77cade3dbba5095e3a160976ff567dd0",
+          "1": "85158969b457a8fbe118ea754089469deb77163402fb94e8cbbef22afb6b36a6",
+          "420": "4a76e92bdcf730335428c9ec3962c731afd0efab5f5e4b9027264ca7bd27367a",
+          "840": "d5ca8c36a568d08c4122e718c6c40052af5a57560b6fb46033d2b440d2eaa78c",
+          "1678": "9e8f6ba44c9f00e07c0418a4b6ac595047666b8d086d56c0a0a7aff037f5365f",
+          "1679": "c003724d6ff29f8d3643db5e077e9278b77de9ee80e0752752d023bcec72fe27"
+        },
+        "failures": [],
+        "fraction": {
+          "times": [
+            420.1,
+            420.2
+          ],
+          "hashes": [
+            "ac20e71e781cb045cf82866b8537013ac4729c098b7a7829f6cf59646f75a4d1",
+            "07d713dc94aa758e8924581ffc835d6d7914cecb12059686b982b39fb505c53c"
+          ],
+          "different": true
+        }
+      },
+      {
+        "url": "http://127.0.0.1:8931/mort/index.html",
+        "meta": {
+          "fps": 60,
+          "total": 780
+        },
+        "probes": [
+          0,
+          0.5,
+          1.031,
+          3.79,
+          4,
+          4.09,
+          6,
+          7.9,
+          8,
+          11,
+          12.9
+        ],
+        "hashes": {
+          "0": "6d73558674b28da48151258805e3482977f226d334965a9425f384bac18c6a68",
+          "4": "266005e5a5113d5438193cea4329ab50b454a03b40d90e59593584ca2f2b633a",
+          "6": "9088e0b3d39fa8b16e0f7daf5633239fd717372b642bda78ea9bb0eca8cf7d87",
+          "8": "f6bd060f99597feb1992fad98ef1806f460152932c79af7031446909c068cf4d",
+          "11": "257331f005beaae2e45d29303beaeb4385ab495b3d09811c97b820735cf953e9",
+          "0.5": "e1cad3166e6f4916e1b4faf55cb6a7c052130416b5bfae5ed8d80417c7d45a5e",
+          "1.031": "38fac9efcb3b88c612acc5879d1fb0c797914387082e4c15e7b29dd2e41f75a0",
+          "3.79": "d69f72d972022e211815d9e31511baac1fdb782765ceeae24065d5719a230db1",
+          "4.09": "74b0d1ee27518c12adc5531f6e0b1984791bbf09caac120d4f16b596c45ed7ce",
+          "7.9": "4c263d0a3361bc8d908d78afdc4eed71835db52e36e46060d23e6fc70b79ff90",
+          "12.9": "8e18ebe1d8fedc7fc0e9694530008cccf212b890580e633a8a94a6cc70ed1d0a"
+        },
+        "failures": [
+          {
+            "t": 4.09,
+            "order": "reverse"
+          },
+          {
+            "t": 3.79,
+            "order": "reverse"
+          },
+          {
+            "t": 4.09,
+            "order": "shuffled"
+          },
+          {
+            "t": 12.9,
+            "order": "shuffled"
+          },
+          {
+            "t": 1.031,
+            "order": "fresh page"
+          },
+          {
+            "t": 3.79,
+            "order": "fresh page"
+          },
+          {
+            "t": 7.9,
+            "order": "fresh page"
+          }
+        ],
+        "fraction": {
+          "times": [
+            1.031,
+            1.0315
+          ],
+          "hashes": [
+            "3eb173212fe03be0c129f110b5a2473b92be26a42a4096d86e0bd6213f71eda6",
+            "8cc9278c96b6f4101a5864393c5cd0f2ab6be4f9b47ea536e1c7715ab0023b3e"
+          ],
+          "different": true
+        }
+      },
+      {
+        "url": "http://127.0.0.1:8931/frame/.agents/skills/framewright/assets/skeleton.html?f=0&w=480&s=7",
+        "meta": {
+          "fps": 30,
+          "total": 120,
+          "plates": [
+            {
+              "name": "title",
+              "len": 120
+            }
+          ],
+          "curves": {
+            "fps": 30,
+            "bpm": 120,
+            "total": 120,
+            "start": {
+              "title": 0
+            },
+            "frames": {
+              "count": 0
+            },
+            "cues": [
+              {
+                "name": "mark",
+                "plate": "title",
+                "beat": 4,
+                "f": 60
+              }
+            ]
+          }
+        },
+        "probes": [
+          0,
+          1,
+          30,
+          60,
+          118,
+          119
+        ],
+        "hashes": {
+          "0": "dbdd8bc047ce59787ad8ee2ce9b4d2a0b3aadad10d82d59ba06648f35a3735f0",
+          "1": "e1ba4ae827f01b57df31010beb44a89e69d345802fcb8b299cf1b26bed8676e9",
+          "30": "2acf84f5427c0483466043d13b441dc20bcc5adcced57179bd88f07f19d73c76",
+          "60": "2eff95f81ad93fd76fc63cfbb72317ee39b24fa23df52da3c6ea198244add874",
+          "118": "25cbfc20cf6e5d6ea16a37f3a4ba6f6648b54d6414e63795a81bdebde25e30a5",
+          "119": "b33b34e3bffe5311bbd6e13c67bb3633d76385578a77e156ed13505b5d60da7c"
+        },
+        "failures": [],
+        "fraction": {
+          "times": [
+            30.1,
+            30.2
+          ],
+          "hashes": [
+            "ee82a5f46818136ecbe7e51ae1ae1d20fe88335210a0e48c2046dc860d837d62",
+            "837a811879870d19bfe4cab2d2731de4dcd71d28670a32990ac338e2c02fea94"
+          ],
+          "different": true
+        }
+      }
+    ],
+    "numeric": {
+      "retarget": [
+        {
+          "t": 0.1,
+          "at": 0,
+          "left": 0,
+          "right": 1.7765100501776487e-8,
+          "velocityLeft": 0,
+          "velocityRight": 0.017765100501776487
+        },
+        {
+          "t": 0.3,
+          "at": 95.64465938041111,
+          "left": 95.64452649966587,
+          "right": 95.64479223357468,
+          "velocityLeft": 132.88074524098192,
+          "velocityRight": 132.85316356359544
+        },
+        {
+          "t": 0.4,
+          "at": 14.117159797272052,
+          "left": 14.118000393854302,
+          "right": 14.116319220833397,
+          "velocityLeft": -840.5965822504413,
+          "velocityRight": -840.576438655205
+        }
+      ],
+      "spring": [
+        {
+          "z": 0.25,
+          "value": 1.0010468783201898
+        },
+        {
+          "z": 0.5,
+          "value": 0.7994529886083104
+        },
+        {
+          "z": 1,
+          "value": 0.5619604539867584
+        },
+        {
+          "z": 2,
+          "value": 0.5619604539867584
+        }
+      ],
+      "bezier": [
+        {
+          "control": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "worst": {
+            "x": 0.001,
+            "value": 1,
+            "expected": 0.028000000000000004,
+            "error": 0.972
+          }
+        },
+        {
+          "control": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "worst": {
+            "x": 0.999,
+            "value": 0,
+            "expected": 0.9719999999999994,
+            "error": 0.9719999999999994
+          }
+        },
+        {
+          "control": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "worst": {
+            "x": 0.501,
+            "value": 1,
+            "expected": 0.5939940787421145,
+            "error": 0.4060059212578855
+          }
+        },
+        {
+          "control": [
+            0.16,
+            1,
+            0.3,
+            1
+          ],
+          "worst": {
+            "x": 0.004,
+            "value": 0.02480997698382154,
+            "expected": 0.02481583486893063,
+            "error": 0.0000058578851090916595
+          }
+        }
+      ],
+      "styleAfterHistory": {
+        "transform": "none",
+        "opacity": "",
+        "filter": "blur(8px)",
+        "origin": "0% 0%",
+        "display": ""
+      },
+      "styleFresh": {
+        "transform": "none",
+        "opacity": "",
+        "filter": "",
+        "origin": "",
+        "display": ""
+      },
+      "hiddenThenOmitted": {
+        "transform": "none",
+        "opacity": "",
+        "filter": "",
+        "origin": "",
+        "display": "none"
+      },
+      "invalid": {
+        "zeroDuration": "NaN",
+        "emptyTrack": "Cannot read properties of undefined (reading '1')"
+      }
+    }
+  },
+  "audio": {
+    "producer": "Original Astra Node/FFmpeg measurement",
+    "measurements": [
+      {
+        "name": "mort",
+        "sha256": "e3d30ed46a23a71c80f190a327118ed0e3e3b87f5526d01f0d2506b474ce79b6",
+        "identicalSecondRun": true,
+        "sourceExit": 0,
+        "ffmpegExit": 0,
+        "sr": 48000,
+        "bits": 24,
+        "channels": 2,
+        "samples": 624000,
+        "duration": 13,
+        "ebur128Summary": "Summary:\r\n\r\n  Integrated loudness:\r\n    I:         -14.0 LUFS\r\n    Threshold: -24.2 LUFS\r\n\r\n  Loudness range:\r\n    LRA:         5.1 LU\r\n    Threshold: -33.8 LUFS\r\n    LRA low:   -17.6 LUFS\r\n    LRA high:  -12.5 LUFS\r\n\r\n  True peak:\r\n    Peak:       -3.5 dBFS\r\n"
+      },
+      {
+        "name": "honeybee",
+        "sha256": "8f40dfb404636586b3d4266200dbc716bb8e722a8867bf083144eec9d60a8fbb",
+        "identicalSecondRun": true,
+        "sourceExit": 0,
+        "ffmpegExit": 0,
+        "sr": 44100,
+        "bits": 16,
+        "channels": 2,
+        "samples": 2469600,
+        "duration": 56,
+        "ebur128Summary": "Summary:\r\n\r\n  Integrated loudness:\r\n    I:         -16.3 LUFS\r\n    Threshold: -26.4 LUFS\r\n\r\n  Loudness range:\r\n    LRA:         4.5 LU\r\n    Threshold: -36.2 LUFS\r\n    LRA low:   -18.8 LUFS\r\n    LRA high:  -14.2 LUFS\r\n\r\n  True peak:\r\n    Peak:       -1.0 dBFS\r\n"
+      }
+    ],
+    "listened": false
+  },
+  "rasterDifferences": {
+    "producer": "FFmpeg raw RGBA decode and original Astra all-channel byte comparison",
+    "rows": [
+      {
+        "name": "mismatch-12.9-shuffled.png",
+        "base": "mismatch-12.9-base.png",
+        "channels": 3494,
+        "max": 1,
+        "sum": 3494,
+        "box": [
+          452,
+          359,
+          1463,
+          587
+        ]
+      },
+      {
+        "name": "mismatch-3.79-reverse.png",
+        "base": "mismatch-3.79-base.png",
+        "channels": 629,
+        "max": 1,
+        "sum": 629,
+        "box": [
+          825,
+          467,
+          1072,
+          592
+        ]
+      },
+      {
+        "name": "mismatch-4.09-reverse.png",
+        "base": "mismatch-4.09-base.png",
+        "channels": 41,
+        "max": 1,
+        "sum": 41,
+        "box": [
+          607,
+          422,
+          951,
+          618
+        ]
+      },
+      {
+        "name": "mismatch-4.09-shuffled.png",
+        "base": "mismatch-4.09-base.png",
+        "channels": 8,
+        "max": 1,
+        "sum": 8,
+        "box": [
+          619,
+          422,
+          705,
+          483
+        ]
+      }
+    ],
+    "interpretation": "Observed small raster differences (max 1 byte/channel), cause not isolated. Not evidence of a visible motion discontinuity."
+  },
+  "inspectedImages": [
+    "honeybee-representative.png at frame 420",
+    "skeleton-representative.png at frame 30",
+    "mort-representative.png at 1.031 seconds"
+  ],
+  "limitations": [
+    "No generated upstream code, fonts, videos or audio embedded in this public evidence file.",
+    "REA static analysis has partial coverage; inline HTML bodies were not analyzed by that route.",
+    "Runtime REA inspection is passive; Playwright performed all seek calls.",
+    "No universal determinism proof, aesthetic certification or listening claim.",
+    "REA retained IDs belong to their originating server session; the local complete bundle preserves their records."
+  ]
+}

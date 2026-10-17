@@ -1,7 +1,7 @@
 import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { compileProject } from '../lib/project.mjs';
+import { compileProject } from '../core/project.mjs';
 
 export const sampleRate = 48000;
 

@@ -17,7 +17,12 @@
     "rea:investigate": "node scripts/rea-case.mjs --phase=investigate",
     "rea:compare": "node scripts/rea-case.mjs --phase=compare",
     "rea:render": "node scripts/rea-case.mjs --phase=render",
-    "rea:case": "node scripts/rea-case.mjs --phase=all"
+    "rea:case": "node scripts/rea-case.mjs --phase=all",
+    "core:verify": "node scripts/core-verify.mjs",
+    "core:sheet": "node scripts/render.mjs --html=/examples/core-demo/index.html?capture=1 --project=examples/core-demo/project.json --sheet --out=out/core-sheet.png",
+    "core:draft": "node scripts/render.mjs --html=/examples/core-demo/index.html?capture=1 --project=examples/core-demo/project.json --draft --out=out/core-draft.mp4",
+    "core:render": "node scripts/render.mjs --html=/examples/core-demo/index.html?capture=1 --project=examples/core-demo/project.json --out=out/core-film.mp4",
+    "core:audio": "node scripts/audio.mjs --project=examples/core-demo/project.json --out=out/core-audio.wav"
   },
   "devDependencies": {"playwright": "1.64.1"}
 }

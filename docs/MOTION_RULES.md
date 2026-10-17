@@ -1,5 +1,13 @@
 # Règles de motion design adaptées à GPT
 
+Le [cœur motion/1](CORE.md) exécute ces règles avec un descriptor unique.
+Ses retargets préservent position/vitesse même lors d'un changement de fréquence
+ou ζ ; la cubic utilise une bissection bornée. Les secondes compilées restent
+canoniques : le champ beat dérivé n'est pas reconverti pour le son, afin d'éviter
+un déplacement d'un échantillon audio aux frontières d'arrondi. Les coupes
+proviennent des plans, les masques et caméras sont évalués au temps courant.
+Les adaptateurs Canvas/SVG réécrivent chaque état et partagent la même géométrie.
+
 Ce document formalise notre adaptation originale. Les méthodes observées et les
 différences avec les six dépôts sont dans [SOURCE_AUDIT.md](SOURCE_AUDIT.md).
 Il ne suffit pas de remplacer un nom de modèle dans un prompt : les contrats

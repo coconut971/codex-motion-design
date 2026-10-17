@@ -9,6 +9,9 @@ Le rendu et les mesures des fichiers existants restent locaux, sans API modèle.
 
 Retimes [cue / passage] pour [nouvel effet narratif ou nouveau BPM]. Commence par
 identifier le cue unique de project.json et les lecteurs image/son/QA.
+Pour motion/1, conserve les références {cue,offset} des pistes et scènes ; les
+cuts sont dérivés, les secondes compilées de film.project.events sont canoniques.
+Ne reconvertis pas les beats dérivés en secondes pour fabriquer le WAV.
 Ne recopie aucun temps dans une autre liste. Préserve la continuité des objets
 et les temps de lecture. Si un beat tombe entre deux frames, documente le choix
 entre temps musical exact et frame de contact quantifiée.

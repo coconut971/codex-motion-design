@@ -1,0 +1,368 @@
+{
+  "project": "seed-and-fold",
+  "projectSha256": "8c0e9a4123a2c1306ca63515fa3142b2a4eeb79f95c02c2dd8017d573f3cee80",
+  "browser": "155.0.8059.84",
+  "node": "v24.18.1",
+  "scale": 0.25,
+  "adapters": {
+    "canvas": {
+      "probes": 27,
+      "orders": [
+        "forward",
+        "reverse",
+        "shuffle",
+        "repeat",
+        "fresh"
+      ],
+      "staleStateReset": true,
+      "otherSizeIsolation": true,
+      "continuousSubframes": true,
+      "hashes": [
+        {
+          "time": 0,
+          "pixels": "aad9d5697df0f359ef08bf6e3242bd47f5cda7b29a73eb6c69ac6b3bc439c870",
+          "state": "5581e8f10e4283d02d14c947b9cb3def57ab9cd9d2bc0bc3cc5636ef91d309e2",
+          "sceneId": "decision"
+        },
+        {
+          "time": 0.5666666666666667,
+          "pixels": "465bd3be68f10d47a3dd492d8c99adee87cc077dbef61f71fec4bea533683bc7",
+          "state": "412e22524536cac7fa77e834bbcd2ad4e8fe9b194286934ab68d582c6238685b",
+          "sceneId": "decision"
+        },
+        {
+          "time": 0.6,
+          "pixels": "d5098323f0f9e019e14055b4e1b6b9fa25fbdab5f8451ee8b8a5121b88b3e3c2",
+          "state": "f310646086edc168499018babf9c52d69ada58dc4678e1f489db4544d481c10f",
+          "sceneId": "decision"
+        },
+        {
+          "time": 0.6333333333333333,
+          "pixels": "307b4f780cac04c95656370ad7ad42f2014a26fda9035308b97f52daafdef1f0",
+          "state": "38473b68403100e5080451ca1e52ea2eb38ec4ac0dff855644980abaf55cd2d2",
+          "sceneId": "decision"
+        },
+        {
+          "time": 1.6666666666666665,
+          "pixels": "d53042b384b137b1769bb7c5b330a728beca2e558535481dcfb20f708057e16b",
+          "state": "76f5558150aec40c99818e540231dcce7a3ad5314d2f202c3dff3160e23ba207",
+          "sceneId": "decision"
+        },
+        {
+          "time": 1.7,
+          "pixels": "fae19a6fc98817e717baf90f58d7955fc306f891f3e60555e6c31e205b0b77c5",
+          "state": "b6f631f8e123320cdfdd69ea11809111bbab08cba1dbf987b9829400de6876f4",
+          "sceneId": "decision"
+        },
+        {
+          "time": 1.7333333333333334,
+          "pixels": "7d6a7cc49cff5247fad202da01f8bdc78353a94a75c37125ff2696613a9ebaf7",
+          "state": "8774b7bd6eee248cb45d09ec83f73fce87fafea242c3b2c48d26a4e6be2ac54b",
+          "sceneId": "decision"
+        },
+        {
+          "time": 2.001,
+          "pixels": "8be4c517dbd62b4ef446a167ee38fe8d019eca5e98a671a4731ce54e170d7e2c",
+          "state": "0c25fde47ff93f7b389c06304cc6f5d3046d9495c8467ce2e9d035c3cd1281f0",
+          "sceneId": "decision"
+        },
+        {
+          "time": 2.002,
+          "pixels": "f44ec4775f1ecb28669534f488bf23ac2c323c1d84f0e825431a93fd1f7422b8",
+          "state": "67f68c4582834c2cca4369269c5a5d726d9f731c7b7020a5ee7e7c3f56ead53d",
+          "sceneId": "decision"
+        },
+        {
+          "time": 2.8666666666666667,
+          "pixels": "c9756c624f522bc22d7100a1c1ff464d521edc3cb15c14a14aa15ca8e2d764e9",
+          "state": "8275b21fc714cdbf6f776f7eb21cb82782f06dbbe419409818fa61cd57efd7ad",
+          "sceneId": "decision"
+        },
+        {
+          "time": 2.9,
+          "pixels": "7a74235181b573dba777f6dae8500216abbd3910b88981ef9225ab50f692bfa3",
+          "state": "c3a172140491767e3d55b41fbe21b8b9afb0f2a928ddf5d3fa47132831c408c3",
+          "sceneId": "decision"
+        },
+        {
+          "time": 2.933333333333333,
+          "pixels": "8389882fdbef3700aaddba7fab185b254b1aa49d3055ff989d0109af0d0cd68e",
+          "state": "51e95a60374615c21a3801fc0cb435a9fc3716a4bcf4a9dd1997b8cc6125fd3d",
+          "sceneId": "decision"
+        },
+        {
+          "time": 3.466666666666667,
+          "pixels": "a2f7e84bb59bcce06cf7c06bc7ddf03841006c3f23be9f5d266992758fcbe37e",
+          "state": "733f5bdfc4d322b0776b8c38ddeb57335054ac183bbabb3ff81890add1f87d07",
+          "sceneId": "decision"
+        },
+        {
+          "time": 3.5,
+          "pixels": "e04fa48d3cc3a202af581a4229f0ccbe350a32eb3ece7df603826812fdd1aaa8",
+          "state": "0233d356d4355d7f95a609e8403067045f441ef4aff03c77eecf66695425449f",
+          "sceneId": "contact"
+        },
+        {
+          "time": 3.533333333333333,
+          "pixels": "0da7246b9287ec9548751bb927f145aa27afda382e419a3fcbe2828efa36a8bd",
+          "state": "45963222259c95e3908aa333d2351ed6fbbc19e8262f9be55af8ae8bdf3c6c4e",
+          "sceneId": "contact"
+        },
+        {
+          "time": 3.966666666666667,
+          "pixels": "8a9d0189d39829b93ffb98a9414a6958f198c54d1b1b0167d34153725df14a8a",
+          "state": "2872521c34039b8e89e95a89d0fbdda59c5656a055dc21f0c0c01b9fd122b553",
+          "sceneId": "contact"
+        },
+        {
+          "time": 4,
+          "pixels": "821a7941dafed896485bab963643ba5644befb37ada5569a7dfa89e3bb14503c",
+          "state": "9ebc176becac6abbe36a2243c0e12e0fad254ec25a6d6490dd6125e739929218",
+          "sceneId": "contact"
+        },
+        {
+          "time": 4.033333333333333,
+          "pixels": "cb0420668ed3374b0ff914d71b13325f4e037f4ced8b617cd90a4485fec863ce",
+          "state": "61e60370b1f461090cdb1d008f9956658e1b823561cd1921a73c5e1a114a8c76",
+          "sceneId": "contact"
+        },
+        {
+          "time": 4.666666666666667,
+          "pixels": "1ea4ce222755614461c87343a2e6e42e58bd3f727c33044f97b62f5a39e5261c",
+          "state": "7c20f259f55aa67cbbac91531a7d0051078bd9b112ef8d72daaee838eeef8144",
+          "sceneId": "contact"
+        },
+        {
+          "time": 4.7,
+          "pixels": "5c4378c59d8008b5de28c5d16a6c1d415fbd1cf78db4f4011ef4c140d478254e",
+          "state": "9648667e03c23c7fb0fa74345a748003a97524634a5a17984566aa9765077a9d",
+          "sceneId": "contact"
+        },
+        {
+          "time": 4.733333333333333,
+          "pixels": "ba5d032a1fc4ec54a0277caf357d63755d6eff3d9b85bcb5ae1bc21ecd0b8138",
+          "state": "0b68765e0e5b10d0325ca894d344504e21935091b4d8fe213c8bdfaebe14043f",
+          "sceneId": "contact"
+        },
+        {
+          "time": 6.5,
+          "pixels": "aad9d5697df0f359ef08bf6e3242bd47f5cda7b29a73eb6c69ac6b3bc439c870",
+          "state": "7c53462638559051c71191427526908ae1771cf20994476a11f126c4ab8ea4f8",
+          "sceneId": "shelter"
+        },
+        {
+          "time": 7.966666666666667,
+          "pixels": "e11a14f4559c6e6c880fe9060f9627b0c2d73bcc19eb6d74dc0564d2ce125546",
+          "state": "936100a8b13e89b46eb9fa77c6b3998915562498ee1959897a95a7ab9b3ae3ee",
+          "sceneId": "shelter"
+        },
+        {
+          "time": 8,
+          "pixels": "954b569c9db52f06bcb6d51f5878fd4face2dcddceaf9a062d202cf0210785f5",
+          "state": "1bb323176d81ad99408dc0559d6a7e38374f7a33132c761b0f0c3919e966a650",
+          "sceneId": "shelter"
+        },
+        {
+          "time": 8.033333333333333,
+          "pixels": "954b569c9db52f06bcb6d51f5878fd4face2dcddceaf9a062d202cf0210785f5",
+          "state": "6b476ac7a5d971ce4105d6d1e64d1ad309d711654dfcb85a2b973daad2fd64e3",
+          "sceneId": "shelter"
+        },
+        {
+          "time": 9.933333333333334,
+          "pixels": "1d50c1e02439ffb90641188b43c4f5666edb7ce769bb05c6d97b891f21de51b6",
+          "state": "b591277030e72dd7c5a9df8f7a2a2e91429edeafce6e7f140f9faa41ae60f82b",
+          "sceneId": "shelter"
+        },
+        {
+          "time": 9.966666666666667,
+          "pixels": "1d50c1e02439ffb90641188b43c4f5666edb7ce769bb05c6d97b891f21de51b6",
+          "state": "1439b883e88d3ccecd3954c37eec7456318961778b75def6f0d5774cd9dd272d",
+          "sceneId": "shelter"
+        }
+      ]
+    },
+    "svg": {
+      "probes": 27,
+      "orders": [
+        "forward",
+        "reverse",
+        "shuffle",
+        "repeat",
+        "fresh"
+      ],
+      "staleStateReset": true,
+      "otherSizeIsolation": true,
+      "continuousSubframes": true,
+      "hashes": [
+        {
+          "time": 0,
+          "pixels": "aad9d5697df0f359ef08bf6e3242bd47f5cda7b29a73eb6c69ac6b3bc439c870",
+          "state": "5581e8f10e4283d02d14c947b9cb3def57ab9cd9d2bc0bc3cc5636ef91d309e2",
+          "sceneId": "decision"
+        },
+        {
+          "time": 0.5666666666666667,
+          "pixels": "b897d2254b7a8e6d679f4257a5a9aaf7aa6cae8b8bc9515da5d75711d5c88e0b",
+          "state": "412e22524536cac7fa77e834bbcd2ad4e8fe9b194286934ab68d582c6238685b",
+          "sceneId": "decision"
+        },
+        {
+          "time": 0.6,
+          "pixels": "03a2acfaf57cdcdb65ad9b93dc767724e82c5f4a78767263cdc3e040b3151661",
+          "state": "f310646086edc168499018babf9c52d69ada58dc4678e1f489db4544d481c10f",
+          "sceneId": "decision"
+        },
+        {
+          "time": 0.6333333333333333,
+          "pixels": "fea1489bd7aabf036fbf845e6acdc2ad37fa08a6b8f5e4bcc602ab610a776b99",
+          "state": "38473b68403100e5080451ca1e52ea2eb38ec4ac0dff855644980abaf55cd2d2",
+          "sceneId": "decision"
+        },
+        {
+          "time": 1.6666666666666665,
+          "pixels": "d53042b384b137b1769bb7c5b330a728beca2e558535481dcfb20f708057e16b",
+          "state": "76f5558150aec40c99818e540231dcce7a3ad5314d2f202c3dff3160e23ba207",
+          "sceneId": "decision"
+        },
+        {
+          "time": 1.7,
+          "pixels": "fae19a6fc98817e717baf90f58d7955fc306f891f3e60555e6c31e205b0b77c5",
+          "state": "b6f631f8e123320cdfdd69ea11809111bbab08cba1dbf987b9829400de6876f4",
+          "sceneId": "decision"
+        },
+        {
+          "time": 1.7333333333333334,
+          "pixels": "06524933811a445d34769ee3f01f409c5abe947706dfa2928303e5cc06129244",
+          "state": "8774b7bd6eee248cb45d09ec83f73fce87fafea242c3b2c48d26a4e6be2ac54b",
+          "sceneId": "decision"
+        },
+        {
+          "time": 2.001,
+          "pixels": "35e3507df773d62fee02b5392814a2bbdaaa7eb5f48bd2f7bd8e094843cabf5f",
+          "state": "0c25fde47ff93f7b389c06304cc6f5d3046d9495c8467ce2e9d035c3cd1281f0",
+          "sceneId": "decision"
+        },
+        {
+          "time": 2.002,
+          "pixels": "5aa08ecf8a374470695ff5ee00f40fbd4324d5eb68f56e0d90d017fa9b9d29de",
+          "state": "67f68c4582834c2cca4369269c5a5d726d9f731c7b7020a5ee7e7c3f56ead53d",
+          "sceneId": "decision"
+        },
+        {
+          "time": 2.8666666666666667,
+          "pixels": "c9756c624f522bc22d7100a1c1ff464d521edc3cb15c14a14aa15ca8e2d764e9",
+          "state": "8275b21fc714cdbf6f776f7eb21cb82782f06dbbe419409818fa61cd57efd7ad",
+          "sceneId": "decision"
+        },
+        {
+          "time": 2.9,
+          "pixels": "71030a34de6989d96aeae9d2b010ef0d63f00c64eaa2b492e2bd49ddc782c286",
+          "state": "c3a172140491767e3d55b41fbe21b8b9afb0f2a928ddf5d3fa47132831c408c3",
+          "sceneId": "decision"
+        },
+        {
+          "time": 2.933333333333333,
+          "pixels": "8389882fdbef3700aaddba7fab185b254b1aa49d3055ff989d0109af0d0cd68e",
+          "state": "51e95a60374615c21a3801fc0cb435a9fc3716a4bcf4a9dd1997b8cc6125fd3d",
+          "sceneId": "decision"
+        },
+        {
+          "time": 3.466666666666667,
+          "pixels": "6f90cc2311147af69efc5382467531b55b61388a409121c6fac4261b597966bd",
+          "state": "733f5bdfc4d322b0776b8c38ddeb57335054ac183bbabb3ff81890add1f87d07",
+          "sceneId": "decision"
+        },
+        {
+          "time": 3.5,
+          "pixels": "e04fa48d3cc3a202af581a4229f0ccbe350a32eb3ece7df603826812fdd1aaa8",
+          "state": "0233d356d4355d7f95a609e8403067045f441ef4aff03c77eecf66695425449f",
+          "sceneId": "contact"
+        },
+        {
+          "time": 3.533333333333333,
+          "pixels": "7ec4c6531d53c5b701fcea6a7b968562b0a1ccfefb3d953da20b7ae3bbd258cc",
+          "state": "45963222259c95e3908aa333d2351ed6fbbc19e8262f9be55af8ae8bdf3c6c4e",
+          "sceneId": "contact"
+        },
+        {
+          "time": 3.966666666666667,
+          "pixels": "7f96776c79b85c92e3e424ecff70a3f390f0050ca5482db693d4be8c771fb90e",
+          "state": "2872521c34039b8e89e95a89d0fbdda59c5656a055dc21f0c0c01b9fd122b553",
+          "sceneId": "contact"
+        },
+        {
+          "time": 4,
+          "pixels": "821a7941dafed896485bab963643ba5644befb37ada5569a7dfa89e3bb14503c",
+          "state": "9ebc176becac6abbe36a2243c0e12e0fad254ec25a6d6490dd6125e739929218",
+          "sceneId": "contact"
+        },
+        {
+          "time": 4.033333333333333,
+          "pixels": "a9a8801d1051cc72495c6fbe6dd0fc31b09179637c4b946bb3e5099f52000c30",
+          "state": "61e60370b1f461090cdb1d008f9956658e1b823561cd1921a73c5e1a114a8c76",
+          "sceneId": "contact"
+        },
+        {
+          "time": 4.666666666666667,
+          "pixels": "9cfb087c02b0e0207248d8be262b094e4f10feabfa91603061fcc579cbe24bbf",
+          "state": "7c20f259f55aa67cbbac91531a7d0051078bd9b112ef8d72daaee838eeef8144",
+          "sceneId": "contact"
+        },
+        {
+          "time": 4.7,
+          "pixels": "82ce07a8ac7bb0377387e31400e4d6b0f744405964f5090213966c1b4d88a0f3",
+          "state": "9648667e03c23c7fb0fa74345a748003a97524634a5a17984566aa9765077a9d",
+          "sceneId": "contact"
+        },
+        {
+          "time": 4.733333333333333,
+          "pixels": "014b732a7409c375293bab8f487460aa0db612f55f7b1d186d68357342d7eb6f",
+          "state": "0b68765e0e5b10d0325ca894d344504e21935091b4d8fe213c8bdfaebe14043f",
+          "sceneId": "contact"
+        },
+        {
+          "time": 6.5,
+          "pixels": "aad9d5697df0f359ef08bf6e3242bd47f5cda7b29a73eb6c69ac6b3bc439c870",
+          "state": "7c53462638559051c71191427526908ae1771cf20994476a11f126c4ab8ea4f8",
+          "sceneId": "shelter"
+        },
+        {
+          "time": 7.966666666666667,
+          "pixels": "e11a14f4559c6e6c880fe9060f9627b0c2d73bcc19eb6d74dc0564d2ce125546",
+          "state": "936100a8b13e89b46eb9fa77c6b3998915562498ee1959897a95a7ab9b3ae3ee",
+          "sceneId": "shelter"
+        },
+        {
+          "time": 8,
+          "pixels": "dea989461e25e6df1127f2d0f516710db2cd5050d9e80615621abc9539250a1f",
+          "state": "1bb323176d81ad99408dc0559d6a7e38374f7a33132c761b0f0c3919e966a650",
+          "sceneId": "shelter"
+        },
+        {
+          "time": 8.033333333333333,
+          "pixels": "dea989461e25e6df1127f2d0f516710db2cd5050d9e80615621abc9539250a1f",
+          "state": "6b476ac7a5d971ce4105d6d1e64d1ad309d711654dfcb85a2b973daad2fd64e3",
+          "sceneId": "shelter"
+        },
+        {
+          "time": 9.933333333333334,
+          "pixels": "1d50c1e02439ffb90641188b43c4f5666edb7ce769bb05c6d97b891f21de51b6",
+          "state": "b591277030e72dd7c5a9df8f7a2a2e91429edeafce6e7f140f9faa41ae60f82b",
+          "sceneId": "shelter"
+        },
+        {
+          "time": 9.966666666666667,
+          "pixels": "1d50c1e02439ffb90641188b43c4f5666edb7ce769bb05c6d97b891f21de51b6",
+          "state": "1439b883e88d3ccecd3954c37eec7456318961778b75def6f0d5774cd9dd272d",
+          "sceneId": "shelter"
+        }
+      ]
+    }
+  },
+  "sharedFrameState": true,
+  "sharedBounds": true,
+  "svgClipIsolation": true,
+  "errors": [],
+  "limits": "PNG equality within each adapter/browser; cross-adapter pixels are not asserted. Bounds are conservative control hulls without stroke or clipping. Sampled probes are not a universal purity proof."
+}

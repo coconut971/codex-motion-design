@@ -8,6 +8,8 @@ la limite avant de générer et demande sa sélection, sans modèle de secours.
 Le rendu et les mesures des fichiers existants restent locaux, sans API modèle.
 
 Diagnostique [commande + erreur + fichier]. Lis docs/RENDER_CONTRACT.md.
+Pour motion/1, lis docs/CORE.md, compare film.sample(t) avant le rendu puis les
+deux adaptateurs ; npm run core:verify teste reset, masques et état partagé.
 Réduis le cas à une frame ou à une plage courte. Vérifie d'abord doctor,
 readiness, ressources locales, erreurs navigateur, dimensions et sortie FFmpeg.
 Compare seek(t) après un autre temps puis sur une page fraîche, tous les pixels.

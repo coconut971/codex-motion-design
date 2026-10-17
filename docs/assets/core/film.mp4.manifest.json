@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "project": "seed-and-fold",
+  "projectSha256": "8c0e9a4123a2c1306ca63515fa3142b2a4eeb79f95c02c2dd8017d573f3cee80",
+  "runtime": {
+    "node": "v24.18.1",
+    "platform": "win32",
+    "browser": "155.0.8059.84",
+    "ffmpeg": "ffmpeg version N-92722-gf22fcd4483 Copyright (c) 2000-2018 the FFmpeg developers"
+  },
+  "sources": {
+    "examples/core-demo/project.json": "8c0e9a4123a2c1306ca63515fa3142b2a4eeb79f95c02c2dd8017d573f3cee80",
+    "examples/core-demo/index.html": "55d7e068d88bcae4172fc735845e6ed255a51b5885ef7e91d7d0874e732ae5e7",
+    "package.json": "0e45e6bd50a38291220fe37f6f867c21d4915d731e48f661eadb75dad45b81b0",
+    "package-lock.json": "f2820af3633eaf537285fb2f141bec9b6b325eaef9a29adf9ba8187d54f7359f",
+    "lib/motion.mjs": "fd2261d87c1ca9c3f26afb087f1704c85c72896e740ac47deb178194b1b64a04",
+    "lib/project.mjs": "854e6092b2982c270c4dffce8a4ed3ea79db95a9612fc4ab38fce57c3afbdeb5",
+    "core/adapters.mjs": "afd71b24fdb0055583c4878d63ebcad3bc45e0acbd0188a4c6b282d7dd207cbc",
+    "core/film.mjs": "3ee963d94f40ea26cf713ef0cd068c40d43d49062dd623b3cae320aef62f8cfd",
+    "core/geometry.mjs": "15489a7441761cd1e3898893eb8ac3286605b765f362954c2a0eb46605190440",
+    "core/project.mjs": "2a4ea68ba8582069ffbce529e381501a782d25ae25b2b5a8b48f6477b64f6ddc",
+    "core/tracks.mjs": "c38193b5fdbc22e201267f151fbbf70d25b71d27fcb2ca1db5b8bbf874d622f5",
+    "examples/core-demo/player.mjs": "a1e0d0d5cd7d47fd7227184e6e65d6ba9e61c6d0159237ece8d307d514ec732e",
+    "examples/core-demo/REVIEW.md": "34e0662510da9e3b973667c28e23a8fa146d949a018166d55ee37aceefb0fd09",
+    "examples/core-demo/STORYBOARD.md": "9f45629ba39d1b2cda3eddbd017b2308859f5405b69ce1b40e3f4bdf666bd0ad",
+    "examples/rea-signal/index.html": "09523be3075caa20fafdea9934139acfdc68734d85e9d1f7e52703e786ae6803",
+    "examples/rea-signal/project.json": "34c869724403529daaefc3b67d124a4cde44686f4f53119ad462c0f4a6900cbf",
+    "examples/rea-signal/reconstruction.mjs": "d92123637695b54e7ca5b04be2a787100a74990c2446b2080f28092980b3370d",
+    "examples/rea-signal/REVIEW.md": "b0b30882e89bdbf88a36cdcb618acead6b8fde6e63474df3aea3fa7f614d0426",
+    "examples/rea-signal/spec.json": "01a9bab5960730eec73bc02c136952bc800622c20472ed1c7168045081c72c84",
+    "examples/rea-signal/STORYBOARD.md": "3f959b5a3eb4221644c4f250edfd9b7a284f1b183d7a3d96762dab97561575fa",
+    "examples/signal.html": "fa0b1aabbcec7f21acd4c35f75493d11aa501fdafe0b68e1d08e414557248e60",
+    "examples/signal.mjs": "6b2f77e2a52a1499838d9a3c143712c4e6c61b4450502b546bf220be77c65482",
+    "scripts/audio.mjs": "b92824b3385fee52f99ed2a18a6d67ba577b3838c3808ae62f685a50ad870501",
+    "scripts/core-verify.mjs": "2976c616f4dcd3924e2c997d9f9616470e12757ddcaa25aa22dcab7f12221e80",
+    "scripts/doctor.mjs": "ebe7a58b7fe53ec741261ed661b1616653e4d79a2389fd7978102db84a2bf75e",
+    "scripts/rea-case.mjs": "3b4bafc5f329aeaeb28139167792c4ad99ba542405b57d2cb0b1825f6837f71a",
+    "scripts/render.mjs": "653a2322fa4b9fb58d0e30c8275f46cd9bc6d7d9c0296a132d63c3ba10dee417",
+    "scripts/research-probe.mjs": "48d915dcffc38b43e4416dc6afdcb848648690e4ccab5dc90701764421511299",
+    "scripts/serve.mjs": "7b481fc78a94da94116bc461e741e338e51d7be6569292fb5b5014deb96cc775",
+    "scripts/verify.mjs": "33435b3927304a698e80968d62d45d4dfc9d4c7be44860ed73232c5cc5a77767"
+  },
+  "parameters": {
+    "mode": "video",
+    "scale": 1,
+    "samples": 4,
+    "shutter": 0.5,
+    "shutterUnits": "frame intervals",
+    "pixelAverage": "sRGB RGBA arithmetic mean before encoding",
+    "fps": 30,
+    "duration": 10,
+    "frameCount": 300,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "crop": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "endpoint": "n/fps, n in [0, frameCount)",
+    "videoColor": {
+      "pixelFormat": "yuv420p",
+      "range": "limited",
+      "matrix": "bt709",
+      "primaries": "bt709",
+      "transfer": "iec61966-2-1 (sRGB retained; not transformed to BT.709 transfer)"
+    }
+  },
+  "outputs": {
+    "imageOrVideo": "docs/assets/core/film.mp4",
+    "audio": "out/core-film.audio.wav"
+  },
+  "checks": {
+    "ready": true,
+    "fonts": true,
+    "pageErrors": [],
+    "requestErrors": [],
+    "determinism": {
+      "time": 5,
+      "sameBytes": true,
+      "sha256": "1520e2774d3a8f23cf35065d50989a67684bfd100ade6e09907c16fe125158c7",
+      "scope": "one same-browser backward/repeated seek; cross-platform equality not asserted"
+    },
+    "decode": {
+      "succeeded": true,
+      "decodedFrames": 300,
+      "videoAndAudio": true,
+      "encodedAudio": {
+        "sampleRate": 48000,
+        "channels": 2,
+        "bits": 16,
+        "decodedBytes": 1921024,
+        "decodedSampleFrames": 480256,
+        "duration": 10.005333333333333,
+        "expectedDuration": 10,
+        "maximumAacPaddingSamples": 1024,
+        "cues": [
+          {
+            "id": "release",
+            "startSample": 96000,
+            "endSample": 107520,
+            "peak": 0.306488037109375,
+            "sampleValues": 23040,
+            "rms": 0.05155381893306574
+          },
+          {
+            "id": "contact",
+            "startSample": 192000,
+            "endSample": 205440,
+            "peak": 0.890838623046875,
+            "sampleValues": 26880,
+            "rms": 0.16796888974917434
+          },
+          {
+            "id": "unfold",
+            "startSample": 216000,
+            "endSample": 234240,
+            "peak": 0.368560791015625,
+            "sampleValues": 36480,
+            "rms": 0.07159226512788011
+          },
+          {
+            "id": "second-leaf",
+            "startSample": 240000,
+            "endSample": 260160,
+            "peak": 0.344207763671875,
+            "sampleValues": 40320,
+            "rms": 0.05747137217948525
+          }
+        ]
+      }
+    }
+  },
+  "audio": {
+    "sampleRate": 48000,
+    "channels": 2,
+    "bits": 16,
+    "sampleFrames": 480000,
+    "duration": 10,
+    "peak": 0.8912353515625,
+    "peakDbFS": -1.0001519038193567,
+    "rms": 0.034459070409470986,
+    "rmsDbFS": -29.253928850866355,
+    "sourcePeak": 0.12010307431240357,
+    "normalizationGain": 7.4207171068368085,
+    "clippedSamples": 0,
+    "cues": [
+      {
+        "id": "release",
+        "requestedAt": 2,
+        "startSample": 96000,
+        "startTime": 2,
+        "offsetSeconds": 0,
+        "mathematicalFirstNonzeroSample": 96001,
+        "durationSamples": 11520,
+        "firstNonzeroSample": 96003,
+        "firstNonzeroTime": 2.0000625,
+        "measurement": "First nonzero 16-bit sample of this cue in isolation, after shared normalization; overlap can mask it in the mix."
+      },
+      {
+        "id": "contact",
+        "requestedAt": 4,
+        "startSample": 192000,
+        "startTime": 4,
+        "offsetSeconds": 0,
+        "mathematicalFirstNonzeroSample": 192001,
+        "durationSamples": 13440,
+        "firstNonzeroSample": 192003,
+        "firstNonzeroTime": 4.0000625,
+        "measurement": "First nonzero 16-bit sample of this cue in isolation, after shared normalization; overlap can mask it in the mix."
+      },
+      {
+        "id": "unfold",
+        "requestedAt": 4.5,
+        "startSample": 216000,
+        "startTime": 4.5,
+        "offsetSeconds": 0,
+        "mathematicalFirstNonzeroSample": 216001,
+        "durationSamples": 18240,
+        "firstNonzeroSample": 216003,
+        "firstNonzeroTime": 4.5000625,
+        "measurement": "First nonzero 16-bit sample of this cue in isolation, after shared normalization; overlap can mask it in the mix."
+      },
+      {
+        "id": "second-leaf",
+        "requestedAt": 5,
+        "startSample": 240000,
+        "startTime": 5,
+        "offsetSeconds": 0,
+        "mathematicalFirstNonzeroSample": 240001,
+        "durationSamples": 20160,
+        "firstNonzeroSample": 240002,
+        "firstNonzeroTime": 5.000041666666666,
+        "measurement": "First nonzero 16-bit sample of this cue in isolation, after shared normalization; overlap can mask it in the mix."
+      }
+    ],
+    "loudness": "Peak and RMS only; LUFS has not been measured."
+  }
+}

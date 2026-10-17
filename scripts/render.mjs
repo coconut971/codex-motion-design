@@ -6,7 +6,7 @@ import { once } from 'node:events';
 import { createHash, randomUUID } from 'node:crypto';
 import { serve, repositoryRoot } from './serve.mjs';
 import { writeAudio } from './audio.mjs';
-import { compileProject, beatTime } from '../lib/project.mjs';
+import { compileProject, beatTime } from '../core/project.mjs';
 
 export function parseArgs(argv) {
   const result = { scale: 1, samples: 1, shutter: 0.5, timeout: 30000, html: '/examples/signal.html', project: 'project.json' };
@@ -161,7 +161,7 @@ async function sourceHashes(projectPath, htmlPath) {
     }
   };
   const selectedHtml = decodeURIComponent(htmlPath.split('?')[0]).replace(/^\/+/, '');
-  for (const file of [...new Set([projectPath, selectedHtml, 'package.json', 'package-lock.json', 'lib', 'examples', 'scripts'])]) await visit(file);
+  for (const file of [...new Set([projectPath, selectedHtml, 'package.json', 'package-lock.json', 'lib', 'core', 'examples', 'scripts'])]) await visit(file);
   return sources;
 }
 
