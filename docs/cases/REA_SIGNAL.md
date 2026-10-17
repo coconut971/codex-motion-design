@@ -236,6 +236,5 @@ du fondu. Une [lecture muette automatisée](../assets/rea-case/playback.json)
 du draft a atteint la fin à 8 s sans erreur média. Elle ne vaut pas une
 observation continue par un spectateur.
 
-Les méthodes de temps absolu, de revue par
-frames et de vérification ont leur provenance dans
-[SOURCE_AUDIT.md](../SOURCE_AUDIT.md).
+Les méthodes de temps absolu, de revue par frames et de vérification sont
+décrites dans le [contrat de rendu](../RENDER_CONTRACT.md).

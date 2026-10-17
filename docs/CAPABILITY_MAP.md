@@ -7,26 +7,19 @@ un frame pur commun aux adaptateurs Canvas 2D et SVG DOM. La démo originale
 L'[API](CORE.md), le [storyboard](../examples/core-demo/STORYBOARD.md) et les
 [vérifications](CORE_VALIDATION.md) décrivent ce qui est livré.
 
+Ces capacités techniques ne garantissent pas un résultat artistique satisfaisant.
+Le test [L’atelier de l’aube](cases/morning-press.md), réalisé avec GPT-6 Astra en
+effort `high`, a passé ses contrôles techniques puis a été jugé très insuffisant
+par l’utilisateur, notamment sur la causalité mécanique. Les
+[limites constatées](LIMITATIONS.md) distinguent ce résultat local des capacités
+non évaluées des modèles.
+
 Ce dépôt rassemble une implémentation originale, des règles de production et
-un parcours d'enquête REA. Les **six sources ont été auditées**, pas fusionnées
-comme six moteurs embarqués. La source commerciale est exclue de toute
-réutilisation. L'[audit versionné](SOURCE_AUDIT.md) contient les constats et
-permalien de chaque source ; le tableau ci-dessous décrit le résultat local.
+un parcours d'enquête REA. Les tableaux ci-dessous décrivent les fonctions
+locales et leurs limites.
 
 La création et les corrections suivent l'[exclusivité Astra](ASTRA_WORKFLOW.md).
 L'exécution du code et la fabrication des médias restent locales.
-
-## Des sources aux capacités livrées
-
-| Source analysée | Apport retenu | Réalisation dans ce dépôt | Limite |
-| --- | --- | --- | --- |
-| Howseen | Temps absolu, sous-images, revue localisée ; quantification/erreurs à éviter | `compileFilm().sample(t)` continu, erreurs propagées, capture avec cuts compilés | Export Canvas 2D ; blur moyen en sRGB ; aucune reprise de son moteur |
-| Whaleyxbt | Timeline image/son, continuité, retiming ; caméra sans état précédent | Descriptor unique et secondes canoniques, caméra calculée au temps courant, `scripts/audio.mjs` | Synthèse locale ; aucun catalogue de SFX tiers |
-| Motion-graphics-skill | Source identifiée dans l'audit juridique | Aucun contenu adapté ou réutilisé | Licence commerciale : pas de code, prompt, template ni instruction incorporés |
-| Frankxai | Direction et critères de critique | `STORYBOARD.md`, `REVIEW.md`, prompts de direction et de critique | Les critères guident une inspection ; ils ne mesurent pas automatiquement le goût |
-| Framewright | Contrat et sondes de déterminisme, export contrôlé | `scripts/verify.mjs`, `scripts/core-verify.mjs`, réinitialisation Canvas/SVG, vérifications d'export | Probes dans un environnement fixé ; aucune preuve universelle de pureté |
-| Mort1d | Springs, transitions et pistes ; cubic bornée et reset complet | `core/tracks.mjs` : trois régimes, retarget position/vitesse, fréquence/ζ variables ; adaptateurs complets | Implémentation originale ; aucun moteur, fonte ou asset importé |
-| REA, complément MIT | Enquête sur page et JavaScript, preuves de référence | [Guide REA](REA_WORKFLOW.md), [prompt 07](../prompts/07-reverse-engineer.md), [cas Signal](cases/REA_SIGNAL.md) | Outil externe ; ses capacités de collecte ne garantissent ni reconstruction complète ni droits sur la cible |
 
 ## Ce qui s'exécute déjà
 
@@ -61,7 +54,7 @@ Un nouveau projet doit disposer de probes correspondant à sa page et à son des
 | --- | --- |
 | Export vidéo SVG/DOM/WebGL générique | L'adaptateur SVG DOM existe et est vérifié ; le renderer vidéo capture encore Canvas. Ajouter une capture dédiée avec tests avant de promettre cet export |
 | Remake automatique de toute vidéo | Développer extraction, correspondance d'objets et ajustement des paramètres ; les pixels seuls ne révèlent pas le code original |
-| Import automatique de projets des six dépôts | Aucun importeur livré ; analyser et réimplémenter les comportements utiles dans le cadre des licences |
+| Import automatique de projets externes | Aucun importeur livré ; analyser et réimplémenter les comportements utiles dans le cadre des licences |
 | Bibliothèque d'assets prêts à l'emploi | Le cœur compose des formes JSON ; la démo et Signal ne sont pas un catalogue. Créer les assets avec Astra et documenter leur provenance |
 | Critique perceptuelle certifiée | Aucun score ou test ne remplace une inspection réelle ; définir les critères du film et vérifier les captures |
 | Rendu génératif distant | Hors du runtime local et de la politique Astra exclusive actuelle |

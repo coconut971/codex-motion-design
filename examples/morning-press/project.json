@@ -1,0 +1,8902 @@
+{
+  "schema": "motion/1",
+  "id": "morning-press",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "duration": 14,
+  "seed": 17291,
+  "bpm": 120,
+  "beatOffset": 0,
+  "beatsPerBar": 4,
+  "palette": {
+    "paper": "#EEE5D4",
+    "sheet": "#FAF3E4",
+    "ink": "#3D4E53",
+    "shade": "#D5C9B4",
+    "ochre": "#D9A33D",
+    "vermillion": "#BB604B"
+  },
+  "grain": {
+    "count": 4000,
+    "opacity": 0.11
+  },
+  "cues": [
+    {
+      "id": "composition-opening",
+      "at": 0.6
+    },
+    {
+      "id": "feed-start",
+      "at": 0.8
+    },
+    {
+      "id": "feed-stop",
+      "at": 2.65,
+      "sound": {
+        "hz": 380,
+        "gain": 0.12,
+        "duration": 0.12,
+        "pan": -0.55
+      }
+    },
+    {
+      "id": "anticipation",
+      "at": 2.9
+    },
+    {
+      "id": "cut-pressure",
+      "at": 3.2
+    },
+    {
+      "id": "press-start",
+      "at": 3.55
+    },
+    {
+      "id": "pressure",
+      "at": 4.35,
+      "sound": {
+        "hz": 94,
+        "gain": 0.22,
+        "duration": 0.28,
+        "pan": -0.3
+      }
+    },
+    {
+      "id": "composition-pressure",
+      "at": 4.55
+    },
+    {
+      "id": "pressure-release",
+      "at": 4.95,
+      "sound": {
+        "hz": 196,
+        "gain": 0.11,
+        "duration": 0.22,
+        "pan": -0.2
+      }
+    },
+    {
+      "id": "press-up",
+      "at": 5.8
+    },
+    {
+      "id": "cut-reveal",
+      "at": 6.1
+    },
+    {
+      "id": "eject",
+      "at": 6.4,
+      "sound": {
+        "hz": 280,
+        "gain": 0.1,
+        "duration": 0.16,
+        "pan": 0
+      }
+    },
+    {
+      "id": "reveal-middle",
+      "at": 7.7
+    },
+    {
+      "id": "composition-reveal",
+      "at": 8.2
+    },
+    {
+      "id": "paper-overrun",
+      "at": 9.25
+    },
+    {
+      "id": "paper-stop",
+      "at": 9.55,
+      "sound": {
+        "hz": 520,
+        "gain": 0.1,
+        "duration": 0.24,
+        "pan": 0.6
+      }
+    },
+    {
+      "id": "cut-print",
+      "at": 9.8
+    },
+    {
+      "id": "composition-payoff",
+      "at": 11
+    },
+    {
+      "id": "hold",
+      "at": 12
+    },
+    {
+      "id": "last-frame",
+      "at": {
+        "frame": 419
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "id": "atelier",
+      "start": 0,
+      "end": {
+        "cue": "cut-pressure"
+      },
+      "camera": {
+        "x": 960,
+        "y": 540,
+        "zoom": 1
+      },
+      "transition": {
+        "type": "fade",
+        "duration": 0.35,
+        "colour": "paper"
+      }
+    },
+    {
+      "id": "pressure",
+      "start": {
+        "cue": "cut-pressure"
+      },
+      "end": {
+        "cue": "cut-reveal"
+      },
+      "camera": {
+        "x": 641,
+        "y": 439,
+        "zoom": 1.5
+      }
+    },
+    {
+      "id": "reveal",
+      "start": {
+        "cue": "cut-reveal"
+      },
+      "end": {
+        "cue": "cut-print"
+      },
+      "camera": {
+        "x": {
+          "keys": [
+            {
+              "at": {
+                "cue": "cut-reveal"
+              },
+              "value": 1045,
+              "ease": "smooth"
+            },
+            {
+              "at": {
+                "cue": "eject"
+              },
+              "value": 1045,
+              "ease": "smooth"
+            },
+            {
+              "at": {
+                "cue": "paper-stop"
+              },
+              "value": 1130,
+              "ease": "smooth"
+            }
+          ]
+        },
+        "y": 690,
+        "zoom": 1.2
+      }
+    },
+    {
+      "id": "print",
+      "start": {
+        "cue": "cut-print"
+      },
+      "end": 14,
+      "camera": {
+        "x": 1440,
+        "y": 749,
+        "zoom": 2.1
+      }
+    }
+  ],
+  "objects": [
+    {
+      "id": "table-wash",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            95,
+            935
+          ],
+          [
+            "C",
+            580,
+            927,
+            1190,
+            939,
+            1830,
+            932
+          ],
+          [
+            "L",
+            1841,
+            978
+          ],
+          [
+            "C",
+            1300,
+            984,
+            518,
+            974,
+            90,
+            982
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "shade",
+      "stroke": "none",
+      "strokeWidth": 3,
+      "boil": 0.65
+    },
+    {
+      "id": "table-edge",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            94,
+            935
+          ],
+          [
+            "C",
+            650,
+            929,
+            1220,
+            940,
+            1832,
+            932
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.2,
+      "boil": 0.65
+    },
+    {
+      "id": "table-under-edge",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            112,
+            975
+          ],
+          [
+            "C",
+            700,
+            970,
+            1260,
+            984,
+            1815,
+            974
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 1.8,
+      "boil": 0.65,
+      "opacity": 0.5
+    },
+    {
+      "id": "press-back",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            320,
+            921
+          ],
+          [
+            "L",
+            332,
+            376
+          ],
+          [
+            "C",
+            333,
+            257,
+            382,
+            170,
+            498,
+            153
+          ],
+          [
+            "L",
+            783,
+            153
+          ],
+          [
+            "C",
+            890,
+            162,
+            948,
+            244,
+            949,
+            374
+          ],
+          [
+            "L",
+            960,
+            920
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "ink",
+      "stroke": "ink",
+      "strokeWidth": 3.5,
+      "boil": 0.65
+    },
+    {
+      "id": "arch-opening",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            429,
+            547
+          ],
+          [
+            "L",
+            431,
+            369
+          ],
+          [
+            "C",
+            432,
+            295,
+            473,
+            260,
+            537,
+            256
+          ],
+          [
+            "L",
+            743,
+            256
+          ],
+          [
+            "C",
+            806,
+            260,
+            846,
+            300,
+            847,
+            369
+          ],
+          [
+            "L",
+            850,
+            547
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "paper",
+      "stroke": "ink",
+      "strokeWidth": 2.5,
+      "boil": 0.65
+    },
+    {
+      "id": "paper-feed-slot",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            302,
+            559
+          ],
+          [
+            "L",
+            978,
+            559
+          ],
+          [
+            "L",
+            978,
+            908
+          ],
+          [
+            "L",
+            302,
+            908
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "ink",
+      "stroke": "none",
+      "strokeWidth": 3,
+      "boil": 0.65
+    },
+    {
+      "id": "sheet",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -275,
+            -174
+          ],
+          [
+            "L",
+            268,
+            -177
+          ],
+          [
+            "Q",
+            278,
+            -176,
+            278,
+            -166
+          ],
+          [
+            "L",
+            275,
+            166
+          ],
+          [
+            "Q",
+            274,
+            175,
+            264,
+            176
+          ],
+          [
+            "L",
+            -266,
+            174
+          ],
+          [
+            "Q",
+            -276,
+            174,
+            -277,
+            164
+          ],
+          [
+            "L",
+            -278,
+            -164
+          ],
+          [
+            "Q",
+            -278,
+            -172,
+            -275,
+            -174
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "sheet",
+      "stroke": "ink",
+      "strokeWidth": 2.2,
+      "boil": 0.5,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sheet-edge",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -261,
+            164
+          ],
+          [
+            "C",
+            -78,
+            168,
+            94,
+            167,
+            261,
+            165
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "shade",
+      "strokeWidth": 1.4,
+      "boil": 0.35,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      }
+    },
+    {
+      "id": "printed-sun",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            74,
+            -25
+          ],
+          [
+            "C",
+            73,
+            20,
+            42,
+            50,
+            -1,
+            52
+          ],
+          [
+            "C",
+            -46,
+            52,
+            -78,
+            22,
+            -78,
+            -22
+          ],
+          [
+            "C",
+            -79,
+            -66,
+            -46,
+            -101,
+            -2,
+            -101
+          ],
+          [
+            "C",
+            40,
+            -104,
+            75,
+            -72,
+            74,
+            -25
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "ochre",
+      "stroke": "ink",
+      "strokeWidth": 2.2,
+      "boil": 0.85,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-0",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -92.09493039296603,
+            -37.943098389286114
+          ],
+          [
+            "Q",
+            -107.95868335534801,
+            -39.891521802727034,
+            -119.82243631773,
+            -41.839945216167955
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ochre",
+      "strokeWidth": 5.5,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-1",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -86.53983773565399,
+            -64.19000490796957
+          ],
+          [
+            "Q",
+            -98.20402264128356,
+            -70.37790041975424,
+            -113.86820754691314,
+            -76.5657959315389
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-2",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -73.50891366416406,
+            -88.28854250110737
+          ],
+          [
+            "Q",
+            -87.63409529949008,
+            -98.72788971778489,
+            -97.75927693481611,
+            -109.1672369344624
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-3",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -50.52761261124941,
+            -103.07663135540307
+          ],
+          [
+            "Q",
+            -59.393765860980466,
+            -119.86730476516718,
+            -72.25991911071152,
+            -136.65797817493126
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ochre",
+      "strokeWidth": 5.5,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-4",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -27.053712126936954,
+            -116.06644091075934
+          ],
+          [
+            "Q",
+            -32.75579904957043,
+            -128.52816440381062,
+            -34.45788597220391,
+            -140.9898878968619
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-5",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -0.30781209692178196,
+            -121.99951160553846
+          ],
+          [
+            "Q",
+            1.647761414862703,
+            -135.99944111561615,
+            -0.3966650733528118,
+            -149.99937062569387
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-6",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            25.917831434754362,
+            -114.3155418374633
+          ],
+          [
+            "Q",
+            28.93418590599714,
+            -131.6024209027788,
+            35.95054037723992,
+            -148.88929996809426
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ochre",
+      "strokeWidth": 5.5,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-7",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            51.10701017687319,
+            -105.08166775724004
+          ],
+          [
+            "Q",
+            63.32841221224783,
+            -121.09800130868805,
+            71.54981424762246,
+            -137.11433486013607
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-8",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            73.10576555274919,
+            -88.75380022356683
+          ],
+          [
+            "Q",
+            80.14977778607899,
+            -96.6408682924617,
+            91.19379001940878,
+            -104.52793636135657
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-9",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            84.47275284251627,
+            -63.90185120540101
+          ],
+          [
+            "Q",
+            101.00569956811047,
+            -70.59464281063129,
+            113.53864629370466,
+            -77.28743441586158
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ochre",
+      "strokeWidth": 5.5,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-10",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            93.98966051528963,
+            -38.81823853537804
+          ],
+          [
+            "Q",
+            108.80886292328883,
+            -41.29097595749832,
+            127.62806533128801,
+            -43.76371337961861
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-11",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            96.05600266793232,
+            -11.500209206873652
+          ],
+          [
+            "Q",
+            115.8808279052806,
+            -8.995093389592476,
+            131.70565314262885,
+            -6.489977572311297
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-12",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            84.71794641490338,
+            13.36495217306495
+          ],
+          [
+            "Q",
+            95.47118566015764,
+            19.14032131739731,
+            110.22442490541192,
+            24.915690461729668
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ochre",
+      "strokeWidth": 5.5,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-13",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            71.99326595974831,
+            36.98362409902269
+          ],
+          [
+            "Q",
+            85.36062374286647,
+            46.77051211465785,
+            94.72798152598462,
+            56.55740013029302
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-14",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            52.70084326119564,
+            56.434766037355885
+          ],
+          [
+            "Q",
+            59.39376586098048,
+            69.86730476516716,
+            70.08668846076533,
+            83.29984349297844
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-15",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            26.484160292685644,
+            64.14925268105915
+          ],
+          [
+            "Q",
+            34.179678635198684,
+            83.32113497806112,
+            37.87519697771173,
+            102.4930172750631
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ochre",
+      "strokeWidth": 5.5,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-16",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            0.30146545574812755,
+            69.99952167552735
+          ],
+          [
+            "Q",
+            -1.6572813766231813,
+            82.99945622059951,
+            0.3839717910055098,
+            95.99939076567168
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-17",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -27.0325768728083,
+            68.15707051864453
+          ],
+          [
+            "Q",
+            -28.93418590599713,
+            81.60242090277879,
+            -34.83579493918595,
+            95.04777128691305
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-18",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -50.031073120517995,
+            53.39573790971919
+          ],
+          [
+            "Q",
+            -61.71450662771503,
+            68.56910653740677,
+            -69.39794013491206,
+            83.74247516509435
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ochre",
+      "strokeWidth": 5.5,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-19",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -71.59843018052756,
+            37.439288878751
+          ],
+          [
+            "Q",
+            -83.91811621663308,
+            49.9271466545012,
+            -100.23780225273859,
+            62.4150044302514
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-20",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -88.10598952391479,
+            15.57504910670864
+          ],
+          [
+            "Q",
+            -101.00569956811043,
+            20.594642810631363,
+            -109.90540961230607,
+            25.61423651455408
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-ray-21",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -92.0109308202309,
+            -11.472671749577284
+          ],
+          [
+            "Q",
+            -105.84076838070072,
+            -9.145389469934667,
+            -123.67060594117056,
+            -6.81810719029205
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ochre",
+      "strokeWidth": 5.5,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-grain-0",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -44.22068555658763,
+            -62
+          ],
+          [
+            "C",
+            -13.055171389146908,
+            -64,
+            20.888274222635054,
+            -60,
+            49.22068555658763,
+            -63
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 1.1,
+      "boil": 0.6,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 0.19,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-grain-1",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -50.915193286621744,
+            -50
+          ],
+          [
+            "C",
+            -14.728798321655436,
+            -52,
+            23.566077314648698,
+            -48,
+            55.915193286621744,
+            -51
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 1.1,
+      "boil": 0.6,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 0.19,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-grain-2",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -54.66578013557319,
+            -38
+          ],
+          [
+            "C",
+            -15.666445033893298,
+            -40,
+            25.06631205422928,
+            -36,
+            59.66578013557319,
+            -39
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 1.1,
+      "boil": 0.6,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 0.19,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-grain-3",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -55.99218702310463,
+            -26
+          ],
+          [
+            "C",
+            -15.998046755776157,
+            -28,
+            25.596874809241854,
+            -24,
+            60.99218702310463,
+            -27
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 1.1,
+      "boil": 0.6,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 0.19,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-grain-4",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -55.047601064592456,
+            -14
+          ],
+          [
+            "C",
+            -15.761900266148114,
+            -16,
+            25.219040425836983,
+            -12,
+            60.047601064592456,
+            -15
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 1.1,
+      "boil": 0.6,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 0.19,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-grain-5",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -51.724366886556446,
+            -2
+          ],
+          [
+            "C",
+            -14.931091721639111,
+            -4,
+            23.88974675462258,
+            0,
+            56.724366886556446,
+            -3
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 1.1,
+      "boil": 0.6,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 0.19,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sun-grain-6",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -45.58171329847526,
+            10
+          ],
+          [
+            "C",
+            -13.395428324618814,
+            8,
+            21.432685319390103,
+            12,
+            50.58171329847526,
+            9
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 1.1,
+      "boil": 0.6,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 0.19,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "print-horizon",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -187,
+            117
+          ],
+          [
+            "C",
+            -80,
+            113,
+            73,
+            114,
+            185,
+            117
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 3.4,
+      "boil": 0.65,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "print-land-left",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -188,
+            117
+          ],
+          [
+            "C",
+            -141,
+            78,
+            -107,
+            79,
+            -66,
+            116
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.6,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "print-land-right",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            73,
+            115
+          ],
+          [
+            "C",
+            111,
+            92,
+            145,
+            93,
+            185,
+            117
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.6,
+      "boil": 0.55,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "print-lower-rule",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -113,
+            137
+          ],
+          [
+            "C",
+            -36,
+            134,
+            30,
+            137,
+            114,
+            135
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 1.8,
+      "boil": 0.4,
+      "x": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-start"
+            },
+            "value": -310,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 640,
+            "ease": [
+              0.14,
+              0.65,
+              0.24,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 640,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 1420,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 1410,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "reveal-middle"
+            },
+            "value": 731,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": 755,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": 757,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -1.1,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "feed-stop"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-overrun"
+            },
+            "value": -0.65,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "paper-stop"
+            },
+            "value": -0.35,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 0,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 1,
+            "ease": "hold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "press-front",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            314,
+            552
+          ],
+          [
+            "Q",
+            316,
+            539,
+            331,
+            539
+          ],
+          [
+            "L",
+            946,
+            539
+          ],
+          [
+            "Q",
+            961,
+            540,
+            963,
+            554
+          ],
+          [
+            "L",
+            959,
+            901
+          ],
+          [
+            "Q",
+            957,
+            923,
+            935,
+            923
+          ],
+          [
+            "L",
+            342,
+            923
+          ],
+          [
+            "Q",
+            318,
+            921,
+            317,
+            899
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "ink",
+      "stroke": "ink",
+      "strokeWidth": 4,
+      "boil": 0.65
+    },
+    {
+      "id": "press-front-inset",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            359,
+            593
+          ],
+          [
+            "Q",
+            361,
+            580,
+            375,
+            579
+          ],
+          [
+            "L",
+            903,
+            579
+          ],
+          [
+            "Q",
+            918,
+            580,
+            918,
+            595
+          ],
+          [
+            "L",
+            916,
+            865
+          ],
+          [
+            "Q",
+            914,
+            879,
+            899,
+            881
+          ],
+          [
+            "L",
+            378,
+            881
+          ],
+          [
+            "Q",
+            361,
+            879,
+            360,
+            865
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "paper",
+      "stroke": "shade",
+      "strokeWidth": 3,
+      "boil": 0.65
+    },
+    {
+      "id": "apron-arch",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            420,
+            842
+          ],
+          [
+            "L",
+            420,
+            739
+          ],
+          [
+            "C",
+            420,
+            649,
+            495,
+            620,
+            639,
+            620
+          ],
+          [
+            "C",
+            780,
+            620,
+            853,
+            650,
+            854,
+            739
+          ],
+          [
+            "L",
+            854,
+            842
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 13,
+      "boil": 0.8
+    },
+    {
+      "id": "apron-foot-left",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            403,
+            843
+          ],
+          [
+            "L",
+            438,
+            843
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 12,
+      "boil": 0.65
+    },
+    {
+      "id": "apron-foot-right",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            837,
+            843
+          ],
+          [
+            "L",
+            871,
+            843
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 12,
+      "boil": 0.65
+    },
+    {
+      "id": "front-fastener-left",
+      "geometry": {
+        "type": "ellipse",
+        "rx": 8,
+        "ry": 8,
+        "cx": 0,
+        "cy": 0
+      },
+      "fill": "ink",
+      "stroke": "none",
+      "strokeWidth": 3,
+      "boil": 0.65,
+      "x": 383,
+      "y": 603
+    },
+    {
+      "id": "front-fastener-right",
+      "geometry": {
+        "type": "ellipse",
+        "rx": 8,
+        "ry": 8,
+        "cx": 0,
+        "cy": 0
+      },
+      "fill": "ink",
+      "stroke": "none",
+      "strokeWidth": 3,
+      "boil": 0.65,
+      "x": 892,
+      "y": 603
+    },
+    {
+      "id": "body-highlight-left",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            351,
+            528
+          ],
+          [
+            "L",
+            354,
+            377
+          ],
+          [
+            "C",
+            355,
+            281,
+            397,
+            220,
+            455,
+            202
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "shade",
+      "strokeWidth": 2,
+      "boil": 0.65,
+      "opacity": 0.8
+    },
+    {
+      "id": "body-highlight-right",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            918,
+            524
+          ],
+          [
+            "L",
+            916,
+            378
+          ],
+          [
+            "C",
+            915,
+            286,
+            872,
+            219,
+            819,
+            203
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "shade",
+      "strokeWidth": 2,
+      "boil": 0.65,
+      "opacity": 0.65
+    },
+    {
+      "id": "body-hatch-0",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            374,
+            875
+          ],
+          [
+            "L",
+            389,
+            891
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "shade",
+      "strokeWidth": 1.3,
+      "boil": 0.65,
+      "opacity": 0.65
+    },
+    {
+      "id": "body-hatch-1",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            381,
+            875
+          ],
+          [
+            "L",
+            396,
+            891
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "shade",
+      "strokeWidth": 1.3,
+      "boil": 0.65,
+      "opacity": 0.65
+    },
+    {
+      "id": "body-hatch-2",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            388,
+            875
+          ],
+          [
+            "L",
+            403,
+            891
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "shade",
+      "strokeWidth": 1.3,
+      "boil": 0.65,
+      "opacity": 0.65
+    },
+    {
+      "id": "body-hatch-3",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            395,
+            875
+          ],
+          [
+            "L",
+            410,
+            891
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "shade",
+      "strokeWidth": 1.3,
+      "boil": 0.65,
+      "opacity": 0.65
+    },
+    {
+      "id": "body-hatch-4",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            402,
+            875
+          ],
+          [
+            "L",
+            417,
+            891
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "shade",
+      "strokeWidth": 1.3,
+      "boil": 0.65,
+      "opacity": 0.65
+    },
+    {
+      "id": "press-bed",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            393,
+            537
+          ],
+          [
+            "L",
+            884,
+            537
+          ],
+          [
+            "L",
+            895,
+            550
+          ],
+          [
+            "L",
+            383,
+            550
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "shade",
+      "stroke": "ink",
+      "strokeWidth": 3,
+      "boil": 0.65
+    },
+    {
+      "id": "platen",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -235,
+            0
+          ],
+          [
+            "Q",
+            -244,
+            0,
+            -245,
+            10
+          ],
+          [
+            "L",
+            -245,
+            42
+          ],
+          [
+            "Q",
+            -244,
+            53,
+            -234,
+            53
+          ],
+          [
+            "L",
+            233,
+            53
+          ],
+          [
+            "Q",
+            245,
+            52,
+            245,
+            41
+          ],
+          [
+            "L",
+            245,
+            10
+          ],
+          [
+            "Q",
+            244,
+            0,
+            232,
+            0
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "ink",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "platen-edge",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -222,
+            39
+          ],
+          [
+            "L",
+            221,
+            39
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "shade",
+      "strokeWidth": 2.2,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -21,
+            -201
+          ],
+          [
+            "L",
+            21,
+            -201
+          ],
+          [
+            "L",
+            21,
+            3
+          ],
+          [
+            "L",
+            -21,
+            3
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "shade",
+      "stroke": "ink",
+      "strokeWidth": 3.5,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft-thread-0",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -20,
+            -185
+          ],
+          [
+            "L",
+            20,
+            -173
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.1,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft-thread-1",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -20,
+            -169
+          ],
+          [
+            "L",
+            20,
+            -157
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.1,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft-thread-2",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -20,
+            -153
+          ],
+          [
+            "L",
+            20,
+            -141
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.1,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft-thread-3",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -20,
+            -137
+          ],
+          [
+            "L",
+            20,
+            -125
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.1,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft-thread-4",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -20,
+            -121
+          ],
+          [
+            "L",
+            20,
+            -109
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.1,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft-thread-5",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -20,
+            -105
+          ],
+          [
+            "L",
+            20,
+            -93
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.1,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft-thread-6",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -20,
+            -89
+          ],
+          [
+            "L",
+            20,
+            -77
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.1,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft-thread-7",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -20,
+            -73
+          ],
+          [
+            "L",
+            20,
+            -61
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.1,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft-thread-8",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -20,
+            -57
+          ],
+          [
+            "L",
+            20,
+            -45
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.1,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft-thread-9",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -20,
+            -41
+          ],
+          [
+            "L",
+            20,
+            -29
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.1,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft-thread-10",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -20,
+            -25
+          ],
+          [
+            "L",
+            20,
+            -13
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "ink",
+      "strokeWidth": 2.1,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shaft-collar",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -54,
+            -8
+          ],
+          [
+            "L",
+            54,
+            -8
+          ],
+          [
+            "L",
+            54,
+            8
+          ],
+          [
+            "L",
+            -54,
+            8
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "ink",
+      "stroke": "ink",
+      "strokeWidth": 2.5,
+      "boil": 0.65,
+      "x": 640,
+      "y": {
+        "keys": [
+          {
+            "at": 0,
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": 430,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 487,
+            "ease": [
+              0.45,
+              0,
+              0.72,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 487,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": 430,
+            "ease": [
+              0.3,
+              0,
+              0.45,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "top-bearing",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            598,
+            197
+          ],
+          [
+            "L",
+            682,
+            197
+          ],
+          [
+            "L",
+            688,
+            278
+          ],
+          [
+            "Q",
+            641,
+            292,
+            592,
+            278
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "ink",
+      "stroke": "ink",
+      "strokeWidth": 3,
+      "boil": 0.65
+    },
+    {
+      "id": "bearing-highlight",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            608,
+            211
+          ],
+          [
+            "L",
+            608,
+            266
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "shade",
+      "strokeWidth": 2,
+      "boil": 0.65
+    },
+    {
+      "id": "lever",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            -249,
+            -8
+          ],
+          [
+            "Q",
+            -259,
+            0,
+            -249,
+            8
+          ],
+          [
+            "L",
+            233,
+            8
+          ],
+          [
+            "Q",
+            249,
+            0,
+            233,
+            -8
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "ink",
+      "stroke": "ink",
+      "strokeWidth": 3,
+      "boil": 0.65,
+      "x": 640,
+      "y": 213,
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -13,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "anticipation"
+            },
+            "value": -13,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": -25,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 24,
+            "ease": [
+              0.37,
+              0,
+              0.6,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 24,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": -7,
+            "ease": [
+              0.3,
+              0,
+              0.4,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": -11,
+            "ease": "smooth"
+          }
+        ]
+      }
+    },
+    {
+      "id": "lever-grip",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            209,
+            -22
+          ],
+          [
+            "C",
+            226,
+            -33,
+            253,
+            -27,
+            257,
+            -12
+          ],
+          [
+            "C",
+            266,
+            13,
+            247,
+            31,
+            226,
+            25
+          ],
+          [
+            "C",
+            207,
+            20,
+            200,
+            -8,
+            209,
+            -22
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "vermillion",
+      "stroke": "ink",
+      "strokeWidth": 3.3,
+      "boil": 0.65,
+      "x": 640,
+      "y": 213,
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -13,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "anticipation"
+            },
+            "value": -13,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": -25,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 24,
+            "ease": [
+              0.37,
+              0,
+              0.6,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 24,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": -7,
+            "ease": [
+              0.3,
+              0,
+              0.4,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": -11,
+            "ease": "smooth"
+          }
+        ]
+      }
+    },
+    {
+      "id": "grip-mark",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            228,
+            -15
+          ],
+          [
+            "Q",
+            243,
+            -10,
+            242,
+            4
+          ]
+        ]
+      },
+      "fill": "none",
+      "stroke": "sheet",
+      "strokeWidth": 2,
+      "boil": 0.65,
+      "x": 640,
+      "y": 213,
+      "rotation": {
+        "keys": [
+          {
+            "at": 0,
+            "value": -13,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "anticipation"
+            },
+            "value": -13,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-start"
+            },
+            "value": -25,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "pressure"
+            },
+            "value": 24,
+            "ease": [
+              0.37,
+              0,
+              0.6,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "pressure-release"
+            },
+            "value": 24,
+            "ease": "smooth"
+          },
+          {
+            "at": {
+              "cue": "press-up"
+            },
+            "value": -7,
+            "ease": [
+              0.3,
+              0,
+              0.4,
+              1
+            ]
+          },
+          {
+            "at": {
+              "cue": "eject"
+            },
+            "value": -11,
+            "ease": "smooth"
+          }
+        ]
+      },
+      "opacity": 0.55
+    },
+    {
+      "id": "lever-hub",
+      "geometry": {
+        "type": "ellipse",
+        "rx": 24,
+        "ry": 24,
+        "cx": 0,
+        "cy": 0
+      },
+      "fill": "shade",
+      "stroke": "ink",
+      "strokeWidth": 3,
+      "boil": 0.65,
+      "x": 640,
+      "y": 213
+    },
+    {
+      "id": "hub-pin",
+      "geometry": {
+        "type": "ellipse",
+        "rx": 7,
+        "ry": 7,
+        "cx": 0,
+        "cy": 0
+      },
+      "fill": "ink",
+      "stroke": "none",
+      "strokeWidth": 3,
+      "boil": 0.65,
+      "x": 640,
+      "y": 213
+    },
+    {
+      "id": "foot-left",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            326,
+            916
+          ],
+          [
+            "L",
+            425,
+            916
+          ],
+          [
+            "L",
+            432,
+            936
+          ],
+          [
+            "L",
+            315,
+            936
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "ink",
+      "stroke": "ink",
+      "strokeWidth": 3,
+      "boil": 0.65
+    },
+    {
+      "id": "foot-right",
+      "geometry": {
+        "type": "path",
+        "commands": [
+          [
+            "M",
+            850,
+            916
+          ],
+          [
+            "L",
+            950,
+            916
+          ],
+          [
+            "L",
+            962,
+            936
+          ],
+          [
+            "L",
+            841,
+            936
+          ],
+          [
+            "Z"
+          ]
+        ]
+      },
+      "fill": "ink",
+      "stroke": "ink",
+      "strokeWidth": 3,
+      "boil": 0.65
+    }
+  ],
+  "qa": [
+    {
+      "id": "composition-opening",
+      "at": {
+        "cue": "composition-opening"
+      }
+    },
+    {
+      "id": "composition-pressure",
+      "at": {
+        "cue": "composition-pressure"
+      }
+    },
+    {
+      "id": "composition-reveal",
+      "at": {
+        "cue": "composition-reveal"
+      }
+    },
+    {
+      "id": "composition-payoff",
+      "at": {
+        "cue": "composition-payoff"
+      }
+    },
+    {
+      "id": "feed-stop-before",
+      "at": {
+        "cue": "feed-stop",
+        "offset": -0.03333333333333333
+      },
+      "object": "sheet"
+    },
+    {
+      "id": "feed-stop-contact",
+      "at": {
+        "cue": "feed-stop"
+      },
+      "object": "sheet"
+    },
+    {
+      "id": "feed-stop-after",
+      "at": {
+        "cue": "feed-stop",
+        "offset": 0.03333333333333333
+      },
+      "object": "sheet"
+    },
+    {
+      "id": "pressure-before",
+      "at": {
+        "cue": "pressure",
+        "offset": -0.03333333333333333
+      },
+      "object": "platen"
+    },
+    {
+      "id": "pressure-contact",
+      "at": {
+        "cue": "pressure"
+      },
+      "object": "platen"
+    },
+    {
+      "id": "pressure-after",
+      "at": {
+        "cue": "pressure",
+        "offset": 0.03333333333333333
+      },
+      "object": "platen"
+    },
+    {
+      "id": "pressure-release-before",
+      "at": {
+        "cue": "pressure-release",
+        "offset": -0.03333333333333333
+      },
+      "object": "platen"
+    },
+    {
+      "id": "pressure-release-contact",
+      "at": {
+        "cue": "pressure-release"
+      },
+      "object": "platen"
+    },
+    {
+      "id": "pressure-release-after",
+      "at": {
+        "cue": "pressure-release",
+        "offset": 0.03333333333333333
+      },
+      "object": "platen"
+    },
+    {
+      "id": "paper-stop-before",
+      "at": {
+        "cue": "paper-stop",
+        "offset": -0.03333333333333333
+      },
+      "object": "sheet"
+    },
+    {
+      "id": "paper-stop-contact",
+      "at": {
+        "cue": "paper-stop"
+      },
+      "object": "sheet"
+    },
+    {
+      "id": "paper-stop-after",
+      "at": {
+        "cue": "paper-stop",
+        "offset": 0.03333333333333333
+      },
+      "object": "sheet"
+    },
+    {
+      "id": "cut-pressure-before",
+      "at": {
+        "cue": "cut-pressure",
+        "offset": -0.03333333333333333
+      }
+    },
+    {
+      "id": "cut-pressure-on",
+      "at": {
+        "cue": "cut-pressure"
+      }
+    },
+    {
+      "id": "cut-pressure-after",
+      "at": {
+        "cue": "cut-pressure",
+        "offset": 0.03333333333333333
+      }
+    },
+    {
+      "id": "cut-reveal-before",
+      "at": {
+        "cue": "cut-reveal",
+        "offset": -0.03333333333333333
+      }
+    },
+    {
+      "id": "cut-reveal-on",
+      "at": {
+        "cue": "cut-reveal"
+      }
+    },
+    {
+      "id": "cut-reveal-after",
+      "at": {
+        "cue": "cut-reveal",
+        "offset": 0.03333333333333333
+      }
+    },
+    {
+      "id": "cut-print-before",
+      "at": {
+        "cue": "cut-print",
+        "offset": -0.03333333333333333
+      }
+    },
+    {
+      "id": "cut-print-on",
+      "at": {
+        "cue": "cut-print"
+      }
+    },
+    {
+      "id": "cut-print-after",
+      "at": {
+        "cue": "cut-print",
+        "offset": 0.03333333333333333
+      }
+    },
+    {
+      "id": "ejection-flow-before",
+      "at": {
+        "cue": "reveal-middle",
+        "offset": -0.03333333333333333
+      },
+      "object": "sheet"
+    },
+    {
+      "id": "ejection-flow-middle",
+      "at": {
+        "cue": "reveal-middle"
+      },
+      "object": "sheet"
+    },
+    {
+      "id": "ejection-flow-after",
+      "at": {
+        "cue": "reveal-middle",
+        "offset": 0.03333333333333333
+      },
+      "object": "sheet"
+    },
+    {
+      "id": "hold",
+      "at": {
+        "cue": "hold"
+      },
+      "object": "sheet"
+    },
+    {
+      "id": "last",
+      "at": {
+        "cue": "last-frame"
+      },
+      "object": "sheet"
+    }
+  ]
+}

@@ -18,7 +18,7 @@ The `@humzaakhalid` candidate was linked by [this secondary article's bibliograp
 
 ## What the implementation can establish
 
-Technical provenance comes from the six source repositories actually cloned and inspected, with commit-specific references and limitations in [SOURCE_AUDIT.md](SOURCE_AUDIT.md). The executable example and its checks provide evidence for our own implementation.
+The executable examples and their [documented checks](VALIDATION.md) provide evidence for our own implementation within the limits of the tested cases.
 
 The design decisions include direct evaluation at a requested time, analytical springs, a shared picture/sound timeline, intentional visual constraints, and frame-based review. Their inclusion does not establish that any named social account originated them. In particular, no universal spring preset, fixed beat duration or subjective review score is presented as an author's verified prescription.
 

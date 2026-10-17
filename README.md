@@ -5,6 +5,15 @@ film, calculer chaque image au temps demandé, critiquer des frames et exporter
 un MP4 avec son synchronisé. Tout se rend localement avec Node, Playwright et
 FFmpeg. Aucun SDK de modèle, clé API, plugin ou dépendance Claude n'est requis.
 
+> **État actuel : résultat artistique insuffisant.** Le test exploratoire
+> [L’atelier de l’aube — voir le film](docs/assets/morning-press/film.mp4), réalisé
+> rapidement avec GPT-6 Astra en effort `high`, a été jugé très insuffisant par
+> l’utilisateur, notamment pour la logique mécanique sous le levier. Les contrôles
+> techniques passent ; ils ne valident ni cette logique ni la qualité du film.
+> Le rendu est publié avec ses défauts, sans promesse de qualité studio ou de
+> résultat prêt pour la production. Lire les [limites](docs/LIMITATIONS.md) et
+> le [compte rendu du test](docs/cases/morning-press.md).
+
 **La création est réservée à GPT-6 Astra** : direction, storyboard, code, assets,
 prompts et corrections. Le [workflow Astra](docs/ASTRA_WORKFLOW.md) décrit cette
 règle d'auteur ; le rendu des fichiers existants reste entièrement local.
@@ -14,14 +23,9 @@ règle d'auteur ; le rendu des fichiers existants reste entièrement local.
 [Film du cœur avec son](docs/assets/core/film.mp4) ·
 [Storyboard](examples/core-demo/STORYBOARD.md) · [Validation exécutée](docs/CORE_VALIDATION.md)
 
-Le projet est indépendant et n'est pas un produit officiel OpenAI. Les
-[six dépôts audités](docs/SOURCE_AUDIT.md) ont été étudiés ; les enseignements
-techniques retenus viennent des sources permissives, et la source commerciale
-est exclue de toute réutilisation. L'implémentation est originale. Plusieurs
-sources supportaient déjà Codex : il s'agit
-d'une synthèse critique, pas d'un renommage de fichiers Claude.
-La [carte des capacités](docs/CAPABILITY_MAP.md) relie ce cœur aux six audits et
-à REA, en distinguant les fonctions exécutables des extensions à construire.
+Le projet est indépendant et n'est pas un produit officiel OpenAI.
+L'implémentation est originale. La [carte des capacités](docs/CAPABILITY_MAP.md)
+distingue les fonctions exécutables des extensions à construire.
 
 Le [cœur `motion/1`](docs/CORE.md) compile maintenant un **descriptor JSON** en
 scènes, objets persistants, pistes et images indépendantes : keyframes, cubic
@@ -132,12 +136,6 @@ permet de préparer un projet sans prétendre l'avoir exécuté.
 
 ## REA : analyser une référence existante
 
-L'[enquête approfondie des six sources](docs/research/README.md) relie preuves,
-défauts mesurés et décisions du cœur. Les rapports détaillés distinguent captures
-REA et sondes numériques externes. Le [protocole reproductible](docs/research/REPRODUCE.md)
-et `scripts/research-probe.mjs` rejouent les principales observations sur les
-révisions figées ; aucun code de ces sources n'est importé dans le runtime.
-
 [REA — Reverse Engineer Anything](https://github.com/morluto/rea) est un outil
 MIT compatible Codex. Il complète l'enquête sur une page, une application ou du
 code ; il reste **optionnel**, hors dépendances du film et hors CI de rendu.
@@ -241,13 +239,13 @@ examples/core-demo/        film JSON original de 10 s, lecteur Canvas/SVG et rev
 scripts/                   serveur, doctor, capture, audio, vérification
 tests/                     contrats mathématiques, timing, erreurs et confinement
 prompts/                   sept briefs réutilisables
-docs/                      workflow Astra, capacités, contrats, audits, REA et preuves
+docs/                      workflow Astra, capacités, limites, contrats, REA et preuves
 .github/workflows/         validation reproductible sur Linux
 package-lock.json          versions verrouillées
 ```
 
-`out/`, `work/` et les dépendances sont ignorés. Les sept clones de recherche ne
-sont pas embarqués. Les seuls médias livrés sont générés par notre propre exemple.
+`out/`, `work/` et les dépendances sont ignorés. Les clones de recherche ne
+sont pas embarqués. Les médias livrés sont générés depuis les exemples du dépôt.
 
 ## Provenance et licence
 
@@ -255,8 +253,5 @@ Code et prompts originaux sous [MIT](LICENSE). Playwright est sous Apache-2.0 ;
 Chromium et FFmpeg conservent leurs propres licences. REA reste un outil externe
 sous MIT. Aucune police ou musique tierce n'est embarquée.
 
-L'[audit](docs/SOURCE_AUDIT.md) fige commits, méthodes observées et limites des
-six sources. La source sous licence commerciale est exclue de toute réutilisation.
-Les posts demandés de `@seeconvm`, `@humzaakhalid` et `@flxrnc` n'ont pas pu être
-lus directement ; le [registre des recherches](docs/SOCIAL_SOURCES.md) sépare ces
-pistes des faits établis. Aucune méthode ne leur est attribuée sans preuve.
+Les contenus tiers restent soumis à leurs licences respectives. Aucun contenu
+commercial étudié n'est réutilisé dans ce dépôt.

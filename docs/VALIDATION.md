@@ -93,9 +93,9 @@ techniquement, sans écoute humaine revendiquée.
 
 ## REA, provenance et limites
 
-Les six dépôts demandés et REA ont été clonés puis lus à des commits figés.
-[Audit et licences](SOURCE_AUDIT.md). Le contenu de la source commerciale reste
-exclu. Aucun code, police ou média tiers de ces dépôts n'est embarqué.
+Les rapports détaillés d'étude des sources externes ont été retirés de l'arbre
+courant ; l'historique Git est conservé. Les contrôles ci-dessous portent sur
+notre moteur et le cas REA livré.
 
 REA `6.5.0` : lecture du source, métadonnées npm, aide CLI et setup Codex en
 `--dry-run` réellement réussis. Résultat `planned`, zéro action appliquée,

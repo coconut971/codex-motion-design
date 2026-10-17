@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="data:,">
+  <title>L’atelier de l’aube — Essai exploratoire — résultat jugé insuffisant</title>
+  <style>
+    :root{font-family:Georgia,'Times New Roman',serif;color:#f1e7d3;background:#172d32;font-synthesis:none}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh}main{max-width:1440px;margin:auto;padding:38px 42px 26px}
+    header{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:24px}.eyebrow{font:12px/1.5 system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#d5a656;margin:0 0 8px}h1{font-size:clamp(27px,3.4vw,47px);font-weight:normal;letter-spacing:-.025em;margin:0;line-height:1.1}.credit{font:13px/1.6 system-ui,sans-serif;color:#c2c8c3;margin:0;white-space:nowrap}
+    .screen{aspect-ratio:16/9;background:#efe3cb;overflow:hidden;box-shadow:0 22px 50px #08191c55;border:1px solid #9dada329}video,.preview{width:100%;height:100%;display:block;object-fit:contain}.preview[hidden],video[hidden]{display:none}.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:20px 0 0;flex-wrap:wrap}.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}button,a{font:13px/1.4 system-ui,sans-serif}button{border:1px solid #c59a55;background:#d8ad62;color:#172d32;border-radius:3px;padding:11px 16px;cursor:pointer}button:hover{background:#e9c27f}button:focus-visible,a:focus-visible{outline:3px solid #f1e7d3;outline-offset:5px}a{color:#d8cdb7;text-underline-offset:4px}.secondary{background:transparent;color:#dfd6c5;border-color:#62716c}.secondary:hover{background:#2a4042}.note{font:12px/1.55 system-ui,sans-serif;color:#aebcb6;margin:0}#status{min-height:20px;font:12px/1.5 system-ui,sans-serif;color:#d7c5a3;margin:13px 0 0}footer{margin-top:18px;border-top:1px solid #81978e33;padding-top:14px;font:12px/1.5 system-ui,sans-serif;color:#9fafa8}
+    @media(max-width:680px){main{padding:24px 16px}header{display:block;margin-bottom:20px}.credit{margin-top:10px}.screen{margin:0 -16px;border-left:0;border-right:0}.note{max-width:38ch}}
+  </style>
+</head>
+<body>
+<main>
+  <header><div><p class="eyebrow">Essai exploratoire — résultat jugé insuffisant</p><h1>L’atelier de l’aube</h1></div><p class="credit">Création originale · GPT-6 Astra<br>14 secondes · image &amp; son calculés localement</p></header>
+  <div class="screen">
+    <video id="film" controls autoplay muted loop playsinline preload="auto" poster="poster.webp" aria-label="L’atelier de l’aube, film de quatorze secondes">Votre navigateur ne lit pas cette vidéo. Le fichier MP4 est disponible ci-dessous.</video>
+    <img class="preview" id="preview" src="preview.webp" alt="Aperçu animé silencieux de L’atelier de l’aube" hidden>
+  </div>
+  <div class="bar"><div class="actions"><button id="sound" type="button" aria-pressed="false">Activer le son</button><a href="film.mp4" download="atelier-de-laube.mp4">Télécharger le MP4</a><button class="secondary" id="fallback" type="button" aria-pressed="false">Aperçu animé</button></div><p class="note">Le film démarre sans son. Activez-le pour entendre l’accompagnement sonore.</p></div>
+  <p id="status" aria-live="polite"></p>
+  <footer>Ce test est publié en l’état pour documenter ses limites artistiques. Les contrôles techniques ne constituent pas une validation de qualité.<br><a href="../../cases/morning-press.md">Lire le bilan de cet essai</a> · <a href="../../LIMITATIONS.md">Limites de l’outil</a></footer>
+</main>
+<script>
+  const video=document.querySelector('#film'),preview=document.querySelector('#preview'),sound=document.querySelector('#sound'),fallback=document.querySelector('#fallback'),status=document.querySelector('#status');
+  const updateSound=()=>{sound.textContent=video.muted?'Activer le son':'Couper le son';sound.setAttribute('aria-pressed',String(!video.muted));};
+  sound.addEventListener('click',async()=>{if(video.hidden){video.hidden=false;preview.hidden=true;fallback.setAttribute('aria-pressed','false');fallback.textContent='Aperçu animé';}video.muted=!video.muted;updateSound();try{await video.play();status.textContent='';}catch{status.textContent='Utilisez le bouton de lecture dans la vidéo ou ouvrez le fichier MP4.';}});
+  video.addEventListener('volumechange',updateSound);
+  fallback.addEventListener('click',async()=>{const show=preview.hidden;preview.hidden=!show;video.hidden=show;fallback.setAttribute('aria-pressed',String(show));fallback.textContent=show?'Revenir à la vidéo':'Aperçu animé';if(show){video.pause();status.textContent='Aperçu animé, sans son.';}else{status.textContent='';try{await video.play();}catch{status.textContent='Appuyez sur lecture pour démarrer le film.';}}});
+  video.addEventListener('error',()=>{status.textContent='La vidéo ne peut pas être lue ici. Utilisez l’aperçu animé ou téléchargez le MP4.';});
+  let mediaUrl;
+  sound.disabled=true;status.textContent='Chargement du film…';
+  (async()=>{try{const response=await fetch('film.mp4');if(!response.ok)throw Error('film unavailable');mediaUrl=URL.createObjectURL(await response.blob());video.src=mediaUrl;sound.disabled=false;status.textContent=video.hidden?'Aperçu animé, sans son.':'';try{if(!video.hidden)await video.play();}catch{status.textContent='Appuyez sur lecture pour démarrer le film.';}}catch{status.textContent='Le film n’a pas pu être chargé. Utilisez l’aperçu animé ou téléchargez le MP4.';}})();
+  addEventListener('pagehide',()=>{if(mediaUrl)URL.revokeObjectURL(mediaUrl);},{once:true});
+</script>
+</body>
+</html>

@@ -8,8 +8,7 @@ un déplacement d'un échantillon audio aux frontières d'arrondi. Les coupes
 proviennent des plans, les masques et caméras sont évalués au temps courant.
 Les adaptateurs Canvas/SVG réécrivent chaque état et partagent la même géométrie.
 
-Ce document formalise notre adaptation originale. Les méthodes observées et les
-différences avec les six dépôts sont dans [SOURCE_AUDIT.md](SOURCE_AUDIT.md).
+Ce document formalise les règles de notre implémentation.
 Il ne suffit pas de remplacer un nom de modèle dans un prompt : les contrats
 doivent être exécutables, les corrections visibles et les preuves explicites.
 
