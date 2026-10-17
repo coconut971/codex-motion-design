@@ -1,23 +1,23 @@
-# Utilisation depuis ChatGPT et passage à Codex
+# Use from ChatGPT and hand off to Codex
 
 ```text
-Auteur requis : GPT-6 Astra exclusivement, y compris pour le code, les assets,
-les prompts et les corrections. Vérifie le modèle avec les informations fiables
-de la session ; si ce n'est pas Astra ou si tu ne peux pas le vérifier, signale
-la limite avant de générer et demande sa sélection, sans modèle de secours.
-Le rendu et les mesures des fichiers existants restent locaux, sans API modèle.
+Required author: GPT-6 Astra exclusively, including code, assets, prompts and
+corrections. Verify the model using reliable session information; if it is not
+Astra or you cannot verify it, state the limitation before generating and ask
+for Astra to be selected, without a fallback model. Rendering and measurement
+of existing files remain local, without a model API.
 
-Je prépare un film avec le dépôt codex-motion-design. Voici AGENTS.md,
-STORYBOARD.md et project.json : [joindre/coller les fichiers utiles].
-Brief : [sujet, public, idée, contraintes, format, son, payoff].
+I am preparing a film with the codex-motion-design repository. Here are AGENTS.md,
+STORYBOARD.md and project.json: [attach/paste the relevant files].
+Brief: [subject, audience, idea, constraints, format, sound, payoff].
 
-Avec les outils réellement disponibles, écris une direction et un storyboard
-exécutables. Si tu peux accéder au dépôt et exécuter Node/Chromium/FFmpeg, produis
-et vérifie les fichiers. Sinon, prépare les modifications et un message de
-passage à Codex avec chemins, contrat seek(t), cues, captures demandées et critères
-de réussite. Ne prétends pas avoir lancé les commandes. Quand je joins les frames,
-critique les images effectivement reçues avec leurs timestamps, puis propose des
-corrections précises. Ne confonds pas une image générée et une frame calculée.
+Using the tools actually available, write an executable direction and storyboard.
+If you can access the repository and run Node/Chromium/FFmpeg, produce and verify
+the files. Otherwise, prepare the changes and a Codex handoff message with paths,
+the seek(t) contract, cues, requested captures and success criteria. Do not claim
+to have run commands. When I attach frames, critique the images actually received
+with their timestamps, then propose precise corrections. Do not confuse a
+generated image with a calculated frame.
 ```
 
-Politique d'auteur : [workflow Astra](../docs/ASTRA_WORKFLOW.md).
+Author policy: [Astra workflow](../docs/ASTRA_WORKFLOW.md).

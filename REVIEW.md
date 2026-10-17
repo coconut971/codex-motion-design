@@ -1,28 +1,28 @@
-# Revue de Signal — 17 octobre 2026
+# Signal review — October 17, 2026
 
-Le storyboard a précédé le code. La première passe a été rendue puis examinée
-sur quatre clés, la planche et le strip du contact. Les fichiers avant correction
-sont conservés localement dans `out/*-before.png`, ignorés par Git.
+The storyboard preceded the code. The first pass was rendered and examined
+through four keys, the sheet and the contact strip. Files from before the fixes
+are preserved locally as `out/*-before.png`, ignored by Git.
 
-| Preuve / instant | Observation de la première passe | Correction | Nouvelle inspection |
+| Evidence / instant | First-pass observation | Fix | New inspection |
 | --- | --- | --- | --- |
-| Clés, frame 204 / 6,8 s | La composition finale occupait trop peu de l'image pour le petit format. | Cadrage fixe agrandi ×1,2 autour du centre, sans mouvement caméra ajouté. | Clés rerendues et image à 360 px ouvertes ; pétales et centre restent distincts. |
-| Clés, frame 42 / 1,4 s | Le signal longeait la jonction des pétales avant le cue central, compliquant la lecture de sa cible. | Approche par l'espace supérieur gauche, arc plus faible. | Nouvelle clé et strip frames 54–66 ouverts : trajectoire et arrivée centrale plus séparées. |
-| Clés, frame 204 / 6,8 s | Le contour de résolution restait proche du guide préparatoire, donc la fin changeait peu la hiérarchie. | Trait final 4,5 px, alpha 0,78 ; guide progressivement retiré. | La miniature ouverte conserve un contour final lisible et un centre dominant. |
+| Keys, frame 204 / 6.8 s | The final composition occupied too little of the image at small sizes. | Fixed framing enlarged ×1.2 around the center, without adding camera motion. | Rerendered keys and a 360 px image opened; petals and center remain distinct. |
+| Keys, frame 42 / 1.4 s | The signal followed the petal junction before the central cue, making its target harder to read. | Approach through the upper-left space with a shallower arc. | New key and frames 54–66 strip opened: trajectory and central arrival are more separate. |
+| Keys, frame 204 / 6.8 s | The resolution outline remained close to the preparatory guide, so the ending barely changed the hierarchy. | Final stroke 4.5 px, alpha 0.78; guide progressively removed. | The opened thumbnail retains a readable final outline and a dominant center. |
 
-La bande dense du contact montre la réaction après frame 60, puis les retards
-des trois fragments. Le crop tronque volontairement le grand guide ; la planche
-du cadre complet sert au contrôle de cadrage. La fin revient au papier, sans
-nouvel élément. Le film est une démonstration géométrique courte, pas une campagne
-de marque ni une prétendue reproduction d'une référence.
+The dense contact strip shows the reaction after frame 60, followed by the delays
+of the three fragments. The crop deliberately cuts off the large guide; the
+full-frame sheet checks framing. The ending returns to paper without a new
+element. The film is a short geometric demonstration, not a brand campaign or
+a claimed reproduction of a reference.
 
-La revue technique indépendante a aussi motivé des régressions : readiness
-bornée, confinement du serveur, grille avec offset, timeout fini, trois régimes
-de spring et refus d'une vitesse initiale appliquée plusieurs fois dans une track.
-Le décodage du premier master a exposé une piste AAC tronquée par un plafond de
-frames vidéo. L'export a été corrigé et une régression exige désormais la durée
-PCM complète et l'énergie du dernier cue avant de remplacer le master.
+The independent technical review also prompted regression coverage: bounded
+readiness, server confinement, an offset grid, finite timeout, three spring
+regimes and rejection of initial velocity applied repeatedly within a track.
+Decoding the first master exposed an AAC track truncated by a video frame limit.
+The export was fixed, and a regression now requires the complete PCM duration
+and last-cue energy before replacing the master.
 
-La lecture continue et l'écoute subjective ne sont pas établies par ces images.
-Le rapport [VALIDATION.md](docs/VALIDATION.md) précise les contrôles réellement
-effectués sur les sorties finales et leurs limites.
+Continuous playback and subjective listening are not established by these images.
+[VALIDATION.md](docs/VALIDATION.md) specifies the checks actually performed on
+the final outputs and their limits.

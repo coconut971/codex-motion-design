@@ -14,8 +14,8 @@ window.__motionReady=(async()=>{
   const scrub=document.querySelector('#scrub'),clock=document.querySelector('#clock'),button=document.querySelector('#play');scrub.max=film.project.duration;
   let playing=false,anchor=0,position=0;
   const show=t=>{position=t;window.seek(t);scrub.value=t;clock.value=`${t.toFixed(2)} s`;};
-  function tick(now){if(!playing)return;const t=Math.min(film.project.duration,(now-anchor)/1000);show(t);if(t<film.project.duration)requestAnimationFrame(tick);else{playing=false;button.textContent='Lire';}}
-  button.onclick=()=>{playing=!playing;button.textContent=playing?'Pause':'Lire';if(playing){if(position>=film.project.duration)position=0;anchor=performance.now()-position*1000;requestAnimationFrame(tick);}};
-  scrub.oninput=()=>{playing=false;button.textContent='Lire';show(Number(scrub.value));};
+  function tick(now){if(!playing)return;const t=Math.min(film.project.duration,(now-anchor)/1000);show(t);if(t<film.project.duration)requestAnimationFrame(tick);else{playing=false;button.textContent='Play';}}
+  button.onclick=()=>{playing=!playing;button.textContent=playing?'Pause':'Play';if(playing){if(position>=film.project.duration)position=0;anchor=performance.now()-position*1000;requestAnimationFrame(tick);}};
+  scrub.oninput=()=>{playing=false;button.textContent='Play';show(Number(scrub.value));};
   return true;
 })();

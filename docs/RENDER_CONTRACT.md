@@ -1,106 +1,102 @@
-# Contrat de rendu
+# Rendering contract
 
-## Cœur motion/1
+## motion/1 core
 
-`core/film.mjs` compile le descriptor unique en `sample(t)` pur et continu.
-`core/adapters.mjs` rend ce frame complet en Canvas 2D ou en SVG DOM. Les masques
-sont en coordonnées monde ; la caméra dépend uniquement du temps courant.
-Les coupes sont dérivées des scènes, jamais d'un second tableau. Le loader
-`core/project.mjs` sélectionne `motion/1` ou le contrat legacy inchangé.
+`core/film.mjs` compiles the single descriptor into pure, continuous `sample(t)`.
+`core/adapters.mjs` renders this complete frame in Canvas 2D or SVG DOM. Masks
+use world coordinates; the camera depends only on the current time. Cuts derive
+from scenes, never from a second array. The `core/project.mjs` loader selects
+`motion/1` or the unchanged legacy contract.
 
-La page `/examples/core-demo/index.html?capture=1` respecte la même interface
-`__motionReady`, `film.project`, `seek(t)` et `#film` Canvas que Signal.
-La variante `?adapter=svg` réécrit tout le DOM et les styles à chaque frame ;
-les ids de clips sont préfixés par une identité stable propre à l'instance.
-Elle est vérifiée par screenshots, mais l'exporteur vidéo courant capture
-Canvas uniquement. Ne pas passer la variante SVG au renderer Canvas.
+The `/examples/core-demo/index.html?capture=1` page follows the same
+`__motionReady`, `film.project`, `seek(t)` and `#film` Canvas interface as Signal.
+The `?adapter=svg` variant rewrites the entire DOM and styles every frame;
+clip ids are prefixed with a stable identity specific to the instance. It is
+checked through screenshots, but the current video exporter captures Canvas
+only. Do not pass the SVG variant to the Canvas renderer.
 
-`npm run core:verify` compare états et bounds entre les deux adaptateurs,
-pixels avant/après seeks mélangés et page fraîche dans chacun, état contaminé
-réinitialisé, deux tailles isolées et clips multi-instances. Readiness/fonts
-possèdent un délai borné. Les manifests incluent aussi les sources de `core/`.
-Voir [CORE.md](CORE.md) pour le schema et [CORE_VALIDATION.md](CORE_VALIDATION.md)
-pour les résultats effectivement exécutés.
+`npm run core:verify` compares states and bounds across the two adapters,
+pixels before/after shuffled seeks and a fresh page within each, reset of
+contaminated state, two isolated sizes and clips across multiple instances.
+Readiness/fonts have bounded timeouts. Manifests also include `core/` sources.
+See [CORE.md](CORE.md) for the schema and [CORE_VALIDATION.md](CORE_VALIDATION.md)
+for results of checks actually run.
 
-## Interface de l'exemple
+## Example interface
 
-Serveur HTTP local : `examples/signal.html?capture=1&scale=0.5`.
-Le module expose :
+Local HTTP server: `examples/signal.html?capture=1&scale=0.5`.
+The module exposes:
 
 ```js
-await window.__motionReady;       // projet et initialisation terminés
+await window.__motionReady;       // project and initialization complete
 await document.fonts.ready;
 window.film.project;              // compileProject(project.json)
-window.seek(2.0);                 // dessine toute l'image, sync
-document.querySelector('#film');  // Canvas 2D, dimensions projet × scale
+window.seek(2.0);                 // draws the entire frame, synchronously
+document.querySelector('#film');  // Canvas 2D, project dimensions × scale
 ```
 
-`seek` rejette les temps non finis et borne les temps hors film à `[0,duration]`.
-Le frame de sortie n est à `n/fps`, n dans `[0, frameCount−1]`. Le temps final
-`duration` est inspectable mais ne produit pas une frame supplémentaire.
-Les coordonnées logiques restent 1920 × 1080 ; seul le backing buffer change.
-Le projet est validé côté Node et côté navigateur. Les ids de cues sont uniques.
+`seek` rejects nonfinite times and clamps times outside the film to `[0,duration]`.
+Output frame n is at `n/fps`, with n in `[0, frameCount−1]`. The final time
+`duration` can be inspected but does not produce an extra frame. Logical
+coordinates remain 1920 × 1080; only the backing buffer changes. The project
+is validated in Node and in the browser. Cue ids are unique.
 
-Pour un autre film, adapter l'entrée HTML dans le renderer ou conserver cette
-interface. Le renderer fourni vise Canvas 2D. Il ne sait pas mélanger un DOM ou
-un WebGL arbitraire : une extension devra définir une capture compatible et
-ses tests. Aucune magie multi-runtime n'est promise.
+For another film, adapt the HTML entry in the renderer or retain this interface.
+The supplied renderer targets Canvas 2D. It cannot blend arbitrary DOM or WebGL:
+an extension would need to define compatible capture and tests. No automatic
+support for multiple runtimes is promised.
 
 ## Captures
 
-Le renderer attend readiness, fonts et deux rAF à l'initialisation. Chaque seek
-Canvas 2D est ensuite lu synchroniquement par `getImageData`, sans attendre une
-présentation d'écran. Pour un futur renderer DOM, une barrière de présentation
-par capture devra être définie. Les rAF ne sont jamais une horloge de scène. Les erreurs de page,
-requêtes échouées et retours HTTP en erreur sont fatals. Les médias de l'exemple
-sont entièrement locaux. La capture vise uniquement le canvas ; l'interface du
-lecteur et les labels QA ne sont pas dans le film.
+The renderer waits for readiness, fonts and two rAFs during initialization.
+Each Canvas 2D seek is then read synchronously with `getImageData`, without
+waiting for screen presentation. A future DOM renderer would need to define a
+presentation barrier per capture. rAFs are never a scene clock. Page errors,
+failed requests and HTTP error responses are fatal. Example media is entirely
+local. Capture targets only the canvas; player UI and QA labels are not in the film.
 
-Un master possède `duration × fps` frames et une cadence constante. Le draft
-change la résolution, conserve la cadence et les coordonnées logiques. Un
-crop est exprimé en coordonnées logiques puis converti à l'échelle de sortie.
-Les labels des planches indiquent temps et numéro de frame ; ce lettrage sert
-uniquement à la revue, sans ajouter de titrage à l'animation.
+A master has `duration × fps` frames and a constant frame rate. The draft changes
+resolution while preserving frame rate and logical coordinates. A crop is given
+in logical coordinates, then converted to the output scale. Sheet labels show
+time and frame number; this lettering is for review only and adds no titles to
+the animation.
 
-## Sous-images
+## Subframes
 
-Pour S samples et shutter h (fraction de frame), on échantillonne aux centres
-de S sous-intervalles autour de n/fps :
+For S samples and shutter h (a fraction of a frame), sampling occurs at the
+centres of S subintervals around n/fps:
 
 ```
 t(n,j) = n/fps + ((j+0.5)/S − 0.5) × h/fps
 ```
 
-Les bornes du film et les cuts déclarés en secondes limitent ces temps au même
-plan que la frame centrale. Pas de mélange temporel entre deux frames de sortie
-ni à travers un cut. Chaque sous-image est un nouveau seek absolu. Le mélange
-Canvas moyenne les octets RGBA sRGB ; c'est une approximation en espace encodé,
-pas une intégration lumineuse linéaire. 4 samples améliorent les déplacements
-rapides sans garantir une reproduction physique du shutter.
+Film bounds and cuts declared in seconds constrain these times to the same shot
+as the central frame. There is no temporal blending between two output frames
+or across a cut. Each subframe is a new absolute seek. Canvas blending averages
+sRGB RGBA bytes; this approximates in encoded space, rather than integrating
+linear light. 4 samples improve fast motion without guaranteeing a physically
+accurate shutter simulation.
 
-## Encodage et preuves
+## Encoding and evidence
 
-Playwright capture le canvas, Node fournit les PNG à FFmpeg avec backpressure.
-Le MP4 H.264 yuv420p possède une matrice et des primaires BT.709 explicites,
-une plage limitée et un transfert sRGB conservé (`iec61966-2-1`), une cadence
-fixe et un audio AAC dérivé du WAV. Il ne transforme pas la courbe sRGB vers la
-courbe de transfert BT.709. La compatibilité couleur reste dépendante
-du lecteur et de l'écran. Un fichier temporaire est décodé avant remplacement
-du master. L'audio encodé est aussi décodé en PCM binaire : sa durée doit couvrir
-le film (avec au plus un paquet AAC de padding). L'énergie de chaque fenêtre
-sonore est mesurée et consignée ; le test d'intégration vérifie notamment le
-dernier cue de l'exemple. Le renderer transmet exactement N images
-puis EOF ; un plafond `-frames:v` peut tronquer l'audio avec certains encodeurs
-et n'est donc pas utilisé. Un code de sortie FFmpeg non nul ne peut jamais
-produire un succès.
+Playwright captures the canvas; Node feeds PNGs to FFmpeg with backpressure.
+The H.264 yuv420p MP4 has explicit BT.709 matrix and primaries, limited range,
+preserved sRGB transfer (`iec61966-2-1`), constant frame rate and AAC audio derived
+from the WAV. It does not convert the sRGB curve to the BT.709 transfer curve.
+Colour compatibility still depends on the player and display. A temporary file
+is decoded before replacing the master. Encoded audio is also decoded to binary
+PCM: its duration must cover the film (with at most one AAC packet of padding).
+Energy in each sound window is measured and recorded; the integration test checks
+the example's final cue in particular. The renderer sends exactly N frames, then
+EOF; a `-frames:v` limit can truncate audio with some encoders and is therefore
+not used. A nonzero FFmpeg exit code can never produce success.
 
-Le manifest adjacent à chaque sortie enregistre dimensions, cadence, frames,
-samples, shutter, projet, versions et mesures disponibles. Les probes de
-déterminisme hachent tous les pixels RGBA, dans différents ordres et sur une
-page fraîche. Elles comparent l'environnement courant : des GPU/versions de
-Chromium différents peuvent rasteriser autrement. Elles ne prouvent ni tous
-les temps réels ni la qualité artistique.
+The manifest beside each output records dimensions, frame rate, frames, samples,
+shutter, project, versions and available measurements. Determinism probes hash
+all RGBA pixels in different orders and on a fresh page. They compare the current
+environment: different GPUs/Chromium versions may rasterize differently. They
+prove neither all real-valued times nor artistic quality.
 
-Ne déduis pas la présence du son d'un nom `.mp4`, ni sa qualité d'une crête
-normalisée. Décode les deux flux, inspecte les frames extraites du fichier
-encodé et écoute si l'environnement le permet. Consigne toutes les limites.
+Do not infer sound presence from an `.mp4` filename, or sound quality from a
+normalized peak. Decode both streams, inspect frames extracted from the encoded
+file, and listen if the environment allows. Record all limitations.

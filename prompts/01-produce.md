@@ -1,37 +1,37 @@
-# Produire un film complet avec Codex
+# Produce a complete film with Codex
 
-À coller dans Codex, ouvert à la racine du dépôt. Remplacer les champs.
+Paste into Codex, opened at the repository root. Replace the fields.
 
 ```text
-Auteur requis : GPT-6 Astra exclusivement, y compris pour le code, les assets,
-les prompts et les corrections. Vérifie le modèle avec les informations fiables
-de la session ; si ce n'est pas Astra ou si tu ne peux pas le vérifier, signale
-la limite avant de générer et demande sa sélection, sans modèle de secours.
-Le rendu et les mesures des fichiers existants restent locaux, sans API modèle.
+Required author: GPT-6 Astra exclusively, including code, assets, prompts and
+corrections. Verify the model using reliable session information; if it is not
+Astra or you cannot verify it, state the limitation before generating and ask
+for Astra to be selected, without a fallback model. Rendering and measurement
+of existing files remain local, without a model API.
 
-Crée un film original de [8–15] secondes pour [sujet / public / destination].
-Ce que le spectateur doit comprendre : [une idée].
-Format : [1920×1080, 30 i/s]. Ton : [calme / précis / énergique].
-Contraintes de marque : [palette, matières, assets locaux autorisés].
-Texte à l'écran : [aucun / contenu exact]. Son : [ponctuations / musique / muet].
-Payoff attendu : [forme ou transformation finale].
+Create an original [8–15]-second film for [subject / audience / destination].
+What the viewer should understand: [one idea].
+Format: [1920×1080, 30 fps]. Tone: [calm / precise / energetic].
+Brand constraints: [palette, materials, authorized local assets].
+On-screen text: [none / exact content]. Sound: [accents / music / silent].
+Expected payoff: [final shape or transformation].
 
-Suis AGENTS.md. Écris d'abord STORYBOARD.md : idée, états lisibles, anticipation,
-action, conséquence, tenue finale, transitions et direction sonore. Donne des
-valeurs concrètes plutôt que « premium ». Choisis une métaphore propre au sujet.
-Si le brief permet d'avancer, pose tes hypothèses et continue.
+Follow AGENTS.md. Write STORYBOARD.md first: idea, readable states, anticipation,
+action, consequence, final hold, transitions and sound direction. Give concrete
+values instead of "premium". Choose a metaphor specific to the subject.
+If the brief provides enough to proceed, state your assumptions and continue.
 
-Lis docs/CORE.md. Écris un descriptor motion/1 avec scènes, objets à ids stables,
-pistes et cues partagées image/son/QA. Réutilise compileFilm et les adaptateurs
-Canvas/SVG ; ajoute du code au cœur uniquement pour un besoin démontré et testé.
-Le lecteur examples/core-demo accepte un autre JSON via ?project= ; aucun code
-de scène copié n'est nécessaire. Le seek(t) reste pur et continu. Rends la vidéo
-avec Canvas et vérifie aussi le SVG si utilisé. Aucun modèle/API au runtime.
-Commence par quatre images clés puis inspecte la planche par beat, les strips
-des contacts et une miniature. Consigne les défauts observés dans REVIEW.md,
-corrige les trois plus importants et rerends leurs preuves. Lance les tests et
-la vérification des seeks. Rends le draft puis le master sonorisé décodable.
-Livre les fichiers, les contrôles exécutés et les limites de lecture/écoute.
+Read docs/CORE.md. Write a motion/1 descriptor with scenes, objects with stable
+ids, tracks and shared picture/sound/QA cues. Reuse compileFilm and the Canvas/SVG
+adapters; add core code only for a demonstrated and tested need. The
+examples/core-demo player accepts another JSON through ?project=; no copied
+scene code is needed. Keep seek(t) pure and continuous. Render video with Canvas
+and also verify SVG if used. No model/API at runtime.
+Start with four key images, then inspect the beat sheet, contact strips and a
+thumbnail. Record observed defects in REVIEW.md, correct the three most
+important and rerender their evidence. Run tests and seek verification. Render
+the draft, then the decodable master with sound. Deliver the files, checks
+actually run and playback/listening limitations.
 ```
 
-Politique d'auteur : [workflow Astra](../docs/ASTRA_WORKFLOW.md).
+Author policy: [Astra workflow](../docs/ASTRA_WORKFLOW.md).

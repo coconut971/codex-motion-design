@@ -1,14 +1,14 @@
-# Contribuer
+# Contributing
 
-Utiliser Node 22.12+ et `npm ci`, installer Chromium Playwright et FFmpeg, puis
-suivre `AGENTS.md`. Le film local n'a pas besoin de compte OpenAI pour être rendu.
-Codex/ChatGPT servent à diriger, coder et critiquer, selon les capacités du produit.
+Use Node 22.12+ and `npm ci`, install Playwright Chromium and FFmpeg, then follow
+`AGENTS.md`. Rendering the local film requires no OpenAI account. Codex/ChatGPT
+provide direction, coding and critique according to the product's capabilities.
 
-Une contribution au moteur inclut un cas reproductible et une régression utile.
-Une contribution artistique inclut storyboard, captures observées et revue avant/
-après. Ne pas committer `out/`, dépendances, credentials ou assets sans provenance.
-La CI vérifie le calcul et le contrat ; elle ne remplace pas la critique visuelle.
+An engine contribution includes a reproducible case and a useful regression test.
+An artistic contribution includes a storyboard, inspected captures and a before/after
+review. Do not commit `out/`, dependencies, credentials or assets without provenance.
+CI checks calculations and contracts; it does not replace visual critique.
 
-Les fichiers de ce dépôt sont proposés sous MIT. Tout apport tiers doit avoir une
-licence compatible et des notices conservées. Les sources commerciales auditées
-restent exclues de la réutilisation.
+This repository's files are offered under MIT. Third-party contributions need a
+compatible license and retained notices. Audited commercial sources remain excluded
+from reuse.

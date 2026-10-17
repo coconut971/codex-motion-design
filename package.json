@@ -2,7 +2,7 @@
   "name": "codex-motion-design",
   "version": "1.0.0",
   "private": true,
-  "description": "Motion design code-first pour Codex et ChatGPT : temps pur, critique par images et export local.",
+  "description": "Code-first motion design for Codex and ChatGPT: pure time, image-based critique and local export.",
   "license": "MIT",
   "engines": {"node": ">=22.12.0"},
   "scripts": {

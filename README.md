@@ -1,61 +1,60 @@
 # Codex Motion Design
 
-> **Expérimentation suspendue — objectif visuel non atteint.** Ce projet est
-> mis de côté après deux essais locaux avec GPT-6 Astra, en efforts `high` puis
-> `ultra`. Le résultat artistique a été jugé insuffisant par l’utilisateur,
-> y compris sur une action courte dont la mécanique avait été vérifiée.
-> Le dépôt conserve les outils et les preuves de cette expérimentation ; il
-> ne démontre pas une capacité de production ou une qualité studio.
+> **Experiment suspended — visual goal not achieved.** This project has been
+> set aside after two local GPT-6 Astra trials, at `high` and then `ultra` effort.
+> The user judged the artistic result inadequate, including a short action whose
+> mechanics had been verified. The repository retains the tools and evidence
+> from this experiment; it does not demonstrate production capability or studio quality.
 >
-> **[Lire le rapport de clôture](docs/EXPERIMENT_REPORT.md)** ·
-> [Limites constatées](docs/LIMITATIONS.md) ·
-> [Périmètre des capacités](docs/CAPABILITY_MAP.md)
+> **[Read the closeout report](docs/EXPERIMENT_REPORT.md)** ·
+> [Observed limitations](docs/LIMITATIONS.md) ·
+> [Capability scope](docs/CAPABILITY_MAP.md)
 
-L’objectif était d’adapter à Codex/GPT des principes de workflows de motion
-design associés à Claude, par un **reverse engineering simple et borné** des
-outils et comportements observables. L’expérimentation a produit une chaîne
-locale : storyboard, temps absolu, critique de frames et export MP4 avec son.
-Elle n’a pas atteint l’exigence artistique fixée pour les films.
+The aim was to adapt principles of motion design workflows associated with Claude
+to Codex/GPT through **simple, bounded reverse engineering** of observable tools
+and behavior. The experiment produced a local pipeline: storyboard, absolute time,
+frame critique and MP4 export with sound. It did not meet the films' artistic standard.
 
-Le film public [L’atelier de l’aube](docs/assets/morning-press/film.mp4),
-14 secondes réalisées avec Astra en effort `high`, conserve ses défauts
-graphiques et de logique mécanique sous le levier. Un second essai local de
-6 secondes, en effort `ultra`, a permis de vérifier la mécanique, mais son
-graphisme a été jugé extrêmement pauvre. Ce second essai reste privé. Les
-autres niveaux d’effort, dont `max`, n’ont pas été exécutés localement.
+The public film [The Dawn Workshop](docs/assets/morning-press/film.mp4), 14 seconds
+made with Astra at `high` effort, retains its graphical and mechanical-logic defects
+beneath the lever. A second local six-second trial at `ultra` effort verified the
+mechanics, but its graphics were judged extremely poor. That second trial remains
+private. Other effort levels, including `max`, were not run locally.
 
-L’utilisateur rapporte des rendus nettement meilleurs avec Claude Opus 5.5
-dans ses essais personnels ailleurs. Ce retour externe complète sa décision
-de mettre ce projet de côté ; aucune comparaison contrôlée entre modèles
-n’a été réalisée ici. Le blocage constaté avec Astra est une conclusion
-opérationnelle pour cette expérimentation, sans portée universelle.
+The user reports markedly better renders with Claude Opus 5.5 in personal trials
+elsewhere. This external feedback informs their decision to set this project
+aside; no controlled model comparison was performed here. The observed block
+with Astra is an operational conclusion for this experiment, without universal scope.
 
-**Aucune nouvelle création ni reprise automatique n’est prévue.** Une reprise
-nécessite une demande explicite de l’utilisateur. La règle d’auteur
-**GPT-6 Astra exclusivement** demeure dans [AGENTS.md](AGENTS.md) et le
-[workflow Astra](docs/ASTRA_WORKFLOW.md). Les instructions ci-dessous servent
-à comprendre et reproduire les fichiers conservés. Leur rendu fonctionne
-localement avec Node, Playwright et FFmpeg, sans SDK de modèle, clé API,
-plugin ou dépendance Claude.
+**No new creation or automatic restart is planned.** Restarting requires an explicit
+user request. The **GPT-6 Astra exclusively** authorship rule remains in
+[AGENTS.md](AGENTS.md) and the [Astra workflow](docs/ASTRA_WORKFLOW.md). The instructions
+below explain and reproduce the retained files. Rendering runs locally with Node,
+Playwright and FFmpeg, without a model SDK, API key, plugin or Claude dependency.
 
-## Démonstrations techniques conservées
+## Retained technical demonstrations
 
-![La graine et le pli : un film JSON original du cœur motion/1](docs/assets/core/preview.webp)
+![The Seed and the Fold: an original JSON film using the motion/1 core](docs/assets/core/preview.webp)
 
-[Film du cœur avec son](docs/assets/core/film.mp4) ·
-[Storyboard](examples/core-demo/STORYBOARD.md) · [Validation exécutée](docs/CORE_VALIDATION.md)
+[Core film with sound](docs/assets/core/film.mp4) ·
+[Storyboard](examples/core-demo/STORYBOARD.md) · [Executed validation](docs/CORE_VALIDATION.md)
 
-Le projet est indépendant et n'est pas un produit officiel OpenAI.
-L'implémentation est originale. La [carte des capacités](docs/CAPABILITY_MAP.md)
-distingue les fonctions exécutables des limites du périmètre livré.
+Archived media and manifests retain their original capture hashes. Original source
+bytes are recoverable at the pinned historical commits; current English documents
+and UI are translations, with no new render claimed. See
+[translation provenance](docs/assets/TRANSLATION_PROVENANCE.md).
 
-Le [cœur `motion/1`](docs/CORE.md) compile un **descriptor JSON** en
-scènes, objets persistants, pistes et images indépendantes : keyframes, cubic
-bornée, springs avec retarget position/vitesse, trajectoires, caméra logarithmique,
-masques et transitions. Canvas 2D et SVG DOM rendent le même état calculé.
-[La graine et le pli](examples/core-demo/STORYBOARD.md), un film original de
-10 secondes et trois plans, sert de démonstration technique de cette API. Les
-[contrôles du cœur](docs/CORE_VALIDATION.md) complètent ceux de Signal.
+This is an independent project, not an official OpenAI product. The implementation
+is original. The [capability map](docs/CAPABILITY_MAP.md) distinguishes executable
+functions from the limits of the delivered scope.
+
+The [`motion/1` core](docs/CORE.md) compiles a **JSON descriptor** into scenes,
+persistent objects, tracks and independent frames: keyframes, bounded cubic,
+springs with position/velocity retargeting, trajectories, logarithmic camera,
+masks and transitions. Canvas 2D and SVG DOM render the same computed state.
+[The Seed and the Fold](examples/core-demo/STORYBOARD.md), an original ten-second,
+three-shot film, serves as a technical demonstration of this API. The
+[core checks](docs/CORE_VALIDATION.md) complement Signal's checks.
 
 ```sh
 npm run core:sheet
@@ -64,19 +63,19 @@ npm run core:draft
 npm run core:render -- --samples=4
 ```
 
-Après `npm run studio`, ouvrir
-[le film du cœur](http://127.0.0.1:4173/examples/core-demo/index.html) ou sa
-[version SVG](http://127.0.0.1:4173/examples/core-demo/index.html?adapter=svg).
-Le lecteur accepte un descriptor avec `?project=/chemin/film.json`.
-Les commandes historiques ci-dessous conservent l'exemple Signal par défaut.
-Signal reste un [film de compatibilité avec son](docs/assets/signal.mp4), avec
-son [storyboard](STORYBOARD.md) et ses [contrôles historiques](docs/VALIDATION.md).
+After `npm run studio`, open the
+[core film](http://127.0.0.1:4173/examples/core-demo/index.html) or its
+[SVG version](http://127.0.0.1:4173/examples/core-demo/index.html?adapter=svg).
+The player accepts a descriptor through `?project=/chemin/film.json`.
+The legacy commands below retain Signal as the default example. Signal remains a
+[compatibility film with sound](docs/assets/signal.mp4), with its
+[storyboard](STORYBOARD.md) and [historical checks](docs/VALIDATION.md).
 
-## Reproduire les exemples en local
+## Reproduce the examples locally
 
-Prérequis : **Node 22.12+**, npm, Chromium et FFmpeg avec l'encodeur `libx264`.
-Chromium s'installe via Playwright ; FFmpeg s'installe séparément et doit être
-dans le PATH, ou indiqué par `FFMPEG_PATH`.
+Prerequisites: **Node 22.12+**, npm, Chromium and FFmpeg with the `libx264` encoder.
+Chromium is installed through Playwright; FFmpeg is installed separately and must
+be on PATH or specified through `FFMPEG_PATH`.
 
 ```sh
 git clone https://github.com/coconut971/codex-motion-design.git
@@ -89,8 +88,8 @@ npm run verify
 npm run studio
 ```
 
-Ouvrir [le lecteur local](http://127.0.0.1:4173). Il possède lecture et scrub ;
-aucun service distant n'est nécessaire. Pour rendre :
+Open the [local player](http://127.0.0.1:4173). It supports playback and scrubbing;
+no remote service is needed. To render:
 
 ```sh
 npm run sheet
@@ -98,14 +97,14 @@ npm run draft
 npm run render -- --samples=4
 ```
 
-Résultats : `out/sheet.png`, `out/draft.mp4` et `out/signal.mp4`, avec WAV et
-manifests adjacents. L'exemple dure **8 s, 1920×1080, 30 i/s**, sur une grille à
-120 BPM. Le draft utilise 960×540 à la même cadence. Ajouter `--overwrite`
-pour remplacer une sortie existante : `npm run draft -- --overwrite`.
+Outputs: `out/sheet.png`, `out/draft.mp4` and `out/signal.mp4`, with adjacent WAV
+files and manifests. The example lasts **8 s, 1920×1080, 30 fps**, on a 120 BPM grid.
+The draft uses 960×540 at the same frame rate. Add `--overwrite` to replace an
+existing output: `npm run draft -- --overwrite`.
 
-Sous Linux, `npx playwright install --with-deps chromium` installe aussi les
-bibliothèques système nécessaires. Sous PowerShell, un navigateur ou FFmpeg
-déjà installé peut être sélectionné pour la session :
+On Linux, `npx playwright install --with-deps chromium` also installs required
+system libraries. In PowerShell, an installed browser or FFmpeg can be selected
+for the session:
 
 ```powershell
 $env:CHROME_PATH = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
@@ -115,103 +114,100 @@ $env:RENDER_INTEGRATION = '1'
 npm test
 ```
 
-Les trois tests d'échec d'export, de readiness et d'audio complet sont activés par `RENDER_INTEGRATION=1`
-et requièrent navigateur + FFmpeg. La CI les active, vérifie les seeks et rend un
-petit MP4. Les tests ordinaires du calcul ne demandent pas ces prérequis.
+The three export-failure, readiness and complete-audio tests are enabled by
+`RENDER_INTEGRATION=1` and require a browser plus FFmpeg. CI enables them, verifies
+seeks and renders a small MP4. Ordinary calculation tests need none of these prerequisites.
 
-## Consignes et prompts conservés
+## Retained instructions and prompts
 
-[AGENTS.md](AGENTS.md) fixe le statut de mise en sommeil et les règles de
-reproduction. [.codex/config.toml](.codex/config.toml) conserve **GPT-6 Astra**
-comme modèle par défaut du projet. Ce fichier ne change pas le modèle d’une
-conversation en cours ; toute éventuelle reprise créative devra vérifier le
-modèle actif et respecter le [workflow Astra](docs/ASTRA_WORKFLOW.md).
+[AGENTS.md](AGENTS.md) establishes dormant status and reproduction rules.
+[.codex/config.toml](.codex/config.toml) retains **GPT-6 Astra** as the project's
+default model. This file does not change the model of a running conversation;
+any creative restart must verify the active model and follow the
+[Astra workflow](docs/ASTRA_WORKFLOW.md).
 
-Les [prompts de création](prompts/01-produce.md) sont conservés pour documenter
-la méthode essayée. Ils couvrent aussi
-[direction](prompts/02-art-direction.md), [critique](prompts/03-critique.md),
-[retiming/son](prompts/04-retime-and-sound.md),
-[debug](prompts/05-debug-render.md) et
-[reverse engineering avec REA](prompts/07-reverse-engineer.md).
+The [creation prompts](prompts/01-produce.md) are retained to document the method
+tried. They also cover [direction](prompts/02-art-direction.md),
+[critique](prompts/03-critique.md), [retiming/sound](prompts/04-retime-and-sound.md),
+[debugging](prompts/05-debug-render.md) and
+[reverse engineering with REA](prompts/07-reverse-engineer.md).
 
-La lecture automatique de fichiers locaux, l'exécution Node et l'accès à REA
-dépendent des outils de la session. Le [prompt de passage à Codex](prompts/06-chatgpt-handoff.md)
-décrit la transmission des fichiers et des preuves d’exécution. Ces documents
-restent des références de l’expérimentation, sans autoriser de nouveaux essais.
+Automatic local file reading, Node execution and REA access depend on session
+tools. The [Codex handoff prompt](prompts/06-chatgpt-handoff.md) describes how to
+transfer files and execution evidence. These documents remain experimental
+references and do not authorize new trials.
 
-## REA : analyser une référence existante
+## REA: investigate an existing reference
 
-[REA — Reverse Engineer Anything](https://github.com/morluto/rea) est un outil
-MIT compatible Codex. Il complète l'enquête sur une page, une application ou du
-code ; il reste **optionnel**, hors dépendances du film et hors CI de rendu.
-La version auditée est 6.5.0 et demande Node `^22.19.0`, `^24.11.0` ou `>=26`.
+[REA — Reverse Engineer Anything](https://github.com/morluto/rea) is an MIT tool
+compatible with Codex. It supplements investigation of a page, app or code;
+it remains **optional**, outside film dependencies and rendering CI. The audited
+version is 6.5.0 and requires Node `^22.19.0`, `^24.11.0` or `>=26`.
 
-Installation officielle :
+Official installation:
 
 ```sh
 npx rea-agents setup
 ```
 
-Pour cibler Codex et inspecter les modifications avant installation :
+To target Codex and inspect changes before installation:
 
 ```sh
 npx rea-agents@6.5.0 setup --client codex --dry-run
 npx rea-agents@6.5.0 setup --client codex
 ```
 
-Examiner les changements proposés, puis redémarrer Codex. Le setup configure
-le serveur MCP et les instructions REA ; il n'ajoute aucune dépendance Claude
-au projet. Les détails, chemins de configuration et vérifications sont dans
-[REA_WORKFLOW.md](docs/REA_WORKFLOW.md). Le statut réel de l'installation et les
-vérifications locales sont consignés dans ce guide. Une installation sur une
-machine ne configure pas celle d'un lecteur qui clone le dépôt.
+Review proposed changes, then restart Codex. Setup configures the MCP server and
+REA instructions; it adds no Claude dependency to the project. Details,
+configuration paths and checks are in [REA_WORKFLOW.md](docs/REA_WORKFLOW.md).
+Actual installation status and local checks are recorded in that guide. Installing
+on one machine does not configure the machine of someone cloning the repository.
 
-Le [cas Signal avec REA](docs/cases/REA_SIGNAL.md) documente le parcours concret
-HTML → observations → reconstruction `seek(t)` → comparaison de frames → rendu,
-avec ses commandes, preuves et limites.
+The [Signal case with REA](docs/cases/REA_SIGNAL.md) documents the concrete path
+HTML → observations → `seek(t)` reconstruction → frame comparison → rendering,
+with its commands, evidence and limits.
 
-Le [prompt d'enquête](prompts/07-reverse-engineer.md) conserve la méthode :
-isoler un comportement, relier chaque constat à une preuve, distinguer
-observations, mesures et hypothèses, puis décrire le mouvement en temps absolu.
+The [investigation prompt](prompts/07-reverse-engineer.md) retains the method:
+isolate a behavior, connect each finding to evidence, distinguish observations,
+measurements and hypotheses, then describe motion in absolute time.
 
-Pour une **vidéo**, extraire des frames horodatées et mesurer coupes, trajectoires
-et contacts avec FFmpeg/Playwright selon la source. REA aide sur la page ou le
-code associé quand ils sont disponibles ; il ne retrouve pas le code source
-original à partir des seuls pixels. Pour une **page**, relever les états avant/
-après et ce qui déclenche le mouvement. Pour du **code**, suivre les paramètres,
-timelines et ressources. Conserver l'enquête dans `work/`, puis transcrire les
-mesures utiles dans le storyboard et les cues du projet.
+For a **video**, extract timestamped frames and measure cuts, trajectories and
+contacts with FFmpeg/Playwright as appropriate to the source. REA helps with the
+associated page or code when available; it cannot recover original source code
+from pixels alone. For a **page**, record before/after states and motion triggers.
+For **code**, trace parameters, timelines and resources. Keep investigation in
+`work/`, then transfer useful measurements to the storyboard and project cues.
 
 ```mermaid
 flowchart LR
-  R[Vidéo / page / code] --> E[REA + captures + mesures]
-  E --> P[Preuves et hypothèses]
-  P --> S[Storyboard et timeline]
-  S --> T[seek temps absolu]
+  R[Video / page / code] --> E[REA + captures + measurements]
+  E --> P[Evidence and hypotheses]
+  P --> S[Storyboard and timeline]
+  S --> T[Absolute-time seek]
   T --> Q[Frames, critique, corrections]
-  Q --> V[Draft puis master et contrôles]
+  Q --> V[Draft then master and checks]
 ```
 
-## Contrats techniques
+## Technical contracts
 
-| Sujet | Règle exécutée ou vérifiée |
+| Topic | Implemented or verified rule |
 | --- | --- |
-| Temps pur | `seek(t)` réécrit l'image entière, temps continu, hash et seed stables |
-| Springs | Réponses analytiques sous-amortie, critique et suramortie ; ζ explicite |
-| Direction artistique | Consignes de composition et de tenue ; qualité finale non garantie |
-| Beat grid | Un seul JSON, beats depuis zéro, offset explicite et cues nommées |
-| Son | Les mêmes cues alimentent WAV stéréo 48 kHz et contact visuel |
-| Critique | Images clés, planche par beat, strips, crop, miniature et journal |
-| Capture | Canvas 2D local, readiness, erreurs fatales, sous-images limitées aux cuts |
-| Export | MP4 temporaire, décodage des deux flux et comptage des frames avant livraison |
+| Pure time | `seek(t)` rewrites the entire image, continuous time, stable hash and seed |
+| Springs | Analytical underdamped, critical and overdamped responses; explicit ζ |
+| Art direction | Composition and hold instructions; final quality not guaranteed |
+| Beat grid | One JSON, zero-based beats, explicit offset and named cues |
+| Sound | The same cues drive the 48 kHz stereo WAV and visual contact |
+| Critique | Key images, sheet per beat, strips, crop, thumbnail and log |
+| Capture | Local Canvas 2D, readiness, fatal errors, subframes constrained by cuts |
+| Export | Temporary MP4, both streams decoded and frames counted before delivery |
 
-Lire [MOTION_RULES.md](docs/MOTION_RULES.md) pour les choix artistiques et les
-formules, [RENDER_CONTRACT.md](docs/RENDER_CONTRACT.md) pour l'interface exacte.
-Le blur moyenne les pixels sRGB : c'est une approximation, documentée dans le
-manifest. L'export vidéo capture Canvas 2D. L'adaptateur SVG DOM du cœur est
-consultable et testé ; la capture de DOM/WebGL arbitraire n'est pas livrée.
+Read [MOTION_RULES.md](docs/MOTION_RULES.md) for artistic choices and formulas,
+and [RENDER_CONTRACT.md](docs/RENDER_CONTRACT.md) for the exact interface. Blur
+averages sRGB pixels: this is an approximation documented in the manifest. Video
+export captures Canvas 2D. The core's SVG DOM adapter can be viewed and is tested;
+arbitrary DOM/WebGL capture is not delivered.
 
-Captures ciblées :
+Targeted captures:
 
 ```sh
 node scripts/render.mjs --stills=.4,1.4,3.8,6.8 --scale=.5 --out=out/keys.png
@@ -219,41 +215,41 @@ node scripts/render.mjs --strip=1.8:2.2 --crop=580,200,760,680 --scale=.5 --out=
 node scripts/render.mjs --stills=6.8 --scale=.1875 --out=out/mobile.png
 ```
 
-Une planche ne prouve pas l'absence de flash entre ses samples. Un test de
-déterminisme ne juge pas la qualité visuelle. Une crête mesurée ne remplace ni
-une mesure LUFS ni une écoute : [les limites réellement rencontrées](docs/VALIDATION.md)
-sont livrées avec les résultats.
+A sheet does not prove the absence of flashes between its samples. A determinism
+test does not judge visual quality. A measured peak replaces neither LUFS
+measurement nor listening: [limitations actually encountered](docs/VALIDATION.md)
+are delivered with the results.
 
 ## Structure
 
 ```text
-AGENTS.md                  règles persistantes Codex / ChatGPT
-.codex/config.toml         modèle Astra par défaut pour ce projet Codex
-STORYBOARD.md              intention et chronologie de l'exemple
-REVIEW.md                  observations et corrections vérifiées
-project.json               format, seed, beat grid, cues, son
-examples/signal.html       page de l'exemple et lecteur
-examples/signal.mjs        seek(t) original, dessin et pilote de preview
+AGENTS.md                  persistent Codex / ChatGPT rules
+.codex/config.toml         default Astra model for this Codex project
+STORYBOARD.md              example intent and chronology
+REVIEW.md                  verified observations and corrections
+project.json               format, seed, beat grid, cues, sound
+examples/signal.html       example page and player
+examples/signal.mjs        original seek(t), drawing and preview driver
 lib/motion.mjs             springs, superposition, hash, interpolation
-lib/project.mjs            validation du projet et conversion beats/secondes
-core/                      compilation film, tracks, géométrie, adaptateurs purs
-examples/core-demo/        film JSON original de 10 s, lecteur Canvas/SVG et revue
-scripts/                   serveur, doctor, capture, audio, vérification
-tests/                     contrats mathématiques, timing, erreurs et confinement
-prompts/                   sept briefs réutilisables
-docs/                      rapport de clôture, limites, capacités, contrats, REA et preuves
-.github/workflows/         validation reproductible sur Linux
-package-lock.json          versions verrouillées
+lib/project.mjs            project validation and beats/seconds conversion
+core/                      film compilation, tracks, geometry, pure adapters
+examples/core-demo/        original 10 s JSON film, Canvas/SVG player and review
+scripts/                   server, doctor, capture, audio, verification
+tests/                     mathematical contracts, timing, errors and confinement
+prompts/                   seven reusable briefs
+docs/                      closeout report, limits, capabilities, contracts, REA and evidence
+.github/workflows/         reproducible Linux validation
+package-lock.json          locked versions
 ```
 
-`out/`, `work/` et les dépendances sont ignorés. Les clones de recherche ne
-sont pas embarqués. Les médias livrés sont générés depuis les exemples du dépôt.
+`out/`, `work/` and dependencies are ignored. Research clones are not bundled.
+Delivered media are generated from the repository examples.
 
-## Provenance et licence
+## Provenance and license
 
-Code et prompts originaux sous [MIT](LICENSE). Playwright est sous Apache-2.0 ;
-Chromium et FFmpeg conservent leurs propres licences. REA reste un outil externe
-sous MIT. Aucune police ou musique tierce n'est embarquée.
+Original code and prompts are under [MIT](LICENSE). Playwright is under Apache-2.0;
+Chromium and FFmpeg retain their own licenses. REA remains an external MIT tool.
+No third-party fonts or music are bundled.
 
-Les contenus tiers restent soumis à leurs licences respectives. Aucun contenu
-commercial étudié n'est réutilisé dans ce dépôt.
+Third-party content remains subject to its respective licenses. No studied
+commercial content is reused in this repository.

@@ -1,32 +1,32 @@
-# L’atelier de l’aube
+# The Dawn Workshop
 
-Direction et écriture originales : **GPT-6 Astra** (sélection de modèle explicite). Film du cœur `motion/1`, 1920 × 1080, 30 i/s, 14 secondes. Aucun texte à l’image, asset externe, modèle de génération d’image, ni scène JavaScript dédiée.
+Original direction and writing: **GPT-6 Astra** (explicit model selection). A `motion/1` core film, 1920 × 1080, 30 fps, 14 seconds. No on-screen text, external assets, image generation model or dedicated JavaScript scene.
 
-## Intention
+## Intent
 
-Une machine lourde produit quelque chose de léger : une petite estampe de soleil. Le spectateur reconnaît d’abord une presse, suit une seule feuille crème, ressent la pression, puis découvre le résultat en accompagnant sa sortie. Le soleil imprimé reste immobile : le plaisir vient de sa révélation, de l’encre et de la composition. Le dernier plan laisse réellement regarder l’image.
+A heavy machine produces something light: a small sun print. The viewer first recognizes a press, follows a single cream sheet, feels the pressure, then discovers the result while following its exit. The printed sun stays still: the pleasure comes from its reveal, the ink and the composition. The last shot allows real time to look at the image.
 
-La vue est dessinée et plate, comme une coupe graphique d’un petit atelier. La presse possède un bâti en arche, un volant vermillon, une vis, un plateau et une bouche sombre qui masque la zone d’impression. Une feuille rectangulaire avec angles légèrement irréguliers est l’unique objet mobile qui traverse tous les plans. Le motif est créé sous l’occlusion du bâti ; il ne se matérialise jamais sur une feuille visible.
+The view is drawn and flat, like a graphic cross-section of a small workshop. The press has an arched frame, a vermilion handwheel, a screw, a platen and a dark mouth masking the printing area. A rectangular sheet with slightly irregular corners is the only moving object crossing every shot. The design is created behind the occluding frame; it never materializes on a visible sheet.
 
-## Direction visuelle
+## Visual direction
 
-Papier chaud `#EEE5D4`, feuille `#FAF3E4`, encre ardoise `#3D4E53`, teinte de papier sombre `#D5C9B4`. Deux accents : ocre `#D9A33D` et vermillon `#BB604B`. Silhouettes larges, courbes de fonte asymétriques, traits bouillis à 12 Hz entre 0,35 et 0,9 px logiques. Quelques hachures dans la fonte et dans le disque solaire ; aucune texture photographique ni gradient. La table est une seule ligne de travail. Le soleil est une véritable estampe : disque imparfait, rayons de longueurs variées, petite ligne d’horizon et deux traits courbes qui composent un matin calme.
+Warm paper `#EEE5D4`, sheet `#FAF3E4`, slate ink `#3D4E53`, dark paper tint `#D5C9B4`. Two accents: ochre `#D9A33D` and vermilion `#BB604B`. Broad silhouettes, asymmetric cast-iron curves, lines boiling at 12 Hz between 0.35 and 0.9 logical px. Some hatching in the cast iron and sun disc; no photographic texture or gradient. The table is a single working line. The sun is a real print: an imperfect disc, rays of varied lengths, a small horizon line and two curved strokes composing a quiet morning.
 
-## Quatre plans
+## Four shots
 
-1. **L’atelier / la feuille** — plan large fixe. La presse occupe le tiers gauche et le vide à droite annonce la future sortie. Une feuille vierge arrive depuis la gauche, glisse avec un ralentissement mécanique puis disparaît dans la bouche. Le volant effectue un court retrait avant l’effort. Lecture : attente → entrée → mise en place.
-2. **Le poids** — coupe rapprochée motivée par le volant. Le levier descend en arc, entraîne vis et plateau. La masse s’arrête exactement au lit de la presse, tient la pression, puis remonte plus lentement. Aucun rebond du plateau. Le volant a seulement une détente amortie de faible amplitude. Le motif devient opaque à la cue de pression, entièrement masqué.
-3. **La première lumière** — coupe latérale, suivie d’un petit accompagnement horizontal borné. La feuille sort vers la droite. Le soleil apparaît progressivement sous la lèvre droite de la presse ; le contraste entre fonte sombre et ocre guide la lecture. Une fois le motif découvert, la feuille descend doucement de 26 px pour poser son bord sur la table. Un très léger dépassement horizontal du papier est résorbé avant l’arrêt. Aucun rayon ne pousse ou n’explose : c’est de l’encre sur une feuille.
-4. **L’estampe** — coupe franche dans le détail de la feuille posée. La presse sort du cadre. Soleil ocre, rayons gravés et lignes ardoise restent larges et lisibles en miniature. La feuille finit de glisser de quelques pixels puis tient. Les deux dernières secondes ne changent que par le grain et le bouillonnement des traits.
+1. **The workshop / the sheet** — fixed wide shot. The press occupies the left third, and the space on the right anticipates the future exit. A blank sheet arrives from the left, slides with mechanical deceleration, then disappears into the mouth. The handwheel briefly retreats before the effort. Read: waiting → entry → placement.
+2. **The weight** — closer cut motivated by the handwheel. The lever descends along an arc, driving the screw and platen. The mass stops exactly at the press bed, holds pressure, then rises more slowly. No platen bounce. The handwheel has only a small damped release. The design becomes opaque at the pressure cue, entirely hidden.
+3. **The first light** — lateral cut, followed by a small bounded horizontal follow. The sheet exits to the right. The sun appears gradually under the press's right lip; the contrast between dark cast iron and ochre guides the eye. Once the design is revealed, the sheet gently descends 26 px to rest its edge on the table. A very slight horizontal paper overshoot settles before the stop. No ray grows or explodes: this is ink on a sheet.
+4. **The print** — hard cut into a detail of the resting sheet. The press leaves the frame. Ochre sun, engraved rays and slate lines remain broad and readable in a thumbnail. The sheet slides a few final pixels, then holds. Only grain and line boil change during the last two seconds.
 
-Les frontières et tous les événements chiffrés résident exclusivement dans les `cues` de `project.json`. Les pistes, quatre compositions de contrôle, contacts, coupes, son et QA s’y réfèrent. La durée générale ci-dessus ne constitue pas une seconde timeline.
+Boundaries and all numeric events reside exclusively in the `cues` of `project.json`. Tracks, four inspection compositions, contacts, cuts, sound and QA reference them. The overall duration above does not constitute a second timeline.
 
-## Mouvement et son
+## Motion and sound
 
-Entrée : accélération brève, long freinage ; contact de la feuille sans rebond. Volant : anticipation retenue puis rotation volontaire, détente secondaire après le plateau. Plateau : accélération pesante, arrêt contraint, pression tenue puis remontée douce. Sortie : translation avec sortie lente du masque, croisière et freinage, un dépassement inférieur à 12 px. Aucune caméra permanente ; seuls les besoins de lecture motivent coupes et accompagnement.
+Entry: brief acceleration, long braking; sheet contact without bounce. Handwheel: restrained anticipation, then deliberate rotation, secondary release after the platen. Platen: heavy acceleration, constrained stop, held pressure, then a gentle rise. Exit: translation with a slow emergence from the mask, cruising and braking, overshoot below 12 px. No perpetual camera movement; cuts and following motion are motivated only by readability.
 
-Cinq accents maximum, calculés par le synthétiseur local : placement papier, contact lourd, détente de vis, entrée dans les rouleaux de sortie, arrêt papier. Attaque existante de 4 ms ; aucun enregistrement de bruitage ni promesse de musique. Les accents sont espacés, les tenues silencieuses. Gains modérés et fréquences distinctes ; mesures audio et éventuelle limite d’écoute seront rapportées séparément.
+Five accents maximum, computed by the local synthesizer: paper placement, heavy contact, screw release, entry into the exit rollers, paper stop. Existing 4 ms attack; no recorded sound effects or promise of music. Accents are spaced, holds silent. Moderate gains and distinct frequencies; audio measurements and any listening limitation will be reported separately.
 
-## Contrôles attendus
+## Expected checks
 
-Quatre compositions nommées, miniature finale, planche par beat, contacts ±1 image, strips serrés du plateau et de la révélation, poses aux coupes, seeks désordonnés et page fraîche. Rendu brouillon avant master. La revue distingue défauts vus, mesures et limites. Sources figées avant le master ; rapport de livraison hors de ce répertoire.
+Four named compositions, final thumbnail, beat sheet, contacts ±1 frame, tight platen and reveal strips, poses at cuts, unordered seeks and a fresh page. Draft render before master. The review distinguishes observed defects, measurements and limits. Sources frozen before the master; delivery report outside this directory.

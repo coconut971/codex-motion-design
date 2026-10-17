@@ -99,7 +99,7 @@ export function comparisonTimes(project){
   for(let frame=-6;frame<=6;frame++)times.push(contact+frame/project.fps);
   return [...new Set(times.filter(time=>time>=0&&time<=last).map(time=>Number(time.toFixed(9))))].sort((a,b)=>a-b);
 }
-async function sheet(page,rows,file,{crop=null,thumbWidth=320,title='Source | Reconstruction | Différence RGB ×4'}={}){
+async function sheet(page,rows,file,{crop=null,thumbWidth=320,title='Source | Reconstruction | Difference RGB ×4'}={}){
   const png=await bounded(page.evaluate(async({rows,crop,thumbWidth,title})=>{
     const load=base64=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src='data:image/png;base64,'+base64;});
     const first=await load(rows[0].source),area=crop??[0,0,first.width,first.height];
@@ -158,7 +158,7 @@ export async function compare(options){
     const nearest=time=>rows.reduce((best,row)=>Math.abs(row.time-time)<Math.abs(best.time-time)?row:best);
     await sheet(pages.source,[nearest(cue('arrival')),nearest(cue('contact')),nearest(cue('split')),nearest(cue('resolve'))],path.join(out,'key-comparison.png'));
     await sheet(pages.source,rows.filter(row=>Math.abs(row.time/(60/project.bpm)-Math.round(row.time/(60/project.bpm)))<1e-7),path.join(out,'beat-comparison.png'));
-    await sheet(pages.source,rows.filter(row=>Math.abs(row.time-cue('contact'))<=.201),path.join(out,'contact-comparison.png'),{crop:[580,200,760,680].map(value=>Math.round(value*options.scale)),thumbWidth:280,title:'Contact crop — Source | Reconstruction | Différence ×4'});
+    await sheet(pages.source,rows.filter(row=>Math.abs(row.time-cue('contact'))<=.201),path.join(out,'contact-comparison.png'),{crop:[580,200,760,680].map(value=>Math.round(value*options.scale)),thumbWidth:280,title:'Contact crop — Source | Reconstruction | Difference ×4'});
     await sheet(pages.source,[nearest(cue('resolve'))],path.join(out,'thumbnail-comparison.png'),{thumbWidth:360});
     const threshold=spec.comparison;
     const control=await pixels(pages.source,cue('resolve')),blank=Buffer.alloc(control.rgba.length);

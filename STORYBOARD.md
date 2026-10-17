@@ -1,26 +1,26 @@
-# Signal — storyboard avant implémentation
+# Signal — storyboard before implementation
 
-Film original de 8 secondes, 1920 × 1080, 30 i/s, 120 BPM. Métaphore : une
-impulsion isolée organise trois fragments et devient un sceau ouvert. Aucun texte
-dans le film. Une seule vue plane, papier chaud, indigo mat, sauge et terre cuite.
-Le dessin est calculé par code ; aucune image ni police externe.
+Original 8-second film, 1920 × 1080, 30 fps, 120 BPM. Metaphor: an isolated
+impulse organizes three fragments and becomes an open seal. No text in the film.
+One flat view, warm paper, matte indigo, sage and terracotta.
+The drawing is computed in code; no external images or fonts.
 
-| Beats | Secondes | Lecture principale | Anticipation, action, conséquence |
+| Beats | Seconds | Main read | Anticipation, action, consequence |
 | --- | --- | --- | --- |
-| 0–1 | 0–0,5 | Une petite impulsion entre | Révélation douce du papier ; la pastille arrive de gauche sur un arc. |
-| 1–4 | 0,5–2 | Elle vise une couronne incomplète | Approche ralentie, léger recul puis contact ; le contour reçoit l'énergie. |
-| 4–7 | 2–3,5 | Trois fragments s'ouvrent | Onde locale, fragments décalés ; amortissement distinct, pas de rebond généralisé. |
-| 7–10 | 3,5–5 | Les fragments s'organisent | Arcs courts et continus vers trois pétales ; le centre devient lisible. |
-| 10–12 | 5–6 | La couronne se résout | Rotation résiduelle amortie, accent sonore plus clair. |
-| 12–15 | 6–7,5 | Lire la forme accomplie | Tenue de 1,5 s ; seuls le grain vivant et une vibration très faible restent. |
-| 15–16 | 7,5–8 | Fermer sur le papier | Disparition progressive, aucune nouvelle information. |
+| 0–1 | 0–0.5 | A small impulse enters | Soft reveal of the paper; the dot arrives from the left along an arc. |
+| 1–4 | 0.5–2 | It aims at an incomplete ring | Slowing approach, slight retreat, then contact; the outline receives the energy. |
+| 4–7 | 2–3.5 | Three fragments open | Local wave, staggered fragments; distinct damping, no generalized bounce. |
+| 7–10 | 3.5–5 | The fragments organize | Short, continuous arcs toward three petals; the center becomes readable. |
+| 10–12 | 5–6 | The ring resolves | Damped residual rotation, a clearer sound accent. |
+| 12–15 | 6–7.5 | Read the completed shape | A 1.5 s hold; only living grain and a very faint vibration remain. |
+| 15–16 | 7.5–8 | Close on paper | Gradual disappearance, no new information. |
 
-Caméra fixe. Un objet conduit chaque phase ; le secondaire suit avec retard.
-Le centre d'intérêt reste dans les 80 % centraux. Le son est une ponctuation
-synthétisée originale : contact bref, trois notes espacées, résolution douce.
-Les repères numériques faisant autorité sont dans `project.json` ; ce tableau
-est une explication de la direction, pas une seconde source de timing.
+Fixed camera. One object leads each phase; secondary motion follows with a delay.
+The focus stays within the central 80%. Sound is original synthesized
+punctuation: a brief contact, three spaced notes, a soft resolution.
+The authoritative numeric markers are in `project.json`; this table explains
+the direction and is not a second timing source.
 
-Contrôles : image initiale/finale, temps des cues et ±1 image, états intermédiaires,
-planche par beat, bande du contact, recadrage du centre, miniature, ordre de seek
-inversé/mélangé, brouillon à vitesse réelle, décodage MP4 et mesure audio.
+Checks: first/last image, cue times and ±1 frame, intermediate states,
+beat sheet, contact strip, center crop, thumbnail, reversed/shuffled seek order,
+draft at actual speed, MP4 decoding and audio measurement.

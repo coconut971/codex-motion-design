@@ -1,42 +1,40 @@
-# Signal : d’une page HTML à un film reconstruit
+# Signal: from an HTML page to a reconstructed film
 
-Ce cas part d’une page de démonstration appartenant au dépôt,
-[`examples/signal.html`](../../examples/signal.html), et utilise REA `6.5.0`
-pour conserver des preuves de son fonctionnement dans Chromium. L’objectif
-est concret : comprendre les états visibles, écrire une nouvelle scène
-`seek(t)`, comparer ses images à la référence et produire un MP4 avec son.
+This case starts with a demonstration page owned by the repository,
+[`examples/signal.html`](../../examples/signal.html), and uses REA `6.5.0`
+to retain evidence of its operation in Chromium. The objective is concrete:
+understand visible states, write a new `seek(t)` scene, compare its images with
+the reference and produce an MP4 with sound.
 
-La cible est choisie parce que son code et ses assets sont redistribuables.
-Ce n’est pas une récupération de code tiers fermé. Les sources sont accessibles
-pendant l’enquête : la réimplémentation est indépendante du module de référence,
-mais ce cas n’est pas une expérience « clean-room ». La séparation se vérifie
-dans les imports, les fichiers et les preuves, pas dans une affirmation
-d’ignorance du code original.
+The target was chosen because its code and assets can be redistributed. This
+is not recovery of closed third-party code. Sources are accessible during the
+investigation: the reimplementation is independent of the reference module,
+but this case is not a clean-room experiment. Separation is verifiable in
+imports, files and evidence, not through a claim of ignorance of the original code.
 
-## Qui fait quoi
+## Who does what
 
-Astra mène l’enquête, établit la spécification, écrit la scène et critique les
-captures, conformément à [ASTRA_WORKFLOW.md](../ASTRA_WORKFLOW.md). REA inspecte
-la page et les scripts ; il ne génère pas le film. Playwright pilote les appels
-`seek(t)` et capture les pixels. Le renderer local et FFmpeg produisent l’image
-et le son sans SDK de modèle, appel de modèle ou clé API au rendu.
+Astra conducts the investigation, establishes the specification, writes the
+scene and critiques captures under [ASTRA_WORKFLOW.md](../ASTRA_WORKFLOW.md).
+REA inspects the page and scripts; it does not generate the film. Playwright
+drives `seek(t)` calls and captures pixels. The local renderer and FFmpeg
+produce picture and sound without a model SDK, model call or API key at render time.
 
-REA a effectivement été installé pour Codex le 17 octobre 2026. Le setup a
-renvoyé `ready` et les actions `configured_codex` et `installed_skill` ; le
-doctor ciblé Codex + skill a renvoyé `healthy: true`. La session en cours
-n’avait pas renouvelé sa découverte MCP : l’enquête emploie la CLI versionnée.
-Un client stdio séparé a néanmoins réussi le dialogue avec le launcher
-installé et découvert ses 207 outils ; ce contrôle réel ne vaut pas
-attachement du MCP à la conversation déjà ouverte.
-Cette distinction et les limites des providers natifs sont consignées dans
-[REA_WORKFLOW.md](../REA_WORKFLOW.md#installation-appliquée-le-17-octobre-2026).
+REA was actually installed for Codex on 17 October 2026. Setup returned `ready`
+and the actions `configured_codex` and `installed_skill`; the targeted Codex +
+skill doctor returned `healthy: true`. The current session had not refreshed
+MCP discovery: the investigation uses the versioned CLI. A separate stdio client
+nevertheless successfully communicated with the installed launcher and discovered
+its 207 tools; this actual check does not constitute MCP attachment to the
+already open conversation. This distinction and native-provider limits are
+recorded in [REA_WORKFLOW.md](../REA_WORKFLOW.md#installation-applied-on-17-october-2026).
 
-## Reproduire les étapes
+## Reproduce the steps
 
-Les prérequis sont ceux du renderer, plus Node compatible avec REA `6.5.0`
-(Node `22.19+` dans la branche 22, `24.11+` dans la branche 24, ou `26+`).
-Le cas utilise une page servie localement et un navigateur dédié. Les ports
-sont choisis à l’exécution ; aucune URL de production n’est visée.
+Prerequisites are those of the renderer, plus Node compatible with REA `6.5.0`
+(Node `22.19+` in the 22 branch, `24.11+` in the 24 branch, or `26+`). The case
+uses a locally served page and dedicated browser. Ports are chosen at runtime;
+no production URL is targeted.
 
 ```sh
 npm ci
@@ -46,195 +44,183 @@ node scripts/rea-case.mjs --phase=compare --out=out/rea-case --overwrite
 node scripts/rea-case.mjs --phase=render --out=out/rea-case --overwrite
 ```
 
-`--phase=all` enchaîne les trois étapes. `CHROME_PATH` et `FFMPEG_PATH`, ou
-`--chrome=…` et `--ffmpeg=…`, sélectionnent les exécutables locaux.
-`--npm-cli=…` permet de donner le chemin absolu de `npm-cli.js` si le runner
-ne peut pas le trouver. `--overwrite` exprime le remplacement des sorties
-existantes. L’installation de REA n’est pas relancée par le cas.
+`--phase=all` runs all three steps in sequence. `CHROME_PATH` and `FFMPEG_PATH`,
+or `--chrome=…` and `--ffmpeg=…`, select local executables. `--npm-cli=…` allows
+an absolute `npm-cli.js` path if the runner cannot find it. `--overwrite`
+expresses replacement of existing outputs. The case does not rerun REA installation.
 
-Le runner appelle successivement ces commandes via
-`npm exec --ignore-scripts --yes --package=rea-agents@6.5.0 -- rea` :
+The runner successively calls these commands through
+`npm exec --ignore-scripts --yes --package=rea-agents@6.5.0 -- rea`:
 
 ```text
 list-browser-targets ENDPOINT --json
 inspect-web-page ENDPOINT TARGET_ID --observation-ms 1000 --include-script-sources --json
 analyze-web-bundle ENDPOINT TARGET_ID --json
 capture-web-screenshot ENDPOINT TARGET_ID --json
-export-web-scripts CAPTURE_JSON NOUVEAU_DOSSIER --json
-analyze-javascript-application NOUVEAU_DOSSIER/files --json
+export-web-scripts CAPTURE_JSON NEW_FOLDER --json
+analyze-javascript-application NEW_FOLDER/files --json
 ```
 
-`ENDPOINT` et `TARGET_ID` désignent le navigateur et la cible réellement ouverts.
-Les arguments résolus, les versions, les empreintes SHA-256 des sources et les
-références des rapports sont enregistrés dans `out/rea-case/evidence/index.json`.
-Les Evidence complètes restent dans le même dossier ignoré par Git. Leur
-conservation permet de relire l’enquête entre plusieurs appels CLI, sans
-confondre un identifiant de session MCP avec un fichier durable.
+`ENDPOINT` and `TARGET_ID` identify the browser and target actually opened.
+Resolved arguments, versions, source SHA-256 hashes and report references are
+recorded in `out/rea-case/evidence/index.json`. Complete Evidence remains in
+that same Git-ignored folder. Retaining it allows the investigation to be reread
+across multiple CLI calls without confusing an MCP session identifier with a
+durable file.
 
-## Observation, mesure et interprétation
+## Observation, measurement and interpretation
 
-La référence dessine un film sans texte dans un Canvas ; les commandes du
-lecteur sont masquées en mode capture. Le projet possède un espace logique
-1920 × 1080, une durée de 8 s, une cadence de 30 i/s, une grille à 120 BPM et
-une seed de 17. Ces paramètres sont lus dans le descriptor et le module de
-référence, pas déduits de la seule capture.
+The reference draws a text-free film in a Canvas; player controls are hidden
+in capture mode. The project has a logical space of 1920 × 1080, an 8 s duration,
+30 fps frame rate, 120 BPM grid and seed 17. These parameters are read from the
+descriptor and reference module, not inferred from the capture alone.
 
-| Élément | Fait vérifiable dans la référence | Interprétation retenue |
+| Element | Verifiable fact in the reference | Adopted interpretation |
 | --- | --- | --- |
-| Temps | Le module expose `window.seek(seconds)` ; le pilote de lecture est séparé. | Une image peut être reconstruite à partir du temps absolu. Cette propriété doit ensuite être testée sur la nouvelle scène. |
-| Composition | Une impulsion, trois ovales et une couronne ouverte ; palette papier, indigo, sauge, terre cuite et or. | Un signal organise des fragments et laisse une forme finale lisible. |
-| Mouvement | Courbes continues, springs analytiques, léger décalage entre fragments et traits variant à 12 Hz. | Le délai et l’amortissement donnent une succession lisible, sans exiger de simulation accumulée. |
-| Caméra | La référence applique une échelle fixe de 1,2 autour du centre. | Conserver un cadre fixe et une occupation comparable facilite la lecture et la comparaison. |
-| Son | Les événements du descriptor portent les fréquences, gains, durées et panoramiques. | Reprendre les événements partagés pour la synthèse locale évite une seconde timeline manuscrite. |
+| Time | The module exposes `window.seek(seconds)`; the playback driver is separate. | A frame can be reconstructed from absolute time. This property must then be tested on the new scene. |
+| Composition | An impulse, three ovals and an open ring; paper, indigo, sage, terracotta and gold palette. | A signal organizes fragments and leaves a readable final shape. |
+| Movement | Continuous curves, analytical springs, slight delays between fragments and outlines varying at 12 Hz. | Delay and damping create a readable succession without requiring accumulated simulation. |
+| Camera | The reference applies a fixed scale of 1.2 around the centre. | Retaining fixed framing and comparable occupancy makes reading and comparison easier. |
+| Sound | Descriptor events carry frequencies, gains, durations and pans. | Reusing shared events for local synthesis avoids a second manually maintained timeline. |
 
-REA observe ici une page déjà chargée. Une fenêtre sans nouvelle requête réseau
-ne signifie donc pas qu’aucune ressource n’a été chargée. La capture REA est un
-artefact du viewport. Le PNG `source-resolve.png`, obtenu après un appel
-Playwright à `seek`, est identifié séparément ; il n’est pas attribué à une
-évaluation temporelle passive par REA. L’export de scripts renseigne le
-contenu effectivement capturé, sans promettre une application complète ni
-des source maps absentes.
+REA observes an already loaded page here. A window without a new network request
+therefore does not mean no resource was loaded. The REA capture is a viewport
+artifact. The PNG `source-resolve.png`, obtained after a Playwright `seek` call,
+is identified separately; it is not attributed to passive temporal evaluation
+by REA. Script export reports content actually captured without promising a
+complete application or absent source maps.
 
-Dans cette exécution, l’inspection a retenu 30 nœuds DOM. Trois scripts ont
-été observés, analysés puis exportés : `examples/signal.mjs`, `lib/motion.mjs`
-et `lib/project.mjs`, soit 10 894 octets. L’analyse statique de cet export a
-parcouru 2 626 nœuds AST sans erreur de parsing et produit un graphe
-d’application de 20 nœuds et 29 relations. La couverture dite `complete`
-concerne ces trois fichiers. La capture d’origine reste `policy_filtered` et
-`attach_limited`, notamment avec neuf scripts exclus faute d’origine
-attribuable ; elle ne constitue pas une copie exhaustive de l’état navigateur.
+In this run, inspection retained 30 DOM nodes. Three scripts were observed,
+analyzed and exported: `examples/signal.mjs`, `lib/motion.mjs` and `lib/project.mjs`,
+totalling 10,894 bytes. Static analysis of that export traversed 2,626 AST nodes
+without a parsing error and produced an application graph of 20 nodes and
+29 relationships. Coverage labelled `complete` concerns these three files.
+The original capture remains `policy_filtered` and `attach_limited`, including
+nine scripts excluded for lack of attributable origin; it is not an exhaustive
+copy of browser state.
 
-Un exemple utile de lecture critique apparaît dans le bundle : REA trouve les
-deux imports locaux et l’appel `fetch('../project.json')`, mais propose aussi
-`scale` comme endpoint de faible confiance. La lecture de la ligne concernée
-montre `params.get('scale')` : c’est le nom d’un paramètre d’URL du lecteur,
-pas une requête réseau. Le cas conserve cette inférence rejetée au lieu de la
-transformer en fait. Les empreintes et ces constats sont dans
-[l’extrait public d’Evidence](../assets/rea-case/evidence-summary.json).
+A useful example of critical reading appears in the bundle: REA finds both
+local imports and the `fetch('../project.json')` call, but also proposes `scale`
+as a low-confidence endpoint. Reading the relevant line shows `params.get('scale')`:
+it is a player URL parameter name, not a network request. The case retains this
+rejected inference instead of turning it into a fact. Hashes and these findings
+are in the [public Evidence excerpt](../assets/rea-case/evidence-summary.json).
 
-## Spécification avant reconstruction
+## Specification before reconstruction
 
-Le [storyboard du cas](../../examples/rea-signal/STORYBOARD.md) a été écrit
-avant le [module reconstruit](../../examples/rea-signal/reconstruction.mjs).
-La [spécification figée](../../examples/rea-signal/spec.json) sépare les
-observations REA, les valeurs lues dans le code, l’interprétation de la scène
-et les choix de dessin. Elle lie la référence à ses empreintes ; le runner
-refuse une comparaison si le module, le descriptor source ou les helpers
-partagés de mouvement et de projet ont changé.
+The [case storyboard](../../examples/rea-signal/STORYBOARD.md) was written
+before the [reconstructed module](../../examples/rea-signal/reconstruction.mjs).
+The [frozen specification](../../examples/rea-signal/spec.json) separates REA
+observations, values read from code, scene interpretation and drawing choices.
+It binds the reference to its hashes; the runner refuses comparison if the
+module, source descriptor or shared motion/project helpers have changed.
 
-Les étapes de lecture restent : apparition, approche, contact, ouverture des
-fragments, alignement, résolution tenue, disparition. Les événements nommés
-du descriptor font autorité pour leurs instants ; le storyboard explique la
-mise en scène sans créer une seconde source de secondes.
+The stages of visual reading remain: appearance, approach, contact, fragments
+opening, alignment, held resolution, disappearance. Named descriptor events
+are authoritative for their times; the storyboard explains staging without
+creating a second source of seconds.
 
-La caméra est fixe. L’impulsion guide l’œil jusqu’au contact, puis les trois
-fragments prennent le relais avec un décalage. La couronne finale doit rester
-compréhensible à petite taille et tenir assez longtemps avant la fermeture.
-Le grain et le trait vivant appartiennent au vocabulaire visuel ; leur hasard
-est calculé depuis une seed, un identifiant stable et un tick explicite.
+The camera is fixed. The impulse leads the eye to contact, then the three
+fragments take over with staggered timing. The final ring must remain readable
+at small size and hold long enough before closing. Grain and living outlines
+belong to the visual vocabulary; their randomness is calculated from a seed,
+a stable identifier and an explicit tick.
 
-La reconstruction doit réécrire tout le Canvas à chaque `seek(t)`, garder le
-temps continu entre les frames et séparer le pilote de lecture du calcul.
-Elle peut partager les helpers du moteur et le descriptor, mais n’importe pas
-`examples/signal.mjs`. Cette distinction permet une nouvelle implémentation
-du dessin tout en conservant une seule timeline pour image, son et contrôle.
+The reconstruction must rewrite the entire Canvas at each `seek(t)`, retain
+continuous time between frames and separate playback control from computation.
+It may share engine helpers and the descriptor, but does not import
+`examples/signal.mjs`. This distinction enables a new drawing implementation
+while retaining one timeline for picture, sound and checks.
 
-Le nouveau module sépare `poseAt(seconds, project, spec)` et le dessinateur.
-Il emploie 48 sommets par ovale, 80 segments par arc et 2 400 grains avec de
-nouveaux identifiants de variation. Les valeurs de mouvement conservées sont
-explicitement lues dans le code de référence : elles ne sont pas présentées
-comme un ajustement mathématique unique déduit des pixels. Le
-[descriptor de reconstruction](../../examples/rea-signal/project.json)
-porte les cues et les sons de ce film ; le comparateur contrôle sa concordance
-avec la référence, hors identifiant du projet.
+The new module separates `poseAt(seconds, project, spec)` from the drawing
+routine. It uses 48 vertices per oval, 80 segments per arc and 2,400 grains with
+new variation identifiers. Retained motion values are explicitly read from the
+reference code: they are not presented as a unique mathematical fit inferred
+from pixels. The [reconstruction descriptor](../../examples/rea-signal/project.json)
+carries this film's cues and sounds; the comparator checks its agreement with
+the reference, apart from the project identifier.
 
-## Évaluer le résultat
+## Evaluate the result
 
-Comparer les images de la référence et de la reconstruction aux mêmes temps,
-dimensions et paramètres navigateur. Les planches côte à côte montrent la
-composition ; les images de différence localisent les écarts. Les métriques
-MAE, RMSE et fraction de pixels différents décrivent ce périmètre rasterisé,
-sans constituer une note de qualité artistique. Elles ne démontrent pas une
-équivalence pour tous les temps, toutes les plateformes ou toutes les tailles.
+Compare reference and reconstruction images at the same times, dimensions and
+browser settings. Side-by-side sheets show composition; difference images locate
+discrepancies. MAE, RMSE and differing-pixel fraction describe that rasterized
+scope without constituting an artistic-quality score. They do not demonstrate
+equivalence for all times, platforms or sizes.
 
-Le calcul porte sur les canaux RGB en niveaux 0–255, sans alpha. Un pixel est
-compté comme différent lorsqu’au moins un canal diffère de **plus de 12**.
-Outre le cadre entier, une région logique `[180, 0, 1260, 1000]` contient
-l’action, soit `[90, 0, 630, 500]` à l’échelle de comparaison 0,5. Aucun
-recalage spatial ni flou temporel n’est appliqué. Après la première mesure,
-les limites de régression ont été resserrées dans la spécification :
-MAE/RMSE ≤ 1,5/10 sur le cadre, ≤ 2,5/13 sur la région, et ≤ 5 % de pixels
-différents dans cette région. Il s’agit d’une calibration explicite après
-mesure, pas de seuils prédéclarés pour une évaluation aveugle. La différence
-visuelle est amplifiée ×4 dans les planches ; cette amplification ne modifie
-pas les métriques.
+Calculation covers RGB channels at levels 0–255, excluding alpha. A pixel counts
+as different when at least one channel differs by **more than 12**. Besides the
+whole frame, a logical region `[180, 0, 1260, 1000]` contains the action, or
+`[90, 0, 630, 500]` at comparison scale 0.5. No spatial registration or temporal
+blur is applied. After the first measurement, regression limits were tightened
+in the specification: MAE/RMSE ≤ 1.5/10 for the frame, ≤ 2.5/13 for the region,
+and ≤ 5% differing pixels in that region. This is explicit post-measurement
+calibration, not thresholds declared in advance for a blind evaluation. Visual
+differences are amplified ×4 in the sheets; this amplification does not alter
+metrics.
 
-Les seeks inversés, répétés et sur une page fraîche comparent la reconstruction
-à elle-même. Ils répondent à une autre question que la similarité avec la
-référence : un même temps redonne-t-il les mêmes pixels après un historique
-différent ? Le rendu vidéo et le décodage audio sont ensuite vérifiés comme
-des sorties distinctes. Une piste présente et mesurée ne vaut pas une écoute.
+Reverse, repeated and fresh-page seeks compare the reconstruction with itself.
+They answer a different question from similarity to the reference: does the
+same time reproduce the same pixels after a different history? Video rendering
+and audio decoding are then checked as separate outputs. A present, measured
+track is not listening.
 
-## Résultats de la comparaison exécutée
+## Results of the comparison performed
 
-Les 41 instants testés couvrent les beats, les cues à ±1 frame, le contact de
-1,8 à 2,2 s par pas de 1/30 s, les extrémités utiles et deux sous-images à
-1,234 et 1,235 s. Les mesures portent sur 960×540 pixels ; la région d’action
-contient 315 000 pixels.
+The 41 tested times cover beats, cues at ±1 frame, contact from 1.8 to 2.2 s in
+1/30 s steps, useful endpoints and two subframes at 1.234 and 1.235 s.
+Measurements cover 960×540 pixels; the action region contains 315,000 pixels.
 
-| Maximum sur les 41 captures | Cadre entier | Région d’action |
+| Maximum across 41 captures | Whole frame | Action region |
 | --- | ---: | ---: |
-| MAE RGB, niveaux 0–255 | 0,302508 | 0,485677 |
-| RMSE RGB, niveaux 0–255 | 3,925067 | 5,032379 |
-| Pixels avec un canal différent de plus de 12 | 0,723765 % | 1,191111 % |
+| RGB MAE, levels 0–255 | 0.302508 | 0.485677 |
+| RGB RMSE, levels 0–255 | 3.925067 | 5.032379 |
+| Pixels with a channel differing by more than 12 | 0.723765% | 1.191111% |
 
-Les maxima MAE/RMSE surviennent à 6,033333333 s, ceux de fraction différente
-à 7 s. Tous les seuils de régression sont respectés. Les huit passes de
-déterminisme — ordre inverse, mélangé, répété et page fraîche pour chacun des
-deux films — redonnent les mêmes empreintes SHA-256 de tous les octets RGBA,
-41 probes par passe. Les sous-images à 1,234 et 1,235 s sont distinctes dans
-les deux films. Aucun échec de page ou de ressource n’a été enregistré.
-[Mesures complètes](../assets/rea-case/metrics.json).
+MAE/RMSE maxima occur at 6.033333333 s, differing-fraction maxima at 7 s. All
+regression thresholds are met. The eight determinism passes — reverse, shuffled,
+repeated and fresh page for each film — reproduce the same SHA-256 hashes of
+all RGBA bytes, 41 probes per pass. Subframes at 1.234 and 1.235 s are distinct
+in both films. No page or resource failure was recorded.
+[Full measurements](../assets/rea-case/metrics.json).
 
-Un contrôle négatif remplace la composition résolue à 6 s par du papier vide.
-Il est rejeté : MAE/RMSE du cadre 3,863616/19,743721 ; région d’action
-6,352139/25,328008, avec 7,933016 % de pixels différents. Ce contrôle vérifie
-que la grande surface de papier commune ne suffit pas à faire passer une
-reconstruction qui aurait perdu les objets.
+A negative control replaces the resolved composition at 6 s with blank paper.
+It is rejected: frame MAE/RMSE 3.863616/19.743721; action region
+6.352139/25.328008, with 7.933016% differing pixels. This check verifies that the
+large shared paper area alone cannot make a reconstruction missing its objects pass.
 
-![Référence, reconstruction et différence amplifiée](../assets/rea-case/key-comparison.png)
+![Reference, reconstruction and amplified difference](../assets/rea-case/key-comparison.png)
 
-La revue a ouvert les quatre compositions à 0,4 / 1,4 / 3,8 / 6,8 s, puis la
-comparaison aux cues 0,5 / 2 / 3,5 / 6 s, la
-[planche par beat](../assets/rea-case/beat-comparison.png), le
-[crop dense du contact](../assets/rea-case/contact-comparison.png) et la
-[miniature finale](../assets/rea-case/thumbnail-comparison.png). L’entrée
-depuis le haut gauche, le regroupement au contact, la séparation des fragments
-et le renforcement du contour final conservent la lecture de la référence.
-Les différences visibles se concentrent sur les contours et le grain,
-conformément aux choix du nouveau dessinateur.
+The review opened the four compositions at 0.4 / 1.4 / 3.8 / 6.8 s, then the
+comparison at cues 0.5 / 2 / 3.5 / 6 s, the
+[beat sheet](../assets/rea-case/beat-comparison.png),
+[dense contact crop](../assets/rea-case/contact-comparison.png) and
+[final thumbnail](../assets/rea-case/thumbnail-comparison.png). Entrance from
+the upper left, grouping at contact, fragment separation and the reinforced
+final outline preserve the reference's visual reading. Visible differences
+concentrate on outlines and grain, consistent with the new drawing routine's choices.
 
-Dans cette comparaison avant/après reconstruction, aucun défaut majeur de
-position ou de timing n’a été observé sur les images inspectées. Aucune
-correction de mise en scène n’a été jugée nécessaire sur ces échantillons.
-Le choix de conserver les nouveaux contours laisse un écart pixel non nul
-assumé. La revue par images ne
-prouve ni la qualité à chaque instant ni une observation continue du film.
-La [revue du cas](../../examples/rea-signal/REVIEW.md) distingue ce constat
-visuel des corrections réellement apportées au workflow de contrôle.
+In this before/after reconstruction comparison, no major position or timing
+defect was observed in the inspected images. No staging correction was deemed
+necessary in these samples. Keeping the new outlines leaves an intentional
+nonzero pixel difference. Image-based review proves neither quality at every
+instant nor continuous observation of the film. The
+[case review](../../examples/rea-signal/REVIEW.md) distinguishes this visual
+finding from corrections actually made to the checking workflow.
 
-Les exports et leurs contrôles sont consignés dans
-[VALIDATION.md](../VALIDATION.md). Le
-[film reconstruit avec son](../assets/rea-case/final.mp4) dure 8 s en
-1920×1080 à 30 i/s, soit 240 images, avec quatre sous-images par frame.
-Son [manifest](../assets/rea-case/render-evidence.json) conserve les paramètres,
-empreintes des sources et résultats du décodage. Le son est contrôlé
-techniquement ; aucune écoute subjective n’est revendiquée.
-La [planche décodée](../assets/rea-case/decoded-sheet.png) et les frames
-exactes 0 et 239 ont été ouvertes ; la dernière conserve un résidu très faible
-du fondu. Une [lecture muette automatisée](../assets/rea-case/playback.json)
-du draft a atteint la fin à 8 s sans erreur média. Elle ne vaut pas une
-observation continue par un spectateur.
+Exports and their checks are recorded in [VALIDATION.md](../VALIDATION.md).
+The [reconstructed film with sound](../assets/rea-case/final.mp4) is 8 s at
+1920×1080 and 30 fps, or 240 frames, with four subframes per frame. Its
+[manifest](../assets/rea-case/render-evidence.json) retains parameters, source
+hashes and decoding results. These historical hashes refer to the sources at
+the time of rendering; [translation provenance](../assets/TRANSLATION_PROVENANCE.md)
+identifies the pinned revisions. Translating the documentation and source text
+does not claim a new render. Sound is checked technically; no subjective
+listening is claimed. The [decoded sheet](../assets/rea-case/decoded-sheet.png)
+and exact frames 0 and 239 were opened; the last retains a very faint fade
+residue. [Automated muted playback](../assets/rea-case/playback.json) of the
+draft reached the end at 8 s without a media error. This does not constitute
+continuous observation by a viewer.
 
-Les méthodes de temps absolu, de revue par frames et de vérification sont
-décrites dans le [contrat de rendu](../RENDER_CONTRACT.md).
+Absolute-time, frame-review and verification methods are described in the
+[rendering contract](../RENDER_CONTRACT.md).

@@ -1,23 +1,23 @@
-# Verrouiller une direction avant de construire
+# Lock the direction before building
 
 ```text
-Auteur requis : GPT-6 Astra exclusivement, y compris pour le code, les assets,
-les prompts et les corrections. Vérifie le modèle avec les informations fiables
-de la session ; si ce n'est pas Astra ou si tu ne peux pas le vérifier, signale
-la limite avant de générer et demande sa sélection, sans modèle de secours.
-Le rendu et les mesures des fichiers existants restent locaux, sans API modèle.
+Required author: GPT-6 Astra exclusively, including code, assets, prompts and
+corrections. Verify the model using reliable session information; if it is not
+Astra or you cannot verify it, state the limitation before generating and ask
+for Astra to be selected, without a fallback model. Rendering and measurement
+of existing files remain local, without a model API.
 
-Lis le brief et STORYBOARD.md. Propose trois concepts réellement distincts pour
-[sujet] : une transformation littérale, une métaphore et une approche éditoriale.
-Pour chacun, précise silhouette, palette hex, matière, cadrage, geste principal,
-payoff, risque de lisibilité, durée et direction sonore. Pas de slogans vagues.
+Read the brief and STORYBOARD.md. Propose three distinct concepts for [subject]:
+a literal transformation, a metaphor and an editorial approach. For each,
+specify silhouette, hex palette, material, framing, main gesture, payoff,
+readability risk, duration and sound direction. No vague slogans.
 
-Choisis le plus adapté à [public / destination] et explique ton choix en deux
-phrases. Développe ce concept dans STORYBOARD.md avec une table beat → état
-visible → entrée → action → sortie → cue sonore. Une lecture principale à la
-fois. Prévois une vraie tenue finale. La banned list sert à éliminer les
-automatismes ; motive toute exception. Ne commence pas encore l'export complet.
-Crée et inspecte quatre compositions rendues pour rendre la direction reviewable.
+Choose the best fit for [audience / destination] and explain your choice in two
+sentences. Develop this concept in STORYBOARD.md with a table of beat → visible
+state → entrance → action → exit → sound cue. One main read at a time. Plan a
+real final hold. Use the banned list to eliminate automatic choices; justify
+any exception. Do not start the full export yet. Create and inspect four
+rendered compositions to make the direction reviewable.
 ```
 
-Politique d'auteur : [workflow Astra](../docs/ASTRA_WORKFLOW.md).
+Author policy: [Astra workflow](../docs/ASTRA_WORKFLOW.md).

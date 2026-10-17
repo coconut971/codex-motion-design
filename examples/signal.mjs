@@ -86,11 +86,11 @@ window.__motionReady = (async () => {
   function preview(now){
     if(!playing)return;
     const t=offset+(now-origin)/1000;
-    if(t>=project.duration){playing=false;button.textContent='Lire';show(project.duration);return;}
+    if(t>=project.duration){playing=false;button.textContent='Play';show(project.duration);return;}
     show(t);requestAnimationFrame(preview);
   }
-  slider.addEventListener('input',()=>{playing=false;button.textContent='Lire';show(Number(slider.value));});
-  button.addEventListener('click',()=>{playing=!playing;button.textContent=playing?'Pause':'Lire';if(playing){offset=Number(slider.value);if(offset>=project.duration)offset=0;origin=performance.now();requestAnimationFrame(preview);}});
+  slider.addEventListener('input',()=>{playing=false;button.textContent='Play';show(Number(slider.value));});
+  button.addEventListener('click',()=>{playing=!playing;button.textContent=playing?'Pause':'Play';if(playing){offset=Number(slider.value);if(offset>=project.duration)offset=0;origin=performance.now();requestAnimationFrame(preview);}});
   return true;
 })();
 window.__motionReady.catch(error=>{window.__motionError=String(error);console.error(error);});

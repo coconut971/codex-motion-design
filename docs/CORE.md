@@ -1,36 +1,35 @@
-# Cœur motion/1
+# motion/1 core
 
-Le cœur original compile un JSON en images indépendantes. Aucun SDK de modèle,
-aucune simulation accumulée, aucun service de rendu ou média distant. Astra
-écrit la direction et le descriptor ; le calcul s'exécute ensuite localement.
+The original core compiles JSON into independent frames. No model SDK,
+accumulated simulation, rendering service or remote media is involved. Astra
+writes the direction and descriptor; computation then runs locally.
 
 ```js
 import {compileFilm} from './core/film.mjs';
 import {canvasAdapter, svgAdapter} from './core/adapters.mjs';
 const film = compileFilm(descriptor);
 const adapter = canvasAdapter(canvas, {scale: .5});
-// Ou svgAdapter(svg, {scale: .5, idPrefix: 'my-film'}).
+// Or svgAdapter(svg, {scale: .5, idPrefix: 'my-film'}).
 const frame = film.sample(4.123);
 adapter.render(frame);
 ```
 
-`sample(t)` renvoie un frame gelé : temps, scène, caméra, objets persistants,
-géométrie, styles, masques, transition et grain. Le même temps produit le même
-état après n'importe quel seek. L'adaptateur Canvas réinitialise son buffer et
-son contexte ; l'adaptateur SVG remplace ses attributs racine et son graphe DOM.
-Il ne reste aucun display, filtre, clip ou transform d'un frame antérieur.
-`idPrefix` est obligatoire pour plusieurs SVG : donner un identifiant stable
-unique par instance (l'id de la racine est utilisé par défaut).
+`sample(t)` returns a frozen frame: time, scene, camera, persistent objects,
+geometry, styles, masks, transition and grain. The same time produces the same
+state after any seek. The Canvas adapter resets its buffer and context; the SVG
+adapter replaces its root attributes and DOM graph. No display, filter, clip
+or transform survives from a previous frame. `idPrefix` is required for multiple
+SVGs: provide a unique stable identifier per instance (the root id is used by default).
 
-`film.project` respecte le contrat existant de capture et d'audio.
-`film.cuts` vient des frontières des scènes ; `film.cues` contient leurs temps
-compilés ; `film.qa` référence ces mêmes cues. `core/project.mjs` est le loader
-compatible des commandes audio/rendu. `lib/project.mjs` reste inchangé pour
-Signal et son cas REA. Les scènes Signal historiques continuent à fonctionner.
+`film.project` follows the existing capture and audio contract.
+`film.cuts` comes from scene boundaries; `film.cues` contains their compiled times;
+`film.qa` references those same cues. `core/project.mjs` is the compatible loader
+for audio/render commands. `lib/project.mjs` remains unchanged for Signal and
+its REA case. Historical Signal scenes continue to work.
 
 ## Descriptor
 
-La [démo complète](../examples/core-demo/project.json) sert d'exemple.
+The [complete demo](../examples/core-demo/project.json) provides an example.
 
 ```json
 {
@@ -49,33 +48,33 @@ La [démo complète](../examples/core-demo/project.json) sert d'exemple.
 }
 ```
 
-Un temps est un nombre en secondes, ou un objet avec **une** unité :
-`{seconds: 1.2}`, `{beat: 4}`, `{frame: 60}` ou `{cue: 'contact', offset: -.1}`.
-L'offset est en secondes. `snap:'frame'` arrondit ce cue seul à la grille image ;
-il ne quantifie jamais `sample(t)`. Les cues sont des temps de base, sans
-références circulaires ; pistes, scènes et QA peuvent les référencer. Les
-scènes doivent couvrir exactement `[0,duration]` sans vide ni chevauchement.
-Une frontière appartient à la scène entrante ; `duration` permet l'inspection
-de l'état final, sans ajouter d'image au master. Ne fournir aucune liste `cuts`.
+A time is a number in seconds, or an object with **one** unit:
+`{seconds: 1.2}`, `{beat: 4}`, `{frame: 60}` or `{cue: 'contact', offset: -.1}`.
+The offset is in seconds. `snap:'frame'` rounds that cue alone to the frame grid;
+it never quantizes `sample(t)`. Cues are base times, without circular references;
+tracks, scenes and QA may reference them. Scenes must cover exactly `[0,duration]`
+with no gaps or overlaps. A boundary belongs to the incoming scene; `duration`
+allows inspection of the final state without adding a frame to the master.
+Do not provide a `cuts` list.
 
-Une cue peut porter `sound:{hz,gain,duration,pan}` selon le contrat de synthèse
-existant. Le même temps compilé alimente l'image, le WAV et la QA. Une modification
-invalide les sorties correspondantes ; aucun fichier audio séparé ne possède
-des temps manuels. Un film silencieux reste valide.
+A cue may carry `sound:{hz,gain,duration,pan}` under the existing synthesis
+contract. The same compiled time drives picture, WAV and QA. A change invalidates
+the corresponding outputs; no separate audio file owns manually entered times.
+A silent film remains valid.
 
-Les secondes de `film.project.events[].at` restent exactement celles compilées
-des cues. Le `beat` dérivé sert aux métadonnées ; ne pas passer ce projet déjà
-compilé au compilateur legacy pour reconvertir ses beats. Consommer directement
-`film.project`, comme le font le renderer et la synthèse audio. Cela préserve les
-frontières d'arrondi à un demi-échantillon même pour un BPM hors grille.
+The seconds in `film.project.events[].at` remain exactly those compiled from the
+cues. The derived `beat` is metadata; do not pass this already compiled project
+to the legacy compiler to reconvert its beats. Consume `film.project` directly,
+as the renderer and audio synthesis do. This preserves half-sample rounding
+boundaries even at an off-grid BPM.
 
-## Pistes et géométrie
+## Tracks and geometry
 
-Les propriétés `x`, `y`, `rotation` (degrés), `scaleX`, `scaleY`, `opacity` sont
-soit des constantes, soit des pistes. Les keyframes sont strictement ordonnées ;
-avant/après la piste, la valeur est tenue. Le `ease` de la keyframe d'arrivée
-contrôle son intervalle : `linear`, `smooth`, `hold`, ou `[x1,y1,x2,y2]` cubic.
-La résolution cubic utilise une bissection bornée, y peut dépasser [0,1].
+Properties `x`, `y`, `rotation` (degrees), `scaleX`, `scaleY`, `opacity` are either
+constants or tracks. Keyframes are strictly ordered; values are held before and
+after the track. The arriving keyframe's `ease` controls its interval: `linear`,
+`smooth`, `hold`, or cubic `[x1,y1,x2,y2]`. Cubic solving uses bounded bisection;
+y may exceed [0,1].
 
 ```json
 {"spring":{
@@ -87,40 +86,40 @@ La résolution cubic utilise une bissection bornée, y peut dépasser [0,1].
 }}
 ```
 
-La compilation calcule position **et vitesse** à chaque retarget puis résout
-analytiquement le segment suivant, y compris si fréquence ou amortissement
-changent. Les trois régimes sont distincts. Une vitesse initiale peut être
-non nulle ; les unités sont propriété/seconde, Hz et ratio ζ. Aucun pas fps.
-Les fonctions historiques de `lib/motion.mjs` restent disponibles et testées.
+Compilation calculates position **and velocity** at each retarget, then solves
+the following segment analytically, including when frequency or damping changes.
+The three regimes are distinct. Initial velocity may be nonzero; units are
+property/second, Hz and ratio ζ. No fps stepping is involved. The historical
+functions in `lib/motion.mjs` remain available and tested.
 
-Géométrie : `ellipse` (`rx`, `ry`, `cx`, `cy`), `rect` (`x`, `y`, `width`,
-`height`) ou `path` avec commandes `M`, `L`, `C`, `Q`, `Z`. Tous les tracés sont
-compilés en commandes partagées. `fill`/`stroke` acceptent une clé de palette,
-une couleur hex ou `none`. `strokeWidth` et `boil` sont des nombres logiques.
-Le contour varie à 12 Hz avec seed/id stables ; la trajectoire reste continue.
+Geometry: `ellipse` (`rx`, `ry`, `cx`, `cy`), `rect` (`x`, `y`, `width`, `height`)
+or `path` with commands `M`, `L`, `C`, `Q`, `Z`. All paths compile to shared
+commands. `fill`/`stroke` accept a palette key, hex colour or `none`.
+`strokeWidth` and `boil` are logical numbers. Outlines vary at 12 Hz with stable
+seed/id values; trajectories remain continuous.
 
 `trajectory:{points:[[x0,y0],[x1,y1],[x2,y2],[x3,y3]],progress:track,orient:true}`
-ajoute une trajectoire cubic à x/y ; l'orientation suit sa tangente si demandée.
-Ce paramétrage n'est pas une vitesse d'arc constante. Les bounds retournées
-sont les enveloppes conservatrices des points de contrôle transformés, sans
-épaisseur de trait ni intersection avec les masques. Elles sont identiques
-entre adaptateurs, pas nécessairement égales au rectangle des pixels peints.
+adds a cubic trajectory to x/y; orientation follows its tangent when requested.
+This parameterization does not provide constant arc-length speed. Returned bounds
+are conservative envelopes of transformed control points, excluding stroke width
+and mask intersections. They are identical across adapters, but do not necessarily
+match the rectangle of painted pixels.
 
-## Plans, caméra, masques
+## Shots, camera and masks
 
-Chaque scène peut choisir `objects:[ids]` ; les autres objets restent présents
-dans le frame avec `visible:false`, conservant identité et pistes globales.
-L'ordre de `objects` dans le descriptor est l'ordre de peinture.
+Each scene may select `objects:[ids]`; other objects remain in the frame with
+`visible:false`, preserving identity and global tracks. The order of `objects`
+in the descriptor is the painting order.
 
-`camera:{x,y,zoom}` accepte les mêmes pistes ; zoom positif s'interpole en
-logarithme, et n'accepte pas les springs qui pourraient traverser zéro. La
-caméra est calculée depuis le temps courant, jamais depuis le dernier rendu.
-`mask` sur une scène ou un objet accepte une géométrie **en coordonnées monde**,
-avant le transform local de l'objet. `transition:{type:'fade'|'wipe',duration,
-colour:'paper'}` couvre l'écran à l'entrée puis révèle le plan ; durée en
-secondes. Les frontières de plans limitent le shutter même avec un volet.
+`camera:{x,y,zoom}` accepts the same tracks; positive zoom interpolates
+logarithmically and does not accept springs that could cross zero. The camera
+is calculated from the current time, never from the previous render.
+A scene or object `mask` accepts geometry **in world coordinates**, before the
+object's local transform. `transition:{type:'fade'|'wipe',duration,colour:'paper'}`
+covers the screen on entry, then reveals the shot; duration is in seconds.
+Shot boundaries constrain the shutter even with a wipe.
 
-## Lecture et export
+## Playback and export
 
 ```sh
 npm run core:sheet
@@ -130,14 +129,13 @@ npm run core:render -- --samples=4
 npm run core:audio
 ```
 
-Après `npm run studio`, ouvrir `/examples/core-demo/index.html` ou la variante
-`?adapter=svg`. Le lecteur accepte `?project=/path/to/descriptor.json` sur le
-même serveur : un autre film nécessite un autre JSON, aucun code de scène.
-En export, fournir ce même chemin à `--project` et à la query `project` ; le
-renderer refuse tout désaccord entre son descriptor et celui de la page.
+After `npm run studio`, open `/examples/core-demo/index.html` or the
+`?adapter=svg` variant. The player accepts `?project=/path/to/descriptor.json`
+on the same server: another film requires another JSON file, with no scene code.
+For export, supply the same path to `--project` and the `project` query; the
+renderer rejects any disagreement between its descriptor and the page's.
 
-L'export vidéo livré capture **Canvas 2D**. Le SVG est un adaptateur DOM
-consultable et testé, pas une promesse de capture de HTML/WebGL arbitraire.
-La QA compare états et bounds entre adaptateurs, et pixels répétés au sein de
-chacun. Les rasterisations Canvas/SVG peuvent différer. Les mesures et limites
-de la démo sont dans [CORE_VALIDATION.md](CORE_VALIDATION.md).
+The supplied video export captures **Canvas 2D**. SVG is a viewable, tested DOM
+adapter, not a promise of arbitrary HTML/WebGL capture. QA compares states and
+bounds across adapters, and repeated pixels within each. Canvas/SVG rasterization
+may differ. Demo measurements and limits are in [CORE_VALIDATION.md](CORE_VALIDATION.md).

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "source": {
     "html": "examples/signal.html",
-    "moduleSha256": "6b2f77e2a52a1499838d9a3c143712c4e6c61b4450502b546bf220be77c65482",
+    "moduleSha256": "5bc843e3d4bce7f523ae173ccd8b291ec7e1e2720789e7fb290b958b53beec00",
     "projectSha256": "3c8d4b0c6cd86ad7e2e8dfe5c6f0765c20c79066dc63e93ed646a6ebd8e8bf09",
     "dependencySha256": {
       "lib/motion.mjs": "fd2261d87c1ca9c3f26afb087f1704c85c72896e740ac47deb178194b1b64a04",
@@ -10,6 +10,13 @@
     },
     "bundleEvidenceId": "ev_9af1949573469aa96f73fd383fd520d4c94197741dcf3cec5286503a0cfdbcdf",
     "inspectionEvidenceId": "ev_00ee3a1e3484c6a8ac2261e86889a5d250bc55436bcd742dbb8c6398cedf596e"
+  },
+  "translationReview": {
+    "originalSourceSnapshot": "463d22d6120d2fd6e1d8e789200afbf6febc1d6f",
+    "originalModuleSha256": "6b2f77e2a52a1499838d9a3c143712c4e6c61b4450502b546bf220be77c65482",
+    "reviewedModuleSha256": "5bc843e3d4bce7f523ae173ccd8b291ec7e1e2720789e7fb290b958b53beec00",
+    "changeScope": "Only preview UI labels changed from French to English (Lire to Play); the module was normalized to LF before hashing. Drawing, motion, timing and dependencies are unchanged.",
+    "evidenceScope": "The source bundleEvidenceId and inspectionEvidenceId refer to the original pre-translation capture. This active reference hash was reviewed and re-pinned for comparison guard maintenance; no new REA analysis is claimed."
   },
   "observations": [
     "REA observed three JavaScript modules; bundle analysis parsed all three with zero parse failures.",

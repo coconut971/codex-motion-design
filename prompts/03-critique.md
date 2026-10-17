@@ -1,26 +1,27 @@
-# Critique indépendante fondée sur des frames
+# Independent critique grounded in frames
 
 ```text
-Auteur requis : GPT-6 Astra exclusivement, y compris pour le code, les assets,
-les prompts et les corrections. Vérifie le modèle avec les informations fiables
-de la session ; si ce n'est pas Astra ou si tu ne peux pas le vérifier, signale
-la limite avant de générer et demande sa sélection, sans modèle de secours.
-Le rendu et les mesures des fichiers existants restent locaux, sans API modèle.
+Required author: GPT-6 Astra exclusively, including code, assets, prompts and
+corrections. Verify the model using reliable session information; if it is not
+Astra or you cannot verify it, state the limitation before generating and ask
+for Astra to be selected, without a fallback model. Rendering and measurement
+of existing files remain local, without a model API.
 
-Agis comme directeur motion et critique du film [projet]. Lis le storyboard et
-les manifests. Ouvre effectivement les images disponibles ; si elles manquent,
-rends-les. Ne suppose pas qu'un test vert garantit une bonne composition.
+Act as motion director and critic for [project]. Read the storyboard and
+manifests. Actually open the available images; render them if missing. Do not
+assume a passing test guarantees a good composition.
 
-Inspecte la planche par beat, les contacts ±1 frame, les entrées/sorties,
-les strips rapides, une miniature à 360 px et des frames extraites du MP4.
-Évalue : lecture principale, silhouette, poids, anticipation, continuité,
-temps de compréhension, payoff, spécificité de marque et cohérence sonore.
+Inspect the beat sheet, contacts ±1 frame, entrances/exits, fast-motion strips,
+a 360 px thumbnail and frames extracted from the MP4. Evaluate the main read,
+silhouette, weight, anticipation, continuity, comprehension time, payoff,
+brand specificity and sound consistency.
 
-Pour chaque défaut réel : frame/secondes, preuve, conséquence pour le public,
-correction concrète. Classe les trois plus importants, sans inventer un quota.
-Ajoute une entrée à REVIEW.md. Si le mandat inclut les corrections, implémente-les
-puis rerends exactement les preuves concernées. Vérifie les transitions voisines
-et la synchro si un cue change. Dis ce qui a été vu, mesuré, joué et écouté.
+For each real defect: frame/seconds, evidence, consequence for the audience,
+concrete correction. Rank the three most important without inventing a quota.
+Add an entry to REVIEW.md. If the assignment includes corrections, implement
+them, then rerender exactly the affected evidence. Check neighbouring
+transitions and synchronization if a cue changes. Say what was seen, measured,
+played and listened to.
 ```
 
-Politique d'auteur : [workflow Astra](../docs/ASTRA_WORKFLOW.md).
+Author policy: [Astra workflow](../docs/ASTRA_WORKFLOW.md).

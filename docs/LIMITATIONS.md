@@ -1,77 +1,70 @@
-# Limites constatées et arrêt de l’expérimentation
+# Observed limitations and end of the experiment
 
-**L’objectif visuel du projet n’est pas atteint ; le développement est mis en
-sommeil.** Deux essais créés avec GPT-6 Astra, en efforts `high` puis `ultra`,
-ont été rejetés par l’utilisateur. Les contrôles techniques réussis ne valent
-pas acceptation artistique. Le [rapport de synthèse](EXPERIMENT_REPORT.md)
-documente le périmètre, les résultats et la décision de clôture.
+**The project's visual goal has not been met; development is dormant.** Two trials
+created with GPT-6 Astra, first at `high` and then at `ultra` effort, were rejected
+by the user. Passing technical checks does not constitute artistic acceptance.
+The [summary report](EXPERIMENT_REPORT.md) documents scope, results and the closeout decision.
 
-## Premier essai : mécanique et rendu insuffisants
+## First trial: inadequate mechanics and rendering
 
-Le film [L’atelier de l’aube](assets/morning-press/film.mp4) reste publié comme
-un test exploratoire au résultat artistique insuffisant. Il a été réalisé
-rapidement avec **GPT-6 Astra, `reasoning_effort = high`**, pour l’auteur,
-la critique et la QA. Il dure 14 secondes, comporte quatre plans, 81 objets
-dessinés et cinq accents sonores synthétiques dans le moteur local `motion/1`.
-Le [dossier du cas](cases/morning-press.md) conserve ses paramètres et contrôles.
+[The Dawn Workshop](assets/morning-press/film.mp4) remains published as an
+exploratory test with an inadequate artistic result. It was made quickly with
+**GPT-6 Astra, `reasoning_effort = high`**, for authorship, critique and QA.
+It lasts 14 seconds, with four shots, 81 drawn objects and five synthetic sound
+accents in the local `motion/1` engine. The [case study](cases/morning-press.md)
+retains its settings and checks.
 
-L’utilisateur a jugé le rendu très insuffisant, en particulier la logique
-mécanique sous le levier. Ce jugement final prend le pas sur l’impression
-favorable de la revue de production. Le master et ses sources restent figés
-pour conserver le résultat effectivement obtenu.
+The user judged the rendering highly inadequate, particularly the mechanical
+logic beneath the lever. This final judgment takes precedence over the favorable
+impression in the production review. The master and its sources remain frozen
+to preserve the result actually obtained.
 
-Le [descriptor](../examples/morning-press/project.json) anime `lever.rotation`,
-`shaft.y` et `platen.y` par des pistes distinctes et des courbes différentes.
-Des événements communs synchronisent leurs temps, mais le
-[calcul du frame](../core/film.mjs) n’impose aucune relation cinématique.
-Le levier ne détermine donc pas le déplacement du plateau, contrairement à
-la causalité annoncée dans le storyboard.
+The [descriptor](../examples/morning-press/project.json) animates `lever.rotation`,
+`shaft.y` and `platen.y` using separate tracks and different curves. Shared events
+synchronize their timing, but the [frame calculation](../core/film.mjs) enforces
+no kinematic relationship. The lever therefore does not determine platen movement,
+contrary to the causality described in the storyboard.
 
-Les 27 tests réussis, les sondes sur 71 temps × cinq parcours × deux adaptateurs
-et les six paires de sous-images actives vérifient des propriétés techniques.
-Ils ne prouvent ni la justesse mécanique, ni le rythme, ni la qualité artistique.
-La critique par captures et strips n’a pas suffi à relever le défaut signalé
-ensuite par l’utilisateur. La [revue originale](../examples/morning-press/REVIEW.md)
-reste inchangée ; le retour humain ultérieur est documenté dans le dossier du cas.
+The 27 passing tests, probes across 71 times × five traversal orders × two adapters
+and six active subframe pairs verify technical properties. They establish neither
+mechanical correctness, rhythm nor artistic quality. Critique through captures
+and strips failed to identify the defect subsequently reported by the user.
+The [original review](../examples/morning-press/REVIEW.md) is preserved; later human
+feedback is documented in the case study.
 
-## Second essai : simplification insuffisante
+## Second trial: simplification was insufficient
 
-Un essai local ultérieur a employé **Astra `ultra`** pour l’auteur, la critique
-et la QA : six secondes, un plan, une seule action simple. Une construction
-rigide et des contrôles mécaniques ciblés ont répondu au problème de liaison.
-La vérification a couvert 25 temps × cinq parcours × deux adaptateurs en
-1920 × 1080 et deux paires de sous-images.
+A subsequent local trial used **Astra `ultra`** for authorship, critique and QA:
+six seconds, one shot and one simple action. A rigid construction and targeted
+mechanical checks addressed the linkage problem. Verification covered 25 times ×
+five traversal orders × two adapters at 1920 × 1080 and two subframe pairs.
 
-L’utilisateur a néanmoins jugé le résultat graphique extrêmement pauvre et
-l’a refusé. Le raccourcissement du film et la contrainte mécanique n’ont donc
-pas fourni le résultat artistique attendu. La piste « quatre à six secondes,
-une action » n’est plus une suggestion non essayée : cet essai l’a explorée
-sans succès. Ses sources, images et vidéos restent hors publication ; seul
-ce constat anonyme est rapporté.
+The user nevertheless judged the graphical result extremely poor and rejected it.
+Shortening the film and constraining its mechanics therefore did not deliver the
+expected artistic result. “Four to six seconds, one action” is no longer an
+untested suggestion: this trial explored it unsuccessfully. Its sources, images
+and videos remain unpublished; only this anonymous finding is reported.
 
-## Portée du bilan
+## Scope of the findings
 
-Le blocage créatif est constaté **dans cette configuration de projet avec
-Astra**. La critique des agents a été trop indulgente face au niveau attendu.
-Le moteur fournit des primitives et des pistes, sans catalogue visuel, rigs
-expressifs ni solveur mécanique général. Les chemins autorisent des dessins
-arbitraires, mais leur richesse restait à construire. Aucune mesure ne permet
-d’isoler la contribution de ce cadre de celle du modèle.
+The creative block was observed **in this project configuration with Astra**.
+Agent critique was too lenient against the expected standard. The engine supplies
+primitives and tracks without a visual catalog, expressive rigs or a general
+mechanical solver. Paths allow arbitrary drawings, but their richness still had
+to be built. No measurement isolates this framework's contribution from the model's.
 
-L’utilisateur rapporte avoir vu ailleurs des rendus de **Claude Opus 5.5**
-extrêmement meilleurs et estime que les capacités d’Astra constituent le
-blocage, quel que soit le niveau d’effort. Ce retour est un témoignage
-expérientiel qui motive sa décision d’arrêter. Aucun comparatif Claude à brief,
-moteur et budget identiques n’a été exécuté ici. Les versions des modèles
-utilisés par les dépôts étudiés n’ont pas fait l’objet d’un inventaire exhaustif.
+The user reports seeing vastly better **Claude Opus 5.5** renders elsewhere and
+considers Astra's capabilities the obstacle, regardless of effort level. This
+personal testimony informs their decision to stop. No Claude comparison with an
+identical brief, engine and budget was run here. Model versions used by the
+repositories studied were not exhaustively inventoried.
 
-Les efforts `high` et `ultra` ont été testés sur deux briefs différents ;
-**`max` n’a pas été testé**, ni l’ensemble des autres efforts. On ne peut donc
-pas mesurer l’effet propre de l’effort ou conclure à une incapacité universelle.
-Ces limites de comparaison ne changent pas l’échec du projet à satisfaire
-l’utilisateur.
+The `high` and `ultra` efforts were tested on two different briefs; **`max` was
+not tested**, nor were all other efforts. The independent effect of effort cannot
+therefore be measured, nor can a universal inability be concluded. These comparison
+limits do not change the project's failure to satisfy the user.
 
-Le dépôt est conservé comme expérimentation de reverse engineering et
-d’adaptation de workflows Claude vers GPT, sans promesse de production.
-Aucun nouveau film ni développement n’est programmé. Une reprise exige une
-demande explicite de l’utilisateur et une validation humaine du résultat.
+The repository is retained as an experiment in reverse engineering and adapting
+Claude workflows to GPT, without a production promise. No new film or development
+is scheduled. Restarting requires an explicit user request and human validation
+of the result.

@@ -1,41 +1,39 @@
-# Vérifier un film `motion/1`
+# Verify a `motion/1` film
 
-Le contrôle générique utilise le vrai lecteur et les adaptateurs du dépôt dans
-Chrome/Chromium. Il ne modifie ni le descriptor ni le moteur. Exemple :
+The generic check uses the repository's real player and adapters in
+Chrome/Chromium. It changes neither the descriptor nor the engine. Example:
 
 ```sh
 node scripts/verify-film.mjs --project=examples/morning-press/project.json --out=out/morning-press/verify.json --scale=.25
 ```
 
-Utiliser `CHROME_PATH` ou `--chrome=chemin/vers/chrome` si nécessaire. Les seules
-autres options sont `--timeout=30000` (millisecondes, au plus 120 000) et la taille
-`--scale` (strictement positive, au plus 2). `--project` et `--out` sont requis.
-Le descriptor doit rester dans le dépôt. Le rapport JSON désigné est remplacé
-par un nouveau rapport uniquement après une passe réussie.
+Use `CHROME_PATH` or `--chrome=path/to/chrome` if necessary. The only other
+options are `--timeout=30000` (milliseconds, at most 120,000) and size `--scale`
+(strictly positive, at most 2). `--project` and `--out` are required. The descriptor
+must remain inside the repository. The designated JSON report is replaced with
+a new report only after a successful pass.
 
-Les temps viennent de `film.qa`, des coupes à ±1 image, du début, de la dernière
-image encodée et de l’état à la durée exacte. Le script ajoute jusqu’à deux
-paires de sous-images en mouvement par scène : elles appartiennent à la même
-image de sortie et au même tick de bouillonnement. La sélection se fait sur les
-transformations visibles ; la variation est ensuite mesurée dans les pixels.
+Times come from `film.qa`, cuts at ±1 frame, the beginning, the last encoded
+frame and the state at the exact duration. The script adds up to two pairs of
+moving subframes per scene: they belong to the same output frame and the same
+boil tick. Selection uses visible transforms; variation is then measured in pixels.
 
-Chaque temps est visité dans cinq parcours : croissant, décroissant, mélangé,
-répété, puis dans une page fraîche. Pour Canvas, le SHA-256 couvre tous les
-octets RGBA, copiés dans un buffer de capture CPU `willReadFrequently` comme
-dans le renderer vidéo. La lecture n’affecte ainsi pas le choix de backend du
-Canvas source. Le SHA-256 du frame complet et celui du DOM SVG complet sont
-également comparés. Le frame partagé doit correspondre entre Canvas et SVG ;
-les pixels des deux adaptateurs ne sont pas censés être identiques.
+Each time is visited in five traversals: ascending, descending, shuffled,
+repeated, then in a fresh page. For Canvas, SHA-256 covers all RGBA bytes, copied
+into a CPU capture buffer with `willReadFrequently`, as in the video renderer.
+Reading therefore does not affect the source Canvas backend choice. The SHA-256
+of the complete frame and of the complete SVG DOM are also compared. The shared
+frame must match across Canvas and SVG; the two adapters' pixels are not expected
+to be identical.
 
-Le corps JSON réellement reçu par chaque page et le fichier encore présent en
-fin de passe doivent avoir le SHA-256 initial. Toute édition pendant la passe
-invalide le contrôle. Les erreurs JavaScript, requêtes échouées, HTTP ≥ 400 et
-requêtes externes sont bloquantes. Navigation, readiness, polices et évaluations
-ont des délais ; navigateur et serveur sont fermés dans `finally`.
+The JSON body actually received by each page and the file still present at the
+end of the pass must have the initial SHA-256. Any edit during the pass invalidates
+the check. JavaScript errors, failed requests, HTTP ≥ 400 and external requests
+are blocking failures. Navigation, readiness, fonts and evaluations have timeouts;
+the browser and server are closed in `finally`.
 
-Ce sont des régressions sur les temps listés, au navigateur et à la résolution
-indiqués. Elles ne prouvent ni la pureté universelle du film, ni la qualité
-artistique, ni l’absence de collision hors de ces temps. Le SVG est vérifié par
-état et DOM, pas par rasterisation. Les résultats ne constituent pas une écoute
-du son ou une observation du rythme à vitesse réelle. Les planches, contacts,
-brouillon et master restent nécessaires.
+These are regression checks at the listed times, browser and resolution. They
+prove neither universal film purity, artistic quality nor the absence of collisions
+outside those times. SVG is checked through state and DOM, not rasterization.
+Results do not constitute listening to the sound or observing the rhythm at
+normal speed. Sheets, contacts, draft and master remain necessary.

@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="data:,">
-  <title>L’atelier de l’aube — Essai exploratoire — résultat jugé insuffisant</title>
+  <title>The Dawn Workshop — Exploratory trial — result judged insufficient</title>
   <style>
     :root{font-family:Georgia,'Times New Roman',serif;color:#f1e7d3;background:#172d32;font-synthesis:none}
     *{box-sizing:border-box}body{margin:0;min-height:100vh}main{max-width:1440px;margin:auto;padding:38px 42px 26px}
@@ -16,25 +16,25 @@
 </head>
 <body>
 <main>
-  <header><div><p class="eyebrow">Essai exploratoire — résultat jugé insuffisant</p><h1>L’atelier de l’aube</h1></div><p class="credit">Création originale · GPT-6 Astra<br>14 secondes · image &amp; son calculés localement</p></header>
+  <header><div><p class="eyebrow">Exploratory trial — result judged insufficient</p><h1>The Dawn Workshop</h1></div><p class="credit">Original creation · GPT-6 Astra<br>14 seconds · image &amp; sound computed locally</p></header>
   <div class="screen">
-    <video id="film" controls autoplay muted loop playsinline preload="auto" poster="poster.webp" aria-label="L’atelier de l’aube, film de quatorze secondes">Votre navigateur ne lit pas cette vidéo. Le fichier MP4 est disponible ci-dessous.</video>
-    <img class="preview" id="preview" src="preview.webp" alt="Aperçu animé silencieux de L’atelier de l’aube" hidden>
+    <video id="film" controls autoplay muted loop playsinline preload="auto" poster="poster.webp" aria-label="The Dawn Workshop, a fourteen-second film">Your browser cannot play this video. The MP4 file is available below.</video>
+    <img class="preview" id="preview" src="preview.webp" alt="Silent animated preview of The Dawn Workshop" hidden>
   </div>
-  <div class="bar"><div class="actions"><button id="sound" type="button" aria-pressed="false">Activer le son</button><a href="film.mp4" download="atelier-de-laube.mp4">Télécharger le MP4</a><button class="secondary" id="fallback" type="button" aria-pressed="false">Aperçu animé</button></div><p class="note">Le film démarre sans son. Activez-le pour entendre l’accompagnement sonore.</p></div>
+  <div class="bar"><div class="actions"><button id="sound" type="button" aria-pressed="false">Enable sound</button><a href="film.mp4" download="dawn-workshop.mp4">Download MP4</a><button class="secondary" id="fallback" type="button" aria-pressed="false">Animated preview</button></div><p class="note">The film starts muted. Enable sound to hear the accompaniment.</p></div>
   <p id="status" aria-live="polite"></p>
-  <footer>Ce test est publié en l’état pour documenter ses limites artistiques. Les contrôles techniques ne constituent pas une validation de qualité.<br><a href="../../cases/morning-press.md">Lire le bilan de cet essai</a> · <a href="../../LIMITATIONS.md">Limites de l’outil</a></footer>
+  <footer>This trial is published as it stands to document its artistic limits. Technical checks do not certify quality.<br><a href="../../cases/morning-press.md">Read the assessment of this trial</a> · <a href="../../LIMITATIONS.md">Tool limitations</a></footer>
 </main>
 <script>
   const video=document.querySelector('#film'),preview=document.querySelector('#preview'),sound=document.querySelector('#sound'),fallback=document.querySelector('#fallback'),status=document.querySelector('#status');
-  const updateSound=()=>{sound.textContent=video.muted?'Activer le son':'Couper le son';sound.setAttribute('aria-pressed',String(!video.muted));};
-  sound.addEventListener('click',async()=>{if(video.hidden){video.hidden=false;preview.hidden=true;fallback.setAttribute('aria-pressed','false');fallback.textContent='Aperçu animé';}video.muted=!video.muted;updateSound();try{await video.play();status.textContent='';}catch{status.textContent='Utilisez le bouton de lecture dans la vidéo ou ouvrez le fichier MP4.';}});
+  const updateSound=()=>{sound.textContent=video.muted?'Enable sound':'Mute sound';sound.setAttribute('aria-pressed',String(!video.muted));};
+  sound.addEventListener('click',async()=>{if(video.hidden){video.hidden=false;preview.hidden=true;fallback.setAttribute('aria-pressed','false');fallback.textContent='Animated preview';}video.muted=!video.muted;updateSound();try{await video.play();status.textContent='';}catch{status.textContent='Use the play button in the video or open the MP4 file.';}});
   video.addEventListener('volumechange',updateSound);
-  fallback.addEventListener('click',async()=>{const show=preview.hidden;preview.hidden=!show;video.hidden=show;fallback.setAttribute('aria-pressed',String(show));fallback.textContent=show?'Revenir à la vidéo':'Aperçu animé';if(show){video.pause();status.textContent='Aperçu animé, sans son.';}else{status.textContent='';try{await video.play();}catch{status.textContent='Appuyez sur lecture pour démarrer le film.';}}});
-  video.addEventListener('error',()=>{status.textContent='La vidéo ne peut pas être lue ici. Utilisez l’aperçu animé ou téléchargez le MP4.';});
+  fallback.addEventListener('click',async()=>{const show=preview.hidden;preview.hidden=!show;video.hidden=show;fallback.setAttribute('aria-pressed',String(show));fallback.textContent=show?'Return to video':'Animated preview';if(show){video.pause();status.textContent='Animated preview, without sound.';}else{status.textContent='';try{await video.play();}catch{status.textContent='Press play to start the film.';}}});
+  video.addEventListener('error',()=>{status.textContent='The video cannot be played here. Use the animated preview or download the MP4.';});
   let mediaUrl;
-  sound.disabled=true;status.textContent='Chargement du film…';
-  (async()=>{try{const response=await fetch('film.mp4');if(!response.ok)throw Error('film unavailable');mediaUrl=URL.createObjectURL(await response.blob());video.src=mediaUrl;sound.disabled=false;status.textContent=video.hidden?'Aperçu animé, sans son.':'';try{if(!video.hidden)await video.play();}catch{status.textContent='Appuyez sur lecture pour démarrer le film.';}}catch{status.textContent='Le film n’a pas pu être chargé. Utilisez l’aperçu animé ou téléchargez le MP4.';}})();
+  sound.disabled=true;status.textContent='Loading film…';
+  (async()=>{try{const response=await fetch('film.mp4');if(!response.ok)throw Error('film unavailable');mediaUrl=URL.createObjectURL(await response.blob());video.src=mediaUrl;sound.disabled=false;status.textContent=video.hidden?'Animated preview, without sound.':'';try{if(!video.hidden)await video.play();}catch{status.textContent='Press play to start the film.';}}catch{status.textContent='The film could not be loaded. Use the animated preview or download the MP4.';}})();
   addEventListener('pagehide',()=>{if(mediaUrl)URL.revokeObjectURL(mediaUrl);},{once:true});
 </script>
 </body>

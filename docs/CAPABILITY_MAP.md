@@ -1,75 +1,72 @@
-# Capacités du cœur consolidé
+# Consolidated core capabilities
 
-**Développement mis en sommeil.** Cette carte décrit les fonctions déjà
-présentes dans une expérimentation de reverse engineering et d’adaptation de
-workflows Claude vers GPT. Elle n’est ni une validation artistique ni une
-feuille de route. Le [rapport de clôture](EXPERIMENT_REPORT.md) constate l’échec
-de l’objectif visuel après deux essais Astra rejetés par l’utilisateur.
+**Development is dormant.** This map describes functions already present in an
+experiment in reverse engineering and adapting Claude workflows to GPT. It is
+neither artistic validation nor a roadmap. The [closeout report](EXPERIMENT_REPORT.md)
+records the failure of the visual goal after two Astra trials rejected by the user.
 
-Le cœur exécutable est maintenant `core/` : un descriptor `motion/1` possède
-le temps, les scènes, les cues image/son/QA et les objets persistants. Il produit
-un frame pur commun aux adaptateurs Canvas 2D et SVG DOM. La démo originale
-**La graine et le pli** dure 10 s et utilise trois plans sans code de scène.
-L'[API](CORE.md), le [storyboard](../examples/core-demo/STORYBOARD.md) et les
-[vérifications](CORE_VALIDATION.md) décrivent ce qui est livré.
+The executable core is now `core/`: a `motion/1` descriptor owns time, scenes,
+visual/audio/QA cues and persistent objects. It produces a pure frame shared by
+Canvas 2D and SVG DOM adapters. The original **The Seed and the Fold** demo lasts
+10 s and uses three shots without scene code. The [API](CORE.md),
+[storyboard](../examples/core-demo/STORYBOARD.md) and [checks](CORE_VALIDATION.md)
+describe what is delivered.
 
-Ces capacités techniques ne garantissent pas un résultat artistique satisfaisant.
-Le test [L’atelier de l’aube](cases/morning-press.md), réalisé avec GPT-6 Astra en
-effort `high`, a passé ses contrôles techniques puis a été jugé très insuffisant
-par l’utilisateur, notamment sur la causalité mécanique. Un second essai local
-en effort `ultra`, plus court et mécaniquement contraint, a également été rejeté
-pour sa pauvreté graphique ; son contenu reste hors publication. Les
-[limites constatées](LIMITATIONS.md) précisent la portée de ces résultats.
+These technical capabilities do not guarantee a satisfactory artistic result.
+[The Dawn Workshop](cases/morning-press.md), made with GPT-6 Astra at `high` effort,
+passed its technical checks and was then judged highly inadequate by the user,
+particularly in mechanical causality. A second local trial at `ultra` effort,
+shorter and mechanically constrained, was also rejected for its poor graphics;
+its content remains unpublished. The [observed limitations](LIMITATIONS.md)
+clarify the scope of these results.
 
-Ce dépôt rassemble une implémentation originale, des règles de production et
-un parcours d'enquête REA. Les tableaux ci-dessous décrivent les fonctions
-locales et leurs limites.
+This repository combines an original implementation, production rules and an REA
+investigation workflow. The tables below describe local functions and their limits.
 
-La création et les corrections suivent l'[exclusivité Astra](ASTRA_WORKFLOW.md).
-L'exécution du code et la fabrication des médias restent locales.
+Creation and revisions follow [Astra exclusivity](ASTRA_WORKFLOW.md). Code execution
+and media production remain local.
 
-## Ce qui s'exécute déjà
+## What already runs
 
-| Fonction du cœur | Point d'entrée | Preuve et portée |
+| Core function | Entry point | Evidence and scope |
 | --- | --- | --- |
-| Film JSON réutilisable | `compileFilm(json)` ; lecteur `?project=/film.json` | Trois plans et onze objets persistants dans la démo ; aucun code de scène spécifique |
-| Temps et cuts uniques | Cues secondes/beats/frames, scènes et QA référencées | Régressions de retiming et de frontière demi-échantillon audio ; cuts dérivés des scènes |
-| Pistes analytiques | `core/tracks.mjs` | Cubic bornée, logarithme du zoom, springs trois régimes, position/vitesse continues aux retargets |
-| Géométrie et composition | `core/geometry.mjs`, `core/film.mjs` | Paths M/L/C/Q/Z, ellipses/rectangles, trajectoire cubic, masques monde, fade/volet, grain et boil12Hz |
-| Deux adaptateurs | `canvasAdapter`, `svgAdapter` | Même frame et bounds ; pixels comparés dans chacun, contamination et clips multi-instances testés |
-| Démo et sorties QA | `npm run core:sheet`, `core:verify`, `core:draft`, `core:render` | Voir [CORE_VALIDATION.md](CORE_VALIDATION.md) pour commandes, résultats et limites réellement observés |
+| Reusable JSON film | `compileFilm(json)`; player `?project=/film.json` | Three shots and eleven persistent objects in the demo; no custom scene code |
+| Single timing and cuts | Referenced seconds/beats/frames cues, scenes and QA | Retiming and audio half-sample boundary regressions; cuts derived from scenes |
+| Analytical tracks | `core/tracks.mjs` | Bounded cubic, logarithmic zoom, three-regime springs, continuous position/velocity at retargets |
+| Geometry and composition | `core/geometry.mjs`, `core/film.mjs` | M/L/C/Q/Z paths, ellipses/rectangles, cubic trajectory, world masks, fade/wipe, grain and boil12Hz |
+| Two adapters | `canvasAdapter`, `svgAdapter` | Same frame and bounds; pixels compared within each, contamination and multi-instance clips tested |
+| Demo and QA outputs | `npm run core:sheet`, `core:verify`, `core:draft`, `core:render` | See [CORE_VALIDATION.md](CORE_VALIDATION.md) for commands, results and limitations actually observed |
 
-| Fonction | Point d'entrée | Preuve et portée |
+| Function | Entry point | Evidence and scope |
 | --- | --- | --- |
-| Lecture/scrub d'un film calculé | `npm run studio` | Exemple Signal local, scènes au temps absolu |
-| Physique analytique et compilation des cues | `npm test` | Tests des springs, conversions et contrats ; voir [VALIDATION.md](VALIDATION.md) pour les résultats datés |
-| Répétabilité des images | `npm run verify` | Signal : RGBA complets comparés sur temps répétés/mélangés et page fraîche ; sous-images distinctes |
-| Planche, images clés, strips et crops | `npm run sheet`, options de `scripts/render.mjs` | Sorties inspectables ; la qualité visuelle exige leur ouverture réelle |
-| Audio issu des mêmes événements | `npm run audio` | WAV stéréo 48 kHz ; les mesures ne constituent pas une écoute |
-| Draft et master avec sous-images | `npm run draft`, `npm run render -- --samples=4` | Encodage puis décodage et comptage ; manifests adjacents |
-| Référence HTML vers film reconstruit | [Cas REA Signal](cases/REA_SIGNAL.md) | Commandes, observations, comparaisons et limites propres au cas ; statut de l'installation dans le guide REA |
+| Playback/scrubbing of a computed film | `npm run studio` | Local Signal example, absolute-time scenes |
+| Analytical physics and cue compilation | `npm test` | Spring, conversion and contract tests; see [VALIDATION.md](VALIDATION.md) for dated results |
+| Image repeatability | `npm run verify` | Signal: full RGBA comparisons at repeated/shuffled times and on a fresh page; distinct subframes |
+| Sheets, key images, strips and crops | `npm run sheet`, `scripts/render.mjs` options | Inspectable outputs; visual quality requires actually opening them |
+| Audio from the same events | `npm run audio` | 48 kHz stereo WAV; measurements do not constitute listening |
+| Draft and master with subframes | `npm run draft`, `npm run render -- --samples=4` | Encoding followed by decoding and counting; adjacent manifests |
+| HTML reference to reconstructed film | [REA Signal case](cases/REA_SIGNAL.md) | Case-specific commands, observations, comparisons and limits; installation status in the REA guide |
 
-Ces commandes décrivent les entrées présentes. Le succès sur une machine ou à
-une révision ne préjuge pas de l'état d'un autre poste. Les résultats exécutés
-appartiennent à [VALIDATION.md](VALIDATION.md), au guide REA et au cas documenté.
-`npm run verify` cible Signal ; `npm run core:verify` cible La graine et le pli.
-Un nouveau projet doit disposer de probes correspondant à sa page et à son descriptor.
+These commands describe existing entry points. Success on one machine or revision
+does not establish the state of another machine. Executed results belong in
+[VALIDATION.md](VALIDATION.md), the REA guide and the documented case.
+`npm run verify` targets Signal; `npm run core:verify` targets The Seed and the Fold.
+A new project needs probes appropriate to its page and descriptor.
 
-## Fonctions absentes ou incomplètes
+## Missing or incomplete functions
 
-Cet inventaire décrit les limites du dépôt ; aucun développement n’est engagé.
+This inventory describes repository limits; no development is underway.
 
-| Besoin | Travail restant |
+| Need | Remaining work |
 | --- | --- |
-| Export vidéo SVG/DOM/WebGL générique | L'adaptateur SVG DOM existe et est vérifié ; le renderer vidéo capture encore Canvas. Ajouter une capture dédiée avec tests avant de promettre cet export |
-| Remake automatique de toute vidéo | Développer extraction, correspondance d'objets et ajustement des paramètres ; les pixels seuls ne révèlent pas le code original |
-| Import automatique de projets externes | Aucun importeur livré ; analyser et réimplémenter les comportements utiles dans le cadre des licences |
-| Bibliothèque d'assets prêts à l'emploi | Le cœur compose des formes JSON ; la démo et Signal ne sont pas un catalogue. Créer les assets avec Astra et documenter leur provenance |
-| Critique perceptuelle certifiée | Aucun score ou test ne remplace une inspection réelle ; définir les critères du film et vérifier les captures |
-| Rendu génératif distant | Hors du runtime local et de la politique Astra exclusive actuelle |
+| Generic SVG/DOM/WebGL video export | The SVG DOM adapter exists and is verified; the video renderer still captures Canvas. Add dedicated capture and tests before promising this export |
+| Automatic remake of any video | Develop extraction, object matching and parameter fitting; pixels alone do not reveal original code |
+| Automatic external project import | No importer delivered; analyze and reimplement useful behavior within license terms |
+| Ready-to-use asset library | The core composes JSON shapes; the demo and Signal are not a catalog. Create assets with Astra and document provenance |
+| Certified perceptual critique | No score or test replaces actual inspection; define film criteria and check captures |
+| Remote generative rendering | Outside the local runtime and current Astra-only policy |
 
-Le cœur matérialise un parcours technique vérifiable : question de référence
-→ preuve → storyboard → cues uniques → `seek(t)` → inspection et correction
-→ export. Les essais ont montré que ce parcours ne suffit pas à obtenir le
-résultat visuel attendu. Toute reprise relève d’une demande explicite de
-l’utilisateur et d’une validation humaine.
+The core implements a verifiable technical process: reference question → evidence
+→ storyboard → single-source cues → `seek(t)` → inspection and correction → export.
+The trials showed that this process is insufficient to achieve the expected visual
+result. Any restart requires an explicit user request and human validation.

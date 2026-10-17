@@ -1,24 +1,24 @@
-# Réparer un rendu avec preuve
+# Repair a render with evidence
 
 ```text
-Auteur requis : GPT-6 Astra exclusivement, y compris pour le code, les assets,
-les prompts et les corrections. Vérifie le modèle avec les informations fiables
-de la session ; si ce n'est pas Astra ou si tu ne peux pas le vérifier, signale
-la limite avant de générer et demande sa sélection, sans modèle de secours.
-Le rendu et les mesures des fichiers existants restent locaux, sans API modèle.
+Required author: GPT-6 Astra exclusively, including code, assets, prompts and
+corrections. Verify the model using reliable session information; if it is not
+Astra or you cannot verify it, state the limitation before generating and ask
+for Astra to be selected, without a fallback model. Rendering and measurement
+of existing files remain local, without a model API.
 
-Diagnostique [commande + erreur + fichier]. Lis docs/RENDER_CONTRACT.md.
-Pour motion/1, lis docs/CORE.md, compare film.sample(t) avant le rendu puis les
-deux adaptateurs ; npm run core:verify teste reset, masques et état partagé.
-Réduis le cas à une frame ou à une plage courte. Vérifie d'abord doctor,
-readiness, ressources locales, erreurs navigateur, dimensions et sortie FFmpeg.
-Compare seek(t) après un autre temps puis sur une page fraîche, tous les pixels.
-Vérifie que t reste continu et que le blur ne traverse aucun cut.
+Diagnose [command + error + file]. Read docs/RENDER_CONTRACT.md. For motion/1,
+read docs/CORE.md, compare film.sample(t) before rendering, then both adapters;
+npm run core:verify tests reset, masks and shared state. Reduce the case to one
+frame or a short range. First check doctor, readiness, local resources, browser
+errors, dimensions and FFmpeg output. Compare seek(t) after another time and on
+a fresh page, using all pixels. Check that t remains continuous and blur does
+not cross any cut.
 
-Corrige la cause avec la plus petite modification cohérente. Ajoute un test de
-régression si le défaut concerne un contrat réutilisable. Ne masque pas une
-erreur en désactivant le contrôle. Préserve le master précédent si le nouvel
-export échoue. Rerends le cas, puis le livrable affecté, et rapporte les preuves.
+Fix the cause with the smallest coherent change. Add a regression test if the
+defect concerns a reusable contract. Do not hide an error by disabling its
+check. Preserve the previous master if the new export fails. Rerender the case,
+then the affected deliverable, and report the evidence.
 ```
 
-Politique d'auteur : [workflow Astra](../docs/ASTRA_WORKFLOW.md).
+Author policy: [Astra workflow](../docs/ASTRA_WORKFLOW.md).

@@ -1,66 +1,66 @@
-# REA pour comprendre une référence, puis la réimplémenter
+# Use REA to understand a reference, then reimplement it
 
-[REA — Reverse Engineer Anything](https://github.com/morluto/rea) est une intégration optionnelle pour l’enquête technique. Codex peut l’utiliser via MCP ou par sa CLI pour inspecter une page, des scripts JavaScript ou une application. Le film reste produit par le moteur `seek(t)`, Playwright et FFmpeg de ce dépôt ; REA ne remplace pas cette pipeline.
+[REA — Reverse Engineer Anything](https://github.com/morluto/rea) is an optional integration for technical investigation. Codex can use it through MCP or its CLI to inspect a page, JavaScript scripts or an application. The film is still produced by this repository's `seek(t)` engine, Playwright and FFmpeg; REA does not replace that pipeline.
 
-Cette intégration est documentée à partir du commit [`408704827057280b240c91963ee5590fd4dcc988`](https://github.com/morluto/rea/tree/408704827057280b240c91963ee5590fd4dcc988), version `6.5.0`, sous [licence MIT, morluto](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/LICENSE#L1-L21). Une consultation du registre npm le 17 octobre 2026 a confirmé `latest = 6.5.0`, le dépôt officiel et les exigences Node ci-dessous. Aucun code ni skill REA n’est embarqué ici. Après la première validation en dry-run, l’intégration Codex et le skill ont effectivement été installés sur la machine de travail. Le [cas pratique Signal](cases/REA_SIGNAL.md) relie l’enquête sur une page HTML à une reconstruction, aux comparaisons d’images et au rendu local.
+This integration is documented against commit [`408704827057280b240c91963ee5590fd4dcc988`](https://github.com/morluto/rea/tree/408704827057280b240c91963ee5590fd4dcc988), version `6.5.0`, under the [MIT licence, morluto](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/LICENSE#L1-L21). An npm registry lookup on 17 October 2026 confirmed `latest = 6.5.0`, the official repository and the Node requirements below. No REA code or skill is bundled here. After initial dry-run validation, the Codex integration and skill were actually installed on the working machine. The [Signal case study](cases/REA_SIGNAL.md) connects an HTML-page investigation to reconstruction, image comparisons and local rendering.
 
-## Installer l’intégration Codex
+## Install the Codex integration
 
-REA 6.5.0 requiert Node `22.x >= 22.19`, `24.x >= 24.11` ou `26+`, avec npm. C’est plus strict que le minimum du renderer de ce dépôt. JavaScript statique ne nécessite pas Hopper, Ghidra ou IDA. L’analyse d’une page nécessite un navigateur de la famille Chrome. Sous Linux, l’analyse JavaScript/Electron exige aussi un `ps` compatible procps. Voir les [prérequis officiels](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/README.md#L164-L197) et [la précision Linux](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/installation.md#L338-L346).
+REA 6.5.0 requires Node `22.x >= 22.19`, `24.x >= 24.11` or `26+`, with npm. This is stricter than this repository renderer's minimum. Static JavaScript analysis does not require Hopper, Ghidra or IDA. Page analysis requires a Chrome-family browser. On Linux, JavaScript/Electron analysis also requires a procps-compatible `ps`. See the [official prerequisites](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/README.md#L164-L197) and [Linux clarification](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/installation.md#L338-L346).
 
-La commande d’entrée officielle est :
+The official entry command is:
 
 ```sh
 npx rea-agents setup
 ```
 
-Pour limiter explicitement l’installation à Codex et examiner un plan reproductible :
+To explicitly limit installation to Codex and inspect a reproducible plan:
 
 ```sh
 npx rea-agents@6.5.0 setup --client codex --dry-run
 npx rea-agents@6.5.0 setup --client codex
 ```
 
-La première commande affiche le plan sans appliquer les changements. La seconde propose son application ; lire les chemins indiqués, puis valider dans REA et redémarrer Codex après réussite. Aucun moteur d’analyse native n’est nécessaire pour les usages web et JavaScript décrits ici. L’ajout de `--skill=false` permet d’enregistrer seulement le MCP, sans le workflow REA. Ces options sont documentées dans [l’installation](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/installation.md#L31-L114) et définies dans [la CLI](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/src/cli/setupCommands.ts#L50-L88).
+The first command shows the plan without applying changes. The second offers to apply it; read the reported paths, confirm in REA, then restart Codex after success. No native analysis engine is needed for the web and JavaScript uses described here. Adding `--skill=false` registers only the MCP, without the REA workflow. These options are documented in [installation](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/installation.md#L31-L114) and defined in [the CLI](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/src/cli/setupCommands.ts#L50-L88).
 
-Le setup touche les emplacements utilisateur suivants, selon l’environnement réel présenté dans son plan :
+Setup touches the following user locations, according to the actual environment shown in its plan:
 
-| Élément | Emplacement et effet |
+| Item | Location and effect |
 | --- | --- |
-| Enregistrement MCP Codex | `config.toml` dans `CODEX_HOME`, ou `~/.codex/config.toml` si cette variable est vide ou absente ; entrée `mcp_servers.rea`. |
-| Workflow REA par défaut | `~/.agents/skills/reverse-engineer-anything/`, avec ses références. Pour Codex, cette destination partagée n’est pas déplacée par `CODEX_HOME`. |
-| Sauvegardes de configuration | Fichiers `.rea.backup` et, si nécessaire, sauvegarde de récupération nommée par son empreinte ; conserver les chemins rapportés par le setup. |
-| Délais MCP | Initialisation de 30 secondes pour une nouvelle entrée et délai d’outil dérivé des providers ; les valeurs positives déjà choisies sont préservées. |
+| Codex MCP registration | `config.toml` in `CODEX_HOME`, or `~/.codex/config.toml` if that variable is empty or absent; entry `mcp_servers.rea`. |
+| Default REA workflow | `~/.agents/skills/reverse-engineer-anything/`, with its references. For Codex, `CODEX_HOME` does not relocate this shared destination. |
+| Configuration backups | `.rea.backup` files and, if needed, a recovery backup named by its hash; retain the paths reported by setup. |
+| MCP timeouts | 30-second initialization for a new entry and a tool timeout derived from providers; existing positive values are preserved. |
 
-Les chemins découlent du [résolveur de configuration Codex](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/src/application/SupportedClients.ts#L167-L168), de [sa déclaration](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/src/application/SupportedClients.ts#L503-L509) et du [résolveur des skills](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/src/application/SupportedClients.ts#L811-L855). Les [sauvegardes](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/installation.md#L49-L70) et [délais Codex](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/client-configuration.md#L244-L260) sont décrits séparément.
+Paths follow the [Codex configuration resolver](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/src/application/SupportedClients.ts#L167-L168), [its declaration](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/src/application/SupportedClients.ts#L503-L509) and the [skill resolver](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/src/application/SupportedClients.ts#L811-L855). [Backups](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/installation.md#L49-L70) and [Codex timeouts](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/client-configuration.md#L244-L260) are described separately.
 
-Laisser REA produire son enregistrement plutôt que recopier un TOML générique. Le launcher est épinglé à sa version ; sous Windows, il utilise un wrapper `cmd.exe /d /c` pour lancer `npx`, comme le montre [son implémentation](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/src/application/ClientRegistrationIdentity.ts#L53-L69). Ce setup modifie le profil Codex utilisateur, pas seulement le dépôt courant.
+Let REA generate its registration rather than copying generic TOML. The launcher is pinned to its version; on Windows it uses a `cmd.exe /d /c` wrapper to launch `npx`, as shown in [its implementation](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/src/application/ClientRegistrationIdentity.ts#L53-L69). This setup changes the user's Codex profile, not just the current repository.
 
-Vérifier ensuite uniquement les composants concernés :
+Then check only the relevant components:
 
 ```sh
 npx rea-agents@6.5.0 doctor --client codex --skill --json
 npx rea-agents@6.5.0 --help
 ```
 
-Si le skill a volontairement été omis, retirer `--skill` de la vérification. Un diagnostic scoped ne prouve pas qu’une cible précise sera analysable ; le [guide de readiness](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/installation.md#L301-L329) distingue ces niveaux. Un enregistrement valide n’ajoute pas les outils MCP à une session déjà ouverte : redémarrer ou reconnecter Codex, puis vérifier leur découverte dans la nouvelle session. Entre-temps, une CLI fonctionnelle permet de poursuivre l’enquête autorisée et de conserver les mêmes Evidence. L’absence de découverte MCP n’impose pas d’arrêter ce chemin CLI ni de répéter le setup. Un ChatGPT hébergé sans accès au processus local ne reçoit pas ce MCP par cette seule installation ; utiliser Codex sur la machine, une CLI disponible dans son environnement, ou lui fournir les Evidence exportées.
+If the skill was deliberately omitted, remove `--skill` from the check. A scoped diagnostic does not prove that a particular target can be analyzed; the [readiness guide](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/installation.md#L301-L329) distinguishes these levels. Valid registration does not add MCP tools to an already open session: restart or reconnect Codex, then check discovery in the new session. Meanwhile, a working CLI allows the authorized investigation to continue while retaining the same Evidence. Missing MCP discovery does not require stopping this CLI path or repeating setup. Hosted ChatGPT without access to the local process does not receive this MCP through installation alone; use Codex on the machine, a CLI available in its environment, or provide exported Evidence.
 
-## Choisir la bonne enquête
+## Choose the right investigation
 
-| Référence disponible | REA peut apporter | Ce qui reste à établir |
+| Available reference | What REA can provide | What remains to establish |
 | --- | --- | --- |
-| Page animée accessible | DOM, scripts capturés, ressources, observations réseau/console et screenshots du viewport. | Timeline visuelle, éléments hors capture, code serveur, dépendances absentes et intention artistique. |
-| Dossier JavaScript / application Electron / ASAR | Graphe de modules, imports, relations et emplacements de code observés ; analyse statique sans exécuter l’application. | Comportement effectif, chemins non résolus et paramètres non observables. |
-| Scénario d’interface | Actions déclarées et captures de leur résultat dans un navigateur lancé ou sélectionné. | Un scénario réussi ne suffit pas à démontrer la qualité du mouvement ni l’équivalence de toutes les interactions. |
-| MP4, GIF ou images seuls | La référence visuelle peut guider une spécification et une comparaison. | Les pixels ne fournissent pas les fichiers source ni une fonction spring unique. REA n’est ni un générateur vidéo ni une garantie de récupération du projet original. |
+| Accessible animated page | DOM, captured scripts, resources, network/console observations and viewport screenshots. | Visual timeline, items outside capture, server code, missing dependencies and artistic intent. |
+| JavaScript folder / Electron application / ASAR | Observed module graph, imports, relationships and code locations; static analysis without executing the application. | Actual behaviour, unresolved paths and unobservable parameters. |
+| Interface scenario | Declared actions and captures of their results in a launched or selected browser. | A successful scenario alone does not demonstrate motion quality or equivalence of all interactions. |
+| MP4, GIF or images only | The visual reference can guide a specification and comparison. | Pixels do not provide source files or a unique spring function. REA is neither a video generator nor a guarantee of recovering the original project. |
 
-Le [catalogue web](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/browser-observation.md#L15-L38) sépare inspection passive et captures ; les [scénarios](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/browser-scenario-contract.md#L1-L28) constituent un autre chemin, capable d’effectuer des actions. Les [workflows JavaScript](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/javascript-application-workflows.md#L3-L24) conservent la différence entre observation statique, observation runtime, inférence et inconnu.
+The [web catalogue](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/browser-observation.md#L15-L38) separates passive inspection and captures; [scenarios](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/browser-scenario-contract.md#L1-L28) form another path capable of performing actions. [JavaScript workflows](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/javascript-application-workflows.md#L3-L24) preserve the distinction between static observation, runtime observation, inference and unknowns.
 
-## Page web : capturer les faits utiles
+## Web page: capture useful facts
 
-Utiliser un profil Chrome dédié avec un port de débogage local. REA ne lance ni ne termine le navigateur du chemin passif. Le [guide officiel](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/browser-observation.md#L92-L119) fournit les flags `--remote-debugging-port=9222` et `--user-data-dir=<profil dédié>`. Le chemin exact de l’exécutable dépend de la machine ; le port reste sur l’interface locale.
+Use a dedicated Chrome profile with a local debugging port. REA neither launches nor terminates the browser in the passive path. The [official guide](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/browser-observation.md#L92-L119) gives the flags `--remote-debugging-port=9222` and `--user-data-dir=<dedicated-profile>`. The exact executable path depends on the machine; the port stays on the local interface.
 
-Les commandes suivantes utilisent un endpoint réellement ouvert ; remplacer `TARGET_ID` par une identité renvoyée par la première commande :
+The following commands use an actually open endpoint; replace `TARGET_ID` with an identity returned by the first command:
 
 ```sh
 npx rea-agents@6.5.0 list-browser-targets http://127.0.0.1:9222 --json
@@ -69,59 +69,59 @@ npx rea-agents@6.5.0 analyze-web-bundle http://127.0.0.1:9222 TARGET_ID --json
 npx rea-agents@6.5.0 capture-web-screenshot http://127.0.0.1:9222 TARGET_ID --json
 ```
 
-Pour observer une interaction humaine, armer `observe-web-session` avec une fenêtre explicite, puis effectuer l’action dans cette fenêtre. Pour capturer aussi les scripts exposés au Debugger, ajouter `--include-script-sources` à `inspect-web-page`. Les [commandes et options](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/browser-observation.md#L192-L213) et la [capture de contenu](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/browser-observation.md#L245-L277) sont vérifiables dans les sources. Les screenshots sont des artefacts inline, pas nécessairement un PNG déjà enregistré sur disque.
+To observe a human interaction, arm `observe-web-session` with an explicit window, then perform the action within it. To also capture scripts exposed to the Debugger, add `--include-script-sources` to `inspect-web-page`. [Commands and options](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/browser-observation.md#L192-L213) and [content capture](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/browser-observation.md#L245-L277) are verifiable in the sources. Screenshots are inline artifacts, not necessarily PNGs already saved to disk.
 
-Conserver la sortie complète en JSON UTF-8 et sans BOM dans un dossier d’enquête local, par exemple sous `work/rea/`. Ne pas verser automatiquement captures, scripts tiers, cookies ou données de session dans le dépôt public. Une sélection d’options plus large peut inclure des informations sensibles ; ne sélectionner que les données utiles à la question étudiée.
+Retain the complete output as UTF-8 JSON without BOM in a local investigation folder, for example under `work/rea/`. Do not automatically add captures, third-party scripts, cookies or session data to the public repository. Broader option selections may include sensitive information; select only data useful to the question being investigated.
 
-Si des sources ont effectivement été capturées, REA peut les exporter vers un **nouveau** dossier puis les analyser. Dans les commandes ci-dessous, remplacer les deux chemins entre chevrons par les chemins absolus réels :
+If sources were actually captured, REA can export them into a **new** folder and analyze them. In the commands below, replace both angle-bracketed paths with the actual absolute paths:
 
 ```sh
-npx rea-agents@6.5.0 export-web-scripts "<capture.json>" "<nouveau-dossier>" --json
-npx rea-agents@6.5.0 analyze-javascript-application "<nouveau-dossier>/files" --json
+npx rea-agents@6.5.0 export-web-scripts "<capture.json>" "<new-folder>" --json
+npx rea-agents@6.5.0 analyze-javascript-application "<new-folder>/files" --json
 ```
 
-L’export peut légitimement ne fournir aucune entrée analysable. Il ne reconstitue pas une application complète, ne récupère pas automatiquement les source maps absentes et ne garantit pas l’exécution des scripts observés. Vérifier `analysis_input`, les empreintes, la couverture et les exclusions dans les [résultats d’export](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/website-script-export.md#L19-L34) et leurs [limites](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/website-script-export.md#L67-L86).
+An export may legitimately provide no analyzable entry. It does not reconstruct a complete application, automatically recover missing source maps or guarantee execution of observed scripts. Check `analysis_input`, hashes, coverage and exclusions in [export results](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/website-script-export.md#L19-L34) and their [limits](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/website-script-export.md#L67-L86).
 
-Pour un dossier déjà disponible, il suffit de lancer `npx rea-agents@6.5.0 analyze-javascript-application "<dossier-absolu-ou-ASAR>" --json`. Des Evidence volumineuses doivent être enregistrées puis interrogées par vues ciblées, comme expliqué dans la [CLI](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/cli.md#L7-L38). En MCP, les références retenues appartiennent à la connexion ; plusieurs appels CLI doivent partager des fichiers Evidence complets, pas seulement un identifiant de session ([contrat](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/cli.md#L216-L232)).
+For an already available folder, simply run `npx rea-agents@6.5.0 analyze-javascript-application "<absolute-folder-or-ASAR>" --json`. Large Evidence outputs should be saved, then queried through focused views, as explained in [the CLI](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/cli.md#L7-L38). In MCP, retained references belong to the connection; multiple CLI calls must share complete Evidence files, not merely a session id ([contract](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/cli.md#L216-L232)).
 
-## Transformer l’enquête en animation déterministe
+## Turn the investigation into deterministic animation
 
-1. Définir une question observable : par exemple « quelle durée sépare le clic et l’impact visuel ? » ou « quelle courbe rapproche ce panneau de sa cible ? ». Conserver URL ou empreinte de fichier, version, dimensions, capture et temps de référence.
-2. Consigner les résultats dans une note locale : fait observé, preuve précise, inférence, incertitude. Une famille de courbes peut expliquer les mêmes positions ; distinguer une valeur lue dans le code d’un réglage ajusté visuellement.
-3. Produire `STORYBOARD.md` avant l’implémentation : états successifs, anticipation, action, contact, lecture, transition, rôle de la caméra et son. Pour une vidéo seule, relever les poses et contacts par frames avec FFmpeg ; ne pas prétendre avoir identifié le code original.
-4. Reporter les événements nommés dans le descriptor du film. Distinguer temps musical et frame de contact. Choisir un vocabulaire de formes, couleurs et sons propre au nouveau film ; les droits de REA ne donnent aucun droit sur la cible analysée.
-5. Réimplémenter le comportement utile avec `seek(t)`, les helpers du dépôt et des assets autorisés. Garder les constats d’enquête séparés du code livré. Réinitialiser tout l’état dessiné, utiliser des seeds stables et exprimer les springs par fréquence et ratio d’amortissement.
-6. Exécuter `npm test`, puis les contrôles navigateur de `npm run verify`. Comparer images clés, beats, contacts à ±1 frame et strips de transition. Vérifier également seeks répétés, ordre inverse/mélangé et page fraîche. Les comparaisons pixel de REA peuvent compléter une enquête, sans remplacer ces tests du nouveau moteur.
-7. Rendre un draft, examiner son rythme, synchroniser les cues depuis le descriptor, puis exporter le master. Consigner ce qui a été réellement ouvert, mesuré et éventuellement écouté dans `docs/VALIDATION.md` ; l’analyse de code seule ne valide pas le film.
+1. Define an observable question: for example, "how long separates the click and visual impact?" or "which curve brings this panel toward its target?" Retain the URL or file hash, version, dimensions, capture and reference time.
+2. Record findings in a local note: observed fact, precise evidence, inference, uncertainty. A family of curves can explain the same positions; distinguish a value read from code from a visually adjusted setting.
+3. Produce `STORYBOARD.md` before implementation: successive states, anticipation, action, contact, reading time, transition, camera role and sound. For video alone, identify poses and contacts by frames with FFmpeg; do not claim to have identified the original code.
+4. Transfer named events into the film descriptor. Distinguish musical time and contact frame. Choose shapes, colours and sounds specific to the new film; REA's rights grant no rights over the analyzed target.
+5. Reimplement useful behaviour with `seek(t)`, repository helpers and authorized assets. Keep investigation findings separate from delivered code. Reset all drawn state, use stable seeds and express springs in frequency and damping ratio.
+6. Run `npm test`, then the browser checks in `npm run verify`. Compare key images, beats, contacts at ±1 frame and transition strips. Also check repeated seeks, reverse/shuffled order and a fresh page. REA pixel comparisons can supplement an investigation without replacing these tests of the new engine.
+7. Render a draft, examine its rhythm, synchronize cues from the descriptor, then export the master. Record what was actually opened, measured and, if applicable, listened to in `docs/VALIDATION.md`; code analysis alone does not validate the film.
 
-Utiliser le [prompt de production](../prompts/07-reverse-engineer.md) pour conduire cette séquence dans Codex. Les commandes de rendu et leurs paramètres restent ceux de [RENDER_CONTRACT.md](RENDER_CONTRACT.md).
+Use the [production prompt](../prompts/07-reverse-engineer.md) to conduct this sequence in Codex. Render commands and parameters remain those in [RENDER_CONTRACT.md](RENDER_CONTRACT.md).
 
-## Vérifications réellement effectuées
+## Checks actually performed
 
-Le 17 octobre 2026, sous Windows avec Node `24.18.1` :
+On 17 October 2026, on Windows with Node `24.18.1`:
 
-- Lecture du clone, des options de CLI et des résolveurs de chemins au commit cité ; contrôle de 22 permaliens de ce guide contre les fichiers et plages de lignes du clone.
-- Consultation `npm view rea-agents version dist-tags engines bin license repository --json` : version publiée `6.5.0`, package et dépôt concordants.
-- Exécution de `rea setup --help` avec le package `6.5.0` : sortie réussie, options Codex et dry-run présentes.
-- Exécution réelle du plan avec `npm exec --ignore-scripts --yes --package=rea-agents@6.5.0 -- rea setup --client codex --dry-run --json` : code de sortie `0`, statut `planned`, aucune action appliquée. Le plan proposait uniquement `configure_client:codex` et `install_skill`. L’empreinte du `config.toml` utilisateur était identique avant et après.
+- Read the clone, CLI options and path resolvers at the cited commit; checked 22 permalinks in this guide against the clone's files and line ranges.
+- Queried `npm view rea-agents version dist-tags engines bin license repository --json`: published version `6.5.0`, matching package and repository.
+- Ran `rea setup --help` with package `6.5.0`: successful exit, Codex and dry-run options present.
+- Actually ran the plan with `npm exec --ignore-scripts --yes --package=rea-agents@6.5.0 -- rea setup --client codex --dry-run --json`: exit code `0`, status `planned`, no actions applied. The plan proposed only `configure_client:codex` and `install_skill`. The user's `config.toml` hash was identical before and after.
 
-Cette première passe était un dry-run : elle n’avait installé ni enregistrement MCP ni skill et n’avait pas encore testé une enquête sur une cible. Elle reste consignée comme étape historique, et non comme état actuel.
+This first pass was a dry-run: it had installed neither MCP registration nor skill, and had not yet tested an investigation on a target. It remains recorded as a historical step, not the current state.
 
-### Installation appliquée le 17 octobre 2026
+### Installation applied on 17 October 2026
 
-À la demande de l’utilisateur, les commandes suivantes ont ensuite été exécutées :
+At the user's request, the following commands were subsequently run:
 
 ```sh
 npm exec --ignore-scripts --yes --package=rea-agents@6.5.0 -- rea setup --client codex --yes --json
 npm exec --ignore-scripts --yes --package=rea-agents@6.5.0 -- rea doctor --client codex --skill --json
 ```
 
-Le setup a renvoyé `status: ready`, deux actions appliquées : `configured_codex` et `installed_skill`. L’entrée Codex a été configurée et la sauvegarde `~/.codex/config.toml.rea.backup` a été créée. Le workflow a été installé dans `~/.agents/skills/reverse-engineer-anything/`.
+Setup returned `status: ready`, with two applied actions: `configured_codex` and `installed_skill`. The Codex entry was configured and the backup `~/.codex/config.toml.rea.backup` was created. The workflow was installed in `~/.agents/skills/reverse-engineer-anything/`.
 
-Le diagnostic ciblé a terminé avec le code `0` et `healthy: true` : `node`, `registration:codex` et `skill:identity` sont `ok`. Son périmètre est explicitement Codex et le skill, sans provider natif. La valeur globale `environment_healthy: false` concerne les providers natifs non configurés ; ils ne sont pas requis pour l’enquête JavaScript et navigateur du cas pratique. Ce résultat ne prétend donc pas valider Hopper, Ghidra ou d’autres moteurs natifs.
+The targeted diagnostic finished with code `0` and `healthy: true`: `node`, `registration:codex` and `skill:identity` are `ok`. Its scope is explicitly Codex and the skill, without a native provider. The global value `environment_healthy: false` concerns unconfigured native providers; they are not required for the case study's JavaScript and browser investigation. This result therefore does not claim to validate Hopper, Ghidra or other native engines.
 
-Le package a été provisionné dans le cache npm avec ses scripts de cycle de vie désactivés. Le premier `--yes` appartient à npm ; celui placé après `setup --client codex` applique le setup REA déjà autorisé. Les rapports complets de configuration restent locaux dans `work/rea-install/` : ils ne sont pas des pièces à publier avec la configuration utilisateur. À cette étape, la session d’auteur n’avait pas renouvelé sa liste d’outils MCP ; le premier cas pratique Signal utilisait donc la CLI versionnée.
+The package was provisioned in the npm cache with lifecycle scripts disabled. The first `--yes` belongs to npm; the one after `setup --client codex` applies the already authorized REA setup. Complete configuration reports remain local in `work/rea-install/`: they are not material to publish with the user's configuration. At this stage, the authoring session had not refreshed its MCP tool list; the first Signal case therefore used the versioned CLI.
 
-Un client stdio éphémère a ensuite lancé le launcher installé, `cmd.exe /d /c npx -y rea-agents@6.5.0 mcp`, et réussi `initialize` puis `tools/list` en 2,079 s. Le serveur s’est identifié comme `rea 6.5.0`, protocole `2024-11-05`, avec 207 outils sur une page, dont `inspect_web_page`, `capture_web_screenshot` et `compare_web_screenshots`. Le [rapport expurgé](assets/rea-case/mcp-smoke.json) atteste ce dialogue réel. Il ne prouve pas l’attachement du serveur à la conversation Codex déjà ouverte, ni l’exécution des 207 outils ; le test a arrêté son processus après la découverte.
+An ephemeral stdio client then launched the installed launcher, `cmd.exe /d /c npx -y rea-agents@6.5.0 mcp`, and successfully completed `initialize` followed by `tools/list` in 2.079 s. The server identified itself as `rea 6.5.0`, protocol `2024-11-05`, with 207 tools on one page, including `inspect_web_page`, `capture_web_screenshot` and `compare_web_screenshots`. The [redacted report](assets/rea-case/mcp-smoke.json) documents this actual exchange. It proves neither attachment to the already open Codex conversation nor execution of all 207 tools; the test stopped its process after discovery.
 
-La génération de nouvelles scènes suit la politique [Astra](ASTRA_WORKFLOW.md). Astra assure l’analyse, la spécification, l’écriture et la critique ; `seek(t)`, Playwright et FFmpeg exécutent ensuite le rendu local sans SDK de modèle ni clé API. Le cœur indépendant et ses limites sont décrits dans [CORE.md](CORE.md), avec ses contrôles dans [CORE_VALIDATION.md](CORE_VALIDATION.md).
+New scene generation follows the [Astra policy](ASTRA_WORKFLOW.md). Astra handles analysis, specification, writing and critique; `seek(t)`, Playwright and FFmpeg then perform local rendering without a model SDK or API key. The independent core and its limits are described in [CORE.md](CORE.md), with checks in [CORE_VALIDATION.md](CORE_VALIDATION.md).

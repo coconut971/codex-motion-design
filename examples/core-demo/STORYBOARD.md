@@ -1,32 +1,30 @@
-# La graine et le pli — 10 secondes
+# The Seed and the Fold — 10 seconds
 
-Film original sans texte. Un petit galet d'argile hésite au bord d'une bande de
-papier, franchit le vide puis ouvre deux feuilles. La même graine traverse les
-trois cadrages ; sa dernière position explique le résultat. Papier chaud,
-encre ardoise, sauge, argile et ocre. Silhouettes plates, contours qui bouillent
-à 12 Hz, grain fixe très léger. Aucun média externe.
+Original film without text. A small clay pebble hesitates at the edge of a paper
+strip, crosses the gap, then opens two leaves. The same seed passes through
+three framings; its final position explains the result. Warm paper,
+slate ink, sage, clay and ochre. Flat silhouettes, outlines boiling at 12 Hz,
+very light fixed grain. No external media.
 
-Le descriptor `project.json` possède tous les temps. Les secondes ci-dessous
-sont les lectures de direction ; les mouvements, sons, coupes et QA référencent
-les mêmes cues nommées dans ce fichier.
+The `project.json` descriptor owns every time. The seconds below express the
+direction; motion, sound, cuts and QA reference the same named cues in that file.
 
-| Plan / lecture | Temps | Action et caméra |
+| Shot / read | Time | Action and camera |
 | --- | --- | --- |
-| Attente, puis décision | 0–3,5 s | Vue large fixe. Graine à gauche sur un pli. Tenue initiale ; petit recul, compression, puis départ en arc. L'ouverture au centre-droit attire le regard. |
-| Contact et conséquence | 3,5–6,5 s | Raccord plus proche centré sur la destination, pendant le mouvement de la graine. Elle descend dans la fente : le masque du bord avant rend le contact lisible. Deux feuilles pivoteront avec retards différents, et la graine conserve sa vitesse lors d'un changement de cible. |
-| Ouverture et tenue | 6,5–10 s | Retour large au moment où la silhouette devient plante. Deux feuilles asymétriques composent une coupe protectrice autour de la graine. Amortissement puis tenue finale de plus de deux secondes ; aucune sortie prématurée. |
+| Waiting, then decision | 0–3.5 s | Fixed wide view. Seed on a fold at the left. Initial hold; slight retreat, compression, then launch along an arc. The opening at center-right draws the eye. |
+| Contact and consequence | 3.5–6.5 s | Closer cut centered on the destination while the seed moves. It descends into the slit: the front-edge mask makes contact readable. Two leaves will pivot with different delays, and the seed retains its velocity when its target changes. |
+| Opening and hold | 6.5–10 s | Return to a wide view as the silhouette becomes a plant. Two asymmetric leaves form a protective cup around the seed. Damping, then a final hold of more than two seconds; no premature exit. |
 
-Les coupes sont sèches et motivées par le cadrage ; elles limitent les
-sous-images du shutter. Une courte ouverture papier à l'entrée et une transition
-en volet au deuxième raccord démontrent les transitions du cœur. Le masque est
-géométrique : le bord cache seulement la partie basse de la graine.
+Cuts are hard and motivated by framing; they limit shutter subsamples.
+A brief paper opening at entry and a wipe at the second cut demonstrate
+core transitions. The mask is geometric: the edge hides only the seed's lower part.
 
-Son : un petit souffle tonal au départ, un contact grave, deux harmoniques
-espacées pour le dépliage ; silence pendant la tenue. Les attaques dérivent des
-cues visuelles, jamais d'un second tableau de secondes.
+Sound: a small tonal breath at launch, a low contact, two spaced harmonics for
+unfolding; silence during the hold. Attacks derive from visual cues, never from
+a second table of seconds.
 
-QA : comparer les états Canvas/SVG pour les mêmes temps, frontières de plans,
-contacts ±1 image, mouvement continu sous-frame, retarget en mouvement,
-répétition/inversion et page fraîche. Inspecter quatre compositions, la bande
-de contact et la miniature. Les tests numériques ne certifient pas le goût ni
-l'écoute ; consigner les inspections effectivement possibles.
+QA: compare Canvas/SVG states at the same times, shot boundaries,
+contacts ±1 frame, continuous subframe motion, retargeting in motion,
+repeat/reverse seeks and a fresh page. Inspect four compositions, the contact
+strip and the thumbnail. Numeric tests certify neither taste nor listening;
+record the inspections that were actually possible.

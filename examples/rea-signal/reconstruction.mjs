@@ -84,7 +84,7 @@ async function boot(){
   slider.max=project.duration;
   let driver=null;
   const display=time=>{window.seek(time);slider.value=time;clock.value=`${time.toFixed(2)} s`;};
-  const stop=()=>{driver=null;button.textContent='Lire';};
+  const stop=()=>{driver=null;button.textContent='Play';};
   const frame=now=>{
     if(!driver)return;
     const time=Math.min(project.duration,driver.offset+(now-driver.origin)/1000);
