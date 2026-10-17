@@ -1,0 +1,242 @@
+{
+  "case": "REA Signal",
+  "date": "2026-10-17",
+  "scope": "Summary of local runtime evidence; complete evidence remains under out/rea-case/evidence/",
+  "reaVersion": "6.5.0",
+  "reaCommit": "408704827057280b240c91963ee5590fd4dcc988",
+  "browser": "155.0.8059.84",
+  "node": "v24.18.1",
+  "target": "/examples/signal.html",
+  "viewport": [
+    960,
+    540
+  ],
+  "pose": 6,
+  "sources": {
+    "examples/signal.html": "fa0b1aabbcec7f21acd4c35f75493d11aa501fdafe0b68e1d08e414557248e60",
+    "examples/signal.mjs": "6b2f77e2a52a1499838d9a3c143712c4e6c61b4450502b546bf220be77c65482",
+    "project.json": "3c8d4b0c6cd86ad7e2e8dfe5c6f0765c20c79066dc63e93ed646a6ebd8e8bf09",
+    "lib/motion.mjs": "fd2261d87c1ca9c3f26afb087f1704c85c72896e740ac47deb178194b1b64a04",
+    "lib/project.mjs": "854e6092b2982c270c4dffce8a4ed3ea79db95a9612fc4ab38fce57c3afbdeb5"
+  },
+  "records": [
+    {
+      "name": "targets",
+      "file": "evidence/targets.json",
+      "sha256": "3f5269c22999f82f20b470fdd11237bac8a549d0cd8700cadd75eb07dae1a6c3",
+      "evidenceId": "ev_0856431c91f0847d2bf5a33eed6045abc574e39e074a5030507a6db2981070df"
+    },
+    {
+      "name": "inspect",
+      "file": "evidence/inspect.json",
+      "sha256": "5b6bd7c8c12c16121ef889a47284a641335e353fa4923cc462b559b754cef03c",
+      "evidenceId": "ev_00ee3a1e3484c6a8ac2261e86889a5d250bc55436bcd742dbb8c6398cedf596e"
+    },
+    {
+      "name": "bundle",
+      "file": "evidence/bundle.json",
+      "sha256": "ab4fddae6d17343364b3335e2b9a00846d9dedbe1a26e7b84f37cdacfef17af6",
+      "evidenceId": "ev_9af1949573469aa96f73fd383fd520d4c94197741dcf3cec5286503a0cfdbcdf"
+    },
+    {
+      "name": "screenshot",
+      "file": "evidence/screenshot.json",
+      "sha256": "7bc482d309d94da53b755ee5203a92705a0a83fff61311172878cc380b04e487",
+      "evidenceId": "ev_c2d609df87e9f8a1a78c04946fcef7213c40d6365b669c8b01d8d7ba8427f2a9"
+    },
+    {
+      "name": "export",
+      "file": "evidence/export.json",
+      "sha256": "ad07216290c2c257047f016613bfdd823a0c79e8bcef11b35b913d096a490bba",
+      "evidenceId": "ev_ff31931d671929f763322a445a44ccb073d529ed544de3b2d7543f666067b2e7"
+    },
+    {
+      "name": "javascript",
+      "file": "evidence/javascript.json",
+      "sha256": "89e2276a6563fa7deea39358f1b5f42aa981b2e4c51b15d2fb265c44df4f28ee",
+      "evidenceId": "ev_fe3c0c2cae2204be54d98414c8120b356c9529e046e54851ff2f6076c2d90488"
+    }
+  ],
+  "inspection": {
+    "domNodes": 30,
+    "completeness": {
+      "status": "policy_filtered",
+      "conditions": [
+        "attach_limited",
+        "policy_filtered"
+      ],
+      "policy_filtered_sections": [
+        "accessibility",
+        "console_text",
+        "json_body_shapes",
+        "metadata",
+        "scripts",
+        "storage_keys",
+        "websocket_shapes"
+      ],
+      "attach_limited_sections": [
+        "console_events",
+        "metadata",
+        "network_requests",
+        "websocket_connections",
+        "websocket_frames"
+      ],
+      "truncated_sections": [],
+      "unavailable_sections": [],
+      "excluded": [
+        {
+          "section": "accessibility",
+          "reason": "not_approved",
+          "count": 2
+        },
+        {
+          "section": "console_text",
+          "reason": "not_approved",
+          "count": null
+        },
+        {
+          "section": "json_body_shapes",
+          "reason": "not_approved",
+          "count": null
+        },
+        {
+          "section": "metadata",
+          "reason": "unsupported_url",
+          "count": 1
+        },
+        {
+          "section": "scripts",
+          "reason": "unattributed_origin",
+          "count": 9
+        },
+        {
+          "section": "storage_keys",
+          "reason": "not_approved",
+          "count": null
+        },
+        {
+          "section": "websocket_shapes",
+          "reason": "not_approved",
+          "count": null
+        }
+      ],
+      "dropped_events": {
+        "scripts": 0,
+        "network_requests": 0,
+        "console_events": 0,
+        "websocket_connections": 0,
+        "websocket_frames": 0,
+        "webmcp_tools": 0,
+        "timeline_events": 0,
+        "total": 0
+      }
+    }
+  },
+  "bundle": {
+    "capture": {
+      "scripts_observed": 3,
+      "scripts_analyzed": 3,
+      "source_artifacts": [
+        {
+          "sha256": "fd2261d87c1ca9c3f26afb087f1704c85c72896e740ac47deb178194b1b64a04",
+          "bytes": 2713,
+          "media_type": "text/javascript",
+          "charset": "utf-8",
+          "text_available": true
+        },
+        {
+          "sha256": "6b2f77e2a52a1499838d9a3c143712c4e6c61b4450502b546bf220be77c65482",
+          "bytes": 6041,
+          "media_type": "text/javascript",
+          "charset": "utf-8",
+          "text_available": true
+        },
+        {
+          "sha256": "854e6092b2982c270c4dffce8a4ed3ea79db95a9612fc4ab38fce57c3afbdeb5",
+          "bytes": 2140,
+          "media_type": "text/javascript",
+          "charset": "utf-8",
+          "text_available": true
+        }
+      ]
+    },
+    "completeness": {
+      "status": "complete",
+      "parsed_scripts": 3,
+      "parse_failures": 0,
+      "visited_ast_nodes": 2626
+    },
+    "staticImports": [
+      {
+        "kind": "static_import",
+        "specifier": "../lib/motion.mjs"
+      },
+      {
+        "kind": "static_import",
+        "specifier": "../lib/project.mjs"
+      }
+    ],
+    "fetchEndpoint": [
+      {
+        "value": "../project.json",
+        "mechanism": "call:fetch"
+      }
+    ],
+    "lowConfidenceCandidate": {
+      "value": "scale",
+      "classification": "query parameter name; not a network endpoint",
+      "source": "examples/signal.mjs:8 params.get"
+    }
+  },
+  "export": {
+    "scripts": [
+      {
+        "path": "lib/motion.mjs",
+        "sha256": "fd2261d87c1ca9c3f26afb087f1704c85c72896e740ac47deb178194b1b64a04",
+        "bytes": 2713,
+        "state": "exported"
+      },
+      {
+        "path": "examples/signal.mjs",
+        "sha256": "6b2f77e2a52a1499838d9a3c143712c4e6c61b4450502b546bf220be77c65482",
+        "bytes": 6041,
+        "state": "exported"
+      },
+      {
+        "path": "lib/project.mjs",
+        "sha256": "854e6092b2982c270c4dffce8a4ed3ea79db95a9612fc4ab38fce57c3afbdeb5",
+        "bytes": 2140,
+        "state": "exported"
+      }
+    ],
+    "captureStatus": "policy_filtered"
+  },
+  "javascript": {
+    "statistics": {
+      "relevant_files": 3,
+      "nested_asar_containers": 0,
+      "text_bytes_read": 10894,
+      "invalid_utf8_files": 0,
+      "parsed_javascript_files": 3,
+      "visited_ast_nodes": 2626,
+      "findings": 23,
+      "modules": 0,
+      "parse_failures": 0
+    },
+    "nodeCount": 20,
+    "edgeCount": 29,
+    "coverage": {
+      "status": "complete",
+      "truncated": false,
+      "omitted_count": 0,
+      "limits": []
+    },
+    "integrityContradictions": []
+  },
+  "errors": [],
+  "limits": [
+    "REA observation starts after initial page load; zero new network traffic does not mean no resources loaded.",
+    "Playwright calls seek; passive REA does not evaluate the animation.",
+    "Source reading is authorized. Reconstruction is not a clean-room exercise."
+  ]
+}

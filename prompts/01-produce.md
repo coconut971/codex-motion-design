@@ -3,6 +3,12 @@
 À coller dans Codex, ouvert à la racine du dépôt. Remplacer les champs.
 
 ```text
+Auteur requis : GPT-6 Astra exclusivement, y compris pour le code, les assets,
+les prompts et les corrections. Vérifie le modèle avec les informations fiables
+de la session ; si ce n'est pas Astra ou si tu ne peux pas le vérifier, signale
+la limite avant de générer et demande sa sélection, sans modèle de secours.
+Le rendu et les mesures des fichiers existants restent locaux, sans API modèle.
+
 Crée un film original de [8–15] secondes pour [sujet / public / destination].
 Ce que le spectateur doit comprendre : [une idée].
 Format : [1920×1080, 30 i/s]. Ton : [calme / précis / énergique].
@@ -23,3 +29,5 @@ corrige les trois plus importants et rerends leurs preuves. Lance les tests et
 la vérification des seeks. Rends le draft puis le master sonorisé décodable.
 Livre les fichiers, les contrôles exécutés et les limites de lecture/écoute.
 ```
+
+Politique d'auteur : [workflow Astra](../docs/ASTRA_WORKFLOW.md).

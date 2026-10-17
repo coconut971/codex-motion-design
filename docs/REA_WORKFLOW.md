@@ -2,7 +2,7 @@
 
 [REA — Reverse Engineer Anything](https://github.com/morluto/rea) est une intégration optionnelle pour l’enquête technique. Codex peut l’utiliser via MCP ou par sa CLI pour inspecter une page, des scripts JavaScript ou une application. Le film reste produit par le moteur `seek(t)`, Playwright et FFmpeg de ce dépôt ; REA ne remplace pas cette pipeline.
 
-Cette intégration est documentée à partir du commit [`408704827057280b240c91963ee5590fd4dcc988`](https://github.com/morluto/rea/tree/408704827057280b240c91963ee5590fd4dcc988), version `6.5.0`, sous [licence MIT, morluto](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/LICENSE#L1-L21). Une consultation du registre npm le 17 octobre 2026 a confirmé `latest = 6.5.0`, le dépôt officiel et les exigences Node ci-dessous. Aucun code ni skill REA n’est embarqué ici ; seule la préparation du plan de setup a été testée, sans appliquer de configuration.
+Cette intégration est documentée à partir du commit [`408704827057280b240c91963ee5590fd4dcc988`](https://github.com/morluto/rea/tree/408704827057280b240c91963ee5590fd4dcc988), version `6.5.0`, sous [licence MIT, morluto](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/LICENSE#L1-L21). Une consultation du registre npm le 17 octobre 2026 a confirmé `latest = 6.5.0`, le dépôt officiel et les exigences Node ci-dessous. Aucun code ni skill REA n’est embarqué ici. Après la première validation en dry-run, l’intégration Codex et le skill ont effectivement été installés sur la machine de travail. Le [cas pratique Signal](cases/REA_SIGNAL.md) relie l’enquête sur une page HTML à une reconstruction, aux comparaisons d’images et au rendu local.
 
 ## Installer l’intégration Codex
 
@@ -43,7 +43,7 @@ npx rea-agents@6.5.0 doctor --client codex --skill --json
 npx rea-agents@6.5.0 --help
 ```
 
-Si le skill a volontairement été omis, retirer `--skill` de la vérification. Un diagnostic scoped ne prouve pas qu’une cible précise sera analysable ; le [guide de readiness](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/installation.md#L301-L329) distingue ces niveaux. Un ChatGPT hébergé sans accès au processus local ne reçoit pas ce MCP par cette seule installation ; utiliser Codex sur la machine, une CLI disponible dans son environnement, ou lui fournir les Evidence exportées.
+Si le skill a volontairement été omis, retirer `--skill` de la vérification. Un diagnostic scoped ne prouve pas qu’une cible précise sera analysable ; le [guide de readiness](https://github.com/morluto/rea/blob/408704827057280b240c91963ee5590fd4dcc988/docs/installation.md#L301-L329) distingue ces niveaux. Un enregistrement valide n’ajoute pas les outils MCP à une session déjà ouverte : redémarrer ou reconnecter Codex, puis vérifier leur découverte dans la nouvelle session. Entre-temps, une CLI fonctionnelle permet de poursuivre l’enquête autorisée et de conserver les mêmes Evidence. L’absence de découverte MCP n’impose pas d’arrêter ce chemin CLI ni de répéter le setup. Un ChatGPT hébergé sans accès au processus local ne reçoit pas ce MCP par cette seule installation ; utiliser Codex sur la machine, une CLI disponible dans son environnement, ou lui fournir les Evidence exportées.
 
 ## Choisir la bonne enquête
 
@@ -105,4 +105,23 @@ Le 17 octobre 2026, sous Windows avec Node `24.18.1` :
 - Exécution de `rea setup --help` avec le package `6.5.0` : sortie réussie, options Codex et dry-run présentes.
 - Exécution réelle du plan avec `npm exec --ignore-scripts --yes --package=rea-agents@6.5.0 -- rea setup --client codex --dry-run --json` : code de sortie `0`, statut `planned`, aucune action appliquée. Le plan proposait uniquement `configure_client:codex` et `install_skill`. L’empreinte du `config.toml` utilisateur était identique avant et après.
 
-Le package a été provisionné dans le cache npm avec ses scripts de cycle de vie désactivés. Le `--yes` placé avant `--package` appartient à npm et n’approuve aucune action de setup REA. Les résultats complets de configuration n’ont pas été publiés. Aucun enregistrement MCP ni skill utilisateur n’a été installé ; aucun workflow d’enquête REA sur une cible, export de scripts ou comparaison de captures n’est revendiqué testé ici.
+Cette première passe était un dry-run : elle n’avait installé ni enregistrement MCP ni skill et n’avait pas encore testé une enquête sur une cible. Elle reste consignée comme étape historique, et non comme état actuel.
+
+### Installation appliquée le 17 octobre 2026
+
+À la demande de l’utilisateur, les commandes suivantes ont ensuite été exécutées :
+
+```sh
+npm exec --ignore-scripts --yes --package=rea-agents@6.5.0 -- rea setup --client codex --yes --json
+npm exec --ignore-scripts --yes --package=rea-agents@6.5.0 -- rea doctor --client codex --skill --json
+```
+
+Le setup a renvoyé `status: ready`, deux actions appliquées : `configured_codex` et `installed_skill`. L’entrée Codex a été configurée et la sauvegarde `~/.codex/config.toml.rea.backup` a été créée. Le workflow a été installé dans `~/.agents/skills/reverse-engineer-anything/`.
+
+Le diagnostic ciblé a terminé avec le code `0` et `healthy: true` : `node`, `registration:codex` et `skill:identity` sont `ok`. Son périmètre est explicitement Codex et le skill, sans provider natif. La valeur globale `environment_healthy: false` concerne les providers natifs non configurés ; ils ne sont pas requis pour l’enquête JavaScript et navigateur du cas pratique. Ce résultat ne prétend donc pas valider Hopper, Ghidra ou d’autres moteurs natifs.
+
+Le package a été provisionné dans le cache npm avec ses scripts de cycle de vie désactivés. Le premier `--yes` appartient à npm ; celui placé après `setup --client codex` applique le setup REA déjà autorisé. Les rapports complets de configuration restent locaux dans `work/rea-install/` : ils ne sont pas des pièces à publier avec la configuration utilisateur. La session d’auteur n’ayant pas renouvelé sa liste d’outils MCP, le cas pratique utilise la CLI versionnée.
+
+Un client stdio éphémère a ensuite lancé le launcher installé, `cmd.exe /d /c npx -y rea-agents@6.5.0 mcp`, et réussi `initialize` puis `tools/list` en 2,079 s. Le serveur s’est identifié comme `rea 6.5.0`, protocole `2024-11-05`, avec 207 outils sur une page, dont `inspect_web_page`, `capture_web_screenshot` et `compare_web_screenshots`. Le [rapport expurgé](assets/rea-case/mcp-smoke.json) atteste ce dialogue réel. Il ne prouve pas l’attachement du serveur à la conversation Codex déjà ouverte, ni l’exécution des 207 outils ; le test a arrêté son processus après la découverte.
+
+La génération de nouvelles scènes suit désormais la politique [Astra](ASTRA_WORKFLOW.md). Astra assure l’analyse, la spécification, l’écriture et la critique ; `seek(t)`, Playwright et FFmpeg exécutent ensuite le rendu local sans SDK de modèle ni clé API.

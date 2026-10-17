@@ -1,0 +1,840 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "6b2f77e2a52a1499838d9a3c143712c4e6c61b4450502b546bf220be77c65482",
+  "reconstructionSha256": "d92123637695b54e7ca5b04be2a787100a74990c2446b2080f28092980b3370d",
+  "projectSha256": "34c869724403529daaefc3b67d124a4cde44686f4f53119ad462c0f4a6900cbf",
+  "browser": "155.0.8059.84",
+  "scale": 0.5,
+  "dimensions": [
+    960,
+    540
+  ],
+  "method": "MAE and RMSE over RGB byte levels 0..255; changed pixel if any RGB delta >12; no spatial registration, no temporal blur. All RGBA bytes hashed for determinism.",
+  "roiLogical": [
+    180,
+    0,
+    1260,
+    1000
+  ],
+  "thresholds": {
+    "pixelThreshold": 12,
+    "roiLogical": [
+      180,
+      0,
+      1260,
+      1000
+    ],
+    "maxFullMAE": 1.5,
+    "maxFullRMSE": 10,
+    "maxRoiMAE": 2.5,
+    "maxRoiRMSE": 13,
+    "maxChangedFraction": 0.05
+  },
+  "pass": true,
+  "worst": {
+    "full": {
+      "mae": {
+        "value": 0.30250835905349793,
+        "time": 6.033333333
+      },
+      "rmse": {
+        "value": 3.925067412463999,
+        "time": 6.033333333
+      },
+      "changedFraction": {
+        "value": 0.0072376543209876545,
+        "time": 7
+      }
+    },
+    "roi": {
+      "mae": {
+        "value": 0.48567724867724865,
+        "time": 6.033333333
+      },
+      "rmse": {
+        "value": 5.032378654337819,
+        "time": 6.033333333
+      },
+      "changedFraction": {
+        "value": 0.011911111111111112,
+        "time": 7
+      }
+    }
+  },
+  "measurements": [
+    {
+      "time": 0,
+      "full": {
+        "mae": 0.01901877572016461,
+        "rmse": 0.2119622219620625,
+        "changedFraction": 0,
+        "maximumChannelDifference": 6,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.019134391534391535,
+        "rmse": 0.21129482399127208,
+        "changedFraction": 0,
+        "maximumChannelDifference": 6,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 0.466666667,
+      "full": {
+        "mae": 0.15475308641975308,
+        "rmse": 2.7869953546778445,
+        "changedFraction": 0.0034953703703703705,
+        "maximumChannelDifference": 185,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.2425142857142857,
+        "rmse": 3.571209093785239,
+        "changedFraction": 0.005752380952380952,
+        "maximumChannelDifference": 185,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 0.5,
+      "full": {
+        "mae": 0.15002379115226339,
+        "rmse": 2.667809482164641,
+        "changedFraction": 0.003472222222222222,
+        "maximumChannelDifference": 173,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.23473121693121693,
+        "rmse": 3.4181276783345624,
+        "changedFraction": 0.005714285714285714,
+        "maximumChannelDifference": 173,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 0.533333333,
+      "full": {
+        "mae": 0.15015432098765433,
+        "rmse": 2.6727277280393626,
+        "changedFraction": 0.003472222222222222,
+        "maximumChannelDifference": 173,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.23494603174603174,
+        "rmse": 3.424444959467633,
+        "changedFraction": 0.005714285714285714,
+        "maximumChannelDifference": 173,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 1,
+      "full": {
+        "mae": 0.15991512345679013,
+        "rmse": 2.727929815857973,
+        "changedFraction": 0.0038155864197530866,
+        "maximumChannelDifference": 187,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.2510095238095238,
+        "rmse": 3.495347777354363,
+        "changedFraction": 0.006279365079365079,
+        "maximumChannelDifference": 187,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 1.234,
+      "full": {
+        "mae": 0.18157600308641975,
+        "rmse": 2.963710228396365,
+        "changedFraction": 0.004344135802469136,
+        "maximumChannelDifference": 195,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.28665714285714283,
+        "rmse": 3.7981531295837976,
+        "changedFraction": 0.0071492063492063496,
+        "maximumChannelDifference": 195,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 1.235,
+      "full": {
+        "mae": 0.1806275720164609,
+        "rmse": 2.9458917215300744,
+        "changedFraction": 0.004340277777777778,
+        "maximumChannelDifference": 195,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.2850962962962963,
+        "rmse": 3.7752712506352464,
+        "changedFraction": 0.007142857142857143,
+        "maximumChannelDifference": 195,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 1.5,
+      "full": {
+        "mae": 0.1824755658436214,
+        "rmse": 2.8120734701721593,
+        "changedFraction": 0.0045871913580246915,
+        "maximumChannelDifference": 170,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.28813756613756614,
+        "rmse": 3.6034172493642576,
+        "changedFraction": 0.007549206349206349,
+        "maximumChannelDifference": 170,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 1.8,
+      "full": {
+        "mae": 0.17607510288065845,
+        "rmse": 2.6845362402290047,
+        "changedFraction": 0.004538966049382716,
+        "maximumChannelDifference": 187,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.2776042328042328,
+        "rmse": 3.4396123812623616,
+        "changedFraction": 0.00746984126984127,
+        "maximumChannelDifference": 187,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 1.833333333,
+      "full": {
+        "mae": 0.18117734053497941,
+        "rmse": 2.732051533422406,
+        "changedFraction": 0.004702932098765432,
+        "maximumChannelDifference": 187,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.2860010582010582,
+        "rmse": 3.500641664536955,
+        "changedFraction": 0.0077396825396825394,
+        "maximumChannelDifference": 187,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 1.866666667,
+      "full": {
+        "mae": 0.19268197016460906,
+        "rmse": 2.8604218650200486,
+        "changedFraction": 0.004967206790123457,
+        "maximumChannelDifference": 169,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.30493439153439156,
+        "rmse": 3.6655099185465265,
+        "changedFraction": 0.008174603174603175,
+        "maximumChannelDifference": 169,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 1.9,
+      "full": {
+        "mae": 0.195679012345679,
+        "rmse": 2.892512639977219,
+        "changedFraction": 0.005046296296296296,
+        "maximumChannelDifference": 169,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.3098666666666667,
+        "rmse": 3.70672205051692,
+        "changedFraction": 0.008304761904761905,
+        "maximumChannelDifference": 169,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 1.933333333,
+      "full": {
+        "mae": 0.1894212962962963,
+        "rmse": 2.7393464139681503,
+        "changedFraction": 0.00509837962962963,
+        "maximumChannelDifference": 169,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.299568253968254,
+        "rmse": 3.5100110794380375,
+        "changedFraction": 0.008390476190476191,
+        "maximumChannelDifference": 169,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 1.966666667,
+      "full": {
+        "mae": 0.18884194958847736,
+        "rmse": 2.743056962024956,
+        "changedFraction": 0.0050347222222222225,
+        "maximumChannelDifference": 169,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.29861481481481483,
+        "rmse": 3.5147768186125394,
+        "changedFraction": 0.008285714285714285,
+        "maximumChannelDifference": 169,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 2,
+      "full": {
+        "mae": 0.1933641975308642,
+        "rmse": 2.822645054356048,
+        "changedFraction": 0.005262345679012345,
+        "maximumChannelDifference": 184,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.30605714285714286,
+        "rmse": 3.6169942796537042,
+        "changedFraction": 0.00866031746031746,
+        "maximumChannelDifference": 184,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 2.033333333,
+      "full": {
+        "mae": 0.20723829732510288,
+        "rmse": 2.979749576056389,
+        "changedFraction": 0.005607638888888889,
+        "maximumChannelDifference": 195,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.32888994708994707,
+        "rmse": 3.818750037885676,
+        "changedFraction": 0.009228571428571428,
+        "maximumChannelDifference": 195,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 2.066666667,
+      "full": {
+        "mae": 0.20928626543209877,
+        "rmse": 2.9680524142516176,
+        "changedFraction": 0.005790895061728395,
+        "maximumChannelDifference": 195,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.3322603174603175,
+        "rmse": 3.8037291643274966,
+        "changedFraction": 0.00953015873015873,
+        "maximumChannelDifference": 195,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 2.1,
+      "full": {
+        "mae": 0.20927597736625514,
+        "rmse": 2.9268286377042294,
+        "changedFraction": 0.005576774691358024,
+        "maximumChannelDifference": 170,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.33224338624338623,
+        "rmse": 3.750790816085555,
+        "changedFraction": 0.009177777777777778,
+        "maximumChannelDifference": 170,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 2.133333333,
+      "full": {
+        "mae": 0.21156314300411522,
+        "rmse": 2.9005732147766645,
+        "changedFraction": 0.005792824074074074,
+        "maximumChannelDifference": 195,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.3360074074074074,
+        "rmse": 3.717073577269621,
+        "changedFraction": 0.009533333333333333,
+        "maximumChannelDifference": 195,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 2.166666667,
+      "full": {
+        "mae": 0.2100752314814815,
+        "rmse": 2.7975296596286623,
+        "changedFraction": 0.005979938271604938,
+        "maximumChannelDifference": 166,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.33355873015873017,
+        "rmse": 3.584738521084943,
+        "changedFraction": 0.009841269841269842,
+        "maximumChannelDifference": 166,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 2.2,
+      "full": {
+        "mae": 0.21004501028806585,
+        "rmse": 2.7590015881427985,
+        "changedFraction": 0.0060185185185185185,
+        "maximumChannelDifference": 144,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.3335089947089947,
+        "rmse": 3.5352555418288714,
+        "changedFraction": 0.009904761904761904,
+        "maximumChannelDifference": 144,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 2.5,
+      "full": {
+        "mae": 0.21131687242798353,
+        "rmse": 2.8832724517229025,
+        "changedFraction": 0.005250771604938272,
+        "maximumChannelDifference": 172,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.3356021164021164,
+        "rmse": 3.6948555684840607,
+        "changedFraction": 0.008641269841269842,
+        "maximumChannelDifference": 172,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 3,
+      "full": {
+        "mae": 0.20463798868312758,
+        "rmse": 2.943862516743897,
+        "changedFraction": 0.005212191358024691,
+        "maximumChannelDifference": 165,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.324610582010582,
+        "rmse": 3.772665401649639,
+        "changedFraction": 0.008577777777777778,
+        "maximumChannelDifference": 165,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 3.466666667,
+      "full": {
+        "mae": 0.20148148148148148,
+        "rmse": 2.91856970544039,
+        "changedFraction": 0.005152391975308642,
+        "maximumChannelDifference": 179,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.31941587301587304,
+        "rmse": 3.7401847562095125,
+        "changedFraction": 0.00847936507936508,
+        "maximumChannelDifference": 179,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 3.5,
+      "full": {
+        "mae": 0.2153735853909465,
+        "rmse": 3.1330994831634658,
+        "changedFraction": 0.005445601851851852,
+        "maximumChannelDifference": 169,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.3422783068783069,
+        "rmse": 4.015663379935173,
+        "changedFraction": 0.008961904761904761,
+        "maximumChannelDifference": 169,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 3.533333333,
+      "full": {
+        "mae": 0.2164358281893004,
+        "rmse": 3.1553048079496153,
+        "changedFraction": 0.005466820987654321,
+        "maximumChannelDifference": 168,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.344026455026455,
+        "rmse": 4.044175248323623,
+        "changedFraction": 0.008996825396825397,
+        "maximumChannelDifference": 168,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 4,
+      "full": {
+        "mae": 0.216352237654321,
+        "rmse": 3.078282169693861,
+        "changedFraction": 0.005648148148148148,
+        "maximumChannelDifference": 165,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.3438888888888889,
+        "rmse": 3.945275789878454,
+        "changedFraction": 0.009295238095238096,
+        "maximumChannelDifference": 165,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 4.5,
+      "full": {
+        "mae": 0.2008056841563786,
+        "rmse": 2.97855795387095,
+        "changedFraction": 0.005092592592592593,
+        "maximumChannelDifference": 176,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.3183037037037037,
+        "rmse": 3.817219825444586,
+        "changedFraction": 0.008380952380952381,
+        "maximumChannelDifference": 176,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 4.966666667,
+      "full": {
+        "mae": 0.20791602366255144,
+        "rmse": 2.9721440150666143,
+        "changedFraction": 0.005380015432098766,
+        "maximumChannelDifference": 166,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.330005291005291,
+        "rmse": 3.808983394208289,
+        "changedFraction": 0.008853968253968255,
+        "maximumChannelDifference": 166,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 5,
+      "full": {
+        "mae": 0.20235210905349793,
+        "rmse": 2.895441953301477,
+        "changedFraction": 0.005337577160493827,
+        "maximumChannelDifference": 179,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.32084867724867727,
+        "rmse": 3.7104839314152818,
+        "changedFraction": 0.008784126984126985,
+        "maximumChannelDifference": 179,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 5.033333333,
+      "full": {
+        "mae": 0.20241576646090534,
+        "rmse": 2.8956143890941726,
+        "changedFraction": 0.005343364197530864,
+        "maximumChannelDifference": 179,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.32095343915343916,
+        "rmse": 3.7107053765469433,
+        "changedFraction": 0.008793650793650794,
+        "maximumChannelDifference": 179,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 5.5,
+      "full": {
+        "mae": 0.22989776234567902,
+        "rmse": 3.083835982552242,
+        "changedFraction": 0.006091820987654321,
+        "maximumChannelDifference": 189,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.3661809523809524,
+        "rmse": 3.952407209704328,
+        "changedFraction": 0.010025396825396826,
+        "maximumChannelDifference": 189,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 5.966666667,
+      "full": {
+        "mae": 0.27935699588477364,
+        "rmse": 3.630792519683224,
+        "changedFraction": 0.0069232253086419756,
+        "maximumChannelDifference": 163,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.4475767195767196,
+        "rmse": 4.654630964747842,
+        "changedFraction": 0.011393650793650794,
+        "maximumChannelDifference": 163,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 6,
+      "full": {
+        "mae": 0.29901041666666667,
+        "rmse": 3.877289828554096,
+        "changedFraction": 0.007162422839506173,
+        "maximumChannelDifference": 176,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.4799206349206349,
+        "rmse": 4.971051116851365,
+        "changedFraction": 0.011787301587301588,
+        "maximumChannelDifference": 176,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 6.033333333,
+      "full": {
+        "mae": 0.30250835905349793,
+        "rmse": 3.925067412463999,
+        "changedFraction": 0.007179783950617284,
+        "maximumChannelDifference": 173,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.48567724867724865,
+        "rmse": 5.032378654337819,
+        "changedFraction": 0.011815873015873016,
+        "maximumChannelDifference": 173,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 6.5,
+      "full": {
+        "mae": 0.28653677983539094,
+        "rmse": 3.734707501727115,
+        "changedFraction": 0.006915509259259259,
+        "maximumChannelDifference": 195,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.4593925925925926,
+        "rmse": 4.78802629140607,
+        "changedFraction": 0.01138095238095238,
+        "maximumChannelDifference": 195,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 7,
+      "full": {
+        "mae": 0.29798225308641973,
+        "rmse": 3.7923340885932206,
+        "changedFraction": 0.0072376543209876545,
+        "maximumChannelDifference": 178,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.47822857142857145,
+        "rmse": 4.861999283940408,
+        "changedFraction": 0.011911111111111112,
+        "maximumChannelDifference": 178,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 7.466666667,
+      "full": {
+        "mae": 0.2865599279835391,
+        "rmse": 3.8043751548618387,
+        "changedFraction": 0.006828703703703704,
+        "maximumChannelDifference": 195,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.45943068783068786,
+        "rmse": 4.877455751021695,
+        "changedFraction": 0.011238095238095238,
+        "maximumChannelDifference": 195,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 7.5,
+      "full": {
+        "mae": 0.2778215020576132,
+        "rmse": 3.6545783127514073,
+        "changedFraction": 0.0068036265432098765,
+        "maximumChannelDifference": 184,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.4450497354497355,
+        "rmse": 4.685165150426662,
+        "changedFraction": 0.011196825396825396,
+        "maximumChannelDifference": 184,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 7.533333333,
+      "full": {
+        "mae": 0.2747627314814815,
+        "rmse": 3.6097656859709284,
+        "changedFraction": 0.0067476851851851856,
+        "maximumChannelDifference": 182,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.440015873015873,
+        "rmse": 4.627638272254647,
+        "changedFraction": 0.011104761904761905,
+        "maximumChannelDifference": 182,
+        "pixels": 315000
+      }
+    },
+    {
+      "time": 7.966666667,
+      "full": {
+        "mae": 0.024172453703703703,
+        "rmse": 0.22704687384284925,
+        "changedFraction": 0,
+        "maximumChannelDifference": 6,
+        "pixels": 518400
+      },
+      "roi": {
+        "mae": 0.027615873015873017,
+        "rmse": 0.23567756648420177,
+        "changedFraction": 0,
+        "maximumChannelDifference": 6,
+        "pixels": 315000
+      }
+    }
+  ],
+  "negativeControl": {
+    "kind": "blank paper replacing resolved composition",
+    "time": 6,
+    "full": {
+      "mae": 3.863616255144033,
+      "rmse": 19.743720937576718,
+      "changedFraction": 0.04820408950617284,
+      "maximumChannelDifference": 195,
+      "pixels": 518400
+    },
+    "roi": {
+      "mae": 6.352138624338624,
+      "rmse": 25.328007606445663,
+      "changedFraction": 0.07933015873015874,
+      "maximumChannelDifference": 195,
+      "pixels": 315000
+    },
+    "rejected": true
+  },
+  "determinism": [
+    {
+      "kind": "source",
+      "order": "reverse",
+      "probes": 41,
+      "equal": true
+    },
+    {
+      "kind": "source",
+      "order": "shuffled",
+      "probes": 41,
+      "equal": true
+    },
+    {
+      "kind": "source",
+      "order": "repeat",
+      "probes": 41,
+      "equal": true
+    },
+    {
+      "kind": "source",
+      "order": "fresh",
+      "probes": 41,
+      "equal": true
+    },
+    {
+      "kind": "reconstruction",
+      "order": "reverse",
+      "probes": 41,
+      "equal": true
+    },
+    {
+      "kind": "reconstruction",
+      "order": "shuffled",
+      "probes": 41,
+      "equal": true
+    },
+    {
+      "kind": "reconstruction",
+      "order": "repeat",
+      "probes": 41,
+      "equal": true
+    },
+    {
+      "kind": "reconstruction",
+      "order": "fresh",
+      "probes": 41,
+      "equal": true
+    }
+  ],
+  "continuousSubframes": true,
+  "errors": [],
+  "limits": [
+    "Thresholds are regression guards, not perceptual equivalence.",
+    "Independent contour/grain produce nonzero pixel differences.",
+    "Only sampled times and this browser/platform tested.",
+    "Seeks are driven by Playwright; these metrics are not REA findings."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "browser": "155.0.8059.84",
+  "node": "v24.18.1",
+  "source": "out/rea-case/draft.mp4",
+  "sourceSha256": "f21d483439c8dfe52b535913ad125c275f38dfa4f300590b7b29ccfb01817c67",
+  "sourceBytes": 186640,
+  "duration": 8,
+  "start": 0,
+  "end": 8,
+  "ended": true,
+  "width": 960,
+  "height": 540,
+  "muted": true,
+  "playbackRate": 1,
+  "mediaError": null,
+  "scope": "Automated muted browser playback reached end; no subjective listening or continuous human observation."
+}

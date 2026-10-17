@@ -3,6 +3,26 @@
 Ce dépôt est un atelier de films calculés par code, destiné à Codex et ChatGPT.
 Le rendu local n'appelle aucun modèle. Le brief de l'utilisateur fait autorité.
 
+## Auteur : GPT-6 Astra exclusivement
+
+- Toute nouvelle génération créative de ce projet — direction, storyboard,
+  code, assets, prompts et corrections — doit être réalisée avec **GPT-6 Astra**.
+  Cette règle vaut aussi pour les agents délégués lorsqu'une délégation est
+  autorisée. Aucun basculement silencieux vers un autre modèle.
+- Vérifie le modèle avec les informations fiables de la session ou de l'outil.
+  `.codex/config.toml` définit Astra par défaut dans Codex pour ce projet de
+  confiance ; un choix explicite de session peut le remplacer. Ce défaut ne
+  change pas rétroactivement une conversation en cours.
+  Une consigne « agis comme Astra » ne change pas le modèle. Si Astra est absent
+  ou non vérifiable, signale cette limite avant de générer et demande sa sélection.
+  Les commandes de rendu et de contrôle des fichiers existants restent utilisables.
+- Les images et sons calculés localement depuis du code écrit par Astra sont
+  autorisés. Un service génératif tiers ou un outil à modèle distinct n'est pas
+  couvert par cette règle : n'y délègue pas la création d'assets.
+- Cette politique d'auteur ne nécessite ni SDK, ni clé API, ni modification de
+  la configuration globale. Voir `docs/ASTRA_WORKFLOW.md` pour son périmètre et
+  `docs/CAPABILITY_MAP.md` pour les capacités réellement présentes.
+
 ## Du brief à un résultat vérifiable
 
 - Pour un nouveau film, lis le README et le projet, écris `STORYBOARD.md` avant
@@ -24,8 +44,9 @@ Le rendu local n'appelle aucun modèle. Le brief de l'utilisateur fait autorité
   planche par beat, les contacts à ±1 image, une bande dense et une miniature.
   Note des défauts précis avec frame/temps, preuve et correction dans `REVIEW.md`.
 - Corrige les trois problèmes les plus importants et recontrôle leurs images.
-  Un autre agent peut faire une critique indépendante si l'environnement le
-  permet. Ne remplace pas l'observation par une note arbitraire de 8/10.
+  Un autre agent Astra peut faire une critique indépendante si la délégation est
+  autorisée et l'environnement le permet. Ne remplace pas l'observation par une
+  note arbitraire de 8/10.
 - Rends le brouillon sonorisé, examine le rythme à vitesse réelle si tu disposes
   d'un lecteur, puis le master. Si une capacité manque, exécute les autres
   contrôles et signale précisément la limite. Ne prétends jamais avoir vu ou

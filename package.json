@@ -13,7 +13,11 @@
     "draft": "node scripts/render.mjs --draft --out=out/draft.mp4",
     "render": "node scripts/render.mjs --out=out/signal.mp4",
     "audio": "node scripts/audio.mjs",
-    "verify": "node scripts/verify.mjs"
+    "verify": "node scripts/verify.mjs",
+    "rea:investigate": "node scripts/rea-case.mjs --phase=investigate",
+    "rea:compare": "node scripts/rea-case.mjs --phase=compare",
+    "rea:render": "node scripts/rea-case.mjs --phase=render",
+    "rea:case": "node scripts/rea-case.mjs --phase=all"
   },
   "devDependencies": {"playwright": "1.64.1"}
 }

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "html": "examples/signal.html",
+    "moduleSha256": "6b2f77e2a52a1499838d9a3c143712c4e6c61b4450502b546bf220be77c65482",
+    "projectSha256": "3c8d4b0c6cd86ad7e2e8dfe5c6f0765c20c79066dc63e93ed646a6ebd8e8bf09",
+    "dependencySha256": {
+      "lib/motion.mjs": "fd2261d87c1ca9c3f26afb087f1704c85c72896e740ac47deb178194b1b64a04",
+      "lib/project.mjs": "854e6092b2982c270c4dffce8a4ed3ea79db95a9612fc4ab38fce57c3afbdeb5"
+    },
+    "bundleEvidenceId": "ev_9af1949573469aa96f73fd383fd520d4c94197741dcf3cec5286503a0cfdbcdf",
+    "inspectionEvidenceId": "ev_00ee3a1e3484c6a8ac2261e86889a5d250bc55436bcd742dbb8c6398cedf596e"
+  },
+  "observations": [
+    "REA observed three JavaScript modules; bundle analysis parsed all three with zero parse failures.",
+    "Two static imports link signal.mjs to motion.mjs and project.mjs; fetch('../project.json') is a static endpoint observation.",
+    "The source descriptor supplies six ordered cues and five sound definitions.",
+    "Canvas snapshot at resolve shows three colored oval fragments, a dark central dot with gold core and an incomplete outer arc."
+  ],
+  "sourceCodeMeasurements": {
+    "viewScale": 1.2, "contourHz": 12, "outerRadius": 292,
+    "arcStartRadians": -2.5761059759436304, "arcSweepRadians": 5.152211951887261,
+    "signalStart": [355,130], "signalRadius": 31, "travelLift": 50,
+    "fragmentRadii": [105,55], "clusterRadius": 82, "spreadRadius": 183,
+    "fragmentDelaySeconds": 0.07, "spreadFrequencyHz": [2.3,2.15,2],
+    "spreadDampingRatio": 0.8, "assemblyExtraRadius": 35,
+    "initialAngularOffset": 0.34, "holdAngularAmplitude": 0.008,
+    "holdAngularFrequencyRadiansPerSecond": 3, "waveSeconds": 0.65
+  },
+  "interpretations": ["Arrival creates anticipation; contact causes separation; the strengthened outer arc is a resolution cue. This emotional interpretation is not a REA finding."],
+  "implementationChoices": {"ovalVertices":48,"arcSegments":80,"grainCount":2400,"newNoiseIdentifiers":true},
+  "comparison": {"pixelThreshold":12,"roiLogical":[180,0,1260,1000],"maxFullMAE":1.5,"maxFullRMSE":10,"maxRoiMAE":2.5,"maxRoiRMSE":13,"maxChangedFraction":0.05},
+  "limits": ["Authorized source-assisted reconstruction; not clean-room or recovery from video alone.","Numeric motion parameters are read from captured/source code, not fitted uniquely from pixels.","Independent contours and grain prevent exact pixel identity.","Static graph completeness does not prove runtime execution of every function."]
+}

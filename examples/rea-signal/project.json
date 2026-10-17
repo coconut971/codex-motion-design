@@ -1,0 +1,14 @@
+{
+  "id": "rea-signal",
+  "width": 1920, "height": 1080, "fps": 30, "duration": 8,
+  "seed": 17, "bpm": 120, "beatOffset": 0, "beatsPerBar": 4, "cuts": [],
+  "palette": {"paper": "#F1E8D7", "ink": "#2E3C50", "sage": "#9AB6A4", "clay": "#CC8065", "gold": "#D8B775"},
+  "events": [
+    {"id":"arrival","beat":1,"sound":{"hz":220,"gain":0.07,"duration":0.18,"pan":-0.5}},
+    {"id":"contact","beat":4,"sound":{"hz":110,"gain":0.24,"duration":0.25,"pan":0}},
+    {"id":"split","beat":7,"sound":{"hz":330,"gain":0.12,"duration":0.3,"pan":-0.25}},
+    {"id":"align","beat":10,"sound":{"hz":440,"gain":0.10,"duration":0.32,"pan":0.25}},
+    {"id":"resolve","beat":12,"sound":{"hz":660,"gain":0.12,"duration":0.65,"pan":0}},
+    {"id":"exit","beat":15}
+  ]
+}

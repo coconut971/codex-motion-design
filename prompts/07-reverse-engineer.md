@@ -3,6 +3,12 @@
 Remplacer les champs entre crochets, puis coller le prompt dans Codex. REA reste optionnel si la référence ne contient que des images ou une vidéo.
 
 ```text
+Auteur requis : GPT-6 Astra exclusivement, y compris pour le code, les assets,
+les prompts et les corrections. Vérifie le modèle avec les informations fiables
+de la session ; si ce n'est pas Astra ou si tu ne peux pas le vérifier, signale
+la limite avant de générer et demande sa sélection, sans modèle de secours.
+Le rendu et les mesures des fichiers existants restent locaux, sans API modèle.
+
 Lis AGENTS.md, docs/MOTION_RULES.md, docs/RENDER_CONTRACT.md et
 docs/REA_WORKFLOW.md. Utilise les outils disponibles dans cet environnement.
 
@@ -57,6 +63,12 @@ Conduis l’enquête puis livre une réimplémentation originale fonctionnelle.
    mélangé et sur page fraîche. Consigne les trois défauts les plus importants
    avec leur temps et une preuve, corrige puis recapture les zones concernées.
 
+   Pour évaluer la fidélité, capture aussi la référence et la reconstruction
+   aux mêmes temps, dimensions et conditions. Ouvre des comparaisons côte à
+   côte et les différences utiles. Sépare égalité de pixels, écart de timing
+   et choix de direction ; annonce les seuils avant d'interpréter les mesures.
+   Une comparaison du rendu à lui-même ne valide pas une reconstruction.
+
 7. Rends un draft, évalue le rythme, puis le master. Le son vient des mêmes
    événements que l’image ; vérifie les contacts et mesures du fichier final.
    Décris séparément ce qui a été mesuré et ce qui a été écouté. REA est un outil
@@ -70,3 +82,8 @@ sur GitHub sans demande explicite.
 ```
 
 Les commandes REA, leur version auditée, les chemins Codex modifiés par le setup et les limites de capture sont détaillés dans [REA_WORKFLOW.md](../docs/REA_WORKFLOW.md), avec permaliens vers le code et la documentation officiels. Ce prompt n’ajoute aucune dépendance Claude et ne nécessite aucune clé de modèle pour rendre le film.
+
+Le [cas Signal](../docs/cases/REA_SIGNAL.md) fournit un parcours concret avec
+preuves ; la [carte des capacités](../docs/CAPABILITY_MAP.md) en délimite la portée.
+
+Politique d'auteur : [workflow Astra](../docs/ASTRA_WORKFLOW.md).

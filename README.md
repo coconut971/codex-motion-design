@@ -5,6 +5,10 @@ film, calculer chaque image au temps demandé, critiquer des frames et exporter
 un MP4 avec son synchronisé. Tout se rend localement avec Node, Playwright et
 FFmpeg. Aucun SDK de modèle, clé API, plugin ou dépendance Claude n'est requis.
 
+**La création est réservée à GPT-6 Astra** : direction, storyboard, code, assets,
+prompts et corrections. Le [workflow Astra](docs/ASTRA_WORKFLOW.md) décrit cette
+règle d'auteur ; le rendu des fichiers existants reste entièrement local.
+
 ![Signal : une impulsion organise trois fragments](docs/assets/signal-preview.webp)
 
 [Film exemple avec son](docs/assets/signal.mp4) ·
@@ -14,6 +18,8 @@ Le projet est indépendant et n'est pas un produit officiel OpenAI. Il adapte
 des méthodes observées dans [six dépôts audités](docs/SOURCE_AUDIT.md), avec une
 implémentation originale. Plusieurs sources supportaient déjà Codex : il s'agit
 d'une synthèse critique, pas d'un renommage de fichiers Claude.
+La [carte des capacités](docs/CAPABILITY_MAP.md) relie ce cœur aux six audits et
+à REA, en distinguant les fonctions exécutables des extensions à construire.
 
 ## Démarrer en local
 
@@ -68,11 +74,21 @@ Ouvrir ce dossier dans Codex et donner un brief : sujet, public, idée principal
 format, durée, contraintes de marque, son et payoff. Codex utilise les règles du
 [AGENTS.md](AGENTS.md) du dépôt ; cette convention est décrite dans la
 [documentation officielle](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
-Il n'y a pas de modèle imposé ni de fichier de configuration à modifier.
+[.codex/config.toml](.codex/config.toml) définit **GPT-6 Astra** par défaut dans
+Codex lorsque le projet est approuvé. Un choix explicite dans l'interface ou la
+CLI peut remplacer ce défaut : vérifier le modèle actif dans le sélecteur ou
+avec `/status` en CLI. Le fichier ne change pas la conversation en cours.
+Voir les [règles officielles de configuration](https://learn.chatgpt.com/docs/config-file/config-basic).
+
+Si la CLI Codex est installée, démarrer depuis ce dossier avec
+`codex --model gpt-6-astra` ; cette [option officielle](https://learn.chatgpt.com/docs/cli/reference)
+sélectionne explicitement le modèle. Si Astra est indisponible ou non vérifiable,
+le signaler avant de générer, sans remplacement silencieux. Aucun paramètre
+global ni clé API de rendu n'est ajouté.
 
 Exemple de demande :
 
-> Crée un film de 10 secondes pour expliquer comment un signal devient une
+> Avec GPT-6 Astra exclusivement, crée un film de 10 secondes pour expliquer comment un signal devient une
 > décision collective. Papier et indigo, sans texte, trois accents sonores.
 > Suis AGENTS.md : storyboard, timeline unique, seek(t), critique par frames,
 > brouillon puis master. Livre les preuves et les limites d'inspection.
@@ -83,7 +99,8 @@ Les [prompts de production](prompts/01-produce.md) couvrent aussi
 [debug](prompts/05-debug-render.md) et
 [reverse engineering avec REA](prompts/07-reverse-engineer.md).
 
-Avec ChatGPT, fournir le brief et les fichiers utiles, puis les images de revue.
+Avec ChatGPT, sélectionner GPT-6 Astra dans l'interface, fournir le brief et les fichiers
+utiles, puis les images de revue.
 La lecture automatique de fichiers locaux, l'exécution Node et l'accès à REA
 dépendent des outils de la session. Le [prompt de passage à Codex](prompts/06-chatgpt-handoff.md)
 permet de préparer un projet sans prétendre l'avoir exécuté.
@@ -111,12 +128,17 @@ npx rea-agents@6.5.0 setup --client codex
 Examiner les changements proposés, puis redémarrer Codex. Le setup configure
 le serveur MCP et les instructions REA ; il n'ajoute aucune dépendance Claude
 au projet. Les détails, chemins de configuration et vérifications sont dans
-[REA_WORKFLOW.md](docs/REA_WORKFLOW.md). Le plan `--dry-run` a été testé avec
-succès ; aucune configuration MCP ni skill utilisateur n'a été appliqué.
+[REA_WORKFLOW.md](docs/REA_WORKFLOW.md). Le statut réel de l'installation et les
+vérifications locales sont consignés dans ce guide. Une installation sur une
+machine ne configure pas celle d'un lecteur qui clone le dépôt.
+
+Le [cas Signal avec REA](docs/cases/REA_SIGNAL.md) documente le parcours concret
+HTML → observations → reconstruction `seek(t)` → comparaison de frames → rendu,
+avec ses commandes, preuves et limites.
 
 Dans Codex, utiliser le [prompt d'enquête](prompts/07-reverse-engineer.md) :
 
-> Utilise REA pour enquêter sur [URL / dossier local]. Isole la transformation
+> Avec GPT-6 Astra exclusivement, utilise REA pour enquêter sur [URL / dossier local]. Isole la transformation
 > [comportement]. Relie chaque constat à une preuve et distingue observations,
 > mesures et hypothèses. Produis une spécification de mouvement, puis une
 > réimplémentation originale conforme au contrat seek(t) de ce dépôt.
@@ -174,6 +196,7 @@ sont livrées avec les résultats.
 
 ```text
 AGENTS.md                  règles persistantes Codex / ChatGPT
+.codex/config.toml         modèle Astra par défaut pour ce projet Codex
 STORYBOARD.md              intention et chronologie de l'exemple
 REVIEW.md                  observations et corrections vérifiées
 project.json               format, seed, beat grid, cues, son
@@ -184,7 +207,7 @@ lib/project.mjs            validation du projet et conversion beats/secondes
 scripts/                   serveur, doctor, capture, audio, vérification
 tests/                     contrats mathématiques, timing, erreurs et confinement
 prompts/                   sept briefs réutilisables
-docs/                      règles, contrats, audits, REA, preuves et limites
+docs/                      workflow Astra, capacités, contrats, audits, REA et preuves
 .github/workflows/         validation reproductible sur Linux
 package-lock.json          versions verrouillées
 ```

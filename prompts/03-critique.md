@@ -1,6 +1,12 @@
 # Critique indépendante fondée sur des frames
 
 ```text
+Auteur requis : GPT-6 Astra exclusivement, y compris pour le code, les assets,
+les prompts et les corrections. Vérifie le modèle avec les informations fiables
+de la session ; si ce n'est pas Astra ou si tu ne peux pas le vérifier, signale
+la limite avant de générer et demande sa sélection, sans modèle de secours.
+Le rendu et les mesures des fichiers existants restent locaux, sans API modèle.
+
 Agis comme directeur motion et critique du film [projet]. Lis le storyboard et
 les manifests. Ouvre effectivement les images disponibles ; si elles manquent,
 rends-les. Ne suppose pas qu'un test vert garantit une bonne composition.
@@ -16,3 +22,5 @@ Ajoute une entrée à REVIEW.md. Si le mandat inclut les corrections, implément
 puis rerends exactement les preuves concernées. Vérifie les transitions voisines
 et la synchro si un cue change. Dis ce qui a été vu, mesuré, joué et écouté.
 ```
+
+Politique d'auteur : [workflow Astra](../docs/ASTRA_WORKFLOW.md).
