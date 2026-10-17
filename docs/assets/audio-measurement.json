@@ -1,0 +1,7 @@
+{
+  "method": "FFmpeg loudnorm analysis; input_* only; filtered output discarded, delivered MP4 unchanged",
+  "integratedLUFS": -17.13,
+  "truePeakDbTP": -1,
+  "loudnessRangeLU": 2.5,
+  "thresholdLUFS": -29.57
+}

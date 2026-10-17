@@ -1,0 +1,481 @@
+{
+  "project": "signal",
+  "projectSha256": "3c8d4b0c6cd86ad7e2e8dfe5c6f0765c20c79066dc63e93ed646a6ebd8e8bf09",
+  "browser": "155.0.8059.84",
+  "node": "v24.18.1",
+  "platform": "win32",
+  "scale": 0.25,
+  "algorithm": "SHA-256 of every RGBA byte",
+  "results": [
+    {
+      "order": "reverse",
+      "probes": 22,
+      "equal": true
+    },
+    {
+      "order": "shuffled",
+      "probes": 22,
+      "equal": true
+    },
+    {
+      "order": "repeat",
+      "probes": 22,
+      "equal": true
+    },
+    {
+      "order": "after other-size page",
+      "probes": 22,
+      "equal": true
+    },
+    {
+      "order": "fresh page",
+      "probes": 22,
+      "equal": true
+    }
+  ],
+  "continuousSubframeDifference": true,
+  "errors": [],
+  "probes": [
+    {
+      "state": {
+        "time": 0,
+        "contact": 2,
+        "assembly": 0,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          234,
+          48
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "daa0ff5670a72fcf628bb09db0946ef3a1df03c42578368d2454ffc81dd3afed"
+    },
+    {
+      "state": {
+        "time": 0.4666666666666667,
+        "contact": 2,
+        "assembly": 0,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          304.67790899224053,
+          77.83166073780433
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "ff2e1ec646d18b95684b4d7ae409ea4f58c71a14d528521ea2d95361406681ff"
+    },
+    {
+      "state": {
+        "time": 0.5,
+        "contact": 2,
+        "assembly": 0,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          316.98352529523265,
+          83.15133932013026
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "b4c742f9756771f1936f9259a640ba2f67f83fd2b5e1affd16e83926913bbdda"
+    },
+    {
+      "state": {
+        "time": 0.5333333333333333,
+        "contact": 2,
+        "assembly": 0,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          330.0653480423126,
+          88.87231254073947
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "28e073bed2c4eced843e4db6c7e358e620c329f2da057a4ea22c9b448cb4a8e6"
+    },
+    {
+      "state": {
+        "time": 1.234,
+        "contact": 2,
+        "assembly": 0,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          701.1423123184137,
+          310.56596046412494
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "8b7d8fd693a46fcde9c334eeaa8f5342943139534ca55027d7139ea85b69cd96"
+    },
+    {
+      "state": {
+        "time": 1.235,
+        "contact": 2,
+        "assembly": 0,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          701.6938519463481,
+          311.0022556387933
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "c88bf48037e6da9bc71a2e14175902a61eb8730c20f1caeb216988b1ee37d762"
+    },
+    {
+      "state": {
+        "time": 1.9666666666666666,
+        "contact": 2,
+        "assembly": 0,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          959.3374803583288,
+          539.3790061942414
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "16dac70d296f97e92ff77122384c9045b5cd4feac08424dd5a8fdee901220ed0"
+    },
+    {
+      "state": {
+        "time": 2,
+        "contact": 2,
+        "assembly": 0,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "1e368187d1b733341c908ded8ea4136ef2d4c4c764a4dc61bfb34dc3410c58f2"
+    },
+    {
+      "state": {
+        "time": 2.033333333333333,
+        "contact": 2,
+        "assembly": 0,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "406fcf4304a5c7cf113c84bdbe21d7c1340638a0907916e7ca768f610bd7bb3f"
+    },
+    {
+      "state": {
+        "time": 3.466666666666667,
+        "contact": 2,
+        "assembly": 0,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "f000950190fb4b74d4a762689bc23374f6d1810f3410bf215a1665cc401aa471"
+    },
+    {
+      "state": {
+        "time": 3.5,
+        "contact": 2,
+        "assembly": 0,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "4fa8b813918ab54e4e6cff46f5223a661d889fde55cbc33de29c0ed9876ad585"
+    },
+    {
+      "state": {
+        "time": 3.533333333333333,
+        "contact": 2,
+        "assembly": 0.0014595336076817457,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "268299174b9c4d6336015a733afcc2b70896d54ed655bb97cf1911154d5ec63d"
+    },
+    {
+      "state": {
+        "time": 4.966666666666667,
+        "contact": 2,
+        "assembly": 0.9985404663923183,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "40794df16758db06af977316707ab9daff9fb0a46114e9480c5aaae39efc34d2"
+    },
+    {
+      "state": {
+        "time": 5,
+        "contact": 2,
+        "assembly": 1,
+        "finish": 0,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "80e0ffbe886079af67fbc88be44a26b9fe98c639795fe475869c40021b1e40d8"
+    },
+    {
+      "state": {
+        "time": 5.033333333333333,
+        "contact": 2,
+        "assembly": 1,
+        "finish": 0.0032592592592592365,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "c2b179bee2ba9052201d51eb86d57d20df8c2da83e0cf2d4ba73f0e931c12c11"
+    },
+    {
+      "state": {
+        "time": 5.966666666666667,
+        "contact": 2,
+        "assembly": 1,
+        "finish": 0.9967407407407407,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "90a46ca17d3d7dd6c84c40f9266ab2b050c01e0052560d71e61758e95a1302d4"
+    },
+    {
+      "state": {
+        "time": 6,
+        "contact": 2,
+        "assembly": 1,
+        "finish": 1,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "45757ad59b0ef360107b35dcea812162519254cf54fc037be20d3b77e894c132"
+    },
+    {
+      "state": {
+        "time": 6.033333333333333,
+        "contact": 2,
+        "assembly": 1,
+        "finish": 1,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "a430cff03557d294d75f291f6da17b5b6a8bf146f624de7fe784873f7bee5b91"
+    },
+    {
+      "state": {
+        "time": 7.466666666666667,
+        "contact": 2,
+        "assembly": 1,
+        "finish": 1,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "7c2b0f06b47a0cc2ae50f00faecb4f56368b60dbb8c35312db42064f839313bc"
+    },
+    {
+      "state": {
+        "time": 7.5,
+        "contact": 2,
+        "assembly": 1,
+        "finish": 1,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "a25e0d6bb066f3013e502dbb2d7da1f5243438812c5af5684f50beed06813d16"
+    },
+    {
+      "state": {
+        "time": 7.533333333333333,
+        "contact": 2,
+        "assembly": 1,
+        "finish": 1,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "ce77b453c494cd66464f93b0b7a1e0d84f93f727d120736d06ccf7a06433ffd5"
+    },
+    {
+      "state": {
+        "time": 7.966666666666667,
+        "contact": 2,
+        "assembly": 1,
+        "finish": 1,
+        "centre": [
+          960,
+          540
+        ],
+        "ball": [
+          960,
+          540
+        ],
+        "scale": 0.25
+      },
+      "width": 480,
+      "height": 270,
+      "hash": "b56bf223da96239908f818fb69a766de52fccaab7a338cd2f5885092e760ee81"
+    }
+  ],
+  "limits": "Sampled times in one browser/platform; no universal proof or cross-platform pixel identity."
+}

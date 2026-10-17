@@ -1,0 +1,19 @@
+{
+  "name": "codex-motion-design",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Motion design code-first pour Codex et ChatGPT : temps pur, critique par images et export local.",
+  "license": "MIT",
+  "engines": {"node": ">=22.12.0"},
+  "scripts": {
+    "doctor": "node scripts/doctor.mjs",
+    "studio": "node scripts/serve.mjs",
+    "test": "node --test --test-concurrency=1 tests/*.test.mjs",
+    "sheet": "node scripts/render.mjs --sheet --out=out/sheet.png",
+    "draft": "node scripts/render.mjs --draft --out=out/draft.mp4",
+    "render": "node scripts/render.mjs --out=out/signal.mp4",
+    "audio": "node scripts/audio.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "devDependencies": {"playwright": "1.64.1"}
+}

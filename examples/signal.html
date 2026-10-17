@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Signal — Codex Motion Design</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #F1E8D7; }
+  canvas { display: block; }
+  nav { position: fixed; left: 1rem; bottom: 1rem; padding: .8rem; background: #f1e8d7eb; color: #2e3c50; font: 15px system-ui; }
+  button, input { vertical-align: middle; }
+  html[data-capture] nav { display: none; }
+</style>
+<canvas id="film" aria-label="Une impulsion organise trois fragments en couronne"></canvas>
+<nav><button id="play" type="button">Lire</button> <input id="scrub" aria-label="Temps" type="range" min="0" max="8" step="0.001" value="0"> <output id="clock">0 s</output></nav>
+<script type="module" src="signal.mjs"></script>
+</html>

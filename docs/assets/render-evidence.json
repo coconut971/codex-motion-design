@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "project": "signal",
+  "projectSha256": "3c8d4b0c6cd86ad7e2e8dfe5c6f0765c20c79066dc63e93ed646a6ebd8e8bf09",
+  "runtime": {
+    "node": "v24.18.1",
+    "platform": "win32",
+    "browser": "155.0.8059.84",
+    "ffmpeg": "ffmpeg version N-92722-gf22fcd4483 Copyright (c) 2000-2018 the FFmpeg developers"
+  },
+  "sources": {
+    "project.json": "3c8d4b0c6cd86ad7e2e8dfe5c6f0765c20c79066dc63e93ed646a6ebd8e8bf09",
+    "examples/signal.html": "fa0b1aabbcec7f21acd4c35f75493d11aa501fdafe0b68e1d08e414557248e60",
+    "package.json": "ba0c0d4cccec5040c5403a7ec8425021120810199675b4dada4842685596983b",
+    "package-lock.json": "f2820af3633eaf537285fb2f141bec9b6b325eaef9a29adf9ba8187d54f7359f",
+    "lib/motion.mjs": "fd2261d87c1ca9c3f26afb087f1704c85c72896e740ac47deb178194b1b64a04",
+    "lib/project.mjs": "854e6092b2982c270c4dffce8a4ed3ea79db95a9612fc4ab38fce57c3afbdeb5",
+    "examples/signal.mjs": "6b2f77e2a52a1499838d9a3c143712c4e6c61b4450502b546bf220be77c65482",
+    "scripts/audio.mjs": "7f737a1a6fb645ad6663487c0f3c0e3a7e3a4ea0c184584a6d73868101150cd1",
+    "scripts/doctor.mjs": "ebe7a58b7fe53ec741261ed661b1616653e4d79a2389fd7978102db84a2bf75e",
+    "scripts/render.mjs": "3b6c96b166622e9dcfcf5ca02f659a9ac2e063b1441702c9402e73023cf32630",
+    "scripts/serve.mjs": "7b481fc78a94da94116bc461e741e338e51d7be6569292fb5b5014deb96cc775",
+    "scripts/verify.mjs": "33435b3927304a698e80968d62d45d4dfc9d4c7be44860ed73232c5cc5a77767"
+  },
+  "parameters": {
+    "mode": "video",
+    "scale": 1,
+    "samples": 4,
+    "shutter": 0.5,
+    "shutterUnits": "frame intervals",
+    "pixelAverage": "sRGB RGBA arithmetic mean before encoding",
+    "fps": 30,
+    "duration": 8,
+    "frameCount": 240,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "crop": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "endpoint": "n/fps, n in [0, frameCount)",
+    "videoColor": {
+      "pixelFormat": "yuv420p",
+      "range": "limited",
+      "matrix": "bt709",
+      "primaries": "bt709",
+      "transfer": "iec61966-2-1 (sRGB retained; not transformed to BT.709 transfer)"
+    }
+  },
+  "outputs": {
+    "imageOrVideo": "signal.mp4",
+    "audio": "WAV generated locally in out/; not bundled"
+  },
+  "checks": {
+    "ready": true,
+    "fonts": true,
+    "pageErrors": [],
+    "requestErrors": [],
+    "determinism": {
+      "time": 4,
+      "sameBytes": true,
+      "sha256": "c5cfabbb41b0858468477e5018a0d00bd7f4330f9461bee393e13f17d1f8a590",
+      "scope": "one same-browser backward/repeated seek; cross-platform equality not asserted"
+    },
+    "decode": {
+      "succeeded": true,
+      "decodedFrames": 240,
+      "videoAndAudio": true,
+      "encodedAudio": {
+        "sampleRate": 48000,
+        "channels": 2,
+        "bits": 16,
+        "decodedBytes": 1536000,
+        "decodedSampleFrames": 384000,
+        "duration": 8,
+        "expectedDuration": 8,
+        "maximumAacPaddingSamples": 1024,
+        "cues": [
+          {
+            "id": "arrival",
+            "startSample": 24000,
+            "endSample": 32640,
+            "peak": 0.347869873046875,
+            "sampleValues": 17280,
+            "rms": 0.058928373004478986
+          },
+          {
+            "id": "contact",
+            "startSample": 96000,
+            "endSample": 108000,
+            "peak": 0.8909912109375,
+            "sampleValues": 24000,
+            "rms": 0.20306458857178433
+          },
+          {
+            "id": "split",
+            "startSample": 168000,
+            "endSample": 182400,
+            "peak": 0.559173583984375,
+            "sampleValues": 28800,
+            "rms": 0.10384345885160765
+          },
+          {
+            "id": "align",
+            "startSample": 240000,
+            "endSample": 255360,
+            "peak": 0.4736328125,
+            "sampleValues": 30720,
+            "rms": 0.0866801839805066
+          },
+          {
+            "id": "resolve",
+            "startSample": 288000,
+            "endSample": 319200,
+            "peak": 0.49853515625,
+            "sampleValues": 62400,
+            "rms": 0.10621738306701162
+          }
+        ]
+      }
+    }
+  },
+  "audio": {
+    "sampleRate": 48000,
+    "channels": 2,
+    "bits": 16,
+    "sampleFrames": 384000,
+    "duration": 8,
+    "peak": 0.8912353515625,
+    "peakDbFS": -1.0001519038193567,
+    "rms": 0.05466835620919882,
+    "rmsDbFS": -25.245279689173433,
+    "sourcePeak": 0.1314101861551706,
+    "normalizationGain": 6.782205886850709,
+    "clippedSamples": 0,
+    "cues": [
+      {
+        "id": "arrival",
+        "requestedAt": 0.5,
+        "startSample": 24000,
+        "startTime": 0.5,
+        "offsetSeconds": 0,
+        "mathematicalFirstNonzeroSample": 24001,
+        "durationSamples": 8640,
+        "firstNonzeroSample": 24003,
+        "firstNonzeroTime": 0.5000625,
+        "measurement": "First nonzero 16-bit sample of this cue in isolation, after shared normalization; overlap can mask it in the mix."
+      },
+      {
+        "id": "contact",
+        "requestedAt": 2,
+        "startSample": 96000,
+        "startTime": 2,
+        "offsetSeconds": 0,
+        "mathematicalFirstNonzeroSample": 96001,
+        "durationSamples": 12000,
+        "firstNonzeroSample": 96003,
+        "firstNonzeroTime": 2.0000625,
+        "measurement": "First nonzero 16-bit sample of this cue in isolation, after shared normalization; overlap can mask it in the mix."
+      },
+      {
+        "id": "split",
+        "requestedAt": 3.5,
+        "startSample": 168000,
+        "startTime": 3.5,
+        "offsetSeconds": 0,
+        "mathematicalFirstNonzeroSample": 168001,
+        "durationSamples": 14400,
+        "firstNonzeroSample": 168002,
+        "firstNonzeroTime": 3.5000416666666667,
+        "measurement": "First nonzero 16-bit sample of this cue in isolation, after shared normalization; overlap can mask it in the mix."
+      },
+      {
+        "id": "align",
+        "requestedAt": 5,
+        "startSample": 240000,
+        "startTime": 5,
+        "offsetSeconds": 0,
+        "mathematicalFirstNonzeroSample": 240001,
+        "durationSamples": 15360,
+        "firstNonzeroSample": 240002,
+        "firstNonzeroTime": 5.000041666666666,
+        "measurement": "First nonzero 16-bit sample of this cue in isolation, after shared normalization; overlap can mask it in the mix."
+      },
+      {
+        "id": "resolve",
+        "requestedAt": 6,
+        "startSample": 288000,
+        "startTime": 6,
+        "offsetSeconds": 0,
+        "mathematicalFirstNonzeroSample": 288001,
+        "durationSamples": 31200,
+        "firstNonzeroSample": 288002,
+        "firstNonzeroTime": 6.000041666666666,
+        "measurement": "First nonzero 16-bit sample of this cue in isolation, after shared normalization; overlap can mask it in the mix."
+      }
+    ],
+    "loudness": "Peak and RMS only; LUFS has not been measured."
+  },
+  "deliveredFile": {
+    "bytes": 710578,
+    "sha256": "fbb8c6d721b9924a786b53659a14cc3165e4366f25956fedb430a757b996be1c"
+  }
+}
