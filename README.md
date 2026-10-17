@@ -1,22 +1,44 @@
 # Codex Motion Design
 
-Un atelier de motion design **code-first pour Codex et ChatGPT** : diriger un
-film, calculer chaque image au temps demandé, critiquer des frames et exporter
-un MP4 avec son synchronisé. Tout se rend localement avec Node, Playwright et
-FFmpeg. Aucun SDK de modèle, clé API, plugin ou dépendance Claude n'est requis.
+> **Expérimentation suspendue — objectif visuel non atteint.** Ce projet est
+> mis de côté après deux essais locaux avec GPT-6 Astra, en efforts `high` puis
+> `ultra`. Le résultat artistique a été jugé insuffisant par l’utilisateur,
+> y compris sur une action courte dont la mécanique avait été vérifiée.
+> Le dépôt conserve les outils et les preuves de cette expérimentation ; il
+> ne démontre pas une capacité de production ou une qualité studio.
+>
+> **[Lire le rapport de clôture](docs/EXPERIMENT_REPORT.md)** ·
+> [Limites constatées](docs/LIMITATIONS.md) ·
+> [Périmètre des capacités](docs/CAPABILITY_MAP.md)
 
-> **État actuel : résultat artistique insuffisant.** Le test exploratoire
-> [L’atelier de l’aube — voir le film](docs/assets/morning-press/film.mp4), réalisé
-> rapidement avec GPT-6 Astra en effort `high`, a été jugé très insuffisant par
-> l’utilisateur, notamment pour la logique mécanique sous le levier. Les contrôles
-> techniques passent ; ils ne valident ni cette logique ni la qualité du film.
-> Le rendu est publié avec ses défauts, sans promesse de qualité studio ou de
-> résultat prêt pour la production. Lire les [limites](docs/LIMITATIONS.md) et
-> le [compte rendu du test](docs/cases/morning-press.md).
+L’objectif était d’adapter à Codex/GPT des principes de workflows de motion
+design associés à Claude, par un **reverse engineering simple et borné** des
+outils et comportements observables. L’expérimentation a produit une chaîne
+locale : storyboard, temps absolu, critique de frames et export MP4 avec son.
+Elle n’a pas atteint l’exigence artistique fixée pour les films.
 
-**La création est réservée à GPT-6 Astra** : direction, storyboard, code, assets,
-prompts et corrections. Le [workflow Astra](docs/ASTRA_WORKFLOW.md) décrit cette
-règle d'auteur ; le rendu des fichiers existants reste entièrement local.
+Le film public [L’atelier de l’aube](docs/assets/morning-press/film.mp4),
+14 secondes réalisées avec Astra en effort `high`, conserve ses défauts
+graphiques et de logique mécanique sous le levier. Un second essai local de
+6 secondes, en effort `ultra`, a permis de vérifier la mécanique, mais son
+graphisme a été jugé extrêmement pauvre. Ce second essai reste privé. Les
+autres niveaux d’effort, dont `max`, n’ont pas été exécutés localement.
+
+L’utilisateur rapporte des rendus nettement meilleurs avec Claude Opus 5.5
+dans ses essais personnels ailleurs. Ce retour externe complète sa décision
+de mettre ce projet de côté ; aucune comparaison contrôlée entre modèles
+n’a été réalisée ici. Le blocage constaté avec Astra est une conclusion
+opérationnelle pour cette expérimentation, sans portée universelle.
+
+**Aucune nouvelle création ni reprise automatique n’est prévue.** Une reprise
+nécessite une demande explicite de l’utilisateur. La règle d’auteur
+**GPT-6 Astra exclusivement** demeure dans [AGENTS.md](AGENTS.md) et le
+[workflow Astra](docs/ASTRA_WORKFLOW.md). Les instructions ci-dessous servent
+à comprendre et reproduire les fichiers conservés. Leur rendu fonctionne
+localement avec Node, Playwright et FFmpeg, sans SDK de modèle, clé API,
+plugin ou dépendance Claude.
+
+## Démonstrations techniques conservées
 
 ![La graine et le pli : un film JSON original du cœur motion/1](docs/assets/core/preview.webp)
 
@@ -25,14 +47,14 @@ règle d'auteur ; le rendu des fichiers existants reste entièrement local.
 
 Le projet est indépendant et n'est pas un produit officiel OpenAI.
 L'implémentation est originale. La [carte des capacités](docs/CAPABILITY_MAP.md)
-distingue les fonctions exécutables des extensions à construire.
+distingue les fonctions exécutables des limites du périmètre livré.
 
-Le [cœur `motion/1`](docs/CORE.md) compile maintenant un **descriptor JSON** en
+Le [cœur `motion/1`](docs/CORE.md) compile un **descriptor JSON** en
 scènes, objets persistants, pistes et images indépendantes : keyframes, cubic
 bornée, springs avec retarget position/vitesse, trajectoires, caméra logarithmique,
 masques et transitions. Canvas 2D et SVG DOM rendent le même état calculé.
 [La graine et le pli](examples/core-demo/STORYBOARD.md), un film original de
-10 secondes et trois plans, démontre cette API. Les
+10 secondes et trois plans, sert de démonstration technique de cette API. Les
 [contrôles du cœur](docs/CORE_VALIDATION.md) complètent ceux de Signal.
 
 ```sh
@@ -45,12 +67,12 @@ npm run core:render -- --samples=4
 Après `npm run studio`, ouvrir
 [le film du cœur](http://127.0.0.1:4173/examples/core-demo/index.html) ou sa
 [version SVG](http://127.0.0.1:4173/examples/core-demo/index.html?adapter=svg).
-Un nouveau film peut utiliser le même lecteur avec `?project=/chemin/film.json`.
+Le lecteur accepte un descriptor avec `?project=/chemin/film.json`.
 Les commandes historiques ci-dessous conservent l'exemple Signal par défaut.
 Signal reste un [film de compatibilité avec son](docs/assets/signal.mp4), avec
 son [storyboard](STORYBOARD.md) et ses [contrôles historiques](docs/VALIDATION.md).
 
-## Démarrer en local
+## Reproduire les exemples en local
 
 Prérequis : **Node 22.12+**, npm, Chromium et FFmpeg avec l'encodeur `libx264`.
 Chromium s'installe via Playwright ; FFmpeg s'installe séparément et doit être
@@ -97,42 +119,25 @@ Les trois tests d'échec d'export, de readiness et d'audio complet sont activés
 et requièrent navigateur + FFmpeg. La CI les active, vérifie les seeks et rend un
 petit MP4. Les tests ordinaires du calcul ne demandent pas ces prérequis.
 
-## Avec Codex
+## Consignes et prompts conservés
 
-Ouvrir ce dossier dans Codex et donner un brief : sujet, public, idée principale,
-format, durée, contraintes de marque, son et payoff. Codex utilise les règles du
-[AGENTS.md](AGENTS.md) du dépôt ; cette convention est décrite dans la
-[documentation officielle](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
-[.codex/config.toml](.codex/config.toml) définit **GPT-6 Astra** par défaut dans
-Codex lorsque le projet est approuvé. Un choix explicite dans l'interface ou la
-CLI peut remplacer ce défaut : vérifier le modèle actif dans le sélecteur ou
-avec `/status` en CLI. Le fichier ne change pas la conversation en cours.
-Voir les [règles officielles de configuration](https://learn.chatgpt.com/docs/config-file/config-basic).
+[AGENTS.md](AGENTS.md) fixe le statut de mise en sommeil et les règles de
+reproduction. [.codex/config.toml](.codex/config.toml) conserve **GPT-6 Astra**
+comme modèle par défaut du projet. Ce fichier ne change pas le modèle d’une
+conversation en cours ; toute éventuelle reprise créative devra vérifier le
+modèle actif et respecter le [workflow Astra](docs/ASTRA_WORKFLOW.md).
 
-Si la CLI Codex est installée, démarrer depuis ce dossier avec
-`codex --model gpt-6-astra` ; cette [option officielle](https://learn.chatgpt.com/docs/cli/reference)
-sélectionne explicitement le modèle. Si Astra est indisponible ou non vérifiable,
-le signaler avant de générer, sans remplacement silencieux. Aucun paramètre
-global ni clé API de rendu n'est ajouté.
-
-Exemple de demande :
-
-> Avec GPT-6 Astra exclusivement, crée un film de 10 secondes pour expliquer comment un signal devient une
-> décision collective. Papier et indigo, sans texte, trois accents sonores.
-> Suis AGENTS.md : storyboard, timeline unique, seek(t), critique par frames,
-> brouillon puis master. Livre les preuves et les limites d'inspection.
-
-Les [prompts de production](prompts/01-produce.md) couvrent aussi
+Les [prompts de création](prompts/01-produce.md) sont conservés pour documenter
+la méthode essayée. Ils couvrent aussi
 [direction](prompts/02-art-direction.md), [critique](prompts/03-critique.md),
 [retiming/son](prompts/04-retime-and-sound.md),
 [debug](prompts/05-debug-render.md) et
 [reverse engineering avec REA](prompts/07-reverse-engineer.md).
 
-Avec ChatGPT, sélectionner GPT-6 Astra dans l'interface, fournir le brief et les fichiers
-utiles, puis les images de revue.
 La lecture automatique de fichiers locaux, l'exécution Node et l'accès à REA
 dépendent des outils de la session. Le [prompt de passage à Codex](prompts/06-chatgpt-handoff.md)
-permet de préparer un projet sans prétendre l'avoir exécuté.
+décrit la transmission des fichiers et des preuves d’exécution. Ces documents
+restent des références de l’expérimentation, sans autoriser de nouveaux essais.
 
 ## REA : analyser une référence existante
 
@@ -165,12 +170,9 @@ Le [cas Signal avec REA](docs/cases/REA_SIGNAL.md) documente le parcours concret
 HTML → observations → reconstruction `seek(t)` → comparaison de frames → rendu,
 avec ses commandes, preuves et limites.
 
-Dans Codex, utiliser le [prompt d'enquête](prompts/07-reverse-engineer.md) :
-
-> Avec GPT-6 Astra exclusivement, utilise REA pour enquêter sur [URL / dossier local]. Isole la transformation
-> [comportement]. Relie chaque constat à une preuve et distingue observations,
-> mesures et hypothèses. Produis une spécification de mouvement, puis une
-> réimplémentation originale conforme au contrat seek(t) de ce dépôt.
+Le [prompt d'enquête](prompts/07-reverse-engineer.md) conserve la méthode :
+isoler un comportement, relier chaque constat à une preuve, distinguer
+observations, mesures et hypothèses, puis décrire le mouvement en temps absolu.
 
 Pour une **vidéo**, extraire des frames horodatées et mesurer coupes, trajectoires
 et contacts avec FFmpeg/Playwright selon la source. REA aide sur la page ou le
@@ -196,7 +198,7 @@ flowchart LR
 | --- | --- |
 | Temps pur | `seek(t)` réécrit l'image entière, temps continu, hash et seed stables |
 | Springs | Réponses analytiques sous-amortie, critique et suramortie ; ζ explicite |
-| Goût | Banned list contextualisée, une lecture principale, anticipation et tenue |
+| Direction artistique | Consignes de composition et de tenue ; qualité finale non garantie |
 | Beat grid | Un seul JSON, beats depuis zéro, offset explicite et cues nommées |
 | Son | Les mêmes cues alimentent WAV stéréo 48 kHz et contact visuel |
 | Critique | Images clés, planche par beat, strips, crop, miniature et journal |
@@ -239,7 +241,7 @@ examples/core-demo/        film JSON original de 10 s, lecteur Canvas/SVG et rev
 scripts/                   serveur, doctor, capture, audio, vérification
 tests/                     contrats mathématiques, timing, erreurs et confinement
 prompts/                   sept briefs réutilisables
-docs/                      workflow Astra, capacités, limites, contrats, REA et preuves
+docs/                      rapport de clôture, limites, capacités, contrats, REA et preuves
 .github/workflows/         validation reproductible sur Linux
 package-lock.json          versions verrouillées
 ```

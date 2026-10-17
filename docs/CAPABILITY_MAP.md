@@ -1,5 +1,11 @@
 # Capacités du cœur consolidé
 
+**Développement mis en sommeil.** Cette carte décrit les fonctions déjà
+présentes dans une expérimentation de reverse engineering et d’adaptation de
+workflows Claude vers GPT. Elle n’est ni une validation artistique ni une
+feuille de route. Le [rapport de clôture](EXPERIMENT_REPORT.md) constate l’échec
+de l’objectif visuel après deux essais Astra rejetés par l’utilisateur.
+
 Le cœur exécutable est maintenant `core/` : un descriptor `motion/1` possède
 le temps, les scènes, les cues image/son/QA et les objets persistants. Il produit
 un frame pur commun aux adaptateurs Canvas 2D et SVG DOM. La démo originale
@@ -10,9 +16,10 @@ L'[API](CORE.md), le [storyboard](../examples/core-demo/STORYBOARD.md) et les
 Ces capacités techniques ne garantissent pas un résultat artistique satisfaisant.
 Le test [L’atelier de l’aube](cases/morning-press.md), réalisé avec GPT-6 Astra en
 effort `high`, a passé ses contrôles techniques puis a été jugé très insuffisant
-par l’utilisateur, notamment sur la causalité mécanique. Les
-[limites constatées](LIMITATIONS.md) distinguent ce résultat local des capacités
-non évaluées des modèles.
+par l’utilisateur, notamment sur la causalité mécanique. Un second essai local
+en effort `ultra`, plus court et mécaniquement contraint, a également été rejeté
+pour sa pauvreté graphique ; son contenu reste hors publication. Les
+[limites constatées](LIMITATIONS.md) précisent la portée de ces résultats.
 
 Ce dépôt rassemble une implémentation originale, des règles de production et
 un parcours d'enquête REA. Les tableaux ci-dessous décrivent les fonctions
@@ -48,7 +55,9 @@ appartiennent à [VALIDATION.md](VALIDATION.md), au guide REA et au cas document
 `npm run verify` cible Signal ; `npm run core:verify` cible La graine et le pli.
 Un nouveau projet doit disposer de probes correspondant à sa page et à son descriptor.
 
-## Extensions à construire selon le brief
+## Fonctions absentes ou incomplètes
+
+Cet inventaire décrit les limites du dépôt ; aucun développement n’est engagé.
 
 | Besoin | Travail restant |
 | --- | --- |
@@ -59,7 +68,8 @@ Un nouveau projet doit disposer de probes correspondant à sa page et à son des
 | Critique perceptuelle certifiée | Aucun score ou test ne remplace une inspection réelle ; définir les critères du film et vérifier les captures |
 | Rendu génératif distant | Hors du runtime local et de la politique Astra exclusive actuelle |
 
-L'objectif du cœur est un parcours vérifiable : question de référence → preuve
-→ storyboard → cues uniques → `seek(t)` → inspection et correction → export.
-Chaque nouvelle capacité doit démontrer ce parcours sur un cas concret avant
-d'être présentée comme disponible.
+Le cœur matérialise un parcours technique vérifiable : question de référence
+→ preuve → storyboard → cues uniques → `seek(t)` → inspection et correction
+→ export. Les essais ont montré que ce parcours ne suffit pas à obtenir le
+résultat visuel attendu. Toute reprise relève d’une demande explicite de
+l’utilisateur et d’une validation humaine.

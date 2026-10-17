@@ -1,6 +1,14 @@
 # Création avec GPT-6 Astra
 
-Le projet réserve ses futures générations à **GPT-6 Astra** : concepts,
+**Le développement est mis en sommeil.** Ce document conserve la politique
+d’auteur et le protocole employés pendant l’expérimentation. Il ne demande
+aucune nouvelle création. Les essais `high` et `ultra` ont échoué à satisfaire
+l’exigence visuelle de l’utilisateur ; `max` n’a pas été testé. Voir le
+[rapport de clôture](EXPERIMENT_REPORT.md) et les [limites](LIMITATIONS.md).
+Une reprise nécessite une demande explicite et une validation humaine du
+résultat artistique.
+
+En cas de reprise autorisée, le projet réserve ses générations à **GPT-6 Astra** : concepts,
 storyboards, code, assets, prompts, analyses créatives et corrections. Cette
 politique vient du choix de l'utilisateur. Elle s'applique à Codex, à ChatGPT et
 aux agents délégués autorisés ; un changement de modèle exige une nouvelle
@@ -41,7 +49,11 @@ un autre modèle, même lorsqu'Astra le pilote : son emploi ne satisfait pas
 l'exclusivité demandée. Les assets existants fournis par l'utilisateur restent
 utilisables selon ses consignes et leurs droits.
 
-## Du brief au master
+## Protocole conservé : du brief au master
+
+Ce protocole a produit des sorties techniquement vérifiées, mais sa critique
+n’a pas assuré le niveau artistique attendu. Son archivage n’est pas une
+affirmation d’efficacité en production.
 
 Le brief précise le résultat attendu, les contraintes et les preuves de fin.
 Lire les documents utiles au changement : [MOTION_RULES.md](MOTION_RULES.md)

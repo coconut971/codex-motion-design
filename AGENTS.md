@@ -1,7 +1,24 @@
-# Codex / ChatGPT — motion design de production
+# Codex / ChatGPT — atelier expérimental de motion design
 
-Ce dépôt est un atelier de films calculés par code, destiné à Codex et ChatGPT.
-Le rendu local n'appelle aucun modèle. Le brief de l'utilisateur fait autorité.
+Ce dépôt conserve une expérimentation de films calculés par code, destinée à
+Codex et ChatGPT. Le rendu local n'appelle aucun modèle. Le brief de
+l'utilisateur fait autorité.
+
+## Statut : expérimentation mise de côté
+
+- L’objectif visuel n’a pas été atteint avec les essais Astra réalisés ici.
+  Le projet est en sommeil à la demande de l’utilisateur. Lis le
+  `docs/EXPERIMENT_REPORT.md` et les limites avant d’interpréter les exemples
+  ou les contrôles comme des preuves de qualité artistique.
+- Ne lance aucune nouvelle création, boucle de correction artistique,
+  campagne de comparaison ou reprise du développement sans demande explicite
+  de l’utilisateur. Les prompts et parcours ci-dessous documentent la méthode
+  conservée ; leur présence n’autorise aucun run créatif automatique.
+- Des corrections documentaires et la reproduction demandée des exemples
+  existants restent possibles. Ne transforme pas un travail de clôture en
+  nouvelle tentative d’amélioration du film.
+- La mise de côté est un statut de travail. Elle n’autorise ni archivage
+  technique du dépôt distant, ni suppression d’assets, ni publication Git.
 
 ## Auteur : GPT-6 Astra exclusivement
 
@@ -23,7 +40,7 @@ Le rendu local n'appelle aucun modèle. Le brief de l'utilisateur fait autorité
   la configuration globale. Voir `docs/ASTRA_WORKFLOW.md` pour son périmètre et
   `docs/CAPABILITY_MAP.md` pour les capacités réellement présentes.
 
-## Du brief à un résultat vérifiable
+## Méthode conservée pour une reprise explicitement demandée
 
 - Pour un nouveau film, lis le README et le projet, écris `STORYBOARD.md` avant
   les scènes : intention, états visibles, transitions, hiérarchie, tenue finale,

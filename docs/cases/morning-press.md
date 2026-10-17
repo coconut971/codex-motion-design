@@ -2,7 +2,7 @@
 
 17 octobre 2026. Test exploratoire réalisé rapidement avec **GPT-6 Astra,
 `reasoning_effort = high`** pour l’auteur, la critique et la QA, avec sélection
-explicite du modèle. Ni `max` ni `ultra` n’ont été essayés. Le rendu utilise le
+explicite du modèle. Ni `max` ni `ultra` n’ont été essayés pour ce film. Le rendu utilise le
 cœur local `motion/1`, sans asset généré par un autre modèle, service distant ou
 clé API.
 
@@ -89,12 +89,24 @@ plateau — n’est donc pas garantie par la construction du film. La répétabi
 des frames ne démontre pas la crédibilité de cette relation.
 
 Ce test a été exploratoire et rapide. Aucun essai Claude à conditions identiques
-ni essai Astra en effort `max` ou `ultra` ne permet ici de comparer les modèles
-ou les réglages. Des images animées ou des films de 4 à 6 secondes, centrés sur
-une seule action, sont une piste à tester, pas une capacité déjà démontrée.
+ni variante de ce film avec Astra en effort `max` ou `ultra` ne permet ici de
+comparer les modèles ou les réglages. À l’issue de cette première production,
+des films de 4 à 6 secondes centrés sur une seule action avaient été proposés
+comme piste à tester, pas comme capacité démontrée.
 Le [bilan des limites](../LIMITATIONS.md) précise les conclusions permises et les
 inconnus. Aucun nouveau rendu ni amélioration du film n’a été réalisé pour cette
 publication.
+
+### Addendum de clôture — 17 octobre 2026
+
+Un second essai local ultérieur a utilisé Astra `ultra` pour l’auteur, la
+critique et la QA, avec six secondes, un plan et une action mécaniquement
+contrainte. L’utilisateur l’a également rejeté pour sa pauvreté graphique.
+Ses sources et médias ne sont pas publiés ; ce constat reste anonyme.
+`max` demeure non testé. Le [rapport de clôture](../EXPERIMENT_REPORT.md)
+consigne les deux résultats, le retour de l’utilisateur sur les rendus Claude
+vus ailleurs et la décision de mettre le développement en sommeil. Le master,
+ses sources et sa revue de production ne sont pas modifiés par cet addendum.
 
 ## Paramètres et mesures
 
