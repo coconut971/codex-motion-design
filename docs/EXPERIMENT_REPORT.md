@@ -1,105 +1,95 @@
-# Bilan technique de l’expérimentation
+# Technical closeout report
 
-17 octobre 2026 — **projet mis en sommeil à la demande de l’utilisateur**.
+October 17, 2026 — **project made dormant at the user's request**.
 
-L’objectif visuel a échoué. L’adaptation de workflows de motion design associés
-à Claude vers GPT-6 Astra a produit une chaîne de rendu contrôlable, mais aucun
-des deux essais de création évalués par l’utilisateur n’a atteint son exigence.
-Le premier souffre notamment d’une causalité mécanique peu crédible ; le second,
-volontairement simplifié, reste graphiquement extrêmement pauvre à ses yeux.
-Le blocage créatif avec Astra dans notre configuration motive l’arrêt du
-développement. Les tests techniques réussis ne diminuent pas ce constat.
+The visual goal failed. Adapting motion design workflows associated with Claude
+to GPT-6 Astra produced a controllable rendering pipeline, but neither of the
+two creative trials evaluated by the user met their standard. The first notably
+suffers from unconvincing mechanical causality; the second, deliberately simplified,
+remains extremely poor graphically in their judgment. The creative block with
+Astra in our configuration led to the decision to stop development. Passing
+technical tests does not diminish that finding.
 
-## Périmètre et hypothèse
+## Scope and hypothesis
 
-Ce rapport est limité au dépôt `codex-motion-design`.
+This report is limited to the `codex-motion-design` repository.
 
-Le dépôt est une **expérimentation de reverse engineering et d’adaptation de
-workflows**, pas un outil de production validé. L’hypothèse était qu’une enquête
-sur les méthodes disponibles, transcrite en règles de direction, storyboard,
-temps absolu, critique par images et rendu local, permettrait à GPT de produire
-des films convaincants.
+The repository is an **experiment in reverse engineering and workflow adaptation**,
+not a validated production tool. The hypothesis was that investigating available
+methods and translating them into direction rules, storyboards, absolute time,
+frame-based critique and local rendering would enable GPT to produce convincing films.
 
-L’investigation initiale a été sérieuse mais bornée et rapide. Elle ne constitue
-ni une étude exhaustive des workflows Claude ni un inventaire de leurs modèles
-et versions. Certaines sources sociales primaires étaient inaccessibles ; le
-[registre des sources](SOCIAL_SOURCES.md) conserve cette limite. Le cas
-[REA Signal](cases/REA_SIGNAL.md) a réellement testé inspection, reconstruction
-et comparaison sur une page du dépôt dont les sources étaient accessibles.
-Il ne démontre pas la reproduction de films Claude externes.
+The initial investigation was serious but bounded and quick. It was neither an
+exhaustive study of Claude workflows nor an inventory of their models and versions.
+Some primary social sources were inaccessible; the [source register](SOCIAL_SOURCES.md)
+retains that limitation. The [REA Signal](cases/REA_SIGNAL.md) case actually tested
+inspection, reconstruction and comparison on a repository page with accessible
+sources. It does not demonstrate reproduction of external Claude films.
 
-## Essais et résultats
+## Trials and results
 
-Les créations ont utilisé Astra pour l’auteur, la critique et la QA. Le rendu
-s’exécute localement avec Node, Chromium/Playwright et FFmpeg ; le moteur
-`motion/1` ne fait aucun appel de modèle.
+The creations used Astra for authorship, critique and QA. Rendering runs locally
+with Node, Chromium/Playwright and FFmpeg; the `motion/1` engine makes no model calls.
 
-| Configuration | Périmètre observé | Résultat et portée |
+| Configuration | Observed scope | Result and limits |
 | --- | --- | --- |
-| Astra `high` | [L’atelier de l’aube](cases/morning-press.md), 14 s, quatre plans, 81 objets | Rendu jugé très insuffisant ; défaut de relation entre levier, tige et plateau. |
-| Astra `ultra` | Second essai local hors dépôt, 6 s, un plan, une action simple | Construction mécanique contrainte ; résultat graphique toujours rejeté comme extrêmement pauvre. Sources et médias non publiés. |
-| Astra `max` | Aucun essai local | Aucun résultat à lui attribuer. |
-| Autres efforts Astra | Non évalués dans cette série | Aucun effet établi. |
-| Claude Opus 5.5, selon l’utilisateur | Rendus vus ailleurs, jugés extrêmement meilleurs | Témoignage expérientiel externe ; aucun comparatif exécuté ici. |
+| Astra `high` | [The Dawn Workshop](cases/morning-press.md), 14 s, four shots, 81 objects | Rendering judged highly inadequate; flawed relationship between lever, shaft and platen. |
+| Astra `ultra` | Second local trial outside the repository, 6 s, one shot, one simple action | Mechanically constrained construction; graphical result still rejected as extremely poor. Sources and media unpublished. |
+| Astra `max` | No local trial | No result can be attributed to it. |
+| Other Astra efforts | Not evaluated in this series | No effect established. |
+| Claude Opus 5.5, according to the user | Renders seen elsewhere, judged vastly better | External personal testimony; no comparison run here. |
 
-Le premier essai dispose de 27 tests réussis et de sondes sur 71 temps × cinq
-parcours × deux adaptateurs, à 480 × 270, avec six paires de sous-images actives.
-Canvas compare les octets RGBA ; SVG compare le DOM et l’état partagé.
-Le master comporte 420 images décodées. Les compositions, contacts, strips et
-atlas ont été inspectés ; aucun visionnage intégral à vitesse réelle ni écoute
-humaine n’est revendiqué par la revue de production.
+The first trial has 27 passing tests and probes covering 71 times × five traversal
+orders × two adapters at 480 × 270, with six active subframe pairs. Canvas compares
+RGBA bytes; SVG compares the DOM and shared state. The master has 420 decoded
+frames. Compositions, contacts, strips and atlases were inspected; the production
+review claims neither a complete real-time viewing nor human listening.
 
-Le second essai a contrôlé 25 temps × cinq parcours × deux adaptateurs en
-1920 × 1080 et deux paires de sous-images. Un angle analytique commun imposait
-la liaison rigide ; pivot et longueur de 550 px restaient constants, avec une
-énergie décroissante. Ces contrôles décrivent des invariants ciblés. Leur
-réussite n’a pas rendu le film acceptable pour l’utilisateur. Seul ce bilan
-anonyme est conservé ici ; le contenu de cet essai reste hors publication.
+The second trial checked 25 times × five traversal orders × two adapters at
+1920 × 1080 and two subframe pairs. One shared analytical angle enforced the rigid
+linkage; the pivot and 550 px length remained constant, with decreasing energy.
+These checks describe targeted invariants. Passing them did not make the film
+acceptable to the user. Only this anonymous summary is retained here; the trial's
+content remains unpublished.
 
-## Défaillances identifiées
+## Identified failures
 
-**Mécanique.** Dans le premier descriptor, `lever.rotation`, `shaft.y` et
-`platen.y` suivent des pistes indépendantes. Des cues communes synchronisent
-des instants sans imposer de transmission cinématique. Le storyboard décrit
-une cause que le calcul ne garantit pas. La répétabilité peut ainsi figer une
-action incohérente.
+**Mechanics.** In the first descriptor, `lever.rotation`, `shaft.y` and `platen.y`
+follow independent tracks. Shared cues synchronize moments without enforcing
+kinematic transmission. The storyboard describes a cause that the calculation
+does not guarantee. Repeatability can therefore preserve an incoherent action.
 
-**Direction artistique.** Réduire la durée, le nombre de plans et la complexité
-mécanique n’a pas suffi à produire une image satisfaisante. La composition, la
-richesse du dessin et l’intérêt de la mise en scène restent des échecs au
-regard du résultat demandé.
+**Art direction.** Reducing duration, shot count and mechanical complexity was
+not enough to produce a satisfactory image. Composition, richness of drawing and
+staging interest remain failures against the requested result.
 
-**Critique trop indulgente.** Les revues des agents ont accepté des résultats
-que l’utilisateur a ensuite nettement rejetés. Corriger quelques défauts locaux
-et inspecter des captures n’a pas établi un seuil artistique pertinent. Le
-jugement humain final fait autorité pour l’acceptation.
+**Overly lenient critique.** Agent reviews accepted results that the user later
+firmly rejected. Correcting a few local defects and inspecting captures did not
+establish an appropriate artistic threshold. Final human judgment determines acceptance.
 
-**Cadre de construction.** Le cœur fournit des primitives et des pistes
-numériques, sans catalogue visuel, rigs expressifs ni solveur mécanique général.
-Les chemins permettent des dessins arbitraires, mais leur richesse restait à
-construire. Cette limite participe au contexte de l’échec ; son poids causal
-n’a pas été isolé de celui du modèle, du brief ou de la méthode.
+**Construction framework.** The core supplies primitives and numeric tracks,
+without a visual catalog, expressive rigs or a general mechanical solver. Paths
+allow arbitrary drawings, but their richness still had to be built. This limitation
+forms part of the failure's context; its causal weight was not isolated from that
+of the model, brief or method.
 
-## Ce que les preuves établissent
+## What the evidence establishes
 
-Les tests vérifient des mathématiques, des contrats temporels, des images
-répétables et des exports décodables. REA aide à documenter des comportements
-observables et à distinguer faits et hypothèses. Ni les tests ni REA ne
-garantissent une bonne direction artistique, une mécanique crédible ou une
-critique exigeante.
+Tests verify mathematics, temporal contracts, repeatable images and decodable
+exports. REA helps document observable behavior and distinguish facts from
+hypotheses. Neither tests nor REA guarantee good art direction, credible mechanics
+or demanding critique.
 
-Les deux essais diffèrent par leur brief, leur durée et leur complexité : ils
-n’isolent pas l’effet de `high` contre `ultra`. Aucun protocole, capture ou budget
-comparable n’a été fourni pour les rendus Claude évoqués. Le retour de
-l’utilisateur est néanmoins clair : il constate ailleurs un écart majeur et
-attribue le blocage aux capacités d’Astra, quel que soit l’effort. C’est son
-diagnostic pratique ; la série locale ne teste pas tous les efforts et ne
-mesure pas une incapacité universelle du modèle.
+The two trials differ in brief, duration and complexity: they do not isolate the
+effect of `high` versus `ultra`. No comparable protocol, captures or budget were
+provided for the Claude renders mentioned. The user's feedback is nevertheless
+clear: they see a major gap elsewhere and attribute the block to Astra's
+capabilities, regardless of effort. This is their practical diagnosis; the local
+series does not test every effort level or measure a universal model inability.
 
-## Décision
+## Decision
 
-Le développement est mis de côté. Le dépôt conserve le code, les preuves et
-les résultats déjà publiés comme archive d’expérimentation, sans promesse de
-qualité de production. Aucune nouvelle création, correction ou feuille de route
-n’est engagée. Une reprise nécessitera une demande explicite de l’utilisateur
-et une validation humaine du résultat visuel.
+Development is set aside. The repository retains code, evidence and previously
+published results as an experimental archive, without a promise of production
+quality. No new creation, revision or roadmap is underway. Restarting requires
+an explicit user request and human validation of the visual result.
